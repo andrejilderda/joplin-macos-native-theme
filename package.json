@@ -1,0 +1,24 @@
+{
+  "name": "joplin-macos-native-theme",
+  "version": "0.0.1",
+  "description": "Native looking macOS theme for note taking app Joplin",
+  "keywords": [
+    "joplin",
+    "themes",
+    "css",
+    "macos"
+  ],
+  "author": "Andre Jilderda",
+  "license": "MIT",
+  "scripts": {
+    "start": "node-sass --include-path scss scss/main.scss   dist/main.css -watch",
+    "serve": "(http-server dist -c-1 -o main.css) && npm run start",
+    "build": "node-sass --include-path scss scss/main.scss   dist/main.css",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "http-server": "^0.12.3",
+    "node-sass": "^5.0.0"
+  }
+}
