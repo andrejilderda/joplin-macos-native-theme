@@ -1,0 +1,65 @@
+$systemBlue: rgba(10, 132, 255, 1);
+$systemBrown: rgba(172, 142, 104, 1);
+$systemGray: rgba(152, 152, 157, 1);
+$systemGreen: rgba(50, 215, 75, 1);
+$systemIndigo: rgba(94, 92, 230, 1);
+$systemOrange: rgba(255, 159, 10, 1);
+$systemPink: rgba(255, 55, 95, 1);
+$systemPurple: rgba(191, 90, 242, 1);
+$systemRed: rgba(255, 69, 58, 1);
+$systemTeal: rgba(90, 200, 245, 1);
+$systemYellow: rgba(255, 214, 10, 1);
+
+/* Dynamic system colors */
+
+/* Labels */
+$labelColor: rgba(255, 255, 255, 0.847);
+$secondaryLabelColor: rgba(255, 255, 255, 0.549);
+$tertiaryLabelColor: rgba(255, 255, 255, 0.247);
+$quaternaryLabelColor: rgba(255, 255, 255, 0.098);
+
+/* Text */
+$textColor: rgba(255, 255, 255, 1);
+$placeholderTextColor: rgba(255, 255, 255, 0.247);
+$selectedTextColor: rgba(255, 255, 255, 1);
+$textBackgroundColor: rgba(30, 30, 30, 1);
+$selectedTextBackgroundColor: rgba(63, 99, 139, 1);
+$keyboardFocusIndicatorColor: rgba(26, 169, 255, 0.298);
+$unemphasizedSelectedTextColor: rgba(255, 255, 255, 1);
+$unemphasizedSelectedTextBackgroundColor: rgba(70, 70, 70, 1);
+
+/* Content */
+$alternatingContentBackgroundColorsEven: rgba(30, 30, 30, 1);
+$alternatingContentBackgroundColorsOdd: rgba(255, 255, 255, 0.047);
+$linkColor: rgba(65, 156, 255, 1);
+$separatorColor: rgba(255, 255, 255, 0.098);
+$selectedContentBackgroundColor: rgba(0, 88, 208, 1);
+$unemphasizedSelectedContentBackgroundColor: rgba(70, 70, 70, 1);
+
+/* Menus */
+$selectedMenuItemTextColor: rgba(255, 255, 255, 1);
+
+/* Tables */
+$gridColor: rgba(26, 26, 26, 1);
+$headerTextColor: rgba(255, 255, 255, 1);
+
+/* Controls */
+$controlAccentColor: rgba(0, 122, 255, 1);
+$controlColor: rgba(255, 255, 255, 0.247);
+$controlBackgroundColor: rgba(30, 30, 30, 1);
+$controlTextColor: rgba(255, 255, 255, 0.847);
+$disabledControlTextColor: rgba(255, 255, 255, 0.247);
+$scrubberTexturedBackground: rgba(255, 255, 255, 1);
+$selectedControlColor: rgba(63, 99, 139, 1);
+$selectedControlTextColor: rgba(255, 255, 255, 0.847);
+$alternateSelectedControlTextColor: rgba(255, 255, 255, 1);
+
+/* Windows */
+$windowBackgroundColor: rgba(50, 50, 50, 1);
+$windowFrameTextColor: rgba(255, 255, 255, 0.847);
+$underPageBackgroundColor: rgba(40, 40, 40, 1);
+
+/* Highlights & Shadows */
+$findHighlightColor: rgba(255, 255, 0, 1);
+$highlightColor: rgba(180, 180, 180, 1);
+$shadowColor: rgba(0, 0, 0, 1);
