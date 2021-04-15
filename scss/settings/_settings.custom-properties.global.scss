@@ -1,0 +1,107 @@
+:root {
+  // spacing
+  --g-spacing-00: 0px;
+  --g-spacing-01: 0.2rem;
+  --g-spacing-02: 0.4rem;
+  --g-spacing-03: 0.8rem;
+  --g-spacing-04: 1.2rem;
+  --g-spacing-05: 1.6rem;
+  --g-spacing-06: 2.4rem;
+  --g-spacing-07: 3.2rem;
+  --g-spacing-08: 4.8rem;
+  --g-spacing-09: 6.4rem;
+  --g-spacing-10: 9.6rem;
+  --g-spacing-11: 12.8rem;
+  --g-spacing-12: 19.2rem;
+  --g-spacing-13: 25.6rem;
+  --g-spacing-14: 38.4rem;
+  --g-spacing-15: 51.2rem;
+  --g-spacing-16: 76.8rem;
+  --g-spacing-17: 102.4rem;
+  --g-spacing-18: 144rem;
+
+  // box-shadow
+  --g-box-shadow-0: 0 0 #0000;
+  --g-box-shadow-1: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --g-box-shadow-2: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --g-box-shadow-3: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --g-box-shadow-4: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --g-box-shadow-5: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --g-box-shadow-6: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --g-box-shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+
+  // border-radius
+  --g-border-radius-0: 0px;
+  --g-border-radius-1: 0.2rem;
+  --g-border-radius-2: 0.4rem;
+  --g-border-radius-3: 0.8rem;
+  --g-border-radius-4: 1.2rem;
+  --g-border-radius-5: 1.6rem;
+  --g-border-radius-6: 2.4rem;
+  --g-border-radius-7: 3.2rem;
+  --g-border-radius-8: 4.8rem;
+  --g-border-radius-9: 6.4rem;
+  --g-border-radius-full: 9999px;
+
+  // border-width
+  --g-border-width-0: 0px;
+  --g-border-width-1: 0.1rem;
+  --g-border-width-2: 0.2rem;
+  --g-border-width-3: 0.4rem;
+  --g-border-width-4: 0.8rem;
+  --g-border-width-5: 1.2rem;
+  --g-border-width-6: 1.6rem;
+
+  // font-family
+  --g-font-family-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji', sans-serif;
+  --g-font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+
+  // font-size
+  --g-font-size--1: 1.1rem;
+  --g-font-size-0: 1.2rem;
+  --g-font-size-1: 1.4rem;
+  --g-font-size-2: 1.6rem;
+  --g-font-size-3: 1.8rem;
+  --g-font-size-4: 2rem;
+  --g-font-size-5: 2.4rem;
+  --g-font-size-6: 3rem;
+  --g-font-size-7: 3.6rem;
+  --g-font-size-8: 4.8rem;
+  --g-font-size-9: 6rem;
+  --g-font-size-10: 7.2rem;
+  --g-font-size-11: 9.6rem;
+  --g-font-size-12: 12.8rem;
+
+  // font-weight
+  --g-font-weight-thin: 100;
+  --g-font-weight-extralight: 200;
+  --g-font-weight-light: 300;
+  --g-font-weight-normal: 400;
+  --g-font-weight-medium: 500;
+  --g-font-weight-semibold: 600;
+  --g-font-weight-bold: 700;
+  --g-font-weight-extrabold: 800;
+  --g-font-weight-black: 900;
+
+  // line-height
+  --g-line-height-0: 1.6rem;
+  --g-line-height-1: 2rem;
+  --g-line-height-2: 2.4rem;
+  --g-line-height-3: 2.8rem;
+  --g-line-height-4: 2.8rem;
+  --g-line-height-5: 3.2rem;
+  --g-line-height-6: 3.6rem;
+  --g-line-height-7: 4rem;
+  --g-line-height-8: 1;
+  --g-line-height-9: 1;
+  --g-line-height-10: 1;
+  --g-line-height-11: 1;
+  --g-line-height-12: 1;
+}

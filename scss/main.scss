@@ -1,14 +1,25 @@
 @import 'elements/_elements.page';
 
 @import 'settings/_settings.variables.system-colors';
-// @import 'settings/_settings.variables.system-colors-dark';
+@import 'settings/_settings.variables.system-colors-dark';
+@import 'settings/_settings.custom-properties.global';
 
 @import 'components/_components.notelist';
 @import 'components/_components.sidebar';
 
 :root {
   --accent-color: #{$systemBlue};
-  --sidebar-color: #{$underPageBackgroundColor};
   --note-list-item-odd: #{$alternatingContentBackgroundColorsOdd};
   --note-list-item-even: #{$alternatingContentBackgroundColorsEven};
+
+  --sidebar__backgroundColor: #{$windowBackgroundColor};
+  --sidebar__label-FontSize: var(--g-font-size--1);
+}
+
+// dark mode
+@media (prefers-color-scheme: dark) {
+  --accent-color: #{$systemBlue--dark};
+  --sidebar-color: #{$underPageBackgroundColor--dark};
+  --note-list-item-odd: #{$alternatingContentBackgroundColorsOdd--dark};
+  --note-list-item-even: #{$alternatingContentBackgroundColorsEven--dark};
 }
