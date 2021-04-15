@@ -1,0 +1,45 @@
+// Missing classnames in UI:
+// - active classname on sidebar (xOaMI)
+
+$activeItem: '.xOaMI';
+
+.sidebar {
+  background: var(--sidebar__BackgroundColor);
+
+  > div {
+    // notebook + tags label
+    > div:first-child *,
+    .folders + div * {
+      text-transform: none;
+      color: $tertiaryLabelColor;
+      font-size: var(--sidebar__label-FontSize);
+      font-weight: 700;
+    }
+
+    // all notes
+    .folders > div:first-child {
+      background: none;
+    }
+
+    a {
+      color: var(--labelColor);
+    }
+
+    .list-item-container {
+      &:hover {
+        background: transparent;
+      }
+
+      &#{$activeItem} {
+        background: transparent;
+      }
+    }
+  }
+
+  // hide all icons in sidebar
+  .icon-notebooks,
+  .icon-tags,
+  .icon-notes {
+    display: none;
+  }
+}
