@@ -1,19 +1,40 @@
-// Missing classnames in UI:
-// - active classname on sidebar (xOaMI)
+// Missing classnames/elements in UI (will make a PR for these changes):
+// - 'active'-classname on sidebar (xOaMI)
+// - classname for resize handle
+// - generic icon classname
+// - wrap text in .list-item in a <span> so that the title and note count can be
+//   positioned side-by-side, while still being able to 'ellipsise' long note titles
+
+// TODO: Set and use CSS-vars in stead of SCSS-vars
+// TODO: Add setting for toggling the note count
 
 $activeItem: '.xOaMI';
 
+.rli-sideBar {
+  // remove white space between sidebar and notelist
+  &:first-child {
+    width: auto !important;
+  }
+
+  // fix resize handle
+  > span > div {
+    z-index: 1;
+  }
+}
+
 .sidebar {
   background: var(--sidebar__BackgroundColor);
+  padding-top: 1rem;
 
   > div {
     // notebook + tags label
-    > div:first-child *,
-    .folders + div * {
+    > div:first-child span,
+    .folders + div span {
       text-transform: none;
       color: $tertiaryLabelColor;
       font-size: var(--sidebar__label-FontSize);
       font-weight: 700;
+      margin-left: 6px;
     }
 
     // all notes
@@ -26,13 +47,104 @@ $activeItem: '.xOaMI';
     }
 
     .list-item-container {
+      margin: 0 10px;
+      border-radius: 4px;
+      height: 2.8rem;
+
       &:hover {
         background: transparent;
       }
 
       &#{$activeItem} {
-        background: transparent;
+        background: $unemphasizedSelectedTextBackgroundColor;
       }
+
+      // dropdown caret
+      a:first-of-type {
+        opacity: 1;
+        margin-top: -3px;
+        padding-right: 0;
+      }
+    }
+
+    .list-item {
+      opacity: 1;
+      // truncate text with ellipsis
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: inline-block;
+      line-height: 2.8rem;
+    }
+
+    .folders .list-item::before,
+    .tags .list-item::before {
+      color: var(--accent-color);
+      margin-right: 0.7rem;
+      font-weight: 400;
+      font-size: 13px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .folders .list-item::before {
+      content: '􀈕'; // folder
+    }
+    .tags .list-item::before {
+      content: '􀋡'; // tag
+    }
+
+    .list-item-depth-0 {
+      padding-left: 0.2rem;
+    }
+    .list-item-depth-1 {
+      padding-left: 1.8rem;
+    }
+    .list-item-depth-2 {
+      padding-left: 3.4rem;
+    }
+    .list-item-depth-3 {
+      padding-left: 5rem;
+    }
+    .list-item-depth-4 {
+      padding-left: 6.6rem;
+    }
+    .list-item-depth-5 {
+      padding-left: 8.2rem;
+    }
+    .list-item-depth-6 {
+      padding-left: 9.8rem;
+    }
+    .list-item-depth-7 {
+      padding-left: 11.4rem;
+    }
+    .list-item-depth-8 {
+      padding-left: 13rem;
+    }
+    .list-item-depth-9 {
+      padding-left: 14.6rem;
+    }
+  }
+
+  .fas {
+    opacity: 1 !important;
+
+    &::before {
+      font-family: 'SF Pro';
+      font-size: 9px;
+      font-weight: 700;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    &.fa-caret-right::before {
+      color: $secondaryLabelColor;
+    }
+
+    &.fa-caret-down::before {
+      color: $secondaryLabelColor;
+    }
+    &.fa-plus::before {
+      color: $tertiaryLabelColor;
+      font-weight: 500;
+      font-size: 14px;
     }
   }
 

@@ -1,0 +1,15 @@
+.rli-noteList {
+  .list-item-container {
+    &:nth-child(odd) {
+      background: var(--note-list-item-odd);
+    }
+    &:nth-child(even) {
+      background: var(--note-list-item-even);
+    }
+
+    > a > span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
