@@ -1,5 +1,91 @@
+// Missing classnames/elements in UI (will make a PR for these changes):
+// - search container
+// - 'active'-classname on selected item (lgXNgK)
+
+// TODO: Set and use CSS-vars in stead of SCSS-vars
+// TODO: Text when no notes were found
+
+$selectedItem: '.lgXNgK';
+
 .rli-noteList {
+  > div:first-child {
+    border-right: 1px solid $gridColor;
+  }
+
+  // search
+  > div > div > div:first-child {
+    background-color: #fff;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  input[type='text'] {
+    border: 1px solid $separatorColor;
+    border-radius: 0.6rem;
+    font-size: 1.3rem;
+    height: 2.8rem;
+    padding: 0 2.5rem 0 3rem;
+
+    &::placeholder {
+      color: $tertiaryLabelColor;
+    }
+  }
+
+  // search button
+  input[type='text'] + button {
+    position: unset;
+    padding: 0;
+    right: auto;
+    top: 1px;
+
+    // always show magnifying glass
+    span::before {
+      position: absolute;
+      left: 0;
+      content: '􀊫'; // magnifyingglass
+      color: $secondaryLabelColor;
+      font-size: 1.6rem;
+      font-family: var(--g-font-family-system);
+      top: 0.5rem;
+      left: 0.8rem;
+      pointer-events: none;
+      // transform: translateY(-50%);
+    }
+  }
+
+  // hidden by default, except when something was inserted (a cross is shown to
+  // reset the input)
+  .icon-search {
+    content: none;
+  }
+
+  // cross when input value !== empty
+  .fa-times {
+    font-size: 13px;
+    font-weight: normal;
+
+    &::after {
+      content: '􀁡'; // xmark.circle.fill
+      color: $secondaryLabelColor;
+      position: absolute;
+      right: 0.7rem;
+      top: 0.7rem;
+      font-family: 'SF Pro' !important;
+    }
+  }
+
+  > div > div > div:last-child {
+    border-right: none;
+  }
+
+  .note-list {
+    padding: 10px;
+  }
+
   .list-item-container {
+    border-radius: 4px;
+    height: 3.2rem;
+
     &:nth-child(odd) {
       background: var(--note-list-item-odd);
     }
@@ -7,9 +93,29 @@
       background: var(--note-list-item-even);
     }
 
+    a {
+      padding: 0 10px !important;
+    }
+
+    &#{$selectedItem} {
+      background: $selectedContentBackgroundColor !important;
+
+      a {
+        color: $textBackgroundColor !important;
+      }
+    }
+
+    // remove divider
+    &::before {
+      content: none;
+    }
+
     > a > span {
       overflow: hidden;
       text-overflow: ellipsis;
     }
+  }
+  > div > div > div:last-child {
+    background-color: #fff;
   }
 }
