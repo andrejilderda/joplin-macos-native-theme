@@ -1,0 +1,148 @@
+// Missing classnames/elements in UI (will make a PR for these changes):
+// -
+
+.rli-editor {
+  .joplin-tinymce > div,
+  .tox-toolbar__group,
+  .tox-toolbar__primary {
+    background-color: transparent !important;
+  }
+
+  // first few wysiwyg icons (back, forward & open in external editor)
+  .joplin-tinymce > div > a {
+    span:before {
+      font-family: 'SF Pro';
+      -webkit-font-smoothing: antialiased;
+    }
+    // icon: back
+    &:nth-of-type(1) span:before {
+      content: '􀯶'; // chevron.backward
+    }
+    // icon: forward
+    &:nth-of-type(2) span:before {
+      content: '􀯻'; // chevron.forward
+    }
+    // icon: external editor
+    &:nth-of-type(3) span:before {
+      content: '􀮵'; // arrow.up.forward.app
+    }
+  }
+
+  // wysiwyg items
+  .tox-toolbar__group {
+    // dividers between wysiwyg groups
+    &:before {
+      content: '';
+      background-color: $separatorColor;
+      height: 100%;
+      width: 0.1rem;
+      margin: 0 0.25rem;
+    }
+
+    button {
+      margin: 0 0.25rem;
+
+      &:before {
+        font-family: 'SF Pro';
+        -webkit-font-smoothing: antialiased;
+        // font-size: 9px;
+        // font-weight: 700;
+      }
+      &:hover {
+        background: $quaternaryLabelColor;
+      }
+    }
+    svg {
+      display: none;
+      // opacity: 0.5;
+    }
+  }
+  // bold, italic
+  .tox-toolbar__group:nth-child(1) {
+    button:nth-child(1):before {
+      content: '􀅓'; // bold
+    }
+    button:nth-child(2):before {
+      content: '􀅔'; // italic
+    }
+  }
+
+  // link, inline code, code block, attachment
+  .tox-toolbar__group:nth-child(2) {
+    button:nth-child(1):before {
+      content: '􀉣'; // link
+    }
+    button:nth-child(2):before {
+      content: '􀙚'; // chevron.left.slash.chevron.right
+    }
+    button:nth-child(3):before {
+      content: '􀙚'; // chevron.left.slash.chevron.right
+    }
+    button:nth-child(4):before {
+      content: '􀉢'; // paperclip
+    }
+  }
+
+  // lists
+  .tox-toolbar__group:nth-child(3) {
+    button:nth-child(1):before {
+      content: '􀋲'; // list.bullet
+    }
+    button:nth-child(2):before {
+      content: '􀋴'; // list.number
+    }
+    button:nth-child(3):before {
+      content: '􀋺'; // text.badge.checkmark
+    }
+  }
+
+  // headings, divider, quote, table, date/time
+  .tox-toolbar__group:nth-child(4) {
+    button:nth-child(1):before,
+    button:nth-child(2):before,
+    button:nth-child(3):before {
+      font-family: var(--g-font-family-system);
+    }
+
+    .tox-tbtn__select-label {
+      display: none;
+    }
+
+    button:nth-child(1):before {
+      content: 'H1'; // h1
+    }
+    button:nth-child(2):before {
+      content: 'H2'; // h2
+    }
+    button:nth-child(3):before {
+      content: 'H3'; // h3
+    }
+    button:nth-child(4):before {
+      content: '􀅽'; // minus
+    }
+    button:nth-child(5):before {
+      content: '􀋿'; // text.quote
+    }
+    button:nth-child(6):before {
+      content: '􀏥'; // tablecells.badge.ellipsis
+    }
+    button:nth-child(7):before {
+      content: '􀐫'; // clock
+    }
+  }
+
+  // add divider between editor icons and text input field
+  .tox-editor-header:after {
+    content: '';
+    background-color: $separatorColor;
+    height: 0.1rem;
+    position: absolute;
+    left: -1.4rem;
+    right: -1.4rem;
+  }
+
+  // remove 'overflow: hidden' so that the divider is not cut-off
+  .tox-tinymce {
+    overflow: unset;
+  }
+}
