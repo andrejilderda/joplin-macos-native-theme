@@ -9,6 +9,7 @@
 // TODO: Set and use CSS-vars in stead of SCSS-vars
 // TODO: Add setting for toggling the note count
 // TODO: Style sync + states
+// TODO: Sub-item styling (indent + background-color)
 
 $activeItem: '.xOaMI';
 
@@ -32,7 +33,7 @@ $activeItem: '.xOaMI';
     > div {
       // plus icon
       button {
-        // display: none;
+        display: none;
         margin-right: 1.5rem;
       }
 
