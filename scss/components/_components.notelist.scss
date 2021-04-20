@@ -4,6 +4,7 @@
 
 // TODO: Set and use CSS-vars in stead of SCSS-vars
 // TODO: Text when no notes were found
+// TODO: Search bar focus transition + style
 
 $selectedItem: '.lgXNgK';
 
@@ -49,7 +50,6 @@ $selectedItem: '.lgXNgK';
       top: 0.5rem;
       left: 0.8rem;
       pointer-events: none;
-      // transform: translateY(-50%);
     }
   }
 
@@ -74,12 +74,52 @@ $selectedItem: '.lgXNgK';
     }
   }
 
-  > div > div > div:last-child {
-    border-right: none;
+  // 'add'-buttons next to search
+  > div > div > div:first-child > div:last-child {
+    position: relative;
+
+    button {
+      background: none;
+      border-radius: 0.6rem;
+      color: #fff;
+      margin-left: 0.6rem;
+      max-height: none;
+      max-width: none;
+      height: 2.6rem;
+      width: 2.6rem;
+
+      + button {
+        margin-left: 0.1rem;
+      }
+
+      span:before {
+        color: $secondaryLabelColor;
+        display: block;
+        font-family: 'SF Pro';
+        font-size: 16px;
+        font-weight: 500;
+        -webkit-font-smoothing: antialiased;
+        transform: translateY(0.05rem);
+      }
+
+      // new todo
+      &:first-child span:before {
+        content: '􀁢';
+      }
+      // new note
+      &:last-child span:before {
+        content: '􀈎';
+      }
+
+      &:hover {
+        background: $quaternaryLabelColor;
+      }
+    }
   }
 
+  // note list + items
   .note-list {
-    padding: 10px;
+    padding: 0 1rem 1rem;
   }
 
   .list-item-container {
@@ -115,7 +155,13 @@ $selectedItem: '.lgXNgK';
       text-overflow: ellipsis;
     }
   }
+
   > div > div > div:last-child {
     background-color: #fff;
+  }
+
+  // fix: remove obsolete border
+  > div > div > div:last-child {
+    border-right: none;
   }
 }
