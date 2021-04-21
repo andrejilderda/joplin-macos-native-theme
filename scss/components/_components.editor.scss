@@ -1,7 +1,13 @@
 // Missing classnames/elements in UI (will make a PR for these changes):
-// -
+// - Input for title
 
 .rli-editor {
+  > div > div > div input {
+    padding-top: 1.4rem;
+    font-weight: 700;
+    font-size: 2rem;
+  }
+
   .joplin-tinymce > div,
   .tox-toolbar__group,
   .tox-toolbar__primary {
@@ -76,7 +82,7 @@
       content: '􀙚'; // chevron.left.slash.chevron.right
     }
     button:nth-child(3):before {
-      content: '􀙚'; // chevron.left.slash.chevron.right
+      content: '􀡅'; // curlybraces
     }
     button:nth-child(4):before {
       content: '􀉢'; // paperclip

@@ -1,0 +1,61 @@
+#rendered-md {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  padding: 2.8rem;
+  max-width: 75ch;
+  color: #454545;
+  -webkit-font-smoothing: antialiased;
+
+  a {
+    color: var(--accent-color);
+  }
+
+  > * {
+    margin: 0 0 1.4rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin-bottom: 0 !important;
+    padding: 0;
+  }
+
+  h1 {
+    font-size: 3.6rem;
+    border-bottom: none;
+  }
+
+  img {
+    margin-top: 1.4rem;
+  }
+
+  ul {
+    margin-left: 1.8rem;
+    li {
+      margin-bottom: 0.35rem;
+    }
+  }
+
+  table {
+    th {
+      background: $alternatingContentBackgroundColorsOdd;
+      border-bottom-width: 0.1rem;
+    }
+
+    tr:nth-child(even) {
+      background: $alternatingContentBackgroundColorsOdd;
+    }
+    tr:nth-child(odd) {
+      background: $alternatingContentBackgroundColorsEven;
+    }
+
+    th,
+    td {
+      font-family: var(--g-global-font-family-system);
+      border-color: $gridColor;
+    }
+  }
+}
