@@ -4,9 +4,19 @@
 
 // TODO: Set and use CSS-vars in stead of SCSS-vars
 // TODO: Text when no notes were found
-// TODO: Search bar focus transition + style
+// TODO: Text when no notes were found
 
-$selectedItem: '.lgXNgK';
+$selectedItem: '.ga-DjpS';
+
+@mixin focusRing {
+  box-shadow: 0 0 0 16px rgba($controlAccentColor, 0);
+
+  &:focus {
+    transition: 0.25s box-shadow cubic-bezier(0.61, 1, 0.88, 1);
+    transition-delay: 0.125s;
+    box-shadow: 0 0 0 0.35rem rgba($controlAccentColor, 0.5);
+  }
+}
 
 .rli-noteList {
   > div:first-child {
@@ -21,11 +31,15 @@ $selectedItem: '.lgXNgK';
   }
 
   input[type='text'] {
+    @include focusRing;
+
     border: 1px solid $separatorColor;
     border-radius: 0.6rem;
     font-size: 1.3rem;
     height: 2.8rem;
-    padding: 0 2.5rem 0 3rem;
+    padding: 0 2.5rem 0 3rem !important;
+    width: 100%;
+    flex: 1 0 100%;
 
     &::placeholder {
       color: $tertiaryLabelColor;
@@ -34,6 +48,7 @@ $selectedItem: '.lgXNgK';
 
   // search button
   input[type='text'] + button {
+    flex: 0;
     position: unset;
     padding: 0;
     right: auto;
@@ -43,20 +58,15 @@ $selectedItem: '.lgXNgK';
     span::before {
       position: absolute;
       left: 0;
-      content: '􀊫'; // magnifyingglass
+      content: '􀊫' !important; // magnifyingglass
       color: $secondaryLabelColor;
       font-size: 1.6rem;
       font-family: var(--g-font-family-system);
+      font-weight: normal !important;
       top: 0.5rem;
       left: 0.8rem;
       pointer-events: none;
     }
-  }
-
-  // hidden by default, except when something was inserted (a cross is shown to
-  // reset the input)
-  .icon-search {
-    content: none;
   }
 
   // cross when input value !== empty
@@ -65,9 +75,10 @@ $selectedItem: '.lgXNgK';
     font-weight: normal;
 
     &::after {
+      display: block;
       content: '􀁡'; // xmark.circle.fill
-      color: $secondaryLabelColor;
       position: absolute;
+      color: $secondaryLabelColor;
       right: 0.7rem;
       top: 0.7rem;
       font-family: 'SF Pro' !important;
@@ -75,8 +86,12 @@ $selectedItem: '.lgXNgK';
   }
 
   // 'add'-buttons next to search
-  > div > div > div:first-child > div:last-child {
+  > div > div > div:first-child > div:nth-child(2) {
     position: relative;
+    overflow: hidden;
+    width: auto;
+    max-height: 2.8rem;
+    flex: 1 0 auto;
 
     button {
       background: none;
@@ -111,6 +126,7 @@ $selectedItem: '.lgXNgK';
         content: '􀈎';
       }
 
+      &:focus,
       &:hover {
         background: $quaternaryLabelColor;
       }
