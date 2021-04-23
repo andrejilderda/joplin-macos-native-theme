@@ -4,11 +4,10 @@
 // - generic icon classname
 // - wrap text in .list-item in a <span> so that the title and note count can be
 //   positioned side-by-side, while still being able to 'ellipsise' long note titles
-// - classname for sync state
+// - classnames for sync states
 
 // TODO: Set and use CSS-vars in stead of SCSS-vars
 // TODO: Add setting for toggling the note count
-// TODO: Style sync + states
 // TODO: Sub-item styling (indent + background-color)
 
 $activeItem: '.xOaMI';
@@ -175,10 +174,74 @@ $activeItem: '.xOaMI';
 
   // sync
   > div:last-child {
-    background-repeat: no-repeat;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' style='margin:auto;' width='30' height='30' viewBox='23 23 54 54' preserveAspectRatio='xMidYMid' display='block'%3E%3Crect x='46.5' y='23' rx='3.5' ry='3.84' width='7' height='16'%3E%3Canimate attributeName='opacity' values='1;0' keyTimes='0;1' dur='0.78125s' begin='-0.68359375s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect x='46.5' y='23' rx='3.5' ry='3.84' width='7' height='16' transform='rotate(45 50 50)'%3E%3Canimate attributeName='opacity' values='1;0' keyTimes='0;1' dur='0.78125s' begin='-0.5859375s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect x='46.5' y='23' rx='3.5' ry='3.84' width='7' height='16' transform='rotate(90 50 50)'%3E%3Canimate attributeName='opacity' values='1;0' keyTimes='0;1' dur='0.78125s' begin='-0.48828125s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect x='46.5' y='23' rx='3.5' ry='3.84' width='7' height='16' transform='rotate(135 50 50)'%3E%3Canimate attributeName='opacity' values='1;0' keyTimes='0;1' dur='0.78125s' begin='-0.390625s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect x='46.5' y='23' rx='3.5' ry='3.84' width='7' height='16' transform='rotate(180 50 50)'%3E%3Canimate attributeName='opacity' values='1;0' keyTimes='0;1' dur='0.78125s' begin='-0.29296875s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect x='46.5' y='23' rx='3.5' ry='3.84' width='7' height='16' transform='rotate(225 50 50)'%3E%3Canimate attributeName='opacity' values='1;0' keyTimes='0;1' dur='0.78125s' begin='-0.1953125s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect x='46.5' y='23' rx='3.5' ry='3.84' width='7' height='16' transform='rotate(270 50 50)'%3E%3Canimate attributeName='opacity' values='1;0' keyTimes='0;1' dur='0.78125s' begin='-0.09765625s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect x='46.5' y='23' rx='3.5' ry='3.84' width='7' height='16' transform='rotate(315 50 50)'%3E%3Canimate attributeName='opacity' values='1;0' keyTimes='0;1' dur='0.78125s' begin='0s' repeatCount='indefinite'/%3E%3C/rect%3E%3C/svg%3E");
+    padding-bottom: .4rem !important;
+    // Maybe use this rad spinner animation (which is like the macOS notes app
+    // spinner) once classnames are in place for sync states
+
+    // background-repeat: no-repeat;
+    // background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' style='margin:auto;' width='30' height='30' viewBox='23 23 54 54' preserveAspectRatio='xMidYMid' display='block'%3E%3Crect x='46.5' y='23' rx='3.5' ry='3.84' width='7' height='16'%3E%3Canimate attributeName='opacity' values='1;0' keyTimes='0;1' dur='0.78125s' begin='-0.68359375s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect x='46.5' y='23' rx='3.5' ry='3.84' width='7' height='16' transform='rotate(45 50 50)'%3E%3Canimate attributeName='opacity' values='1;0' keyTimes='0;1' dur='0.78125s' begin='-0.5859375s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect x='46.5' y='23' rx='3.5' ry='3.84' width='7' height='16' transform='rotate(90 50 50)'%3E%3Canimate attributeName='opacity' values='1;0' keyTimes='0;1' dur='0.78125s' begin='-0.48828125s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect x='46.5' y='23' rx='3.5' ry='3.84' width='7' height='16' transform='rotate(135 50 50)'%3E%3Canimate attributeName='opacity' values='1;0' keyTimes='0;1' dur='0.78125s' begin='-0.390625s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect x='46.5' y='23' rx='3.5' ry='3.84' width='7' height='16' transform='rotate(180 50 50)'%3E%3Canimate attributeName='opacity' values='1;0' keyTimes='0;1' dur='0.78125s' begin='-0.29296875s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect x='46.5' y='23' rx='3.5' ry='3.84' width='7' height='16' transform='rotate(225 50 50)'%3E%3Canimate attributeName='opacity' values='1;0' keyTimes='0;1' dur='0.78125s' begin='-0.1953125s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect x='46.5' y='23' rx='3.5' ry='3.84' width='7' height='16' transform='rotate(270 50 50)'%3E%3Canimate attributeName='opacity' values='1;0' keyTimes='0;1' dur='0.78125s' begin='-0.09765625s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect x='46.5' y='23' rx='3.5' ry='3.84' width='7' height='16' transform='rotate(315 50 50)'%3E%3Canimate attributeName='opacity' values='1;0' keyTimes='0;1' dur='0.78125s' begin='0s' repeatCount='indefinite'/%3E%3C/rect%3E%3C/svg%3E");
+
+    // fake a macOS tooltip which appears after a small delay for the sync status
+    @keyframes tooltipTimeout {
+      0% {
+        opacity: 0;
+      }
+      99% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    // only show sync status on hover
+    > div:first-child {
+      opacity: 0;
+      pointer-events: none;
+
+      background-color: $unemphasizedSelectedContentBackgroundColor;
+      padding: .4rem;
+      position: absolute;
+      width: auto;
+      bottom: 20px;
+      box-shadow: 0 0 1px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.2);
+
+      div {
+        color: $textColor;
+      }
+    }
+
+    &:hover > div:first-child {
+      animation: tooltipTimeout 1s;
+      opacity: 1;
+    }
+
+    button {
+      border: none;
+      justify-content: flex-start;
+      padding: 0;
+      text-align: left;
+      font-size: 1.3rem;
+
+      span {
+        color: $secondaryLabelColor;
+      }
+
+      &:hover span {
+        color: $secondaryLabelColor;
+      }
+
+      .icon-sync {
+        font-size: inherit;
+        transform-origin: 50% 55%;
+
+        &::before {
+          content: '􀊯'; // arrow.triangle.2.circlepath
+          font-family: 'SF Pro';
+          font-size: 1.2rem;
+          -webkit-font-smoothing: antialiased;
+        }
+      }
+    }
   }
 }
-
-// sync animation
-// https://codepen.io/ezadoo/pen/qBZJGOB
