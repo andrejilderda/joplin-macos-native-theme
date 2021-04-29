@@ -11,11 +11,56 @@
     background-color: transparent !important;
   }
 
-  // note title
-  > div > div > div input {
-    padding-top: 1.4rem;
-    font-weight: 700;
-    font-size: 2rem;
+  > div > div > div {
+    // note title
+    input {
+      padding-top: 1.4rem;
+      font-weight: 700;
+      font-size: 2rem;
+    }
+
+    // date/timestamp
+    > div > div > span {
+      color: $secondaryLabelColor !important;
+      font-family: var(--g-font-family-system) !important;
+      font-size: 1.1rem;
+    }
+
+    .editor-toolbar {
+      // extra icons next to title
+      div:nth-child(2) {
+        a {
+          color: $secondaryLabelColor;
+          margin: 0 0.2rem;
+
+          // hide default icons
+          > * {
+            display: none;
+          }
+
+          &:hover {
+            background: $quaternaryLabelColor;
+          }
+        }
+
+        // spellchecker
+        a:nth-child(1):before {
+          content: '􀅰'; // textformat.abc.dottedunderline
+        }
+        // set alarm
+        a:nth-child(2):before {
+          content: '􀐭'; // alarm
+        }
+        // toggle editor layout
+        a:nth-child(3):before {
+          content: '􀏠'; // square.split.2x1
+        }
+        // note properties
+        a:nth-child(4):before {
+          content: '􀅴'; // info.circle
+        }
+      }
+    }
   }
 
   .joplin-tinymce > div,
@@ -32,6 +77,7 @@
       span:before {
         font-family: 'SF Pro';
         -webkit-font-smoothing: antialiased;
+        color: $secondaryLabelColor;
       }
       // icon: back
       &:nth-of-type(1) span:before {
@@ -72,6 +118,7 @@
       &:before {
         font-family: 'SF Pro';
         -webkit-font-smoothing: antialiased;
+        color: $secondaryLabelColor;
         // font-size: 9px;
         // font-weight: 700;
       }
