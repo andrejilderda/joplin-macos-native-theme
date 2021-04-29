@@ -1,7 +1,17 @@
 // Missing classnames/elements in UI (will make a PR for these changes):
 // - Input for title
+// - Toolbar icons
+// - Different editor states
+
+// - TODO: Aria label for underline is called 'Insert'. Is this a mistake?
 
 .rli-editor {
+  // remove bg color when no note is selected when search returns no results
+  > div > div {
+    background-color: transparent !important;
+  }
+
+  // note title
   > div > div > div input {
     padding-top: 1.4rem;
     font-weight: 700;
@@ -9,44 +19,55 @@
   }
 
   .joplin-tinymce > div,
+  .editor-toolbar,
   .tox-toolbar__group,
   .tox-toolbar__primary {
     background-color: transparent !important;
   }
 
   // first few wysiwyg icons (back, forward & open in external editor)
-  .joplin-tinymce > div > a {
-    span:before {
-      font-family: 'SF Pro';
-      -webkit-font-smoothing: antialiased;
-    }
-    // icon: back
-    &:nth-of-type(1) span:before {
-      content: '􀯶'; // chevron.backward
-    }
-    // icon: forward
-    &:nth-of-type(2) span:before {
-      content: '􀯻'; // chevron.forward
-    }
-    // icon: external editor
-    &:nth-of-type(3) span:before {
-      content: '􀮵'; // arrow.up.forward.app
+  .joplin-tinymce,
+  .editor-toolbar {
+    > div:first-child > a {
+      span:before {
+        font-family: 'SF Pro';
+        -webkit-font-smoothing: antialiased;
+      }
+      // icon: back
+      &:nth-of-type(1) span:before {
+        content: '􀯶'; // chevron.backward
+      }
+      // icon: forward
+      &:nth-of-type(2) span:before {
+        content: '􀯻'; // chevron.forward
+      }
+      // icon: external editor
+      &:nth-of-type(3) span:before {
+        content: '􀮵'; // arrow.up.forward.app
+      }
     }
   }
 
   // wysiwyg items
   .tox-toolbar__group {
+    padding-left: 0;
+    padding-right: 0;
+
     // dividers between wysiwyg groups
     &:before {
       content: '';
       background-color: $separatorColor;
       height: 100%;
       width: 0.1rem;
-      margin: 0 0.25rem;
+      margin: 0 0.65rem;
     }
 
-    button {
+    button,
+    button[aria-haspopup='true'] {
       margin: 0 0.25rem;
+      height: 2.6rem;
+      width: 2.6rem;
+      min-width: auto;
 
       &:before {
         font-family: 'SF Pro';
@@ -54,6 +75,7 @@
         // font-size: 9px;
         // font-weight: 700;
       }
+      &:focus,
       &:hover {
         background: $quaternaryLabelColor;
       }
@@ -70,6 +92,20 @@
     }
     button:nth-child(2):before {
       content: '􀅔'; // italic
+    }
+    button:nth-child(3):before {
+      content: '􀦇'; // highlighter
+    }
+    button:nth-child(4):before {
+      content: '􀅖'; // strikethrough
+    }
+    button:nth-child(5) {
+      width: 2.6rem !important;
+      min-width: 0;
+
+      &:before {
+        content: '􀍠'; // ellipsis
+      }
     }
   }
 
@@ -150,5 +186,113 @@
   // remove 'overflow: hidden' so that the divider is not cut-off
   .tox-tinymce {
     overflow: unset;
+  }
+}
+
+@mixin dropdownBackground {
+  background: $windowBackgroundColor !important;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2);
+  max-width: none !important;
+  padding: 0.5rem !important;
+}
+
+@mixin dropdownItemDefault {
+  background-color: transparent;
+  border-radius: 0.4rem;
+  color: $textColor !important;
+  font-size: 1.3rem !important;
+  line-height: 1;
+  min-height: 2.2rem;
+  height: 2.2rem;
+  padding: 0 1rem !important;
+}
+
+@mixin dropdownItem {
+  @include dropdownItemDefault();
+
+  &:focus,
+  &:hover {
+    background: $controlAccentColor;
+    color: #fff !important;
+  }
+}
+
+// overflow menu for sup- & subscript (which is appended outside .rli-editor)
+.tox .tox-toolbar__overflow.tox-toolbar__overflow {
+  @include dropdownBackground;
+
+  .tox-toolbar__group {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    padding: 0;
+
+    &:focus-within:hover {
+      button:focus:not(:hover) {
+        @include dropdownItemDefault();
+      }
+    }
+
+    button {
+      @include dropdownItem();
+
+      justify-content: flex-start;
+      flex: 1;
+      text-align: left;
+      width: calc(100% - 2rem);
+
+      &:after {
+        color: inherit;
+        content: attr(aria-label);
+        text-align: left;
+      }
+    }
+
+    span {
+      display: none;
+    }
+  }
+}
+
+// table menu
+.tox-menu {
+  @include dropdownBackground();
+
+  .tox-collection {
+    &__group {
+      border: none !important;
+      padding: 0 !important;
+
+      // dividers
+      + * {
+        &:before {
+          content: '';
+          display: block;
+          height: 0.1rem;
+          margin: 0.5rem 0.8rem !important;
+          background-color: $separatorColor;
+        }
+      }
+    }
+
+    &:focus-within:hover {
+      &__item:focus:not(:hover) {
+        @include dropdownItemDefault();
+      }
+    }
+
+    &__item {
+      @include dropdownItem();
+    }
+
+    &__item-icon {
+      display: none;
+    }
+
+    &__item-label {
+      font-size: inherit;
+      margin-left: 0 !important;
+    }
   }
 }
