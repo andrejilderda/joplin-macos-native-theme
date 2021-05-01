@@ -5,13 +5,74 @@
 
 // - TODO: Aria label for underline is called 'Insert'. Is this a mistake?
 
+$icon-bold: '􀅓';
+$icon-italic: '􀅔';
+$icon-highlighter: '􀦇';
+$icon-strikethrough: '􀅖';
+$icon-textformat-abc-dottedunderline: '􀅰';
+$icon-alarm: '􀐭';
+$icon-square-split-2x1: '􀏠';
+$icon-info-circle: '􀅴';
+$icon-chevron-backward: '􀯶';
+$icon-chevron-forward: '􀯻';
+$icon-arrow-up-forward-app: '􀮵';
+$icon-ellipsis: '􀍠';
+$icon-link: '􀉣';
+$icon-chevron-left-slash-chevron-right: '􀙚';
+$icon-curlybraces: '􀡅';
+$icon-paperclip: '􀉢';
+$icon-list-bullet: '􀋲';
+$icon-list-number: '􀋴';
+$icon-text-badge-checkmark: '􀋺';
+$icon-minus: '􀅽';
+$icon-text-quote: '􀋿';
+$icon-tablecells-badge-ellipsis: '􀏥';
+$icon-clock: '􀐫';
+$icon-calendar-badge-clock: '􀧞';
+
+@mixin toolbarButton {
+  display: flex;
+  align-items: center;
+  margin: 0 0.25rem;
+  padding: 0 !important;
+  height: 2.6rem;
+  width: 2.6rem;
+  min-width: auto;
+
+  &:focus,
+  &:hover {
+    background: $quaternaryLabelColor;
+  }
+}
+
+@mixin toolbarButtonIcon {
+  font-family: 'SF Pro';
+  font-size: 14px !important;
+  font-weight: normal !important;
+  -webkit-font-smoothing: antialiased;
+  color: $secondaryLabelColor;
+}
+
+@mixin toolbarDivider {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+
+  &::before {
+    content: '';
+    background-color: $separatorColor;
+    height: 100%;
+    width: 0.1rem;
+    margin: 0 0.65rem;
+  }
+}
+
 .rli-editor {
   // remove bg color when no note is selected when search returns no results
   > div > div {
     background-color: transparent !important;
   }
 
-  > div > div > div {
+  > div > div > div > div:first-child {
     // note title
     input {
       padding-top: 1.4rem;
@@ -24,6 +85,10 @@
       color: $secondaryLabelColor !important;
       font-family: var(--g-font-family-system) !important;
       font-size: 1.1rem;
+    }
+
+    // markdown toggle
+    .tox-tbtn {
     }
 
     .editor-toolbar {
@@ -70,15 +135,31 @@
     background-color: transparent !important;
   }
 
+  .joplin-tinymce {
+    > div:first-child {
+      padding-top: 0.3rem !important;
+    }
+  }
+
   // first few wysiwyg icons (back, forward & open in external editor)
   .joplin-tinymce,
   .editor-toolbar {
     > div:first-child > a {
-      span:before {
-        font-family: 'SF Pro';
-        -webkit-font-smoothing: antialiased;
-        color: $secondaryLabelColor;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      // background-color: red;
+
+      span {
+        display: block;
+        font-size: 1.4rem;
+
+        &:before {
+          // background-color: blue;
+          @include toolbarButtonIcon();
+        }
       }
+
       // icon: back
       &:nth-of-type(1) span:before {
         content: '􀯶'; // chevron.backward
@@ -100,31 +181,16 @@
     padding-right: 0;
 
     // dividers between wysiwyg groups
-    &:before {
-      content: '';
-      background-color: $separatorColor;
-      height: 100%;
-      width: 0.1rem;
-      margin: 0 0.65rem;
-    }
+    @include toolbarDivider();
 
     button,
     button[aria-haspopup='true'] {
-      margin: 0 0.25rem;
-      height: 2.6rem;
-      width: 2.6rem;
-      min-width: auto;
+      @include toolbarButton();
 
       &:before {
-        font-family: 'SF Pro';
-        -webkit-font-smoothing: antialiased;
-        color: $secondaryLabelColor;
+        @include toolbarButtonIcon();
         // font-size: 9px;
         // font-weight: 700;
-      }
-      &:focus,
-      &:hover {
-        background: $quaternaryLabelColor;
       }
     }
     svg {
@@ -132,26 +198,27 @@
       // opacity: 0.5;
     }
   }
-  // bold, italic
+
+  // bold, italic, etc.
   .tox-toolbar__group:nth-child(1) {
     button:nth-child(1):before {
-      content: '􀅓'; // bold
+      content: $icon-bold;
     }
     button:nth-child(2):before {
-      content: '􀅔'; // italic
+      content: $icon-italic;
     }
     button:nth-child(3):before {
-      content: '􀦇'; // highlighter
+      content: $icon-highlighter;
     }
     button:nth-child(4):before {
-      content: '􀅖'; // strikethrough
+      content: $icon-strikethrough;
     }
     button:nth-child(5) {
       width: 2.6rem !important;
       min-width: 0;
 
       &:before {
-        content: '􀍠'; // ellipsis
+        content: $icon-ellipsis;
       }
     }
   }
@@ -159,29 +226,29 @@
   // link, inline code, code block, attachment
   .tox-toolbar__group:nth-child(2) {
     button:nth-child(1):before {
-      content: '􀉣'; // link
+      content: $icon-link;
     }
     button:nth-child(2):before {
-      content: '􀙚'; // chevron.left.slash.chevron.right
+      content: $icon-chevron-left-slash-chevron-right;
     }
     button:nth-child(3):before {
-      content: '􀡅'; // curlybraces
+      content: $icon-curlybraces;
     }
     button:nth-child(4):before {
-      content: '􀉢'; // paperclip
+      content: $icon-paperclip;
     }
   }
 
   // lists
   .tox-toolbar__group:nth-child(3) {
     button:nth-child(1):before {
-      content: '􀋲'; // list.bullet
+      content: $icon-list-bullet;
     }
     button:nth-child(2):before {
-      content: '􀋴'; // list.number
+      content: $icon-list-number;
     }
     button:nth-child(3):before {
-      content: '􀋺'; // text.badge.checkmark
+      content: $icon-text-badge-checkmark;
     }
   }
 
@@ -207,16 +274,16 @@
       content: 'H3'; // h3
     }
     button:nth-child(4):before {
-      content: '􀅽'; // minus
+      content: $icon-minus;
     }
     button:nth-child(5):before {
-      content: '􀋿'; // text.quote
+      content: $icon-text-quote;
     }
     button:nth-child(6):before {
-      content: '􀏥'; // tablecells.badge.ellipsis
+      content: $icon-tablecells-badge-ellipsis;
     }
     button:nth-child(7):before {
-      content: '􀐫'; // clock
+      content: $icon-clock;
     }
   }
 
@@ -233,6 +300,58 @@
   // remove 'overflow: hidden' so that the divider is not cut-off
   .tox-tinymce {
     overflow: unset;
+  }
+
+  // markdown editor
+  > div > div > div > div:not(:first-child) {
+    .editor-toolbar {
+      div > span {
+        @include toolbarDivider();
+      }
+
+      a.button {
+        @include toolbarButton();
+
+        span::before,
+        i::before {
+          @include toolbarButtonIcon();
+        }
+
+        .icon-bold::before {
+          content: $icon-bold;
+        }
+        .icon-italic::before {
+          content: $icon-italic;
+        }
+        .icon-link::before {
+          content: $icon-link;
+        }
+        .icon-code::before {
+          content: $icon-chevron-left-slash-chevron-right;
+        }
+        .icon-attachment::before {
+          content: $icon-paperclip;
+        }
+        .icon-bulleted-list::before {
+          content: $icon-list-bullet;
+        }
+        .icon-numbered-list::before {
+          content: $icon-list-number;
+        }
+        .icon-to-do-list::before {
+          content: $icon-text-badge-checkmark;
+        }
+        .icon-heading::before {
+          content: 'H2';
+        }
+        .fa-ellipsis-h::before {
+          content: $icon-minus;
+        }
+        .icon-add-date::before {
+          content: $icon-calendar-badge-clock;
+        }
+      }
+    }
   }
 }
 
