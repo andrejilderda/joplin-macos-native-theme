@@ -4,8 +4,16 @@ html {
 }
 
 body {
+  font-family: var(--g-font-family-system);
   /* default font-size set back to 16px */
   font-size: 1.6rem;
+
+  div,
+  span,
+  a,
+  input {
+    font-family: var(--g-font-family-system);
+  }
 }
 
 // reset default background color
@@ -13,9 +21,6 @@ body {
   background: transparent;
 }
 
-div,
-span,
-a,
-* {
-  font-family: var(--g-font-family-system);
+*[style*='Roboto'] {
+  font-family: var(--g-font-family-system) !important;
 }

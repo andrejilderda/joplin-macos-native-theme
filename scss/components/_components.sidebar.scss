@@ -24,9 +24,13 @@ $activeItem: '.xOaMI';
   }
 }
 
-.sidebar {
+.sidebar.sidebar {
   background: var(--sidebar__BackgroundColor);
   padding-top: 1rem;
+
+  * {
+    font-family: var(--g-font-family-system) !important;
+  }
 
   > div {
     > div {
@@ -34,6 +38,9 @@ $activeItem: '.xOaMI';
       button {
         display: none;
         margin-right: 1.5rem;
+        span::before {
+          content: '􀁌'; // plus.circle
+        }
       }
 
       &:hover {
@@ -50,6 +57,7 @@ $activeItem: '.xOaMI';
       font-size: var(--sidebar__label-FontSize);
       font-weight: 700;
       margin-left: 6px;
+      letter-spacing: -0.025em;
     }
 
     // all notes
@@ -144,7 +152,7 @@ $activeItem: '.xOaMI';
     opacity: 1 !important;
 
     &::before {
-      font-family: 'SF Pro';
+      font-family: var(--g-font-family-system);
       font-size: 9px;
       font-weight: 700;
       -webkit-font-smoothing: antialiased;
@@ -152,9 +160,11 @@ $activeItem: '.xOaMI';
 
     &.fa-caret-right::before {
       color: $secondaryLabelColor;
+      content: '􀯻'; // chevron.forward
     }
 
     &.fa-caret-down::before {
+      content: '􀆈'; // chevron.down
       color: $secondaryLabelColor;
     }
     &.fa-plus::before {
@@ -174,7 +184,7 @@ $activeItem: '.xOaMI';
 
   // sync
   > div:last-child {
-    padding-bottom: .4rem !important;
+    padding-bottom: 0.4rem !important;
     // Maybe use this rad spinner animation (which is like the macOS notes app
     // spinner) once classnames are in place for sync states
 
@@ -200,11 +210,11 @@ $activeItem: '.xOaMI';
       pointer-events: none;
 
       background-color: $unemphasizedSelectedContentBackgroundColor;
-      padding: .4rem;
+      padding: 0.4rem;
       position: absolute;
       width: auto;
       bottom: 20px;
-      box-shadow: 0 0 1px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 0 1px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2);
 
       div {
         color: $textColor;
@@ -237,7 +247,7 @@ $activeItem: '.xOaMI';
 
         &::before {
           content: '􀊯'; // arrow.triangle.2.circlepath
-          font-family: 'SF Pro';
+          font-family: var(--g-font-family-system);
           font-size: 1.2rem;
           -webkit-font-smoothing: antialiased;
         }

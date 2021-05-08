@@ -34,6 +34,7 @@ $icon-calendar-badge-clock: '􀧞';
   display: flex;
   align-items: center;
   margin: 0 0.25rem;
+  line-height: 1;
   padding: 0 !important;
   height: 2.6rem;
   width: 2.6rem;
@@ -51,6 +52,16 @@ $icon-calendar-badge-clock: '􀧞';
   font-weight: normal !important;
   -webkit-font-smoothing: antialiased;
   color: $secondaryLabelColor;
+}
+
+// divider between the toolbar and the editor
+@mixin editorDivider {
+  content: '';
+  background-color: $separatorColor;
+  height: 0.1rem;
+  position: absolute;
+  left: -1.4rem;
+  right: -1.4rem;
 }
 
 @mixin toolbarDivider {
@@ -75,9 +86,9 @@ $icon-calendar-badge-clock: '􀧞';
   > div > div > div > div:first-child {
     // note title
     input {
-      padding-top: 1.4rem;
-      font-weight: 700;
-      font-size: 2rem;
+      padding-top: 1.4rem !important;
+      font-weight: 700 !important;
+      font-size: 2rem !important;
     }
 
     // date/timestamp
@@ -97,6 +108,8 @@ $icon-calendar-badge-clock: '􀧞';
         a {
           color: $secondaryLabelColor;
           margin: 0 0.2rem;
+          font-family: var(--g-font-family-system);
+          line-height: 1;
 
           // hide default icons
           > * {
@@ -130,8 +143,8 @@ $icon-calendar-badge-clock: '􀧞';
 
   .joplin-tinymce > div,
   .editor-toolbar,
-  .tox-toolbar__group,
-  .tox-toolbar__primary {
+  .tox .tox-toolbar__group,
+  .tox .tox-toolbar__primary {
     background-color: transparent !important;
   }
 
@@ -194,7 +207,7 @@ $icon-calendar-badge-clock: '􀧞';
       }
     }
     svg {
-      display: none;
+      display: none !important;
       // opacity: 0.5;
     }
   }
@@ -289,12 +302,7 @@ $icon-calendar-badge-clock: '􀧞';
 
   // add divider between editor icons and text input field
   .tox-editor-header:after {
-    content: '';
-    background-color: $separatorColor;
-    height: 0.1rem;
-    position: absolute;
-    left: -1.4rem;
-    right: -1.4rem;
+    @include editorDivider();
   }
 
   // remove 'overflow: hidden' so that the divider is not cut-off
@@ -305,12 +313,21 @@ $icon-calendar-badge-clock: '􀧞';
   // markdown editor
   > div > div > div > div:not(:first-child) {
     .editor-toolbar {
+      &:after {
+        @include editorDivider();
+        bottom: 0;
+      }
+
       div > span {
         @include toolbarDivider();
       }
 
       a.button {
         @include toolbarButton();
+
+        span {
+          font-size: 0;
+        }
 
         span::before,
         i::before {
