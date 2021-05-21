@@ -26,3 +26,5 @@
   --note-list-item-odd: #{$alternatingContentBackgroundColorsOdd--dark};
   --note-list-item-even: #{$alternatingContentBackgroundColorsEven--dark};
 }
+
+@import 'user-settings/_user-settings';

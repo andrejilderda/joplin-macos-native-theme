@@ -1,7 +1,4 @@
 // Missing classnames/elements in UI (will make a PR for these changes):
-// - 'active'-classname on sidebar (xOaMI)
-// - classname for resize handle
-// - generic icon classname
 // - wrap text in .list-item in a <span> so that the title and note count can be
 //   positioned side-by-side, while still being able to 'ellipsise' long note titles
 // - classnames for sync states
@@ -9,8 +6,6 @@
 // TODO: Set and use CSS-vars in stead of SCSS-vars
 // TODO: Add setting for toggling the note count
 // TODO: Sub-item styling (indent + background-color)
-
-$activeItem: '.xOaMI';
 
 .rli-sideBar {
   // remove white space between sidebar and notelist
@@ -61,7 +56,7 @@ $activeItem: '.xOaMI';
     }
 
     // all notes
-    .folders > div:first-child {
+    .all-notes {
       background: none;
     }
 
@@ -74,12 +69,13 @@ $activeItem: '.xOaMI';
       height: 2.8rem;
       margin: 0 10px;
       padding: 0;
+      transition: none;
 
       &:hover {
         background: transparent;
       }
 
-      &#{$activeItem} {
+      &.selected {
         background: $unemphasizedSelectedTextBackgroundColor;
       }
 
@@ -93,11 +89,30 @@ $activeItem: '.xOaMI';
 
     .list-item {
       opacity: 1;
-      // truncate text with ellipsis
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: inline-block;
+      display: flex;
       line-height: 2.8rem;
+      overflow: hidden;
+      width: 100%;
+
+      .title,
+      .tag-label {
+        font-size: 1.3rem;
+        // truncate text with ellipsis
+        overflow: hidden;
+        text-overflow: ellipsis;
+        // flex: 1;
+      }
+
+      .note-count-label {
+        display: var(--note-count-label, block);
+        padding-left: 5px;
+        padding-right: 8px;
+        color: var(--note-count-label-color, $windowFrameTextColor);
+        opacity: 0.5;
+        font-size: 1.1rem;
+        line-height: 1;
+        font-weight: 500;
+      }
     }
 
     .folders .list-item::before,

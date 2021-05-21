@@ -1,12 +1,4 @@
-// Missing classnames/elements in UI (will make a PR for these changes):
-// - search container
-// - 'active'-classname on selected item (lgXNgK)
-
 // TODO: Set and use CSS-vars in stead of SCSS-vars
-// TODO: Text when no notes were found
-// TODO: Multi-select items
-
-$selectedItem: '.ga-DjpS';
 
 @mixin focusRing {
   box-shadow: 0 0 0 16px rgba($controlAccentColor, 0);
@@ -19,116 +11,120 @@ $selectedItem: '.ga-DjpS';
 }
 
 .rli-noteList {
+  --notelist--Background: var(--g-primary-Background);
+  --notelist--item--Line-height: 3.6rem;
+
   > div:first-child {
     border-right: 1px solid $gridColor;
   }
 
-  // search
+  // overwrite background-color behind search bar
   > div > div > div:first-child {
     background-color: #fff;
     overflow: hidden;
     width: 100%;
   }
 
-  input[type='text'] {
-    @include focusRing;
+  .search-bar {
+    input[type='text'] {
+      @include focusRing;
 
-    border: 1px solid $separatorColor;
-    border-radius: 0.6rem;
-    font-size: 1.3rem;
-    height: 2.8rem;
-    padding: 0 2.5rem 0 3rem !important;
-    width: 100%;
-    flex: 1 0 100%;
-
-    &::placeholder {
-      color: $tertiaryLabelColor;
-    }
-  }
-
-  // search button
-  input[type='text'] + button {
-    flex: 0;
-    position: unset;
-    padding: 0;
-    right: auto;
-    top: 1px;
-
-    // always show magnifying glass
-    span::before {
-      position: absolute;
-      left: 0;
-      content: '􀊫' !important; // magnifyingglass
-      color: $secondaryLabelColor;
-      font-size: 1.6rem;
-      font-family: var(--g-font-family-system);
-      font-weight: normal !important;
-      top: 0.5rem;
-      left: 0.8rem;
-      pointer-events: none;
-    }
-  }
-
-  // cross when input value !== empty
-  .fa-times {
-    font-size: 13px;
-    font-weight: normal;
-
-    &::after {
-      display: block;
-      content: '􀁡'; // xmark.circle.fill
-      position: absolute;
-      color: $secondaryLabelColor;
-      right: 0.7rem;
-      top: 0.7rem;
-      font-family: 'SF Pro' !important;
-    }
-  }
-
-  // 'add'-buttons next to search
-  > div > div > div:first-child > div:nth-child(2) {
-    position: relative;
-    overflow: hidden;
-    width: auto;
-    max-height: 2.8rem;
-    flex: 1 0 auto;
-
-    button {
-      background: none;
+      border: 1px solid $separatorColor;
       border-radius: 0.6rem;
-      color: #fff;
-      margin-left: 0.6rem;
-      max-height: none;
-      max-width: none;
-      height: 2.6rem;
-      width: 2.6rem;
+      font-size: 1.3rem;
+      height: 2.8rem;
+      padding: 0 2.5rem 0 3rem !important;
+      width: 100%;
+      flex: 1 0 100%;
 
-      + button {
-        margin-left: 0.1rem;
+      &::placeholder {
+        color: $tertiaryLabelColor;
       }
+    }
 
-      span:before {
+    // search button
+    input[type='text'] + button {
+      flex: 0;
+      position: unset;
+      padding: 0;
+      right: auto;
+      top: 1px;
+
+      // always show magnifying glass
+      span::before {
+        position: absolute;
+        left: 0;
+        content: '􀊫' !important; // magnifyingglass
         color: $secondaryLabelColor;
+        font-size: 1.6rem;
+        font-family: var(--g-font-family-system);
+        font-weight: normal !important;
+        top: 0.5rem;
+        left: 0.8rem;
+        pointer-events: none;
+      }
+    }
+
+    // cross when input value !== empty
+    .fa-times {
+      font-size: 13px;
+      font-weight: normal;
+
+      &::after {
         display: block;
-        font-family: 'SF Pro';
-        font-size: 16px;
-        font-weight: 500;
-        -webkit-font-smoothing: antialiased;
-        transform: translateY(0.05rem);
+        content: '􀁡'; // xmark.circle.fill
+        position: absolute;
+        color: $secondaryLabelColor;
+        right: 0.7rem;
+        top: 0.7rem;
+        font-family: 'SF Pro' !important;
       }
+    }
 
-      // new todo
-      &:first-child span:before {
-        content: '􀁢';
-      }
-      // new note
-      &:last-child span:before {
-        content: '􀈎';
-      }
+    // 'add'-buttons next to search
+    + div {
+      position: relative;
+      overflow: hidden;
+      width: auto;
+      max-height: 2.8rem;
+      flex: 1 0 auto;
 
-      &:focus,
-      &:hover {
-        background: $quaternaryLabelColor;
+      button {
+        background: none;
+        border-radius: 0.6rem;
+        color: #fff;
+        margin-left: 0.6rem;
+        max-height: none;
+        max-width: none;
+        height: 2.6rem;
+        width: 2.6rem;
+
+        + button {
+          margin-left: 0.1rem;
+        }
+
+        &:focus,
+        &:hover {
+          background: $quaternaryLabelColor;
+        }
+
+        span:before {
+          color: $secondaryLabelColor;
+          display: block;
+          font-family: 'SF Pro';
+          font-size: 16px;
+          font-weight: 500;
+          -webkit-font-smoothing: antialiased;
+          transform: translateY(0.05rem);
+        }
+
+        &.new-todo-button span:before {
+          content: '􀁢';
+        }
+
+        &.new-note-button span:before {
+          content: '􀈎';
+        }
       }
     }
   }
@@ -138,37 +134,122 @@ $selectedItem: '.ga-DjpS';
     padding: 0 1rem 1rem;
   }
 
-  .list-item-container {
-    border-radius: 4px;
-    height: 3.2rem;
+  .todo-list-item,
+  .note-list-item {
+    border-radius: 0.4rem;
+    height: auto;
+    line-height: var(--notelist--item--Line-height);
 
-    &:nth-child(odd) {
-      background: var(--note-list-item-odd);
+    // remove divider
+    &.odd::before,
+    &.even::before {
+      content: var(--zebra-stripe, none);
     }
-    &:nth-child(even) {
-      background: var(--note-list-item-even);
+
+    &.odd {
+      background: var(--zebra-stripe, var(--note-list-item-odd));
+    }
+    &.even {
+      background: var(--zebra-stripe, var(--note-list-item-even));
     }
 
     a {
-      padding: 0 10px !important;
+      padding: 0 1rem !important;
+      font-size: 1.2rem !important;
     }
 
-    &#{$selectedItem} {
+    &.selected {
       background: $selectedContentBackgroundColor !important;
+      &:before {
+        top: -1px;
+        bottom: auto;
+        border-color: var(--notelist--Background);
+      }
+
+      + .selected {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        // a hack for removing the rounded corners in between items when having multiple items selected
+        margin-top: -0.4rem;
+        padding-top: 0.4rem;
+
+        &:before {
+          border-color: transparent;
+        }
+
+        &:after {
+          content: '';
+          background-color: $separatorColor;
+          position: absolute;
+          height: 0.1rem;
+          top: 0.4rem;
+          left: 1rem;
+          right: 1rem;
+        }
+      }
+
+      &:first-of-type {
+        border-top-left-radius: 0.4rem;
+        border-top-right-radius: 0.4rem;
+      }
+      &:last-of-type {
+        border-bottom-right-radius: 0.4rem;
+        border-bottom-right-radius: 0.4rem;
+      }
 
       a {
         color: $textBackgroundColor !important;
       }
     }
 
-    // remove divider
     &::before {
-      content: none;
+      border-color: $separatorColor;
+      left: 10px;
+      right: 0px;
+      width: auto;
     }
 
     > a > span {
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+  }
+
+  .todo-list-item {
+    > div {
+      padding-left: 1rem !important;
+    }
+
+    input {
+      border: 0.1rem solid $tertiaryLabelColor;
+      margin: 0 -0.3rem -0.2rem 0 !important;
+      border-radius: 50%;
+      appearance: none;
+      height: 1.5rem;
+      width: 1.5rem;
+      position: relative;
+
+      &:checked {
+        background-color: var(--accent-color);
+        border-color: transparent;
+
+        &:after {
+          position: absolute;
+          content: '􀆅';
+          color: #fff;
+          left: 0.15rem;
+          top: 0.1rem;
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    &.selected input {
+      background: #fff;
+
+      &:checked:after {
+        color: var(--accent-color);
+      }
     }
   }
 
