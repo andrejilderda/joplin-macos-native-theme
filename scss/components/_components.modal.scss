@@ -22,7 +22,6 @@
     );
   }
 }
-
 @mixin buttonPrimary {
   color: #fff !important;
   background-color: $systemBlue;
@@ -38,6 +37,7 @@
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 0px 1px rgba(0, 0, 0, 0.15),
     0 0 0 16px rgba($controlAccentColor, 0) !important;
   height: 2rem;
+  padding-left: 1rem;
 
   &:focus {
     transition: 0.25s box-shadow cubic-bezier(0.61, 1, 0.88, 1);
@@ -52,6 +52,8 @@
 }
 
 .modal-dialog {
+  backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
+  background: rgba(255, 255, 255, 0.75) !important;
   padding: 2rem !important;
   border-radius: 1.2rem !important;
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.8), 0px 0px 20px rgba(0, 0, 0, 0.15),
@@ -59,6 +61,25 @@
 
   input[type='text'] {
     @include input;
+  }
+  input + a {
+    font-size: 1.5rem;
+    right: 2.7rem;
+    position: absolute;
+
+    .fa-question-circle {
+      &::before {
+        content: '􀅴' !important; // info-circle
+        color: $secondaryLabelColor !important;
+        font-family: var(--g-font-family-system) !important;
+        -webkit-font-smoothing: antialiased;
+        font-weight: 400;
+      }
+    }
+  }
+
+  label + div[style] {
+    background: none !important;
   }
 
   button {
@@ -107,17 +128,59 @@
   .item-list.item-list {
     display: block !important;
     padding-top: 0 !important;
+    // margin-top: 0 !important;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+    height: auto !important;
 
     &:before {
       content: none;
     }
 
+    // items
     > div {
-      height: auto !important;
-      padding: 2rem 1rem;
+      border-bottom: none !important;
+      //   height: auto !important;
+      padding: 1.5rem 1.5rem !important;
+      position: relative;
+
+      &::before {
+        content: '';
+        top: 0;
+        left: 1rem;
+        right: 1rem;
+        background: $separatorColor;
+        height: 0.1rem;
+        position: absolute;
+      }
+
+      &:nth-child(2)::before {
+        content: none !important;
+      }
 
       * {
         opacity: 1 !important;
+      }
+
+      > div {
+        color: $secondaryLabelColor !important;
+
+        // title
+        &:first-child[style] {
+          margin-bottom: 0 !important;
+        }
+
+        // titles for notebook search
+        &:first-child:not(:last-child) {
+          font-size: 1.5rem !important;
+          margin-bottom: 0.4rem !important;
+        }
+
+        // match highlight
+        span {
+          color: $textColor !important;
+          font-weight: normal !important;
+        }
       }
 
       &:empty {
@@ -125,24 +188,37 @@
       }
 
       &.selected {
-        background: $selectedContentBackgroundColor !important;
+        background: $systemBlue !important;
         border-radius: 0.5rem;
 
-        * {
-          color: #fff !important;
+        > div {
+          color: rgba(255, 255, 255, 0.75) !important;
+
+          // match highlight
+          span {
+            color: #fff !important;
+          }
+        }
+
+        i.fa:before {
+          color: rgba(255, 255, 255, 0.75);
         }
       }
+
       // notebook
-      > div:last-child {
+      &:not(.selected) > div:last-child {
         color: $secondaryLabelColor !important;
-        // outline: 2px solid red;
       }
-      .fa-book:before {
-        content: '􀈕'; // folder
+
+      i.fa:before {
         color: $systemBlue;
         font-family: var(--g-font-family-system) !important;
-        -webkit-font-smoothing: antialiased;
         font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .fa-book:before {
+        content: '􀈕'; // folder
       }
     }
   }
