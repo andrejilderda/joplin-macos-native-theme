@@ -37,12 +37,13 @@ $icon-calendar-badge-clock: '􀧞';
   line-height: 1;
   padding: 0 !important;
   height: 2.6rem;
-  width: 2.6rem;
-  min-width: auto;
+  width: 2.6rem !important;
+  min-width: 2.6rem !important;
+  line-height: 2.6rem !important;
 
   &:focus,
   &:hover {
-    background: $quaternaryLabelColor;
+    background: $quaternaryLabelColor !important;
   }
 }
 
@@ -52,6 +53,7 @@ $icon-calendar-badge-clock: '􀧞';
   font-weight: normal !important;
   -webkit-font-smoothing: antialiased;
   color: $secondaryLabelColor;
+  vertical-align: bottom;
 }
 
 // divider between the toolbar and the editor
@@ -150,7 +152,7 @@ $icon-calendar-badge-clock: '􀧞';
 
   .joplin-tinymce {
     > div:first-child {
-      padding-top: 0.3rem !important;
+      padding-top: 0.4rem !important;
     }
   }
 
@@ -158,10 +160,10 @@ $icon-calendar-badge-clock: '􀧞';
   .joplin-tinymce,
   .editor-toolbar {
     > div:first-child > a {
+      @include toolbarButton();
       display: flex;
       align-items: center;
       justify-content: center;
-      // background-color: red;
 
       span {
         display: block;
@@ -182,8 +184,26 @@ $icon-calendar-badge-clock: '􀧞';
         content: '􀯻'; // chevron.forward
       }
       // icon: external editor
-      &:nth-of-type(3) span:before {
-        content: '􀮵'; // arrow.up.forward.app
+      &:nth-of-type(3):nth-of-type(3) {
+        // width: auto !important;
+        min-width: 2.6rem !important;
+        // padding-left: 0.75rem !important;
+        // padding-right: 0.75rem !important;
+        font-size: 0 !important;
+
+        span {
+          margin-right: 0 !important;
+
+          &[title]:not([title=''])::before {
+            color: $systemBlue !important;
+
+            content: '􀄕'; // arrow.up.right.square.fill
+          }
+
+          &::before {
+            content: '􀮵'; // arrow.up.forward.app
+          }
+        }
       }
     }
   }
@@ -301,8 +321,12 @@ $icon-calendar-badge-clock: '􀧞';
   }
 
   // add divider between editor icons and text input field
-  .tox-editor-header:after {
-    @include editorDivider();
+  .tox-editor-header {
+    margin-left: 10px;
+
+    &:after {
+      @include editorDivider();
+    }
   }
 
   // remove 'overflow: hidden' so that the divider is not cut-off

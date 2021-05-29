@@ -158,12 +158,27 @@
       font-size: 1.2rem !important;
     }
 
+    .fa-share-square {
+      order: 1;
+      margin-left: auto;
+      &::before {
+        content: '􀄕'; // arrow.up.right.square.fill
+        color: $systemBlue;
+        font-weight: 400;
+        font-family: var(--g-font-family-system);
+      }
+    }
+
     &.selected {
       background: $selectedContentBackgroundColor !important;
       &:before {
         top: -1px;
         bottom: auto;
         border-color: var(--notelist--Background);
+      }
+
+      .fa-share-square::before {
+        color: #fff;
       }
 
       + .selected {
