@@ -5,6 +5,9 @@
 
 // - TODO: Aria label for underline is called 'Insert'. Is this a mistake?
 
+$icon-folder: '􀈕';
+$icon-tag: '􀋡';
+
 $icon-bold: '􀅓';
 $icon-italic: '􀅔';
 $icon-highlighter: '􀦇';
@@ -16,6 +19,7 @@ $icon-info-circle: '􀅴';
 $icon-chevron-backward: '􀯶';
 $icon-chevron-forward: '􀯻';
 $icon-arrow-up-forward-app: '􀮵';
+$icon-arrow-up-right-square-fill: '􀄕';
 $icon-ellipsis: '􀍠';
 $icon-link: '􀉣';
 $icon-chevron-left-slash-chevron-right: '􀙚';
@@ -29,6 +33,7 @@ $icon-text-quote: '􀋿';
 $icon-tablecells-badge-ellipsis: '􀏥';
 $icon-clock: '􀐫';
 $icon-calendar-badge-clock: '􀧞';
+$icon-doc-richtext: '􀉅';
 
 @mixin toolbarButton {
   display: flex;
@@ -40,6 +45,7 @@ $icon-calendar-badge-clock: '􀧞';
   width: 2.6rem !important;
   min-width: 2.6rem !important;
   line-height: 2.6rem !important;
+  border-radius: 0.5rem;
 
   &:focus,
   &:hover {
@@ -85,59 +91,145 @@ $icon-calendar-badge-clock: '􀧞';
     background-color: transparent !important;
   }
 
-  > div > div > div > div:first-child {
-    // note title
-    input {
-      padding-top: 1.4rem !important;
-      font-weight: 700 !important;
-      font-size: 2rem !important;
-    }
+  > div > div > div > div {
+    &:first-child {
+      // note title
+      .title-input {
+        margin: 0.5rem 1rem 0;
+        padding-top: 1.4rem !important;
+        font-weight: 700 !important;
+        font-size: 2rem !important;
+      }
 
-    // date/timestamp
-    > div > div > span {
-      color: $secondaryLabelColor !important;
-      font-family: var(--g-font-family-system) !important;
-      font-size: 1.1rem;
+      // date/timestamp
+      .updated-time-label {
+        color: $secondaryLabelColor !important;
+        font-family: var(--g-font-family-system) !important;
+        font-size: 1.1rem;
+        margin-top: 0.3rem;
+        margin-right: 1rem;
+      }
+
+      .editor-toolbar {
+        // extra icons next to title
+        div:nth-child(2) {
+          a {
+            color: $secondaryLabelColor;
+            margin: 0 0.2rem;
+            font-family: var(--g-font-family-system);
+            line-height: 1;
+
+            // hide default icons
+            > * {
+              display: none;
+            }
+
+            &:hover {
+              background: $quaternaryLabelColor;
+            }
+          }
+
+          // spellchecker
+          a:nth-child(1) {
+            font-size: 0;
+            overflow: hidden;
+            width: 2.6rem;
+
+            i {
+              display: block;
+              color: $secondaryLabelColor;
+              margin: 0.2rem 0.2rem 0;
+              font-family: var(--g-font-family-system);
+              line-height: 1;
+              font-size: 1.4rem;
+              font-weight: 400;
+
+              &::before {
+                content: $icon-textformat-abc-dottedunderline;
+                text-transform: uppercase;
+              }
+              &[title]:not([title=''])::before {
+                content: attr(title);
+                font-family: var(--g-font-family-system-rounded);
+                font-size: 1.4rem !important;
+                font-weight: 400;
+                line-height: 2.6rem;
+                letter-spacing: -0.05rem;
+                margin-top: 0;
+              }
+            }
+          }
+          // set alarm
+          a:nth-child(2):before {
+            content: $icon-alarm;
+          }
+          // toggle editor layout
+          a:nth-child(3) {
+            &.disabled {
+              display: none;
+            }
+
+            &:before {
+              content: $icon-square-split-2x1;
+            }
+          }
+          // note properties
+          a:nth-child(4):before {
+            content: $icon-info-circle;
+          }
+        }
+      }
     }
 
     // markdown toggle
     .tox-tbtn {
+      @include toolbarButton();
+
+      * {
+        display: none !important;
+      }
+
+      &::after {
+        @include toolbarButtonIcon();
+        color: $secondaryLabelColor;
+        width: 2.6rem;
+      }
+
+      &.markdown-active::after {
+        content: 'MD';
+        font-family: var(--g-font-family-system-rounded);
+        font-size: 1.2rem !important;
+        line-height: 2.6rem;
+        font-weight: 500 !important;
+      }
+
+      &.richText-active::after {
+        content: '􀲱';
+      }
     }
 
-    .editor-toolbar {
-      // extra icons next to title
-      div:nth-child(2) {
-        a {
-          color: $secondaryLabelColor;
-          margin: 0 0.2rem;
+    // notebook folder when in all notes or tag view
+    &:nth-child(2)[style*='padding-top'] {
+      padding: 0 !important;
+
+      button {
+        align-items: baseline;
+        background: transparent;
+        font-size: 1.3rem;
+        margin-bottom: 0.4rem;
+        margin-left: 1.6rem;
+        padding: 0;
+
+        span {
+          color: $textColor;
+        }
+
+        .icon-notebooks::before {
+          content: $icon-folder;
+          color: $systemBlue;
           font-family: var(--g-font-family-system);
-          line-height: 1;
-
-          // hide default icons
-          > * {
-            display: none;
-          }
-
-          &:hover {
-            background: $quaternaryLabelColor;
-          }
-        }
-
-        // spellchecker
-        a:nth-child(1):before {
-          content: '􀅰'; // textformat.abc.dottedunderline
-        }
-        // set alarm
-        a:nth-child(2):before {
-          content: '􀐭'; // alarm
-        }
-        // toggle editor layout
-        a:nth-child(3):before {
-          content: '􀏠'; // square.split.2x1
-        }
-        // note properties
-        a:nth-child(4):before {
-          content: '􀅴'; // info.circle
+          font-size: 1.3rem;
+          font-weight: 400;
         }
       }
     }
@@ -150,58 +242,57 @@ $icon-calendar-badge-clock: '􀧞';
     background-color: transparent !important;
   }
 
-  .joplin-tinymce {
-    > div:first-child {
-      padding-top: 0.4rem !important;
-    }
+  .joplin-tinymce > div:first-child {
+    padding-top: 0.4rem !important;
+    margin-top: 0.2rem;
   }
 
   // first few wysiwyg icons (back, forward & open in external editor)
   .joplin-tinymce,
   .editor-toolbar {
-    > div:first-child > a {
-      @include toolbarButton();
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      span {
-        display: block;
-        font-size: 1.4rem;
-
-        &:before {
-          // background-color: blue;
-          @include toolbarButtonIcon();
-        }
-      }
-
-      // icon: back
-      &:nth-of-type(1) span:before {
-        content: '􀯶'; // chevron.backward
-      }
-      // icon: forward
-      &:nth-of-type(2) span:before {
-        content: '􀯻'; // chevron.forward
-      }
-      // icon: external editor
-      &:nth-of-type(3):nth-of-type(3) {
-        // width: auto !important;
-        min-width: 2.6rem !important;
-        // padding-left: 0.75rem !important;
-        // padding-right: 0.75rem !important;
-        font-size: 0 !important;
+    > div:first-child {
+      margin-left: -0.6rem;
+      > a {
+        @include toolbarButton();
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         span {
-          margin-right: 0 !important;
+          display: block;
+          font-size: 1.4rem;
 
-          &[title]:not([title=''])::before {
-            color: $systemBlue !important;
-
-            content: '􀄕'; // arrow.up.right.square.fill
+          &:before {
+            // background-color: blue;
+            @include toolbarButtonIcon();
           }
+        }
 
-          &::before {
-            content: '􀮵'; // arrow.up.forward.app
+        // icon: back
+        &:nth-of-type(1) span:before {
+          content: $icon-chevron-backward;
+        }
+        // icon: forward
+        &:nth-of-type(2) span:before {
+          content: $icon-chevron-forward;
+        }
+        // icon: external editor
+        &:nth-of-type(3):nth-of-type(3) {
+          min-width: 2.6rem !important;
+          font-size: 0 !important;
+
+          span {
+            margin-right: 0 !important;
+
+            &[title]:not([title=''])::before {
+              color: $systemBlue !important;
+
+              content: $icon-arrow-up-right-square-fill;
+            }
+
+            &::before {
+              content: $icon-arrow-up-forward-app;
+            }
           }
         }
       }
@@ -222,13 +313,10 @@ $icon-calendar-badge-clock: '􀧞';
 
       &:before {
         @include toolbarButtonIcon();
-        // font-size: 9px;
-        // font-weight: 700;
       }
     }
     svg {
       display: none !important;
-      // opacity: 0.5;
     }
   }
 
@@ -297,14 +385,21 @@ $icon-calendar-badge-clock: '􀧞';
       display: none;
     }
 
+    // h1, h2, h3
+    button:nth-child(1):before,
+    button:nth-child(2):before,
+    button:nth-child(3):before {
+      font-family: var(--g-font-family-system-rounded);
+    }
+
     button:nth-child(1):before {
-      content: 'H1'; // h1
+      content: 'H1';
     }
     button:nth-child(2):before {
-      content: 'H2'; // h2
+      content: 'H2';
     }
     button:nth-child(3):before {
-      content: 'H3'; // h3
+      content: 'H3';
     }
     button:nth-child(4):before {
       content: $icon-minus;
@@ -322,7 +417,7 @@ $icon-calendar-badge-clock: '􀧞';
 
   // add divider between editor icons and text input field
   .tox-editor-header {
-    margin-left: 10px;
+    margin-left: 0px;
 
     &:after {
       @include editorDivider();
@@ -384,6 +479,7 @@ $icon-calendar-badge-clock: '􀧞';
         }
         .icon-heading::before {
           content: 'H2';
+          font-family: var(--g-font-family-system-rounded);
         }
         .fa-ellipsis-h::before {
           content: $icon-minus;
@@ -419,7 +515,7 @@ $icon-calendar-badge-clock: '􀧞';
 
   &:focus,
   &:hover {
-    background: $controlAccentColor;
+    background: $systemBlue !important;
     color: #fff !important;
   }
 }
@@ -494,7 +590,7 @@ $icon-calendar-badge-clock: '􀧞';
     }
 
     &__item-icon {
-      display: none;
+      display: none !important;
     }
 
     &__item-label {
@@ -539,7 +635,7 @@ $icon-calendar-badge-clock: '􀧞';
 
     &::before {
       font-family: 'SF Pro';
-      content: '􀋡' !important; // tag
+      content: $icon-tag !important;
     }
   }
 
