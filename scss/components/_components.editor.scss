@@ -494,20 +494,28 @@ $icon-doc-richtext: '􀉅';
 
 @mixin dropdownBackground {
   background: $windowBackgroundColor !important;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2) !important;
   max-width: none !important;
   padding: 0.5rem !important;
 }
 
 @mixin dropdownItemDefault {
-  background-color: transparent;
+  background-color: transparent !important;
   border-radius: 0.4rem;
-  color: $textColor !important;
-  font-size: 1.3rem !important;
+  color: $controlTextColor !important;
   line-height: 1;
   min-height: 2.2rem;
   height: 2.2rem;
   padding: 0 1rem !important;
+  font-size: 1.3rem !important;
+
+  * {
+    font-size: 1.3rem !important;
+  }
+
+  svg {
+    fill: $controlTextColor !important;
+  }
 }
 
 @mixin dropdownItem {
@@ -517,11 +525,17 @@ $icon-doc-richtext: '􀉅';
   &:hover {
     background: $systemBlue !important;
     color: #fff !important;
+
+    svg {
+      fill: #fff !important;
+    }
   }
 }
 
 // overflow menu for sup- & subscript (which is appended outside .rli-editor)
-.tox .tox-toolbar__overflow.tox-toolbar__overflow {
+// (duplicate classnames to increase specificity)
+.tox
+  .tox-toolbar__overflow.tox-toolbar__overflow.tox-toolbar__overflow.tox-toolbar__overflow {
   @include dropdownBackground;
 
   .tox-toolbar__group {
