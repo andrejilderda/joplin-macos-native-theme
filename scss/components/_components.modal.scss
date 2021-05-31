@@ -1,3 +1,33 @@
+@mixin modalBackdrop() {
+  background: rgba($underPageBackgroundColor, 0.5) !important;
+}
+
+@mixin modalDialog() {
+  backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
+  background: rgba(255, 255, 255, 0.75) !important;
+  padding: 2rem !important;
+  border-radius: 1.2rem !important;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.8), 0px 0px 20px rgba(0, 0, 0, 0.15),
+    0px 25px 30px rgba(0, 0, 0, 0.35) !important;
+}
+
+// line before buttons in modal
+@mixin modalFooter {
+  position: relative;
+  margin-top: 2rem !important;
+  padding-top: 2rem !important;
+
+  &:before {
+    content: '';
+    top: 0;
+    left: -2rem;
+    right: -2rem;
+    background: $separatorColor;
+    height: 0.1rem;
+    position: absolute;
+  }
+}
+
 @mixin buttonBase {
   color: revert;
   border: none !important;
@@ -11,8 +41,8 @@
   min-height: 0 !important;
   font-size: 1.4rem !important;
   font-weight: 400 !important;
-  padding-bottom: 0 !important;
-  padding-top: 0 !important;
+  padding: 0 2rem !important;
+  text-decoration: none !important;
 
   &:active {
     color: rgba(255, 255, 255, 0.75) !important;
@@ -48,16 +78,11 @@
 }
 
 .modal-layer {
-  background: rgba($underPageBackgroundColor, 0.5) !important;
+  @include modalBackdrop();
 }
 
 .modal-dialog {
-  backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
-  background: rgba(255, 255, 255, 0.75) !important;
-  padding: 2rem !important;
-  border-radius: 1.2rem !important;
-  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.8), 0px 0px 20px rgba(0, 0, 0, 0.15),
-    0px 25px 30px rgba(0, 0, 0, 0.35) !important;
+  @include modalDialog();
 
   > div:first-child input[type='text'],
   .datetime-picker input[type='text'] {
@@ -74,8 +99,8 @@
         content: '􀅴' !important; // info-circle
         color: $secondaryLabelColor !important;
         font-family: var(--g-font-family-system) !important;
-        -webkit-font-smoothing: antialiased;
         font-weight: 400;
+        -webkit-font-smoothing: antialiased;
       }
     }
   }
@@ -111,26 +136,14 @@
     justify-content: space-between;
     flex-direction: row-reverse;
     gap: 0.7rem;
-    position: relative;
-    margin-top: 2rem !important;
-    padding-top: 2rem !important;
 
-    &:before {
-      content: '';
-      top: 0;
-      left: -2rem;
-      right: -2rem;
-      background: $separatorColor;
-      height: 0.1rem;
-      position: absolute;
-    }
+    @include modalFooter();
   }
 
   // go-to-anything
   .item-list.item-list {
     display: block !important;
     padding-top: 0 !important;
-    // margin-top: 0 !important;
     margin-left: -0.5rem;
     margin-right: -0.5rem;
     height: auto !important;
@@ -221,6 +234,87 @@
 
       .fa-book:before {
         content: '􀈕'; // folder
+      }
+    }
+  }
+}
+
+// note properties modal
+div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][style*='align-items: flex-start;']:not(.modal-layer) {
+  @include modalBackdrop();
+
+  > div {
+    @include modalDialog();
+    background-color: #fff !important;
+    max-height: none !important;
+
+    // main heading
+    > div:first-child {
+      color: $labelColor !important;
+      font-size: 1.3rem !important;
+      text-align: center;
+    }
+
+    // button container
+    > div:last-child {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 0.8rem;
+
+      @include modalFooter();
+
+      // ok-button
+      button:first-child {
+        @include buttonBase();
+        @include buttonPrimary();
+      }
+      // cancel-button
+      button:last-child {
+        @include buttonBase();
+      }
+    }
+  }
+  .note-property-box {
+    margin-bottom: 1rem !important;
+
+    a:not(:empty) {
+      color: $controlAccentColor;
+      text-decoration: none !important;
+      margin-left: 0 !important;
+
+      .fas {
+        color: $controlAccentColor !important;
+
+        &::before {
+          font-family: var(--g-font-family-system) !important;
+          font-weight: 400;
+        }
+
+        &.fa-edit::before {
+          content: '􀈎'; // square.and.pencil
+        }
+        &.fa-copy::before {
+          content: '􀉃'; // doc.on.clipboard
+        }
+        &.fa-save::before {
+          content: '􀈄'; // doc.on.clipboard
+        }
+      }
+    }
+
+    div + a[style] {
+      margin-left: 1rem !important;
+    }
+
+    label {
+      color: $secondaryLabelColor !important;
+      font-weight: 400 !important;
+      text-align: right !important;
+      margin-right: 0.8rem !important;
+
+      &::after {
+        // it's in the details ;)
+        content: ':';
       }
     }
   }
