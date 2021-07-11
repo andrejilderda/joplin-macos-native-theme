@@ -1,5 +1,6 @@
 @mixin modalBackdrop() {
   background: rgba($underPageBackgroundColor, 0.5) !important;
+  height: 100% !important;
 }
 
 @mixin modalDialog() {
