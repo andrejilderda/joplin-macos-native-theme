@@ -28,39 +28,6 @@
   }
 }
 
-@mixin buttonBase {
-  color: revert;
-  border: none !important;
-  border-radius: 0.5rem !important;
-  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 1px 1.5px rgba(0, 0, 0, 0.15);
-  background: #fff;
-  margin: revert !important;
-  height: 1.9rem !important;
-  line-height: 1.9rem !important;
-  min-width: 7.2rem !important;
-  min-height: 0 !important;
-  font-size: 1.4rem !important;
-  font-weight: 400 !important;
-  padding: 0 2rem !important;
-  text-decoration: none !important;
-
-  &:active {
-    color: rgba(255, 255, 255, 0.75) !important;
-    background-image: linear-gradient(
-      darken($systemBlue, 5%),
-      darken(saturate(darken($systemBlue, 5%), 100%), 5%)
-    );
-  }
-}
-@mixin buttonPrimary {
-  color: #fff !important;
-  background-color: $systemBlue;
-  background-image: linear-gradient(
-    $systemBlue,
-    saturate(darken($systemBlue, 5%), 100%)
-  );
-}
-
 @mixin input {
   border: none !important;
   border-radius: 0.5rem;
@@ -297,7 +264,7 @@ div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][sty
           content: '􀉃'; // doc.on.clipboard
         }
         &.fa-save::before {
-          content: '􀈄'; // doc.on.clipboard
+          content: '􀈄'; // square.and.arrow.down
         }
       }
     }
