@@ -34,9 +34,14 @@
 
   ul {
     margin-left: 1.8rem;
+    margin-bottom: var(--editor-paragraph-spacing);
     li {
       margin-bottom: 0.35rem;
     }
+  }
+
+  p {
+    margin-bottom: var(--editor-paragraph-spacing);
   }
 
   table {

@@ -1,6 +1,7 @@
 @import 'settings/_settings.variables.system-colors';
 @import 'settings/_settings.variables.system-colors-dark';
 @import 'settings/_settings.custom-properties.global';
+@import 'settings/_settings.custom-properties.icons';
 
 @import 'elements/_elements.icons';
 @import 'elements/_elements.page';
@@ -11,6 +12,7 @@
 @import 'components/_components.notelist';
 @import 'components/_components.modal';
 @import 'components/_components.sidebar';
+@import 'components/_components.codeMirror';
 @import 'components/_components.tinyMCE';
 
 :root {
@@ -20,14 +22,21 @@
 
   --sidebar__BackgroundColor: #{$windowBackgroundColor};
   --sidebar__label-FontSize: var(--g-font-size--1);
+  --sidebar__label-Color: var(--g-tertiaryLabelColor);
 }
 
 // dark mode
 @media (prefers-color-scheme: dark) {
-  --accent-color: #{$systemBlue--dark};
-  --sidebar-color: #{$underPageBackgroundColor--dark};
-  --note-list-item-odd: #{$alternatingContentBackgroundColorsOdd--dark};
-  --note-list-item-even: #{$alternatingContentBackgroundColorsEven--dark};
+  :root {
+    --g-primary-Background: #{$textBackgroundColor--dark};
+    --g-primary-Color: #{$textColor--dark};
+    --accent-color: #{$systemBlue--dark};
+    --sidebar-color: #{$underPageBackgroundColor--dark};
+    --sidebar__BackgroundColor: #{$windowBackgroundColor--dark};
+
+    --note-list-item-odd: #{$alternatingContentBackgroundColorsOdd--dark};
+    --note-list-item-even: #{$alternatingContentBackgroundColorsEven--dark};
+  }
 }
 
 @import 'user-settings/_user-settings';

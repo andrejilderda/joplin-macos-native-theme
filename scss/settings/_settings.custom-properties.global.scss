@@ -1,5 +1,156 @@
 :root {
-  --g-primary-Background: #fff;
+  --g-systemBlue: rgba(0, 122, 255, 1);
+  --g-systemBlue--hs: 211, 100%;
+  --g-systemBlue--l: 50%;
+  --g-systemBrown: rgba(162, 132, 94, 1);
+  --g-systemGray: rgba(142, 142, 147, 1);
+  --g-systemGreen: rgba(40, 205, 65, 1);
+  --g-systemIndigo: rgba(88, 86, 214, 1);
+  --g-systemOrange: rgba(255, 149, 0, 1);
+  --g-systemPink: rgba(255, 45, 85, 1);
+  --g-systemPurple: rgba(175, 82, 222, 1);
+  --g-systemRed: rgba(255, 59, 48, 1);
+  --g-systemTeal: rgba(85, 190, 240, 1);
+  --g-systemYellow: rgba(255, 204, 0, 1);
+
+  /* Dynamic system colors */
+
+  /* Labels */
+  --g-labelColor: rgba(0, 0, 0, 0.847);
+  --g-secondaryLabelColor: rgba(0, 0, 0, 0.498);
+  --g-tertiaryLabelColor: rgba(0, 0, 0, 0.259);
+  --g-quaternaryLabelColor: rgba(0, 0, 0, 0.098);
+
+  /* Text */
+  --g-textColor: rgba(0, 0, 0, 1);
+  --g-placeholderTextColor: rgba(0, 0, 0, 0.247);
+  --g-selectedTextColor: rgba(0, 0, 0, 1);
+  --g-textBackgroundColor: rgba(255, 255, 255, 1);
+  --g-selectedTextBackgroundColor: rgba(179, 215, 255, 1);
+  --g-keyboardFocusIndicatorColor: rgba(0, 103, 244, 0.247);
+  --g-unemphasizedSelectedTextColor: rgba(0, 0, 0, 1);
+  --g-unemphasizedSelectedTextBackgroundColor: rgba(220, 220, 220, 1);
+
+  /* Content */
+  --g-alternatingContentBackgroundColorsEven: rgba(255, 255, 255, 1);
+  --g-alternatingContentBackgroundColorsOdd: rgba(244, 245, 245, 1);
+  --g-linkColor: rgba(0, 104, 218, 1);
+  --g-separatorColor: rgba(0, 0, 0, 0.098);
+  --g-selectedContentBackgroundColor: rgba(0, 99, 225, 1);
+  --g-unemphasizedSelectedContentBackgroundColor: rgba(220, 220, 220, 1);
+
+  /* Menus */
+  --g-selectedMenuItemTextColor: rgba(255, 255, 255, 1);
+
+  /* Tables */
+  --g-gridColor: rgba(230, 230, 230, 1);
+  --g-headerTextColor: rgba(0, 0, 0, 0.847);
+
+  /* Controls */
+  --g-controlAccentColor: rgba(0, 122, 255, 1);
+  --g-controlAccentColor--rgb: 0, 122, 255;
+  --g-controlColor: rgba(255, 255, 255, 1);
+  --g-controlColor--rgb: 255, 255, 255;
+  --g-controlBackgroundColor: rgba(255, 255, 255, 1);
+  --g-controlTextColor: rgba(0, 0, 0, 0.847);
+  --g-disabledControlTextColor: rgba(0, 0, 0, 0.247);
+  --g-scrubberTexturedBackground: rgba(255, 255, 255, 1);
+  --g-selectedControlColor: rgba(179, 215, 255, 1);
+  --g-selectedControlTextColor: rgba(0, 0, 0, 0.847);
+  --g-alternateSelectedControlTextColor: rgba(255, 255, 255, 1);
+  --g-alternateSelectedControlTextColor--rgb: 255, 255, 255;
+
+  /* Windows */
+  --g-windowBackgroundColor: rgba(236, 236, 236, 1);
+  --g-windowFrameTextColor: rgba(0, 0, 0, 0.847);
+  --g-underPageBackgroundColor: rgba(150, 150, 150, 0.898);
+  --g-underPageBackgroundColor--rgb: 150, 150, 150;
+
+  /* Highlights & Shadows */
+  --g-findHighlightColor: rgba(255, 255, 0, 1);
+  --g-highlightColor: rgba(255, 255, 255, 1);
+  --g-highlightColor--rgb: 255, 255, 255;
+  --g-shadowColor: rgba(0, 0, 0, 1);
+  --g-shadowColor--rgb: 0, 0, 0;
+
+  @media (prefers-color-scheme: dark) {
+    --g-systemBlue: rgba(10, 132, 255, 1);
+    --g-systemBlue--hs: 210, 100%;
+    --g-systemBlue--l: 52%;
+    --g-systemBrown: rgba(172, 142, 104, 1);
+    --g-systemGray: rgba(152, 152, 157, 1);
+    --g-systemGreen: rgba(50, 215, 75, 1);
+    --g-systemIndigo: rgba(94, 92, 230, 1);
+    --g-systemOrange: rgba(255, 159, 10, 1);
+    --g-systemPink: rgba(255, 55, 95, 1);
+    --g-systemPurple: rgba(191, 90, 242, 1);
+    --g-systemRed: rgba(255, 69, 58, 1);
+    --g-systemTeal: rgba(90, 200, 245, 1);
+    --g-systemYellow: rgba(255, 214, 10, 1);
+
+    /* Dynamic system colors */
+
+    /* Labels */
+    --g-labelColor: rgba(255, 255, 255, 0.847);
+    --g-secondaryLabelColor: rgba(255, 255, 255, 0.549);
+    --g-tertiaryLabelColor: rgba(255, 255, 255, 0.247);
+    --g-quaternaryLabelColor: rgba(255, 255, 255, 0.098);
+
+    /* Text */
+    --g-textColor: rgba(255, 255, 255, 1);
+    --g-placeholderTextColor: rgba(255, 255, 255, 0.247);
+    --g-selectedTextColor: rgba(255, 255, 255, 1);
+    --g-textBackgroundColor: rgba(30, 30, 30, 1);
+    --g-selectedTextBackgroundColor: rgba(63, 99, 139, 1);
+    --g-keyboardFocusIndicatorColor: rgba(26, 169, 255, 0.298);
+    --g-unemphasizedSelectedTextColor: rgba(255, 255, 255, 1);
+    --g-unemphasizedSelectedTextBackgroundColor: rgba(70, 70, 70, 1);
+
+    /* Content */
+    --g-alternatingContentBackgroundColorsEven: rgba(30, 30, 30, 1);
+    --g-alternatingContentBackgroundColorsOdd: rgba(255, 255, 255, 0.047);
+    --g-linkColor: rgba(65, 156, 255, 1);
+    --g-separatorColor: rgba(255, 255, 255, 0.098);
+    --g-selectedContentBackgroundColor: rgba(0, 88, 208, 1);
+    --g-unemphasizedSelectedContentBackgroundColor: rgba(70, 70, 70, 1);
+
+    /* Menus */
+    --g-selectedMenuItemTextColor: rgba(255, 255, 255, 1);
+
+    /* Tables */
+    --g-gridColor: rgba(26, 26, 26, 1);
+    --g-headerTextColor: rgba(255, 255, 255, 1);
+
+    /* Controls */
+    --g-controlAccentColor: rgba(0, 122, 255, 1);
+    --g-controlAccentColor--rgb: 0, 122, 255;
+    --g-controlColor: rgba(255, 255, 255, 0.247);
+    --g-controlColor--rgb: 255, 255, 255, 0;
+    --g-controlBackgroundColor: rgba(30, 30, 30, 1);
+    --g-controlTextColor: rgba(255, 255, 255, 0.847);
+    --g-disabledControlTextColor: rgba(255, 255, 255, 0.247);
+    --g-scrubberTexturedBackground: rgba(255, 255, 255, 1);
+    --g-selectedControlColor: rgba(63, 99, 139, 1);
+    --g-selectedControlTextColor: rgba(255, 255, 255, 0.847);
+    --g-alternateSelectedControlTextColor: rgba(255, 255, 255, 1);
+    --g-alternateSelectedControlTextColor--rgb: 255, 255, 255;
+
+    /* Windows */
+    --g-windowBackgroundColor: rgba(50, 50, 50, 1);
+    --g-windowFrameTextColor: rgba(255, 255, 255, 0.847);
+    --g-underPageBackgroundColor: rgba(40, 40, 40, 1);
+    --g-underPageBackgroundColor--rgb: 40, 40, 40;
+
+    /* Highlights & Shadows */
+    --g-findHighlightColor: rgba(255, 255, 0, 1);
+    --g-highlightColor: rgba(180, 180, 180, 1);
+    --g-highlightColor--rgb: 180, 180, 180;
+    --g-shadowColor: rgba(0, 0, 0, 1);
+    --g-shadowColor--rgb: 0, 0, 0;
+  }
+
+  --g-primary-Background: #{$textBackgroundColor};
+  --g-primary-Color: #{$textColor};
 
   // spacing
   --g-spacing-00: 0px;

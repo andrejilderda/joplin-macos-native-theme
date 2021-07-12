@@ -1,9 +1,10 @@
 @mixin buttonBase {
-  color: $controlTextColor !important;
+  color: var(--g-controlTextColor) !important;
   border: none !important;
   border-radius: 0.5rem !important;
-  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 1px 1.5px rgba(0, 0, 0, 0.15);
-  background: #fff;
+  box-shadow: 0px 0px 1px rgba(var(--g-shadowColor--rgb), 0.3),
+    0px 1px 1.5px rgba(var(--g-shadowColor--rgb), 0.15);
+  background-color: var(--g-controlColor) !important;
   cursor: default !important;
   margin: revert !important;
   height: 1.9rem !important;
@@ -18,19 +19,20 @@
   &:active {
     color: rgba(255, 255, 255, 0.75) !important;
     background-image: linear-gradient(
-      darken($systemBlue, 5%),
-      darken(saturate(darken($systemBlue, 5%), 100%), 5%)
+      hsl(var(--g-systemBlue--hs), calc(var(--g-systemBlue--l) - 5%)),
+      hsl(var(--g-systemBlue--hs), calc(var(--g-systemBlue--l) - 10%))
     );
   }
 }
 
 @mixin buttonPrimary {
-  color: #fff !important;
+  color: $alternateSelectedControlTextColor !important;
   background-color: $systemBlue;
   background-image: linear-gradient(
     $systemBlue,
-    saturate(darken($systemBlue, 5%), 100%)
+    hsl(var(--g-systemBlue--hs), calc(var(--g-systemBlue--l) - 5%))
   );
+  // saturate(darken($systemBlue, 5%), 100%)
   box-shadow: 0px 0px 1px rgba($systemBlue, 0.3),
     0px 1px 1.5px rgba($systemBlue, 0.15);
 }

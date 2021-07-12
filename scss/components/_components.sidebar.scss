@@ -48,7 +48,7 @@
     > div:first-child span,
     .folders + div span {
       text-transform: none;
-      color: $tertiaryLabelColor;
+      color: var(--sidebar__label-Color);
       font-size: var(--sidebar__label-FontSize);
       font-weight: 700;
       margin-left: 6px;
@@ -58,10 +58,10 @@
     // all notes
     .all-notes {
       background: none;
-    }
 
-    a {
-      color: var(--labelColor);
+      a {
+        color: inherit;
+      }
     }
 
     .list-item-container {
@@ -76,7 +76,7 @@
       }
 
       &.selected {
-        background: $unemphasizedSelectedTextBackgroundColor;
+        background: var(--g-unemphasizedSelectedTextBackgroundColor);
       }
 
       // dropdown caret
@@ -107,7 +107,7 @@
         display: var(--note-count-label, block);
         padding-left: 5px;
         padding-right: 8px;
-        color: var(--note-count-label-color, $windowFrameTextColor);
+        color: var(--note-count-label-color, --g-windowFrameTextColor);
         opacity: 0.5;
         font-size: 1.1rem;
         line-height: 1;
@@ -125,7 +125,7 @@
     }
 
     .folders .list-item::before {
-      content: '􀈕'; // folder
+      content: var(--g-icon-folder); // folder
     }
     .tags .list-item::before {
       content: '􀋡'; // tag
@@ -174,16 +174,16 @@
     }
 
     &.fa-caret-right::before {
-      color: $secondaryLabelColor;
+      color: var(--g-secondaryLabelColor);
       content: '􀯻'; // chevron.forward
     }
 
     &.fa-caret-down::before {
       content: '􀆈'; // chevron.down
-      color: $secondaryLabelColor;
+      color: var(--g-secondaryLabelColor);
     }
     &.fa-plus::before {
-      color: $tertiaryLabelColor;
+      color: var(--g-tertiaryLabelColor);
       font-weight: 500;
       font-size: 14px;
       -webkit-font-smoothing: unset;
@@ -224,7 +224,7 @@
       opacity: 0;
       pointer-events: none;
 
-      background-color: $unemphasizedSelectedContentBackgroundColor;
+      background-color: var(--g-unemphasizedSelectedContentBackgroundColor);
       padding: 0.4rem;
       position: absolute;
       width: auto;
@@ -232,7 +232,7 @@
       box-shadow: 0 0 1px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2);
 
       div {
-        color: $textColor;
+        color: var(--g-textColor);
       }
     }
 
@@ -249,11 +249,11 @@
       font-size: 1.3rem;
 
       span {
-        color: $secondaryLabelColor;
+        color: var(--g-secondaryLabelColor);
       }
 
       &:hover span {
-        color: $secondaryLabelColor;
+        color: var(--g-secondaryLabelColor);
       }
 
       .icon-sync {

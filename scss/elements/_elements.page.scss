@@ -13,6 +13,7 @@ body {
   a,
   input,
   button {
+    color: var(--g-primary-Color);
     font-family: var(--g-font-family-system);
   }
   a {
@@ -22,9 +23,13 @@ body {
 
 // reset default background color
 #react-root > div > div {
-  background: transparent;
+  background: var(--g-primary-Background) !important;
 }
 
 *[style*='Roboto'] {
   font-family: var(--g-font-family-system) !important;
+}
+
+*[style*='color:'] {
+  color: inherit !important;
 }

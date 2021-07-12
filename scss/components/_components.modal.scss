@@ -1,11 +1,11 @@
 @mixin modalBackdrop() {
-  background: rgba($underPageBackgroundColor, 0.5) !important;
+  background: rgba(var(--g-underPageBackgroundColor--rgb), 0.5) !important;
   height: 100% !important;
 }
 
 @mixin modalDialog() {
   backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
-  background: rgba(255, 255, 255, 0.75) !important;
+  background-color: var(--g-windowBackgroundColor) !important;
   padding: 2rem !important;
   border-radius: 1.2rem !important;
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.8), 0px 0px 20px rgba(0, 0, 0, 0.15),
@@ -23,7 +23,7 @@
     top: 0;
     left: -2rem;
     right: -2rem;
-    background: $separatorColor;
+    background: var(--g-separatorColor);
     height: 0.1rem;
     position: absolute;
   }
@@ -31,9 +31,10 @@
 
 @mixin input {
   border: none !important;
+  background-color: var(--g-controlBackgroundColor) !important;
   border-radius: 0.5rem;
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 0px 1px rgba(0, 0, 0, 0.15),
-    0 0 0 16px rgba($controlAccentColor, 0) !important;
+    0 0 0 16px rgba(var(--g-controlAccentColor--rgb), 0) !important;
   height: 2rem;
   padding-left: 1rem;
 
@@ -41,7 +42,7 @@
     transition: 0.25s box-shadow cubic-bezier(0.61, 1, 0.88, 1);
     transition-delay: 0.125s;
     box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 0px 1px rgba(0, 0, 0, 0.15),
-      0 0 0 0.35rem rgba($controlAccentColor, 0.5) !important;
+      0 0 0 0.35rem rgba(var(--g-controlAccentColor--rgb), 0.5) !important;
   }
 }
 
@@ -57,6 +58,10 @@
     @include input;
   }
 
+  input[type='text'] {
+    @include input;
+  }
+
   input + a {
     font-size: 1.5rem;
     right: 2.7rem;
@@ -65,7 +70,7 @@
     .fa-question-circle {
       &::before {
         content: '􀅴' !important; // info-circle
-        color: $secondaryLabelColor !important;
+        color: var(--g-secondaryLabelColor) !important;
         font-family: var(--g-font-family-system) !important;
         font-weight: 400;
         -webkit-font-smoothing: antialiased;
@@ -94,7 +99,7 @@
     }
     // clear
     &:nth-child(3):not(:active) {
-      color: $systemRed !important;
+      color: var(--g-systemRed) !important;
     }
   }
 
@@ -108,7 +113,9 @@
     @include modalFooter();
   }
 
-  // go-to-anything
+  // go-to-anything modal
+  //
+  // increase specificity
   .item-list.item-list {
     display: block !important;
     padding-top: 0 !important;
@@ -132,7 +139,7 @@
         top: 0;
         left: 1rem;
         right: 1rem;
-        background: $separatorColor;
+        background: var(--g-separatorColor);
         height: 0.1rem;
         position: absolute;
       }
@@ -146,7 +153,7 @@
       }
 
       > div {
-        color: $secondaryLabelColor !important;
+        color: var(--g-secondaryLabelColor) !important;
 
         // title
         &:first-child[style] {
@@ -161,7 +168,7 @@
 
         // match highlight
         span {
-          color: $textColor !important;
+          color: var(--g-textColor) !important;
           font-weight: normal !important;
         }
       }
@@ -171,7 +178,7 @@
       }
 
       &.selected {
-        background: $systemBlue !important;
+        background: var(--g-systemBlue) !important;
         border-radius: 0.5rem;
 
         > div {
@@ -179,46 +186,46 @@
 
           // match highlight
           span {
-            color: #fff !important;
+            color: var(--g-highlightColor) !important;
           }
         }
 
         i.fa:before {
-          color: rgba(255, 255, 255, 0.75);
+          color: rgba(var(--g-highlightColor--rgb) 0.75);
         }
       }
 
       // notebook
       &:not(.selected) > div:last-child {
-        color: $secondaryLabelColor !important;
+        color: var(--g-secondaryLabelColor) !important;
       }
 
       i.fa:before {
-        color: $systemBlue;
+        color: var(--g-systemBlue);
         font-family: var(--g-font-family-system) !important;
         font-weight: 400;
         -webkit-font-smoothing: antialiased;
       }
 
       .fa-book:before {
-        content: '􀈕'; // folder
+        content: var(--g-icon-folder); // folder
       }
     }
   }
 }
 
 // note properties modal
+// 🤦‍♂️
 div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][style*='align-items: flex-start;']:not(.modal-layer) {
   @include modalBackdrop();
 
   > div {
     @include modalDialog();
-    background-color: #fff !important;
     max-height: none !important;
 
     // main heading
     > div:first-child {
-      color: $labelColor !important;
+      color: var(--g-labelColor) !important;
       font-size: 1.3rem !important;
       text-align: center;
     }
@@ -245,13 +252,18 @@ div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][sty
   .note-property-box {
     margin-bottom: 1rem !important;
 
+    input[type='text'] {
+      @include input;
+    }
+
     a:not(:empty) {
-      color: $controlAccentColor;
+      background-color: transparent !important;
+      color: var(--g-controlAccentColor);
       text-decoration: none !important;
       margin-left: 0 !important;
 
       .fas {
-        color: $controlAccentColor !important;
+        color: var(--g-controlAccentColor) !important;
 
         &::before {
           font-family: var(--g-font-family-system) !important;
@@ -259,13 +271,13 @@ div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][sty
         }
 
         &.fa-edit::before {
-          content: '􀈎'; // square.and.pencil
+          content: var(--g-icon-square-and-pencil);
         }
         &.fa-copy::before {
-          content: '􀉃'; // doc.on.clipboard
+          content: var(--g-icon-doc-on-clipboard);
         }
         &.fa-save::before {
-          content: '􀈄'; // square.and.arrow.down
+          content: var(--g-square-and-arrow-down);
         }
       }
     }
@@ -275,7 +287,7 @@ div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][sty
     }
 
     label {
-      color: $secondaryLabelColor !important;
+      color: var(--g-secondaryLabelColor) !important;
       font-weight: 400 !important;
       text-align: right !important;
       margin-right: 0.8rem !important;

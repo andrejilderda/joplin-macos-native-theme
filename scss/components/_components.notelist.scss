@@ -15,22 +15,32 @@
   --notelist--item--Line-height: 3.6rem;
 
   > div:first-child {
-    border-right: 1px solid $gridColor;
+    border-right: 1px solid var(--g-gridColor);
   }
 
-  // overwrite background-color behind search bar
-  > div > div > div:first-child {
-    background-color: #fff;
-    overflow: hidden;
-    width: 100%;
+  > div > div {
+    background-color: var(--notelist--Background);
+
+    // overwrite background-color behind search bar
+    > div:first-child {
+      background-color: transparent;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    div:nth-child(2) > div {
+      background-color: transparent !important;
+    }
   }
 
   .search-bar {
     input[type='text'] {
       @include focusRing;
 
-      border: 1px solid $separatorColor;
+      border: 1px solid var(--g-separatorColor);
+      background: var(--g-controlBackgroundColor);
       border-radius: 0.6rem;
+      color: var(--g-controlTextColor);
       font-size: 1.3rem;
       height: 2.8rem;
       padding: 0 2.5rem 0 3rem !important;
@@ -38,7 +48,7 @@
       flex: 1 0 100%;
 
       &::placeholder {
-        color: $tertiaryLabelColor;
+        color: var(--g-tertiaryLabelColor);
       }
     }
 
@@ -55,7 +65,7 @@
         position: absolute;
         left: 0;
         content: '􀊫' !important; // magnifyingglass
-        color: $secondaryLabelColor;
+        color: var(--g-secondaryLabelColor);
         font-size: 1.6rem;
         font-family: var(--g-font-family-system);
         font-weight: normal !important;
@@ -71,13 +81,13 @@
       font-weight: normal;
 
       &::after {
+        color: var(--g-secondaryLabelColor);
+        content: var(--g-xmark-circle-fill);
         display: block;
-        content: '􀁡'; // xmark.circle.fill
+        font-family: var(--g-font-family-system) !important;
         position: absolute;
-        color: $secondaryLabelColor;
         right: 0.7rem;
         top: 0.7rem;
-        font-family: 'SF Pro' !important;
       }
     }
 
@@ -92,7 +102,6 @@
       button {
         background: none;
         border-radius: 0.6rem;
-        color: #fff;
         margin-left: 0.6rem;
         max-height: none;
         max-width: none;
@@ -105,14 +114,14 @@
 
         &:focus,
         &:hover {
-          background: $quaternaryLabelColor;
+          background: var(--g-quaternaryLabelColor);
         }
 
         span:before {
-          color: $secondaryLabelColor;
+          color: var(--g-secondaryLabelColor);
           display: block;
-          font-family: 'SF Pro';
-          font-size: 16px;
+          font-family: var(--g-font-family-system);
+          font-size: var(--g-font-size-2);
           font-weight: 500;
           -webkit-font-smoothing: antialiased;
           transform: translateY(0.05rem);
@@ -156,21 +165,27 @@
     a {
       padding: 0 1rem !important;
       font-size: 1.2rem !important;
+      color: var(--g-textColor) !important;
     }
 
     .fa-share-square {
       order: 1;
       margin-left: auto;
       &::before {
-        content: '􀄕'; // arrow.up.right.square.fill
-        color: $systemBlue;
+        content: var(--g-icon-arrow-up-right-square-fill);
+        color: var(--g-systemBlue);
         font-weight: 400;
         font-family: var(--g-font-family-system);
       }
     }
 
     &.selected {
-      background: $selectedContentBackgroundColor !important;
+      background: var(--g-selectedContentBackgroundColor) !important;
+
+      a {
+        color: var(--g-alternateSelectedControlTextColor) !important;
+      }
+
       &:before {
         top: -1px;
         bottom: auto;
@@ -178,7 +193,7 @@
       }
 
       .fa-share-square::before {
-        color: #fff;
+        color: var(--g-alternateSelectedControlTextColor);
       }
 
       + .selected {
@@ -194,7 +209,7 @@
 
         &:after {
           content: '';
-          background-color: $separatorColor;
+          background-color: var(--g-separatorColor);
           position: absolute;
           height: 0.1rem;
           top: 0.4rem;
@@ -211,14 +226,10 @@
         border-bottom-right-radius: 0.4rem;
         border-bottom-right-radius: 0.4rem;
       }
-
-      a {
-        color: $textBackgroundColor !important;
-      }
     }
 
     &::before {
-      border-color: $separatorColor;
+      border-color: var(--g-separatorColor);
       left: 10px;
       right: 0px;
       width: auto;
@@ -227,6 +238,7 @@
     > a > span {
       overflow: hidden;
       text-overflow: ellipsis;
+      color: inherit;
     }
   }
 
@@ -236,7 +248,7 @@
     }
 
     input {
-      border: 0.1rem solid $tertiaryLabelColor;
+      border: 0.1rem solid var(--g-tertiaryLabelColor);
       margin: 0 -0.3rem -0.2rem 0 !important;
       border-radius: 50%;
       appearance: none;
@@ -245,13 +257,13 @@
       position: relative;
 
       &:checked {
-        background-color: var(--accent-color);
+        background-color: var(--g-controlAccentColor);
         border-color: transparent;
 
         &:after {
           position: absolute;
           content: '􀆅';
-          color: #fff;
+          color: var(--g-alternateSelectedControlTextColor);
           left: 0.15rem;
           top: 0.1rem;
           font-size: 0.9rem;
@@ -260,16 +272,25 @@
     }
 
     &.selected input {
-      background: #fff;
+      border-color: rgba(var(--g-controlColor--rgb), 0.5);
 
-      &:checked:after {
-        color: var(--accent-color);
+      &:checked {
+        border-color: transparent;
+        // background: $controlColor;
+        background-color: rgba(
+          var(--g-alternateSelectedControlTextColor--rgb),
+          0.898
+        );
+
+        &:after {
+          color: var(--accent-color);
+        }
       }
     }
   }
 
   > div > div > div:last-child {
-    background-color: #fff;
+    background-color: transparent !important;
   }
 
   // fix: remove obsolete border

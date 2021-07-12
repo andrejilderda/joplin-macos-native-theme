@@ -5,36 +5,6 @@
 
 // - TODO: Aria label for underline is called 'Insert'. Is this a mistake?
 
-$icon-folder: '􀈕';
-$icon-tag: '􀋡';
-
-$icon-bold: '􀅓';
-$icon-italic: '􀅔';
-$icon-highlighter: '􀦇';
-$icon-strikethrough: '􀅖';
-$icon-textformat-abc-dottedunderline: '􀅰';
-$icon-alarm: '􀐭';
-$icon-square-split-2x1: '􀏠';
-$icon-info-circle: '􀅴';
-$icon-chevron-backward: '􀯶';
-$icon-chevron-forward: '􀯻';
-$icon-arrow-up-forward-app: '􀮵';
-$icon-arrow-up-right-square-fill: '􀄕';
-$icon-ellipsis: '􀍠';
-$icon-link: '􀉣';
-$icon-chevron-left-slash-chevron-right: '􀙚';
-$icon-curlybraces: '􀡅';
-$icon-paperclip: '􀉢';
-$icon-list-bullet: '􀋲';
-$icon-list-number: '􀋴';
-$icon-text-badge-checkmark: '􀋺';
-$icon-minus: '􀅽';
-$icon-text-quote: '􀋿';
-$icon-tablecells-badge-ellipsis: '􀏥';
-$icon-clock: '􀐫';
-$icon-calendar-badge-clock: '􀧞';
-$icon-doc-richtext: '􀉅';
-
 @mixin toolbarButton {
   display: flex;
   align-items: center;
@@ -49,23 +19,23 @@ $icon-doc-richtext: '􀉅';
 
   &:focus,
   &:hover {
-    background: $quaternaryLabelColor !important;
+    background: var(--g-quaternaryLabelColor) !important;
   }
 }
 
 @mixin toolbarButtonIcon {
   font-family: 'SF Pro';
-  font-size: 14px !important;
+  font-size: var(--g-font-size-1) !important;
   font-weight: normal !important;
   -webkit-font-smoothing: antialiased;
-  color: $secondaryLabelColor;
+  color: var(--g-secondaryLabelColor);
   vertical-align: bottom;
 }
 
 // divider between the toolbar and the editor
 @mixin editorDivider {
   content: '';
-  background-color: $separatorColor;
+  background-color: var(--g-separatorColor);
   height: 0.1rem;
   position: absolute;
   left: -1.4rem;
@@ -78,7 +48,7 @@ $icon-doc-richtext: '􀉅';
 
   &::before {
     content: '';
-    background-color: $separatorColor;
+    background-color: var(--g-separatorColor);
     height: 100%;
     width: 0.1rem;
     margin: 0 0.65rem;
@@ -86,6 +56,23 @@ $icon-doc-richtext: '􀉅';
 }
 
 .rli-editor {
+  // reset all inline + toolbar background colors
+  .tox .tox-toolbar,
+  .tox .tox-toolbar__overflow,
+  .tox .tox-toolbar__primary,
+  .tox-editor-header .tox-toolbar__primary,
+  .tox .tox-toolbar-overlord,
+  .tox.tox-tinymce-aux .tox-toolbar__overflow,
+  .tox .tox-statusbar,
+  .tox .tox-dialog__header,
+  .tox .tox-dialog,
+  .tox textarea,
+  .tox input,
+  .tox .tox-dialog__footer,
+  *[style*='background'] {
+    background-color: transparent !important;
+  }
+
   // remove bg color when no note is selected when search returns no results
   > div > div {
     background-color: transparent !important;
@@ -103,7 +90,7 @@ $icon-doc-richtext: '􀉅';
 
       // date/timestamp
       .updated-time-label {
-        color: $secondaryLabelColor !important;
+        color: var(--g-secondaryLabelColor) !important;
         font-family: var(--g-font-family-system) !important;
         font-size: 1.1rem;
         margin-top: 0.3rem;
@@ -114,7 +101,7 @@ $icon-doc-richtext: '􀉅';
         // extra icons next to title
         div:nth-child(2) {
           a {
-            color: $secondaryLabelColor;
+            color: var(--g-secondaryLabelColor);
             margin: 0 0.2rem;
             font-family: var(--g-font-family-system);
             line-height: 1;
@@ -125,7 +112,7 @@ $icon-doc-richtext: '􀉅';
             }
 
             &:hover {
-              background: $quaternaryLabelColor;
+              background: var(--g-quaternaryLabelColor);
             }
           }
 
@@ -137,7 +124,7 @@ $icon-doc-richtext: '􀉅';
 
             i {
               display: block;
-              color: $secondaryLabelColor;
+              color: var(--g-secondaryLabelColor);
               margin: 0.2rem 0.2rem 0;
               font-family: var(--g-font-family-system);
               line-height: 1;
@@ -145,7 +132,7 @@ $icon-doc-richtext: '􀉅';
               font-weight: 400;
 
               &::before {
-                content: $icon-textformat-abc-dottedunderline;
+                content: var(--g-icon-textformat-abc-dottedunderline);
                 text-transform: uppercase;
               }
               &[title]:not([title=''])::before {
@@ -161,7 +148,7 @@ $icon-doc-richtext: '􀉅';
           }
           // set alarm
           a:nth-child(2):before {
-            content: $icon-alarm;
+            content: var(--g-icon-alarm);
           }
           // toggle editor layout
           a:nth-child(3) {
@@ -170,15 +157,20 @@ $icon-doc-richtext: '􀉅';
             }
 
             &:before {
-              content: $icon-square-split-2x1;
+              content: var(--g-icon-square-split-2x1);
             }
           }
           // note properties
           a:nth-child(4):before {
-            content: $icon-info-circle;
+            content: var(--g-icon-info-circle);
           }
         }
       }
+    }
+
+    // [...] -dropdown
+    .tox-tbtn--enabled {
+      background-color: var(--g-quaternaryLabelColor);
     }
 
     // markdown toggle
@@ -191,7 +183,7 @@ $icon-doc-richtext: '􀉅';
 
       &::after {
         @include toolbarButtonIcon();
-        color: $secondaryLabelColor;
+        color: var(--g-secondaryLabelColor);
         width: 2.6rem;
       }
 
@@ -215,18 +207,20 @@ $icon-doc-richtext: '􀉅';
       button {
         align-items: baseline;
         background: transparent;
+        color: red !important;
         font-size: 1.3rem;
         margin-bottom: 0.4rem;
         margin-left: 1.6rem;
+        min-width: 0 !important;
         padding: 0;
 
         span {
-          color: $textColor;
+          color: var(--g-textColor);
         }
 
         .icon-notebooks::before {
-          content: $icon-folder;
-          color: $systemBlue;
+          content: var(--g-icon-folder);
+          color: var(--g-systemBlue);
           font-family: var(--g-font-family-system);
           font-size: 1.3rem;
           font-weight: 400;
@@ -263,18 +257,17 @@ $icon-doc-richtext: '􀉅';
           font-size: 1.4rem;
 
           &:before {
-            // background-color: blue;
             @include toolbarButtonIcon();
           }
         }
 
         // icon: back
         &:nth-of-type(1) span:before {
-          content: $icon-chevron-backward;
+          content: var(--g-icon-chevron-backward);
         }
         // icon: forward
         &:nth-of-type(2) span:before {
-          content: $icon-chevron-forward;
+          content: var(--g-icon-chevron-forward);
         }
         // icon: external editor
         &:nth-of-type(3):nth-of-type(3) {
@@ -285,13 +278,13 @@ $icon-doc-richtext: '􀉅';
             margin-right: 0 !important;
 
             &[title]:not([title=''])::before {
-              color: $systemBlue !important;
+              color: var(--g-systemBlue) !important;
 
-              content: $icon-arrow-up-right-square-fill;
+              content: var(--g-icon-arrow-up-right-square-fill);
             }
 
             &::before {
-              content: $icon-arrow-up-forward-app;
+              content: var(--g-icon-arrow-up-forward-app);
             }
           }
         }
@@ -323,23 +316,23 @@ $icon-doc-richtext: '􀉅';
   // bold, italic, etc.
   .tox-toolbar__group:nth-child(1) {
     button:nth-child(1):before {
-      content: $icon-bold;
+      content: var(--g-icon-bold);
     }
     button:nth-child(2):before {
-      content: $icon-italic;
+      content: var(--g-icon-italic);
     }
     button:nth-child(3):before {
-      content: $icon-highlighter;
+      content: var(--g-icon-highlighter);
     }
     button:nth-child(4):before {
-      content: $icon-strikethrough;
+      content: var(--g-icon-strikethrough);
     }
     button:nth-child(5) {
       width: 2.6rem !important;
       min-width: 0;
 
       &:before {
-        content: $icon-ellipsis;
+        content: var(--g-icon-ellipsis);
       }
     }
   }
@@ -347,29 +340,29 @@ $icon-doc-richtext: '􀉅';
   // link, inline code, code block, attachment
   .tox-toolbar__group:nth-child(2) {
     button:nth-child(1):before {
-      content: $icon-link;
+      content: var(--g-icon-link);
     }
     button:nth-child(2):before {
-      content: $icon-chevron-left-slash-chevron-right;
+      content: var(--g-icon-chevron-left-slash-chevron-right);
     }
     button:nth-child(3):before {
-      content: $icon-curlybraces;
+      content: var(--g-icon-curlybraces);
     }
     button:nth-child(4):before {
-      content: $icon-paperclip;
+      content: var(--g-icon-paperclip);
     }
   }
 
   // lists
   .tox-toolbar__group:nth-child(3) {
     button:nth-child(1):before {
-      content: $icon-list-bullet;
+      content: var(--g-icon-list-bullet);
     }
     button:nth-child(2):before {
-      content: $icon-list-number;
+      content: var(--g-icon-list-number);
     }
     button:nth-child(3):before {
-      content: $icon-text-badge-checkmark;
+      content: var(--g-icon-text-badge-checkmark);
     }
   }
 
@@ -402,16 +395,16 @@ $icon-doc-richtext: '􀉅';
       content: 'H3';
     }
     button:nth-child(4):before {
-      content: $icon-minus;
+      content: var(--g-icon-minus);
     }
     button:nth-child(5):before {
-      content: $icon-text-quote;
+      content: var(--g-icon-text-quote);
     }
     button:nth-child(6):before {
-      content: $icon-tablecells-badge-ellipsis;
+      content: var(--g-icon-tablecells-badge-ellipsis);
     }
     button:nth-child(7):before {
-      content: $icon-clock;
+      content: var(--g-icon-clock);
     }
   }
 
@@ -454,38 +447,38 @@ $icon-doc-richtext: '􀉅';
         }
 
         .icon-bold::before {
-          content: $icon-bold;
+          content: var(--g-icon-bold);
         }
         .icon-italic::before {
-          content: $icon-italic;
+          content: var(--g-icon-italic);
         }
         .icon-link::before {
-          content: $icon-link;
+          content: var(--g-icon-link);
         }
         .icon-code::before {
-          content: $icon-chevron-left-slash-chevron-right;
+          content: var(--g-icon-chevron-left-slash-chevron-right);
         }
         .icon-attachment::before {
-          content: $icon-paperclip;
+          content: var(--g-icon-paperclip);
         }
         .icon-bulleted-list::before {
-          content: $icon-list-bullet;
+          content: var(--g-icon-list-bullet);
         }
         .icon-numbered-list::before {
-          content: $icon-list-number;
+          content: var(--g-icon-list-number);
         }
         .icon-to-do-list::before {
-          content: $icon-text-badge-checkmark;
+          content: var(--g-icon-text-badge-checkmark);
         }
         .icon-heading::before {
           content: 'H2';
           font-family: var(--g-font-family-system-rounded);
         }
         .fa-ellipsis-h::before {
-          content: $icon-minus;
+          content: var(--g-icon-minus);
         }
         .icon-add-date::before {
-          content: $icon-calendar-badge-clock;
+          content: var(--g-icon-calendar-badge-clock);
         }
       }
     }
@@ -493,16 +486,18 @@ $icon-doc-richtext: '􀉅';
 }
 
 @mixin dropdownBackground {
-  background: $windowBackgroundColor !important;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+  background: var(--g-windowBackgroundColor) !important;
+  box-shadow: 0 0 1px rgba(var(--g-shadowColor--rgb), 0.4),
+    0 2px 8px rgba(var(--g-shadowColor--rgb), 0.2) !important;
   max-width: none !important;
   padding: 0.5rem !important;
+  border-color: transparent !important;
 }
 
 @mixin dropdownItemDefault {
   background-color: transparent !important;
   border-radius: 0.4rem;
-  color: $controlTextColor !important;
+  color: var(--g-controlTextColor) !important;
   line-height: 1;
   min-height: 2.2rem;
   height: 2.2rem;
@@ -514,7 +509,7 @@ $icon-doc-richtext: '􀉅';
   }
 
   svg {
-    fill: $controlTextColor !important;
+    fill: var(--g-controlTextColor) !important;
   }
 }
 
@@ -523,7 +518,7 @@ $icon-doc-richtext: '􀉅';
 
   &:focus,
   &:hover {
-    background: $systemBlue !important;
+    background: var(--g-systemBlue) !important;
     color: #fff !important;
 
     svg {
@@ -588,7 +583,7 @@ $icon-doc-richtext: '􀉅';
           display: block;
           height: 0.1rem;
           margin: 0.5rem 0.8rem !important;
-          background-color: $separatorColor;
+          background-color: var(--g-separatorColor);
         }
       }
     }
@@ -631,7 +626,7 @@ $icon-doc-richtext: '􀉅';
 
   // label
   div > span {
-    color: $secondaryLabelColor !important;
+    color: var(--g-secondaryLabelColor) !important;
 
     // increase click area, so that clicking on the tags also open the modal
     &::after {
@@ -649,15 +644,15 @@ $icon-doc-richtext: '􀉅';
 
     &::before {
       font-family: 'SF Pro';
-      content: $icon-tag !important;
+      content: var(--g-icon-tag) !important;
     }
   }
 
   .tag-list {
     span {
-      background-color: $gridColor !important;
+      background-color: var(--g-gridColor) !important;
       border-radius: 0.2rem !important;
-      color: $textColor !important;
+      color: var(--g-textColor) !important;
       font-size: 1.1rem !important;
       line-height: 1.4rem !important;
       margin-right: 0.4rem !important;
