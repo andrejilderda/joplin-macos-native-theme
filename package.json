@@ -11,14 +11,14 @@
   "author": "Andre Jilderda",
   "license": "MIT",
   "scripts": {
-    "start": "node-sass --include-path scss scss/main.scss   dist/main.css -watch",
-    "serve": "(http-server dist -c-1 -o main.css) && npm run start",
-    "build": "node-sass --include-path scss scss/main.scss   dist/main.css",
+    "start": "sass --load-path scss scss/main.scss   dist/main.css --watch",
+    "serve": "http-server dist -c-1 -o main.css",
+    "build": "sass --load-path scss scss/main.scss   dist/main.css",
     "clean": "rm -rf dist"
   },
   "dependencies": {},
   "devDependencies": {
     "http-server": "^0.12.3",
-    "node-sass": "^5.0.0"
+    "sass": "^1.35.2"
   }
 }
