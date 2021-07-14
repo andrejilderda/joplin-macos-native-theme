@@ -38,6 +38,7 @@
   height: 2rem;
   padding-left: 1rem;
 
+  &:focus-within,
   &:focus {
     transition: 0.25s box-shadow cubic-bezier(0.61, 1, 0.88, 1);
     transition-delay: 0.125s;
@@ -91,6 +92,7 @@
 
     // ok
     &:nth-child(1) {
+      @include buttonBase();
       @include buttonPrimary();
     }
     // cancel
@@ -277,7 +279,7 @@ div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][sty
           content: var(--g-icon-doc-on-clipboard);
         }
         &.fa-save::before {
-          content: var(--g-square-and-arrow-down);
+          content: var(--g-icon-square-and-arrow-down);
         }
       }
     }
@@ -297,5 +299,231 @@ div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][sty
         content: ':';
       }
     }
+  }
+}
+
+// tag-selector modal
+.tag-selector {
+  [class*='control'] {
+    @include input();
+    top: 0.6rem;
+
+    height: 1.8rem !important;
+    min-height: 0;
+    padding: 0 0 0 0.4rem;
+
+    > div {
+      padding: 0;
+      height: 1.8rem;
+    }
+  }
+  input[type='text'],
+  input[type='text']:focus {
+    box-shadow: none !important;
+    font-size: var(--g-font-size--1) !important;
+  }
+
+  [class*='indicatorSeparator'] {
+    display: none;
+  }
+
+  [class*='indicatorContainer'] {
+    padding: 0 0.2rem;
+
+    &:after {
+      @include buttonBase();
+      @include buttonPrimary();
+      content: var(--g-icon-chevron-up-chevron-down);
+      font-size: var(--g-font-size--1) !important;
+      min-width: 0 !important;
+      height: 1.6rem !important;
+      padding: 0 !important;
+      min-width: 0;
+      text-align: center;
+      line-height: 1.8rem !important;
+      width: 1.6rem !important;
+    }
+
+    * {
+      display: none;
+    }
+  }
+
+  > div > div:first-child {
+    // space between tags
+    > div + div {
+      margin-left: 0rem;
+    }
+
+    input {
+      background: transparent !important;
+      line-height: 1.2rem;
+    }
+  }
+
+  // selected tag
+  [class*='multiValue'] {
+    background-color: var(--g-gridColor) !important;
+    border-radius: 0.2rem !important;
+    margin: 0 0.4rem 0 0 !important;
+    padding: 0 0.4rem !important;
+
+    * {
+      color: var(--g-textColor) !important;
+      font-size: 1.1rem !important;
+      font-family: var(--g-font-family-system);
+      line-height: 1.2rem !important;
+      height: 1.2rem !important;
+      padding: 0;
+    }
+
+    > div:first-child {
+      flex: 1 0 auto;
+    }
+
+    > div:last-child {
+      flex: 1 0 auto;
+      margin: 0 0 0 0.4rem !important;
+      line-height: 22px;
+      background-color: transparent !important;
+
+      &::after {
+        content: var(--g-icon-xmark);
+        color: var(--g-controlTextColor);
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      &:hover {
+        background-color: transparent;
+      }
+
+      svg {
+        display: none;
+      }
+    }
+  }
+
+  // dropdown
+  // unfortunately there's no way to determine which menu item has keyboard
+  // focus, which is why this is not styled
+  //
+  // [class*='menu'] {
+  // @include dropdownBackground();
+
+  // [class*='option'] {
+  // @include dropdownItem();
+  // background: unset !important;
+  //   }
+  // }
+}
+
+// todo datepicker
+.rdtPicker {
+  @include dropdownBackground();
+  border-radius: 0.4rem;
+  color: var(--g-text-color);
+  min-width: 0;
+  padding: 0.6rem 0.2rem 0 0.2rem !important;
+  min-width: 16rem;
+
+  *,
+  *:hover {
+    background-color: transparent !important;
+    cursor: default !important;
+    user-select: none;
+  }
+
+  thead {
+    .rdtSwitch {
+      order: -1;
+      flex: 1;
+      text-align: left;
+      width: auto;
+    }
+
+    .rdtPrev,
+    .rdtNext {
+      flex: 0 0 auto;
+      margin: 0 0.2rem;
+    }
+
+    tr th {
+      border-bottom: transparent;
+    }
+
+    tr:first-child th {
+      margin-left: 0.4rem;
+      font-size: 1.2rem;
+      color: var(--g-text-color);
+    }
+
+    tr:last-child {
+      border-bottom: 0.1rem solid var(--g-separatorColor);
+      margin-bottom: 0.4rem;
+      padding: 0 0 0.4rem;
+
+      th {
+        border-bottom: transparent;
+        color: var(--g-secondaryLabelColor);
+        font-size: 1rem;
+        height: auto;
+      }
+    }
+  }
+
+  tfoot {
+    border-top-color: var(--g-separatorColor);
+
+    .rdtTimeToggle {
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  tr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    th,
+    td {
+      padding: 0;
+      flex: 1;
+    }
+  }
+
+  td[data-value] {
+    padding: 0 0.5rem !important;
+    font-size: 1rem !important;
+    height: 1.6rem;
+    min-height: 0;
+    min-width: 2.5rem;
+
+    &.rdtToday {
+      color: var(--g-systemRed) !important;
+
+      &:before {
+        border-color: transparent;
+      }
+    }
+
+    &.rdtActive {
+      color: var(--g-textColor);
+      background-color: var(--g-quaternaryLabelColor) !important;
+      border-radius: 0.2rem;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      text-shadow: none;
+      top: 0;
+      z-index: -1;
+    }
+  }
+
+  * {
+    border-color: transparent;
   }
 }
