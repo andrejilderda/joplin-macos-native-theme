@@ -58,6 +58,7 @@
     // all notes
     .all-notes {
       background: none;
+      color: var(--g-labelColor);
 
       a {
         color: inherit;
@@ -96,6 +97,7 @@
 
       .title,
       .tag-label {
+        color: var(--g-labelColor);
         font-size: 1.3rem;
         // truncate text with ellipsis
         overflow: hidden;

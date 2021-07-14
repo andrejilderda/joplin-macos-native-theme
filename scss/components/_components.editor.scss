@@ -57,6 +57,7 @@
 
 .rli-editor {
   // reset all inline + toolbar background colors
+  .tox .tox-edit-area__iframe,
   .tox .tox-toolbar,
   .tox .tox-toolbar__overflow,
   .tox .tox-toolbar__primary,
@@ -82,6 +83,7 @@
     &:first-child {
       // note title
       .title-input {
+        color: var(--g-headerTextColor) !important;
         margin: 0.5rem 1rem 0;
         padding-top: 1.4rem !important;
         font-weight: 700 !important;

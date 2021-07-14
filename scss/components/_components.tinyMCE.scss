@@ -1,13 +1,16 @@
+body {
+  background: var(--g-primary-Background);
+}
 #rendered-md {
   font-size: 1.4rem;
   line-height: 1.6;
   padding: 2.8rem;
   max-width: 75ch;
-  color: #454545;
+  color: var(--g-textColor);
   -webkit-font-smoothing: antialiased;
 
   a {
-    color: var(--accent-color);
+    color: var(--g-linkColor);
   }
 
   > * {
@@ -19,13 +22,18 @@
   h3,
   h4,
   h5 {
+    color: var(--g-headerTextColor);
     margin-bottom: 0 !important;
     padding: 0;
+    line-height: 1.25;
+    margin-bottom: 0.4rem !important;
   }
 
   h1 {
-    font-size: 3.6rem;
+    font-size: 2.4rem;
     border-bottom: none;
+    margin-bottom: 0;
+    line-height: 1;
   }
 
   img {
@@ -61,6 +69,58 @@
     td {
       font-family: var(--g-global-font-family-system);
       border-color: $gridColor;
+    }
+  }
+
+  // code
+  pre {
+    background-color: var(--g-alternatingContentBackgroundColorsOdd);
+    color: var(--g-textColor);
+    border-radius: 0.4rem;
+
+    @media (prefers-color-scheme: dark) {
+      background-color: rgba(var(--g-shadowColor--rgb), 0.2);
+    }
+
+    * {
+      font-family: var(--g-font-family-mono) !important;
+    }
+  }
+
+  ul.joplin-checklist {
+    margin-left: 2.2rem;
+    li {
+      position: relative;
+
+      &:before {
+        content: '';
+        border-radius: 50%;
+        border: 0.1rem solid var(--g-tertiaryLabelColor);
+        display: flex;
+        height: 1.4rem;
+        justify-content: center;
+        margin-left: -2.4rem;
+        width: 1.4rem;
+        left: 0;
+        top: 0.3rem;
+      }
+
+      &.checked {
+        opacity: 1;
+
+        &:before {
+          background-color: var(--g-controlAccentColor);
+          border-color: transparent;
+          color: var(--g-alternateSelectedControlTextColor);
+          content: '􀆅';
+          font-family: var(--g-font-family-system);
+          font-size: 1rem;
+          line-height: 1.5rem;
+          position: absolute;
+        }
+      }
+      &::before {
+      }
     }
   }
 }

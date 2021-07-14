@@ -3,6 +3,11 @@ html {
   font-size: 62.5%;
 }
 
+html,
+body {
+  background: var(--g-primary-Background) !important;
+}
+
 body {
   font-family: var(--g-font-family-system);
   /* default font-size set back to 16px */
@@ -23,7 +28,7 @@ body {
 
 // reset default background color
 #react-root > div > div {
-  background: var(--g-primary-Background) !important;
+  background: transparent !important;
 }
 
 *[style*='Roboto'] {
