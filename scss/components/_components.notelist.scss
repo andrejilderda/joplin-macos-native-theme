@@ -141,6 +141,16 @@
   // note list + items
   .note-list {
     padding: 0 1rem 1rem;
+
+    // cover up last border in notelist (workaround, since we can't target the last-child due to an extra (empty) element
+    > div:last-child:empty {
+      height: 0.1rem !important;
+      background: var(--notelist--Background);
+      position: absolute;
+      margin-top: -0.1rem;
+      left: 0;
+      right: 0;
+    }
   }
 
   .todo-list-item,
