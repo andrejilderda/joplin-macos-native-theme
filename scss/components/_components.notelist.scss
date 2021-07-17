@@ -190,11 +190,24 @@
       }
     }
 
+    mark {
+      background: var(--g-systemYellow);
+      color: var(--g-shadowColor) !important;
+      border-radius: 0.2rem;
+    }
+
     &.selected {
       background: var(--g-selectedContentBackgroundColor) !important;
 
-      a {
+      a,
+      span {
         color: var(--g-alternateSelectedControlTextColor) !important;
+      }
+
+      // search highlight
+      mark {
+        background: var(--g-systemYellow);
+        color: var(--g-shadowColor) !important;
       }
 
       &:before {
