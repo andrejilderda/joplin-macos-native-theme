@@ -610,6 +610,23 @@
     }
   }
 }
+.tox-insert-table-picker {
+  color: var(--g-textColor) !important;
+
+  > div {
+    background: var(--g-windowBackgroundColor) !important;
+    border-color: var(--g-separatorColor) !important;
+
+    &.tox-insert-table-picker__selected {
+      background-color: var(--g-systemBlue) !important;
+    }
+  }
+
+  .tox-insert-table-picker__label {
+    background: var(--g-windowBackgroundColor) !important;
+    color: inherit !important;
+  }
+}
 
 // bottom tag bar
 .rli-editor > div > div > div > div:last-child {
