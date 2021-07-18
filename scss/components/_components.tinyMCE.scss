@@ -36,11 +36,16 @@ body {
     line-height: 1;
   }
 
+  strong {
+    color: var(--g-textColor);
+  }
+
   img {
     margin-top: 1.4rem;
   }
 
-  ul {
+  ul,
+  ol {
     margin-left: 1.8rem;
     margin-bottom: var(--editor-paragraph-spacing);
     li {
@@ -119,8 +124,12 @@ body {
           position: absolute;
         }
       }
-      &::before {
-      }
+    }
+  }
+
+  [data-mce-selected='inline-boundary'] {
+    &.inline-code {
+      background-color: rgb(243, 243, 243);
     }
   }
 }
