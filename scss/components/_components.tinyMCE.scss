@@ -47,14 +47,14 @@ body {
   ul,
   ol {
     margin-left: 1.8rem;
-    margin-bottom: var(--editor-paragraph-spacing);
+    margin-bottom: var(--u-editor-paragraph-spacing, 1.5rem);
     li {
       margin-bottom: 0.35rem;
     }
   }
 
   p {
-    margin-bottom: var(--editor-paragraph-spacing);
+    margin-bottom: var(--u-editor-paragraph-spacing, 1.5rem);
   }
 
   table {
@@ -114,7 +114,7 @@ body {
         opacity: 1;
 
         &:before {
-          background-color: var(--g-controlAccentColor);
+          background-color: var(--s-controlAccentColor);
           border-color: transparent;
           color: var(--g-alternateSelectedControlTextColor);
           content: '􀆅';

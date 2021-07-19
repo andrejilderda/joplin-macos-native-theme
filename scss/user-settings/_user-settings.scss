@@ -1,6 +1,47 @@
 :root {
-  --note-count-label: none;
-  // --zebra-stripe: initial; // use '' (literally) for separators
-  --zebra-stripe: ''; // use '' (literally) for separators
-  --editor-paragraph-spacing: 1.5rem;
+  // --u-base-font-size: 120%;
+
+  // --u-accentColor--h: 349;
+  // --u-accentColor--s: 100%;
+  // --u-accentColor--l: 59%;
+
+  // --u-note-count-label: none;
+  // --u-note-count-label-color: red;
+
+  // uncomment to remove note-list-dividers
+  // --u-note-list-dividers: none;
+
+  // uncomment to use zebra stripes (or change color)
+  --u-note-list-zebra-color-odd: transparent;
+  --u-note-list-zebra-color-even: transparent;
+
+  // paragraph spacing in editor - default 1.5rem
+  // --u-editor-paragraph-spacing: 0;
+}
+
+// --s = user setting with default fallback
+:root {
+  // main accent color
+  --s-accentColor--h: var(--u-accentColor--h, var(--g-systemBlue--h));
+  --s-accentColor--s: var(--u-accentColor--s, var(--g-systemBlue--s));
+  --s-accentColor--l: var(--u-accentColor--l, var(--g-systemBlue--l));
+
+  --s-accentColor--hs: var(--s-accentColor--h), var(--s-accentColor--s);
+  --s-accentColor--hsl: var(--s-accentColor--hs), var(--s-accentColor--l);
+  --s-accentColor: hsl(var(--s-accentColor--hsl));
+
+  // selected accent color
+  --s-selectedContentBackgroundColor--h: var(--u-accentColor--h, var(--g-selectedContentBackgroundColor--h));
+  --s-selectedContentBackgroundColor--s: var(--u-accentColor--s, var(--g-selectedContentBackgroundColor--s));
+  --s-selectedContentBackgroundColor--l: var(--u-accentColor--l, var(--g-selectedContentBackgroundColor--l));
+  --s-selectedContentBackgroundColor: hsl(var(--s-selectedContentBackgroundColor--h), var(--s-selectedContentBackgroundColor--s), var(--s-selectedContentBackgroundColor--l));
+  --s-accentColor--selected: var(--s-selectedContentBackgroundColor);
+
+  // control accent color
+  --s-controlAccentColor--h: var(--u-accentColor--h, var(--g-controlAccentColor--h));
+  --s-controlAccentColor--s: var(--u-accentColor--s, var(--g-controlAccentColor--s));
+  --s-controlAccentColor--l: var(--u-accentColor--l, var(--g-controlAccentColor--l));
+  --s-controlAccentColor--hsl: var(--s-controlAccentColor--h), var(--s-controlAccentColor--s), var(--s-controlAccentColor--l);
+  --s-controlAccentColor: hsl(var(--s-controlAccentColor--hsl));
+  --s-controlAccentColor--selected: var(--s-controlAccentColor);
 }

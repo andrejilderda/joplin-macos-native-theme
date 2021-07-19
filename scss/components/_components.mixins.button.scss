@@ -19,8 +19,16 @@
   &:active {
     color: rgba(255, 255, 255, 0.75) !important;
     background-image: linear-gradient(
-      hsl(var(--g-systemBlue--hs), calc(var(--g-systemBlue--l) - 5%)),
-      hsl(var(--g-systemBlue--hs), calc(var(--g-systemBlue--l) - 10%))
+      hsl(
+        var(--s-accentColor--h),
+        var(--s-accentColor--s),
+        calc(var(--s-accentColor--l) - 5%)
+      ),
+      hsl(
+        var(--s-accentColor--h),
+        var(--s-accentColor--s),
+        calc(var(--s-accentColor--l) - 10%)
+      )
     );
   }
 }
@@ -29,10 +37,9 @@
   color: $alternateSelectedControlTextColor !important;
   background-color: $systemBlue;
   background-image: linear-gradient(
-    $systemBlue,
-    hsl(var(--g-systemBlue--hs), calc(var(--g-systemBlue--l) - 5%))
+    hsl(var(--s-accentColor--hsl)),
+    hsl(var(--s-accentColor--hs), calc(var(--s-accentColor--l) - 5%))
   );
-  // saturate(darken($systemBlue, 5%), 100%)
-  box-shadow: 0px 0px 1px rgba($systemBlue, 0.3),
-    0px 1px 1.5px rgba($systemBlue, 0.15);
+  box-shadow: 0px 0px 1px hsla(var(--s-accentColor--hsl), 0.3),
+    0px 1px 1.5px hsla(var(--s-accentColor--hsl), 0.15);
 }

@@ -222,7 +222,7 @@
 
         .icon-notebooks::before {
           content: var(--g-icon-folder);
-          color: var(--g-systemBlue);
+          color: var(--s-accentColor);
           font-family: var(--g-font-family-system);
           font-size: 1.3rem;
           font-weight: 400;
@@ -280,7 +280,7 @@
             margin-right: 0 !important;
 
             &[title]:not([title=''])::before {
-              color: var(--g-systemBlue) !important;
+              color: var(--s-accentColor) !important;
 
               content: var(--g-icon-arrow-up-right-square-fill);
             }
@@ -520,7 +520,7 @@
 
   &:focus,
   &:hover {
-    background: var(--g-systemBlue) !important;
+    background: var(--s-accentColor) !important;
     color: #fff !important;
 
     svg {
@@ -618,7 +618,7 @@
     border-color: var(--g-separatorColor) !important;
 
     &.tox-insert-table-picker__selected {
-      background-color: var(--g-systemBlue) !important;
+      background-color: var(--s-accentColor) !important;
     }
   }
 

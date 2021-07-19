@@ -1,6 +1,7 @@
 :root {
   --g-systemBlue: rgba(0, 122, 255, 1);
-  --g-systemBlue--hs: 211, 100%;
+  --g-systemBlue--h: 211;
+  --g-systemBlue--s: 100%;
   --g-systemBlue--l: 50%;
   --g-systemBrown: rgba(162, 132, 94, 1);
   --g-systemGray: rgba(142, 142, 147, 1);
@@ -37,6 +38,9 @@
   --g-linkColor: rgba(0, 104, 218, 1);
   --g-separatorColor: rgba(0, 0, 0, 0.098);
   --g-selectedContentBackgroundColor: rgba(0, 99, 225, 1);
+  --g-selectedContentBackgroundColor--h: 214;
+  --g-selectedContentBackgroundColor--s: 100%;
+  --g-selectedContentBackgroundColor--l: 44%;
   --g-unemphasizedSelectedContentBackgroundColor: rgba(220, 220, 220, 1);
 
   /* Menus */
@@ -47,18 +51,24 @@
   --g-headerTextColor: rgba(0, 0, 0, 0.847);
 
   /* Controls */
-  --g-controlAccentColor: rgba(0, 122, 255, 1);
-  --g-controlAccentColor--rgb: 0, 122, 255;
-  --g-controlColor: rgba(255, 255, 255, 1);
+  --g-controlAccentColor--h: 211;
+  --g-controlAccentColor--s: 100%;
+  --g-controlAccentColor--l: 50%;
+  --g-controlAccentColor--hsl: var(--g-controlAccentColor--h), var(--g-controlAccentColor--s), var(--g-controlAccentColor--l);
+  --g-controlAccentColor: hsla(var(--g-controlAccentColor--hsl), 1);
   --g-controlColor--rgb: 255, 255, 255;
+  --g-controlColor: rgba(var(--g-controlColor--rgb), 1);
   --g-controlBackgroundColor: rgba(255, 255, 255, 1);
   --g-controlTextColor: rgba(0, 0, 0, 0.847);
   --g-disabledControlTextColor: rgba(0, 0, 0, 0.247);
   --g-scrubberTexturedBackground: rgba(255, 255, 255, 1);
   --g-selectedControlColor: rgba(179, 215, 255, 1);
   --g-selectedControlTextColor: rgba(0, 0, 0, 0.847);
-  --g-alternateSelectedControlTextColor: rgba(255, 255, 255, 1);
   --g-alternateSelectedControlTextColor--rgb: 255, 255, 255;
+  --g-alternateSelectedControlTextColor: rgba(
+    var(--g-alternateSelectedControlTextColor--rgb),
+    1
+  );
 
   /* Windows */
   --g-windowBackgroundColor: rgba(236, 236, 236, 1);
@@ -75,7 +85,8 @@
 
   @media (prefers-color-scheme: dark) {
     --g-systemBlue: rgba(10, 132, 255, 1);
-    --g-systemBlue--hs: 210, 100%;
+    --g-systemBlue--h: 210;
+    --g-systemBlue--s: 100%;
     --g-systemBlue--l: 52%;
     --g-systemBrown: rgba(172, 142, 104, 1);
     --g-systemGray: rgba(152, 152, 157, 1);
@@ -112,6 +123,9 @@
     --g-linkColor: rgba(65, 156, 255, 1);
     --g-separatorColor: rgba(255, 255, 255, 0.098);
     --g-selectedContentBackgroundColor: rgba(0, 88, 208, 1);
+    --g-selectedContentBackgroundColor--h: 215;
+    --g-selectedContentBackgroundColor--s: 100%;
+    --g-selectedContentBackgroundColor--l: 41%;
     --g-unemphasizedSelectedContentBackgroundColor: rgba(70, 70, 70, 1);
 
     /* Menus */
@@ -122,8 +136,11 @@
     --g-headerTextColor: rgba(255, 255, 255, 1);
 
     /* Controls */
-    --g-controlAccentColor: rgba(0, 122, 255, 1);
-    --g-controlAccentColor--rgb: 0, 122, 255;
+    --g-controlAccentColor--h: 211;
+    --g-controlAccentColor--s: 100%;
+    --g-controlAccentColor--l: 50%;
+    --g-controlAccentColor--hsl: var(--g-controlAccentColor--h), var(--g-controlAccentColor--s), var(--g-controlAccentColor--l);
+    --g-controlAccentColor: hsla(var(--g-controlAccentColor--hsl), 1);
     --g-controlColor: rgba(255, 255, 255, 0.247);
     --g-controlColor--rgb: 255, 255, 255, 0;
     --g-controlBackgroundColor: rgba(30, 30, 30, 1);

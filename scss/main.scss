@@ -16,10 +16,6 @@
 @import 'components/_components.tinyMCE';
 
 :root {
-  --accent-color: #{$systemBlue};
-  --note-list-item-odd: #{$alternatingContentBackgroundColorsOdd};
-  --note-list-item-even: #{$alternatingContentBackgroundColorsEven};
-
   --sidebar__BackgroundColor: #{$windowBackgroundColor};
   --sidebar__label-FontSize: var(--g-font-size--1);
   --sidebar__label-Color: var(--g-tertiaryLabelColor);
@@ -29,8 +25,6 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --g-primary-Background: #{$textBackgroundColor--dark};
-    --g-primary-Color: #{$textColor--dark};
-    --accent-color: #{$systemBlue--dark};
     --sidebar-color: #{$underPageBackgroundColor--dark};
     --sidebar__BackgroundColor: #{$windowBackgroundColor--dark};
 

@@ -34,7 +34,7 @@
   background-color: var(--g-controlBackgroundColor) !important;
   border-radius: 0.5rem;
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 0px 1px rgba(0, 0, 0, 0.15),
-    0 0 0 16px rgba(var(--g-controlAccentColor--rgb), 0) !important;
+    0 0 0 16px hsla(var(--s-controlAccentColor--hsl), 0) !important;
   height: 2rem;
   padding-left: 1rem;
 
@@ -43,7 +43,7 @@
     transition: 0.25s box-shadow cubic-bezier(0.61, 1, 0.88, 1);
     transition-delay: 0.125s;
     box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 0px 1px rgba(0, 0, 0, 0.15),
-      0 0 0 0.35rem rgba(var(--g-controlAccentColor--rgb), 0.5) !important;
+      0 0 0 0.35rem hsla(var(--s-controlAccentColor--hsl), 0.5) !important;
   }
 }
 
@@ -180,7 +180,7 @@
       }
 
       &.selected {
-        background: var(--g-systemBlue) !important;
+        background: var(--s-accentColor) !important;
         border-radius: 0.5rem;
 
         > div {
@@ -203,7 +203,7 @@
       }
 
       i.fa:before {
-        color: var(--g-systemBlue);
+        color: var(--s-accentColor);
         font-family: var(--g-font-family-system) !important;
         font-weight: 400;
         -webkit-font-smoothing: antialiased;
@@ -260,12 +260,12 @@ div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][sty
 
     a:not(:empty) {
       background-color: transparent !important;
-      color: var(--g-controlAccentColor);
+      color: var(--s-controlAccentColor);
       text-decoration: none !important;
       margin-left: 0 !important;
 
       .fas {
-        color: var(--g-controlAccentColor) !important;
+        color: var(--s-controlAccentColor) !important;
 
         &::before {
           font-family: var(--g-font-family-system) !important;

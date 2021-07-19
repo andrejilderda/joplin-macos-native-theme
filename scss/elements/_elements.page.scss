@@ -1,6 +1,6 @@
 /* 1rem = 10px */
 html {
-  font-size: 62.5%;
+  font-size: calc(62.5 * (var(--u-base-font-size, 100%) / 100));
 }
 
 html,

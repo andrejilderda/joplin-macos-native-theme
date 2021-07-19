@@ -61,6 +61,7 @@
       color: var(--g-labelColor);
 
       a {
+        font-size: 1.3rem !important;
         color: inherit;
       }
     }
@@ -102,14 +103,14 @@
         // truncate text with ellipsis
         overflow: hidden;
         text-overflow: ellipsis;
-        // flex: 1;
+        flex: 1;
       }
 
       .note-count-label {
-        display: var(--note-count-label, block);
+        display: var(--u-note-count-label, block);
         padding-left: 5px;
         padding-right: 8px;
-        color: var(--note-count-label-color, --g-windowFrameTextColor);
+        color: var(--u-note-count-label-color, var(--g-secondaryLabelColor));
         opacity: 0.5;
         font-size: 1.1rem;
         line-height: 1;
@@ -119,7 +120,7 @@
 
     .folders .list-item::before,
     .tags .list-item::before {
-      color: var(--accent-color);
+      color: var(--s-accentColor);
       margin-right: 0.7rem;
       font-weight: 400;
       font-size: 13px;

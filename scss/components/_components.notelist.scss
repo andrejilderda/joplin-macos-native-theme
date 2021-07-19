@@ -24,7 +24,7 @@
     // overwrite background-color behind search bar
     > div:first-child {
       background-color: transparent;
-      overflow: hidden;
+      height: auto;
       width: 100%;
     }
 
@@ -43,6 +43,7 @@
       color: var(--g-controlTextColor);
       font-size: 1.3rem;
       height: 2.8rem;
+      max-height: none;
       padding: 0 2.5rem 0 3rem !important;
       width: 100%;
       flex: 1 0 100%;
@@ -162,14 +163,20 @@
     // remove divider
     &.odd::before,
     &.even::before {
-      content: var(--zebra-stripe, none);
+      content: var(--u-note-list-dividers, '');
     }
 
     &.odd {
-      background: var(--zebra-stripe, var(--note-list-item-odd));
+      background: var(
+        --u-note-list-zebra-color-odd,
+        var(--g-alternatingContentBackgroundColorsOdd)
+      );
     }
     &.even {
-      background: var(--zebra-stripe, var(--note-list-item-even));
+      background: var(
+        --u-note-list-zebra-color-even,
+        var(--g-alternatingContentBackgroundColorsEven)
+      );
     }
 
     a {
@@ -184,7 +191,7 @@
       margin-left: auto;
       &::before {
         content: var(--g-icon-arrow-up-right-square-fill);
-        color: var(--g-systemBlue);
+        color: var(--s-accentColor);
         font-weight: 400;
         font-family: var(--g-font-family-system);
       }
@@ -197,7 +204,7 @@
     }
 
     &.selected {
-      background: var(--g-selectedContentBackgroundColor) !important;
+      background: var(--s-accentColor--selected) !important;
 
       a,
       span {
@@ -281,7 +288,7 @@
       position: relative;
 
       &:checked {
-        background-color: var(--g-controlAccentColor);
+        background-color: var(--s-controlAccentColor);
         border-color: transparent;
 
         &:after {
@@ -296,7 +303,7 @@
     }
 
     &.selected input {
-      border-color: rgba(var(--g-controlColor--rgb), 0.5);
+      border-color: hsla(var(--s-controlColor--hsl), 0.5);
 
       &:checked {
         border-color: transparent;
@@ -307,7 +314,7 @@
         );
 
         &:after {
-          color: var(--accent-color);
+          color: var(--s-accentColor);
         }
       }
     }
