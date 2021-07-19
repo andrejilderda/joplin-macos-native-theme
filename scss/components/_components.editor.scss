@@ -413,6 +413,8 @@
   // add divider between editor icons and text input field
   .tox-editor-header {
     margin-left: 0px;
+    padding-left: 9.35rem;
+    padding-right: 6rem;
 
     &:after {
       @include editorDivider();
