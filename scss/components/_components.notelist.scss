@@ -1,12 +1,12 @@
 // TODO: Set and use CSS-vars in stead of SCSS-vars
 
 @mixin focusRing {
-  box-shadow: 0 0 0 16px rgba($controlAccentColor, 0);
+  box-shadow: 0 0 0 16px hsla(var(--g-controlAccentColor--hsl), 0);
 
   &:focus {
     transition: 0.25s box-shadow cubic-bezier(0.61, 1, 0.88, 1);
     transition-delay: 0.125s;
-    box-shadow: 0 0 0 0.35rem rgba($controlAccentColor, 0.5);
+    box-shadow: 0 0 0 0.35rem hsla(var(--g-controlAccentColor--hsl), 0.5);
   }
 }
 
@@ -307,7 +307,6 @@
 
       &:checked {
         border-color: transparent;
-        // background: $controlColor;
         background-color: rgba(
           var(--g-alternateSelectedControlTextColor--rgb),
           0.898

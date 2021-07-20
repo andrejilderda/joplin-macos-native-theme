@@ -34,8 +34,8 @@
 }
 
 @mixin buttonPrimary {
-  color: $alternateSelectedControlTextColor !important;
-  background-color: $systemBlue;
+  color: var(--g-alternateSelectedControlTextColor) !important;
+  background-color: hsl(var(--s-accentColor--hsl));
   background-image: linear-gradient(
     hsl(var(--s-accentColor--hsl)),
     hsl(var(--s-accentColor--hs), calc(var(--s-accentColor--l) - 5%))

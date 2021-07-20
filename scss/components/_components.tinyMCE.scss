@@ -5,7 +5,7 @@ body {
   font-size: 1.4rem;
   line-height: 1.6;
   padding: 2.8rem;
-  max-width: 75ch;
+  max-width: var(--u-editor-max-width, 75ch);
   color: var(--g-textColor);
   -webkit-font-smoothing: antialiased;
 
@@ -59,21 +59,21 @@ body {
 
   table {
     th {
-      background: $alternatingContentBackgroundColorsOdd;
+      background: var(--g-alternatingContentBackgroundColorsOdd);
       border-bottom-width: 0.1rem;
     }
 
     tr:nth-child(even) {
-      background: $alternatingContentBackgroundColorsOdd;
+      background: var(--g-alternatingContentBackgroundColorsOdd);
     }
     tr:nth-child(odd) {
-      background: $alternatingContentBackgroundColorsEven;
+      background: var(--g-alternatingContentBackgroundColorsEven);
     }
 
     th,
     td {
       font-family: var(--g-global-font-family-system);
-      border-color: $gridColor;
+      border-color: var(--g-gridColor);
     }
   }
 

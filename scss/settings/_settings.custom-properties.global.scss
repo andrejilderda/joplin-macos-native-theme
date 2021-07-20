@@ -14,15 +14,15 @@
   --g-systemTeal: rgba(85, 190, 240, 1);
   --g-systemYellow: rgba(255, 204, 0, 1);
 
-  /* Dynamic system colors */
+  // Dynamic system colors
 
-  /* Labels */
+  // Labels
   --g-labelColor: rgba(0, 0, 0, 0.847);
   --g-secondaryLabelColor: rgba(0, 0, 0, 0.498);
   --g-tertiaryLabelColor: rgba(0, 0, 0, 0.259);
   --g-quaternaryLabelColor: rgba(0, 0, 0, 0.098);
 
-  /* Text */
+  // Text
   --g-textColor: rgba(0, 0, 0, 1);
   --g-placeholderTextColor: rgba(0, 0, 0, 0.247);
   --g-selectedTextColor: rgba(0, 0, 0, 1);
@@ -32,7 +32,7 @@
   --g-unemphasizedSelectedTextColor: rgba(0, 0, 0, 1);
   --g-unemphasizedSelectedTextBackgroundColor: rgba(220, 220, 220, 1);
 
-  /* Content */
+  // Content
   --g-alternatingContentBackgroundColorsEven: rgba(255, 255, 255, 1);
   --g-alternatingContentBackgroundColorsOdd: rgba(244, 245, 245, 1);
   --g-linkColor: rgba(0, 104, 218, 1);
@@ -43,14 +43,14 @@
   --g-selectedContentBackgroundColor--l: 44%;
   --g-unemphasizedSelectedContentBackgroundColor: rgba(220, 220, 220, 1);
 
-  /* Menus */
+  // Menus
   --g-selectedMenuItemTextColor: rgba(255, 255, 255, 1);
 
-  /* Tables */
+  // Tables
   --g-gridColor: rgba(230, 230, 230, 1);
   --g-headerTextColor: rgba(0, 0, 0, 0.847);
 
-  /* Controls */
+  // Controls
   --g-controlAccentColor--h: 211;
   --g-controlAccentColor--s: 100%;
   --g-controlAccentColor--l: 50%;
@@ -70,13 +70,13 @@
     1
   );
 
-  /* Windows */
+  // Windows
   --g-windowBackgroundColor: rgba(236, 236, 236, 1);
   --g-windowFrameTextColor: rgba(0, 0, 0, 0.847);
   --g-underPageBackgroundColor: rgba(150, 150, 150, 0.898);
   --g-underPageBackgroundColor--rgb: 150, 150, 150;
 
-  /* Highlights & Shadows */
+  // Highlights & Shadows
   --g-findHighlightColor: rgba(255, 255, 0, 1);
   --g-highlightColor: rgba(255, 255, 255, 1);
   --g-highlightColor--rgb: 255, 255, 255;
@@ -99,15 +99,15 @@
     --g-systemTeal: rgba(90, 200, 245, 1);
     --g-systemYellow: rgba(255, 214, 10, 1);
 
-    /* Dynamic system colors */
+    // Dynamic system colors
 
-    /* Labels */
+    // Labels
     --g-labelColor: rgba(255, 255, 255, 0.847);
     --g-secondaryLabelColor: rgba(255, 255, 255, 0.549);
     --g-tertiaryLabelColor: rgba(255, 255, 255, 0.247);
     --g-quaternaryLabelColor: rgba(255, 255, 255, 0.098);
 
-    /* Text */
+    // Text
     --g-textColor: rgba(255, 255, 255, 1);
     --g-placeholderTextColor: rgba(255, 255, 255, 0.247);
     --g-selectedTextColor: rgba(255, 255, 255, 1);
@@ -117,7 +117,7 @@
     --g-unemphasizedSelectedTextColor: rgba(255, 255, 255, 1);
     --g-unemphasizedSelectedTextBackgroundColor: rgba(70, 70, 70, 1);
 
-    /* Content */
+    // Content
     --g-alternatingContentBackgroundColorsEven: rgba(30, 30, 30, 1);
     --g-alternatingContentBackgroundColorsOdd: rgba(255, 255, 255, 0.047);
     --g-linkColor: rgba(65, 156, 255, 1);
@@ -128,14 +128,14 @@
     --g-selectedContentBackgroundColor--l: 41%;
     --g-unemphasizedSelectedContentBackgroundColor: rgba(70, 70, 70, 1);
 
-    /* Menus */
+    // Menus
     --g-selectedMenuItemTextColor: rgba(255, 255, 255, 1);
 
-    /* Tables */
+    // Tables
     --g-gridColor: rgba(26, 26, 26, 1);
     --g-headerTextColor: rgba(255, 255, 255, 1);
 
-    /* Controls */
+    // Controls
     --g-controlAccentColor--h: 211;
     --g-controlAccentColor--s: 100%;
     --g-controlAccentColor--l: 50%;
@@ -152,13 +152,13 @@
     --g-alternateSelectedControlTextColor: rgba(255, 255, 255, 1);
     --g-alternateSelectedControlTextColor--rgb: 255, 255, 255;
 
-    /* Windows */
+    // Windows
     --g-windowBackgroundColor: rgba(50, 50, 50, 1);
     --g-windowFrameTextColor: rgba(255, 255, 255, 0.847);
     --g-underPageBackgroundColor: rgba(40, 40, 40, 1);
     --g-underPageBackgroundColor--rgb: 40, 40, 40;
 
-    /* Highlights & Shadows */
+    // Highlights & Shadows
     --g-findHighlightColor: rgba(255, 255, 0, 1);
     --g-highlightColor: rgba(180, 180, 180, 1);
     --g-highlightColor--rgb: 180, 180, 180;
@@ -166,8 +166,8 @@
     --g-shadowColor--rgb: 0, 0, 0;
   }
 
-  --g-primary-Background: #{$textBackgroundColor};
-  --g-primary-Color: #{$textColor};
+  --g-primary-Background: var(--g-textBackgroundColor);
+  --g-primary-Color: var(--g-textColor);
 
   // spacing
   --g-spacing-00: 0px;

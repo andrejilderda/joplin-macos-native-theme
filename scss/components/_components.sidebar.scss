@@ -1,11 +1,5 @@
-// Missing classnames/elements in UI (will make a PR for these changes):
-// - wrap text in .list-item in a <span> so that the title and note count can be
-//   positioned side-by-side, while still being able to 'ellipsise' long note titles
+// Missing classnames/elements in UI (make a PR?):
 // - classnames for sync states
-
-// TODO: Set and use CSS-vars in stead of SCSS-vars
-// TODO: Add setting for toggling the note count
-// TODO: Sub-item styling (indent + background-color)
 
 .rli-sideBar {
   // remove white space between sidebar and notelist
@@ -20,7 +14,7 @@
 }
 
 .sidebar.sidebar {
-  background: var(--sidebar__BackgroundColor);
+  background: var(--s-sidebar__BackgroundColor);
   padding-top: 1rem;
 
   * {
@@ -48,8 +42,8 @@
     > div:first-child span,
     .folders + div span {
       text-transform: none;
-      color: var(--sidebar__label-Color);
-      font-size: var(--sidebar__label-FontSize);
+      color: var(--s-sidebar__label-Color);
+      font-size: var(--s-sidebar__label-FontSize);
       font-weight: 700;
       margin-left: 6px;
       letter-spacing: -0.025em;
@@ -58,7 +52,7 @@
     // all notes
     .all-notes {
       background: none;
-      color: var(--g-labelColor);
+      color: var(--s-sidebar__item-Color);
 
       a {
         font-size: 1.3rem !important;
@@ -98,7 +92,7 @@
 
       .title,
       .tag-label {
-        color: var(--g-labelColor);
+        color: var(--s-sidebar__item-Color);
         font-size: 1.3rem;
         // truncate text with ellipsis
         overflow: hidden;

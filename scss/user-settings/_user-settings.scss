@@ -1,22 +1,30 @@
+/* Uncomment and tweak the variables prefixed with `--u-` below */
 :root {
-  // --u-base-font-size: 120%;
+  /* --u-base-font-size: 120%; */
 
-  // --u-accentColor--h: 349;
-  // --u-accentColor--s: 100%;
-  // --u-accentColor--l: 59%;
+  /* the accent color is in hsl */
+  /* --u-accentColor--h: 243; */
+  /* --u-accentColor--s: 75%; */
+  /* --u-accentColor--l: 59%; */
 
-  // --u-note-count-label: none;
-  // --u-note-count-label-color: red;
+  --u-note-count-label: none;
+  /* --u-note-count-label-color: red; */
 
-  // uncomment to remove note-list-dividers
-  // --u-note-list-dividers: none;
+  /* uncomment to remove note-list-dividers */
+  /* --u-note-list-dividers: none; */
 
-  // uncomment to use zebra stripes (or change color)
+  /* uncomment to use zebra stripes (or change color) */
   --u-note-list-zebra-color-odd: transparent;
   --u-note-list-zebra-color-even: transparent;
 
-  // paragraph spacing in editor - default 1.5rem
-  // --u-editor-paragraph-spacing: 0;
+  /* paragraph spacing in editor - default 1.5rem */
+  /* --u-editor-paragraph-spacing: 0rem; */
+  /* --u-editor-max-width: none; */
+
+  /* --u-sidebar-background-color: hsl(349, 100%, 59%); */
+  /* --u-sidebar-label-font-size: 1.5rem; */
+  /* --u-sidebar-label-color: hsl(349, 100%, 59%); */
+  /* --u-sidebar-item-color: hsl(349, 100%, 59%); */
 }
 
 // --s = user setting with default fallback
@@ -44,4 +52,10 @@
   --s-controlAccentColor--hsl: var(--s-controlAccentColor--h), var(--s-controlAccentColor--s), var(--s-controlAccentColor--l);
   --s-controlAccentColor: hsl(var(--s-controlAccentColor--hsl));
   --s-controlAccentColor--selected: var(--s-controlAccentColor);
+
+  // sidebar
+  --s-sidebar__BackgroundColor: var(--u-sidebar-background-color, var(--g-windowBackgroundColor));
+  --s-sidebar__label-FontSize: var(--u-sidebar-label-font-size, var(--g-font-size--1));
+  --s-sidebar__label-Color: var(--u-sidebar-label-color, var(--g-tertiaryLabelColor));
+  --s-sidebar__item-Color: var(--u-sidebar-item-color, var(--g-labelColor));
 }
