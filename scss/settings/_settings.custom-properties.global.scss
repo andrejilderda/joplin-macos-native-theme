@@ -58,6 +58,7 @@
   --g-controlAccentColor: hsla(var(--g-controlAccentColor--hsl), 1);
   --g-controlColor--rgb: 255, 255, 255;
   --g-controlColor: rgba(var(--g-controlColor--rgb), 1);
+  --g-controlColor--hsl: 0, 0%, 100%;
   --g-controlBackgroundColor: rgba(255, 255, 255, 1);
   --g-controlTextColor: rgba(0, 0, 0, 0.847);
   --g-disabledControlTextColor: rgba(0, 0, 0, 0.247);
@@ -142,7 +143,8 @@
     --g-controlAccentColor--hsl: var(--g-controlAccentColor--h), var(--g-controlAccentColor--s), var(--g-controlAccentColor--l);
     --g-controlAccentColor: hsla(var(--g-controlAccentColor--hsl), 1);
     --g-controlColor: rgba(255, 255, 255, 0.247);
-    --g-controlColor--rgb: 255, 255, 255, 0;
+    --g-controlColor--rgb: 255, 255, 255;
+    --g-controlColor--hsl: 0, 0%, 100%;
     --g-controlBackgroundColor: rgba(30, 30, 30, 1);
     --g-controlTextColor: rgba(255, 255, 255, 0.847);
     --g-disabledControlTextColor: rgba(255, 255, 255, 0.247);
