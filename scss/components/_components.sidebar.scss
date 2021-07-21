@@ -114,7 +114,7 @@
 
     .folders .list-item::before,
     .tags .list-item::before {
-      color: var(--s-accentColor);
+      color: var(--s-sidebar__icon-Color);
       margin-right: 0.7rem;
       font-weight: 400;
       font-size: 13px;
@@ -122,10 +122,10 @@
     }
 
     .folders .list-item::before {
-      content: var(--g-icon-folder); // folder
+      content: var(--g-icon-folder);
     }
     .tags .list-item::before {
-      content: '􀋡'; // tag
+      content: var(--g-icon-tag);
     }
 
     .list-item-depth-0 {
@@ -171,13 +171,13 @@
     }
 
     &.fa-caret-right::before {
-      color: var(--g-secondaryLabelColor);
-      content: '􀯻'; // chevron.forward
+      content: var(--g-icon-chevron-forward);
+      color: var(--s-sidebar__chevron-Color);
     }
 
     &.fa-caret-down::before {
-      content: '􀆈'; // chevron.down
-      color: var(--g-secondaryLabelColor);
+      content: var(--g-icon-chevron-down);
+      color: var(--s-sidebar__chevron-Color);
     }
     &.fa-plus::before {
       color: var(--g-tertiaryLabelColor);
@@ -258,7 +258,7 @@
         transform-origin: 50% 55%;
 
         &::before {
-          content: '􀊯'; // arrow.triangle.2.circlepath
+          content: var(--g-icon-arrow-triangle-2-circlepath);
           font-family: var(--g-font-family-system);
           font-size: 1.2rem;
           -webkit-font-smoothing: antialiased;
