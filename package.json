@@ -11,9 +11,9 @@
   "author": "Andre Jilderda",
   "license": "MIT",
   "scripts": {
-    "start": "sass --load-path scss scss/main.scss   dist/main.css --watch",
-    "serve": "http-server dist -c-1 -o main.css",
-    "build": "sass --load-path scss scss/main.scss   dist/main.css",
+    "start": "sass --load-path scss scss/macos-theme-for-joplin.scss   dist/macos-theme-for-joplin.css --watch",
+    "serve": "http-server dist -c-1 -o macos-theme-for-joplin.css",
+    "build": "sass --load-path scss scss/macos-theme-for-joplin.scss   dist/macos-theme-for-joplin.css",
     "clean": "rm -rf dist"
   },
   "dependencies": {},
