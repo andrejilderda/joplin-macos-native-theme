@@ -218,23 +218,30 @@
 
     // only show sync status on hover
     > div:first-child {
-      opacity: 0;
+      opacity: var(--u-sidebar-synchronise-label, 0);
       pointer-events: none;
 
-      background-color: var(--g-unemphasizedSelectedContentBackgroundColor);
-      padding: 0.4rem;
-      position: absolute;
+      background-color: var(
+        --u-sidebar-synchronise-label,
+        var(--g-unemphasizedSelectedContentBackgroundColor)
+      );
+      padding: var(--u-sidebar-synchronise-label, 0.4rem);
+      position: var(--u-sidebar-synchronise-label, absolute);
       width: auto;
       bottom: 20px;
-      box-shadow: 0 0 1px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2);
+      box-shadow: var(
+        --u-sidebar-synchronise-label,
+        0 0 1px rgba(0, 0, 0, 0.4),
+        0 2px 8px rgba(0, 0, 0, 0.2)
+      );
 
       div {
-        color: var(--g-textColor);
+        color: var(--s-sidebar__synchronise-label-Color);
       }
     }
 
     &:hover > div:first-child {
-      animation: tooltipTimeout 1s;
+      animation: var(--u-sidebar-synchronise-label, tooltipTimeout 1s);
       opacity: 1;
     }
 
@@ -246,11 +253,11 @@
       font-size: 1.3rem;
 
       span {
-        color: var(--g-secondaryLabelColor);
+        color: var(--s-sidebar__synchronise-Color);
       }
 
       &:hover span {
-        color: var(--g-secondaryLabelColor);
+        color: var(--s-sidebar__synchronise-Color);
       }
 
       .icon-sync {

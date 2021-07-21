@@ -21,10 +21,20 @@
   /* --u-editor-paragraph-spacing: 0rem; */
   /* --u-editor-max-width: none; */
 
-  /* --u-sidebar-background-color: hsl(349, 100%, 59%); */
+  /* --u-sidebar-background-color: hsl(0, 0%, 20%); */
   /* --u-sidebar-label-font-size: 1.5rem; */
-  /* --u-sidebar-label-color: hsl(349, 100%, 59%); */
-  /* --u-sidebar-item-color: hsl(349, 100%, 59%); */
+  /* --u-sidebar-label-color: hsla(0, 0%, 100%, 0.25); */
+  /* --u-sidebar-item-color: hsla(0, 0%, 100%, 0.85); */
+  /* --u-sidebar-icon-color: hsl(210, 100%, 52%); */
+  /* --u-sidebar-chevron-color: hsla(0, 0%, 100%, 0.55); */
+  /* --u-sidebar-synchronise-color: hsla(0, 0%, 100%, 0.55); */
+
+  /*
+    The synchronise status is shown after a timeout on hover by default.
+    Uncomment the lines below to always show the sync status.
+  */
+  /* --u-sidebar-synchronise-label: ''; */
+  /* --u-sidebar-synchronise-label-color: hsl(0, 0%, 50%); */
 }
 
 // --s = user setting with default fallback
@@ -58,4 +68,8 @@
   --s-sidebar__label-FontSize: var(--u-sidebar-label-font-size, var(--g-font-size--1));
   --s-sidebar__label-Color: var(--u-sidebar-label-color, var(--g-tertiaryLabelColor));
   --s-sidebar__item-Color: var(--u-sidebar-item-color, var(--g-labelColor));
+  --s-sidebar__icon-Color: var(--u-sidebar-icon-color, var(--s-accentColor));
+  --s-sidebar__chevron-Color: var(--u-sidebar-chevron-color, var(--g-secondaryLabelColor));
+  --s-sidebar__synchronise-Color: var(--u-sidebar-synchronise-color, var(--g-secondaryLabelColor));
+  --s-sidebar__synchronise-label-Color: var(--u-sidebar-synchronise-label-color, var(--g-textColor));
 }
