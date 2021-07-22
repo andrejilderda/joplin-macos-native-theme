@@ -1,0 +1,98 @@
+/* Uncomment and tweak the variables prefixed with `--u-` below */
+:root {
+  /*
+    General ------------------------------
+  */
+  /* --u-base-font-size: 120%; */
+  /*
+    the accent color is in hsl. To convert from a different color model may want
+    to use: https://convertacolor.com/
+  */
+  /* --u-accentColor--h: 243; */
+  /* --u-accentColor--s: 75%; */
+  /* --u-accentColor--l: 59%; */
+
+  /*
+
+    Sidebar ---------------------------------
+  */
+  --u-sidebar-note-count-label: none;
+  /* --u-sidebar-label-font-size: 1.5rem;*/
+  /*
+
+    Uncomment these lines for a dark sidebar in light mode
+
+    --u-sidebar-note-count-label-color: hsla(0, 0%, 100%, 0.55);
+    --u-sidebar-background-color: hsl(0, 0%, 20%);
+    --u-sidebar-label-color: hsla(0, 0%, 100%, 0.25);
+    --u-sidebar-item-color: hsla(0, 0%, 100%, 0.85);
+    -u-sidebar-icon-color: hsl(210, 100%, 52%);
+    --u-sidebar-chevron-color: hsla(0, 0%, 100%, 0.55);
+    --u-sidebar-synchronise-color: hsla(0, 0%, 100%, 0.55);
+    --u-sidebar-selected-item-color: hsl(0, 0%, 27%);
+  */
+  /*
+    ⚠️ IMPORTANT: The synchronise status is hidden by default, and only shown
+    after a timeout on hover by default. Any sync errors you might not notice.
+    Uncomment the line below to always show the sync status.
+  */
+  /* --u-sidebar-synchronise-label: ''; */
+  /* --u-sidebar-synchronise-label-color: hsl(0, 0%, 50%); */
+
+  /*
+
+    Note list -----------------------------
+  */
+  /* uncomment to remove note-list-dividers */
+  /* --u-note-list-dividers: none; */
+
+  /* uncomment to use zebra stripes (or change color) */
+  --u-note-list-zebra-color-odd: transparent;
+  --u-note-list-zebra-color-even: transparent;
+
+  /*
+
+    Editor --------------------------------
+  */
+  /* paragraph spacing in editor - default 1.5rem */
+  /* --u-editor-paragraph-spacing: 0rem; */
+  /* --u-editor-max-width: none; */
+}
+
+// --s = user setting with default fallback
+:root {
+  // main accent color
+  --s-accentColor--h: var(--u-accentColor--h, var(--g-systemBlue--h));
+  --s-accentColor--s: var(--u-accentColor--s, var(--g-systemBlue--s));
+  --s-accentColor--l: var(--u-accentColor--l, var(--g-systemBlue--l));
+
+  --s-accentColor--hs: var(--s-accentColor--h), var(--s-accentColor--s);
+  --s-accentColor--hsl: var(--s-accentColor--hs), var(--s-accentColor--l);
+  --s-accentColor: hsl(var(--s-accentColor--hsl));
+
+  // selected accent color
+  --s-selectedContentBackgroundColor--h: var(--u-accentColor--h, var(--g-selectedContentBackgroundColor--h));
+  --s-selectedContentBackgroundColor--s: var(--u-accentColor--s, var(--g-selectedContentBackgroundColor--s));
+  --s-selectedContentBackgroundColor--l: var(--u-accentColor--l, var(--g-selectedContentBackgroundColor--l));
+  --s-selectedContentBackgroundColor: hsl(var(--s-selectedContentBackgroundColor--h), var(--s-selectedContentBackgroundColor--s), var(--s-selectedContentBackgroundColor--l));
+  --s-accentColor--selected: var(--s-selectedContentBackgroundColor);
+
+  // control accent color
+  --s-controlAccentColor--h: var(--u-accentColor--h, var(--g-controlAccentColor--h));
+  --s-controlAccentColor--s: var(--u-accentColor--s, var(--g-controlAccentColor--s));
+  --s-controlAccentColor--l: var(--u-accentColor--l, var(--g-controlAccentColor--l));
+  --s-controlAccentColor--hsl: var(--s-controlAccentColor--h), var(--s-controlAccentColor--s), var(--s-controlAccentColor--l);
+  --s-controlAccentColor: hsl(var(--s-controlAccentColor--hsl));
+  --s-controlAccentColor--selected: var(--s-controlAccentColor);
+
+  // sidebar
+  --s-sidebar__BackgroundColor: var(--u-sidebar-background-color, var(--g-windowBackgroundColor));
+  --s-sidebar__label-FontSize: var(--u-sidebar-label-font-size, var(--g-font-size--1));
+  --s-sidebar__label-Color: var(--u-sidebar-label-color, var(--g-tertiaryLabelColor));
+  --s-sidebar__item-Color: var(--u-sidebar-item-color, var(--g-labelColor));
+  --s-sidebar__item--selected-BackgroundColor: var(--u-sidebar-selected-item-color, var(var(--g-unemphasizedSelectedTextBackgroundColor)));
+  --s-sidebar__icon-Color: var(--u-sidebar-icon-color, var(--s-accentColor));
+  --s-sidebar__chevron-Color: var(--u-sidebar-chevron-color, var(--g-secondaryLabelColor));
+  --s-sidebar__synchronise-Color: var(--u-sidebar-synchronise-color, var(--g-secondaryLabelColor));
+  --s-sidebar__synchronise-label-Color: var(--u-sidebar-synchronise-label-color, var(--g-textColor));
+}

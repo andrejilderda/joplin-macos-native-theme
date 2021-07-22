@@ -1,0 +1,687 @@
+// Missing classnames/elements in UI (will make a PR for these changes):
+// - Input for title
+// - Toolbar icons
+// - Different editor states
+
+// - TODO: Aria label for underline is called 'Insert'. Is this a mistake?
+
+@mixin toolbarButton {
+  display: flex;
+  align-items: center;
+  margin: 0 0.25rem;
+  line-height: 1;
+  padding: 0 !important;
+  height: 2.6rem;
+  width: 2.6rem !important;
+  min-width: 2.6rem !important;
+  line-height: 2.6rem !important;
+  border-radius: 0.5rem;
+
+  &:focus,
+  &:hover {
+    background: var(--g-quaternaryLabelColor) !important;
+  }
+}
+
+@mixin toolbarButtonIcon {
+  font-family: 'SF Pro';
+  font-size: var(--g-font-size-1) !important;
+  font-weight: normal !important;
+  -webkit-font-smoothing: antialiased;
+  color: var(--g-secondaryLabelColor);
+  vertical-align: bottom;
+}
+
+// divider between the toolbar and the editor
+@mixin editorDivider {
+  content: '';
+  background-color: var(--g-separatorColor);
+  height: 0.1rem;
+  position: absolute;
+  left: -1.4rem;
+  right: -1.4rem;
+}
+
+@mixin toolbarDivider {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+
+  &::before {
+    content: '';
+    background-color: var(--g-separatorColor);
+    height: 100%;
+    width: 0.1rem;
+    margin: 0 0.65rem;
+  }
+}
+
+.rli-editor {
+  // reset all inline + toolbar background colors
+  .tox .tox-edit-area__iframe,
+  .tox .tox-toolbar,
+  .tox .tox-toolbar__overflow,
+  .tox .tox-toolbar__primary,
+  .tox-editor-header .tox-toolbar__primary,
+  .tox .tox-toolbar-overlord,
+  .tox.tox-tinymce-aux .tox-toolbar__overflow,
+  .tox .tox-statusbar,
+  .tox .tox-dialog__header,
+  .tox .tox-dialog,
+  .tox textarea,
+  .tox input,
+  .tox .tox-dialog__footer,
+  *[style*='background'] {
+    background-color: transparent !important;
+  }
+
+  // remove bg color when no note is selected when search returns no results
+  > div > div {
+    background-color: transparent !important;
+  }
+
+  > div > div > div > div {
+    &:first-child {
+      // note title
+      .title-input {
+        color: var(--g-headerTextColor) !important;
+        margin: 0.5rem 1rem 0;
+        padding-top: 1.4rem !important;
+        font-weight: 700 !important;
+        font-size: 2rem !important;
+      }
+
+      // date/timestamp
+      .updated-time-label {
+        color: var(--g-secondaryLabelColor) !important;
+        font-family: var(--g-font-family-system) !important;
+        font-size: 1.1rem;
+        margin-top: 0.3rem;
+        margin-right: 1rem;
+      }
+
+      .editor-toolbar {
+        // extra icons next to title
+        div:nth-child(2) {
+          a {
+            color: var(--g-secondaryLabelColor);
+            margin: 0 0.2rem;
+            font-family: var(--g-font-family-system);
+            line-height: 1;
+
+            // hide default icons
+            > * {
+              display: none;
+            }
+
+            &:hover {
+              background: var(--g-quaternaryLabelColor);
+            }
+          }
+
+          // spellchecker
+          a:nth-child(1) {
+            font-size: 0;
+            overflow: hidden;
+            width: 2.6rem;
+
+            i {
+              display: block;
+              color: var(--g-secondaryLabelColor);
+              margin: 0.2rem 0.2rem 0;
+              font-family: var(--g-font-family-system);
+              line-height: 1;
+              font-size: 1.4rem;
+              font-weight: 400;
+
+              &::before {
+                content: var(--g-icon-textformat-abc-dottedunderline);
+                text-transform: uppercase;
+              }
+              &[title]:not([title=''])::before {
+                content: attr(title);
+                font-family: var(--g-font-family-system-rounded);
+                font-size: 1.4rem !important;
+                font-weight: 400;
+                line-height: 2.6rem;
+                letter-spacing: -0.05rem;
+                margin-top: 0;
+              }
+            }
+          }
+          // set alarm
+          a:nth-child(2):before {
+            content: var(--g-icon-alarm);
+          }
+          // toggle editor layout
+          a:nth-child(3) {
+            &.disabled {
+              display: none;
+            }
+
+            &:before {
+              content: var(--g-icon-square-split-2x1);
+            }
+          }
+          // note properties
+          a:nth-child(4):before {
+            content: var(--g-icon-info-circle);
+          }
+        }
+      }
+    }
+
+    // [...] -dropdown
+    .tox-tbtn--enabled {
+      background-color: var(--g-quaternaryLabelColor);
+    }
+
+    // markdown toggle
+    .tox-tbtn {
+      @include toolbarButton();
+
+      * {
+        display: none !important;
+      }
+
+      &::after {
+        @include toolbarButtonIcon();
+        color: var(--g-secondaryLabelColor);
+        width: 2.6rem;
+      }
+
+      &.markdown-active::after {
+        content: 'MD';
+        font-family: var(--g-font-family-system-rounded);
+        font-size: 1.2rem !important;
+        line-height: 2.6rem;
+        font-weight: 500 !important;
+      }
+
+      &.richText-active::after {
+        content: '􀲱';
+      }
+    }
+
+    // notebook folder when in all notes or tag view
+    &:nth-child(2)[style*='padding-top'] {
+      padding: 0 !important;
+
+      button {
+        align-items: baseline;
+        background: transparent;
+        color: red !important;
+        font-size: 1.3rem;
+        margin-bottom: 0.4rem;
+        margin-left: 1.6rem;
+        min-width: 0 !important;
+        padding: 0;
+
+        span {
+          color: var(--g-textColor);
+        }
+
+        .icon-notebooks::before {
+          content: var(--g-icon-folder);
+          color: var(--s-accentColor);
+          font-family: var(--g-font-family-system);
+          font-size: 1.3rem;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+
+  .joplin-tinymce > div,
+  .editor-toolbar,
+  .tox .tox-toolbar__group,
+  .tox .tox-toolbar__primary {
+    background-color: transparent !important;
+  }
+
+  .joplin-tinymce > div:first-child {
+    padding-top: 0.4rem !important;
+    margin-top: 0.2rem;
+  }
+
+  // first few wysiwyg icons (back, forward & open in external editor)
+  .joplin-tinymce,
+  .editor-toolbar {
+    > div:first-child {
+      margin-left: -0.6rem;
+      > a {
+        @include toolbarButton();
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        span {
+          display: block;
+          font-size: 1.4rem;
+
+          &:before {
+            @include toolbarButtonIcon();
+          }
+        }
+
+        // icon: back
+        &:nth-of-type(1) span:before {
+          content: var(--g-icon-chevron-backward);
+        }
+        // icon: forward
+        &:nth-of-type(2) span:before {
+          content: var(--g-icon-chevron-forward);
+        }
+        // icon: external editor
+        &:nth-of-type(3):nth-of-type(3) {
+          min-width: 2.6rem !important;
+          font-size: 0 !important;
+
+          span {
+            margin-right: 0 !important;
+
+            &[title]:not([title=''])::before {
+              color: var(--s-accentColor) !important;
+
+              content: var(--g-icon-arrow-up-right-square-fill);
+            }
+
+            &::before {
+              content: var(--g-icon-arrow-up-forward-app);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // wysiwyg items
+  .tox-toolbar__group {
+    padding-left: 0;
+    padding-right: 0;
+
+    // dividers between wysiwyg groups
+    @include toolbarDivider();
+
+    button,
+    button[aria-haspopup='true'] {
+      @include toolbarButton();
+
+      &:before {
+        @include toolbarButtonIcon();
+      }
+    }
+    svg {
+      display: none !important;
+    }
+  }
+
+  // bold, italic, etc.
+  .tox-toolbar__group:nth-child(1) {
+    button:nth-child(1):before {
+      content: var(--g-icon-bold);
+    }
+    button:nth-child(2):before {
+      content: var(--g-icon-italic);
+    }
+    button:nth-child(3):before {
+      content: var(--g-icon-highlighter);
+    }
+    button:nth-child(4):before {
+      content: var(--g-icon-strikethrough);
+    }
+    button:nth-child(5) {
+      width: 2.6rem !important;
+      min-width: 0;
+
+      &:before {
+        content: var(--g-icon-ellipsis);
+      }
+    }
+  }
+
+  // link, inline code, code block, attachment
+  .tox-toolbar__group:nth-child(2) {
+    button:nth-child(1):before {
+      content: var(--g-icon-link);
+    }
+    button:nth-child(2):before {
+      content: var(--g-icon-chevron-left-slash-chevron-right);
+    }
+    button:nth-child(3):before {
+      content: var(--g-icon-curlybraces);
+    }
+    button:nth-child(4):before {
+      content: var(--g-icon-paperclip);
+    }
+  }
+
+  // lists
+  .tox-toolbar__group:nth-child(3) {
+    button:nth-child(1):before {
+      content: var(--g-icon-list-bullet);
+    }
+    button:nth-child(2):before {
+      content: var(--g-icon-list-number);
+    }
+    button:nth-child(3):before {
+      content: var(--g-icon-text-badge-checkmark);
+    }
+  }
+
+  // headings, divider, quote, table, date/time
+  .tox-toolbar__group:nth-child(4) {
+    button:nth-child(1):before,
+    button:nth-child(2):before,
+    button:nth-child(3):before {
+      font-family: var(--g-font-family-system);
+    }
+
+    .tox-tbtn__select-label {
+      display: none;
+    }
+
+    // h1, h2, h3
+    button:nth-child(1):before,
+    button:nth-child(2):before,
+    button:nth-child(3):before {
+      font-family: var(--g-font-family-system-rounded);
+    }
+
+    button:nth-child(1):before {
+      content: 'H1';
+    }
+    button:nth-child(2):before {
+      content: 'H2';
+    }
+    button:nth-child(3):before {
+      content: 'H3';
+    }
+    button:nth-child(4):before {
+      content: var(--g-icon-minus);
+    }
+    button:nth-child(5):before {
+      content: var(--g-icon-text-quote);
+    }
+    button:nth-child(6):before {
+      content: var(--g-icon-tablecells-badge-ellipsis);
+    }
+    button:nth-child(7):before {
+      content: var(--g-icon-clock);
+    }
+  }
+
+  // add divider between editor icons and text input field
+  .tox-editor-header {
+    margin-left: 0px;
+    padding-left: 9.35rem;
+    padding-right: 6rem;
+
+    &:after {
+      @include editorDivider();
+    }
+  }
+
+  // remove 'overflow: hidden' so that the divider is not cut-off
+  .tox-tinymce {
+    overflow: unset;
+  }
+
+  // markdown editor
+  > div > div > div > div:not(:first-child) {
+    .editor-toolbar {
+      &:after {
+        @include editorDivider();
+        bottom: 0;
+      }
+
+      div > span {
+        @include toolbarDivider();
+      }
+
+      a.button {
+        @include toolbarButton();
+
+        span {
+          font-size: 0;
+        }
+
+        span::before,
+        i::before {
+          @include toolbarButtonIcon();
+        }
+
+        .icon-bold::before {
+          content: var(--g-icon-bold);
+        }
+        .icon-italic::before {
+          content: var(--g-icon-italic);
+        }
+        .icon-link::before {
+          content: var(--g-icon-link);
+        }
+        .icon-code::before {
+          content: var(--g-icon-chevron-left-slash-chevron-right);
+        }
+        .icon-attachment::before {
+          content: var(--g-icon-paperclip);
+        }
+        .icon-bulleted-list::before {
+          content: var(--g-icon-list-bullet);
+        }
+        .icon-numbered-list::before {
+          content: var(--g-icon-list-number);
+        }
+        .icon-to-do-list::before {
+          content: var(--g-icon-text-badge-checkmark);
+        }
+        .icon-heading::before {
+          content: 'H2';
+          font-family: var(--g-font-family-system-rounded);
+        }
+        .fa-ellipsis-h::before {
+          content: var(--g-icon-minus);
+        }
+        .icon-add-date::before {
+          content: var(--g-icon-calendar-badge-clock);
+        }
+      }
+    }
+  }
+}
+
+@mixin dropdownBackground {
+  background: var(--g-windowBackgroundColor) !important;
+  box-shadow: 0 0 1px rgba(var(--g-shadowColor--rgb), 0.4),
+    0 2px 8px rgba(var(--g-shadowColor--rgb), 0.2) !important;
+  max-width: none !important;
+  padding: 0.5rem !important;
+  border-color: transparent !important;
+}
+
+@mixin dropdownItemDefault {
+  background-color: transparent !important;
+  border-radius: 0.4rem;
+  color: var(--g-controlTextColor) !important;
+  line-height: 1;
+  min-height: 2.2rem;
+  height: 2.2rem;
+  padding: 0 1rem !important;
+  font-size: 1.3rem !important;
+
+  * {
+    font-size: 1.3rem !important;
+  }
+
+  svg {
+    fill: var(--g-controlTextColor) !important;
+  }
+}
+
+@mixin dropdownItem {
+  @include dropdownItemDefault();
+
+  &:focus,
+  &:hover {
+    background: var(--s-accentColor) !important;
+    color: #fff !important;
+
+    svg {
+      fill: #fff !important;
+    }
+  }
+}
+
+// overflow menu for sup- & subscript (which is appended outside .rli-editor)
+// (duplicate classnames to increase specificity)
+.tox
+  .tox-toolbar__overflow.tox-toolbar__overflow.tox-toolbar__overflow.tox-toolbar__overflow {
+  @include dropdownBackground;
+
+  .tox-toolbar__group {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    padding: 0;
+
+    &:focus-within:hover {
+      button:focus:not(:hover) {
+        @include dropdownItemDefault();
+      }
+    }
+
+    button {
+      @include dropdownItem();
+
+      justify-content: flex-start;
+      flex: 1;
+      text-align: left;
+      width: calc(100% - 2rem);
+
+      &:after {
+        color: inherit;
+        content: attr(aria-label);
+        text-align: left;
+      }
+    }
+
+    span {
+      display: none;
+    }
+  }
+}
+
+// table menu
+.tox-menu {
+  @include dropdownBackground();
+
+  .tox-collection {
+    &__group {
+      border: none !important;
+      padding: 0 !important;
+
+      // dividers
+      + * {
+        &:before {
+          content: '';
+          display: block;
+          height: 0.1rem;
+          margin: 0.5rem 0.8rem !important;
+          background-color: var(--g-separatorColor);
+        }
+      }
+    }
+
+    &:focus-within:hover {
+      &__item:focus:not(:hover) {
+        @include dropdownItemDefault();
+      }
+    }
+
+    &__item {
+      @include dropdownItem();
+    }
+
+    &__item-icon {
+      display: none !important;
+    }
+
+    &__item-label {
+      font-size: inherit;
+      margin-left: 0 !important;
+    }
+  }
+}
+.tox-insert-table-picker {
+  color: var(--g-textColor) !important;
+
+  > div {
+    background: var(--g-windowBackgroundColor) !important;
+    border-color: var(--g-separatorColor) !important;
+
+    &.tox-insert-table-picker__selected {
+      background-color: var(--s-accentColor) !important;
+    }
+  }
+
+  .tox-insert-table-picker__label {
+    background: var(--g-windowBackgroundColor) !important;
+    color: inherit !important;
+  }
+}
+
+// bottom tag bar
+.rli-editor > div > div > div > div:last-child {
+  > div {
+    position: relative;
+  }
+
+  a.button {
+    padding: 0 !important;
+    width: 1.8rem;
+
+    &:hover {
+      background-color: transparent !important;
+    }
+  }
+
+  // label
+  div > span {
+    color: var(--g-secondaryLabelColor) !important;
+
+    // increase click area, so that clicking on the tags also open the modal
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 100%;
+    }
+  }
+
+  .icon-tags {
+    @include toolbarButtonIcon();
+    height: 1.8rem;
+
+    &::before {
+      font-family: 'SF Pro';
+      content: var(--g-icon-tag) !important;
+    }
+  }
+
+  .tag-list {
+    span {
+      background-color: var(--g-gridColor) !important;
+      border-radius: 0.2rem !important;
+      color: var(--g-textColor) !important;
+      font-size: 1.1rem !important;
+      line-height: 1.4rem !important;
+      margin-right: 0.4rem !important;
+      padding: 0 0.4rem !important;
+
+      &:last-child {
+        margin-right: 0.8rem !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,529 @@
+@mixin modalBackdrop() {
+  background: rgba(var(--g-underPageBackgroundColor--rgb), 0.5) !important;
+  height: 100% !important;
+}
+
+@mixin modalDialog() {
+  backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
+  background-color: var(--g-windowBackgroundColor) !important;
+  padding: 2rem !important;
+  border-radius: 1.2rem !important;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.8), 0px 0px 20px rgba(0, 0, 0, 0.15),
+    0px 25px 30px rgba(0, 0, 0, 0.35) !important;
+}
+
+// line before buttons in modal
+@mixin modalFooter {
+  position: relative;
+  margin-top: 2rem !important;
+  padding-top: 2rem !important;
+
+  &:before {
+    content: '';
+    top: 0;
+    left: -2rem;
+    right: -2rem;
+    background: var(--g-separatorColor);
+    height: 0.1rem;
+    position: absolute;
+  }
+}
+
+@mixin input {
+  border: none !important;
+  background-color: var(--g-controlBackgroundColor) !important;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 0px 1px rgba(0, 0, 0, 0.15),
+    0 0 0 16px hsla(var(--s-controlAccentColor--hsl), 0) !important;
+  height: 2rem;
+  padding-left: 1rem;
+
+  &:focus-within,
+  &:focus {
+    transition: 0.25s box-shadow cubic-bezier(0.61, 1, 0.88, 1);
+    transition-delay: 0.125s;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 0px 1px rgba(0, 0, 0, 0.15),
+      0 0 0 0.35rem hsla(var(--s-controlAccentColor--hsl), 0.5) !important;
+  }
+}
+
+.modal-layer {
+  @include modalBackdrop();
+}
+
+.modal-dialog {
+  @include modalDialog();
+
+  > div:first-child input[type='text'],
+  .datetime-picker input[type='text'] {
+    @include input;
+  }
+
+  input[type='text'] {
+    @include input;
+  }
+
+  input + a {
+    font-size: 1.5rem;
+    right: 2.7rem;
+    position: absolute;
+
+    .fa-question-circle {
+      &::before {
+        content: '􀅴' !important; // info-circle
+        color: var(--g-secondaryLabelColor) !important;
+        font-family: var(--g-font-family-system) !important;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+      }
+    }
+  }
+
+  label + div[style] {
+    background: none !important;
+  }
+
+  button {
+    @include buttonBase();
+
+    + button {
+      margin-left: 7px;
+    }
+
+    // ok
+    &:nth-child(1) {
+      @include buttonBase();
+      @include buttonPrimary();
+    }
+    // cancel
+    &:nth-child(2) {
+      margin-left: auto !important;
+    }
+    // clear
+    &:nth-child(3):not(:active) {
+      color: var(--g-systemRed) !important;
+    }
+  }
+
+  // button-container
+  > div:last-child {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    gap: 0.7rem;
+
+    @include modalFooter();
+  }
+
+  // go-to-anything modal
+  //
+  // increase specificity
+  .item-list.item-list {
+    display: block !important;
+    padding-top: 0 !important;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+    height: auto !important;
+
+    &:before {
+      content: none;
+    }
+
+    // items
+    > div {
+      border-bottom: none !important;
+      //   height: auto !important;
+      padding: 1.5rem 1.5rem !important;
+      position: relative;
+
+      &::before {
+        content: '';
+        top: 0;
+        left: 1rem;
+        right: 1rem;
+        background: var(--g-separatorColor);
+        height: 0.1rem;
+        position: absolute;
+      }
+
+      &:nth-child(2)::before {
+        content: none !important;
+      }
+
+      * {
+        opacity: 1 !important;
+      }
+
+      > div {
+        color: var(--g-secondaryLabelColor) !important;
+
+        // title
+        &:first-child[style] {
+          margin-bottom: 0 !important;
+        }
+
+        // titles for notebook search
+        &:first-child:not(:last-child) {
+          font-size: 1.5rem !important;
+          margin-bottom: 0.4rem !important;
+        }
+
+        // match highlight
+        span {
+          color: var(--g-textColor) !important;
+          font-weight: normal !important;
+        }
+      }
+
+      &:empty {
+        display: none;
+      }
+
+      &.selected {
+        background: var(--s-accentColor) !important;
+        border-radius: 0.5rem;
+
+        > div {
+          color: rgba(255, 255, 255, 0.75) !important;
+
+          // match highlight
+          span {
+            color: var(--g-highlightColor) !important;
+          }
+        }
+
+        i.fa:before {
+          color: rgba(var(--g-highlightColor--rgb) 0.75);
+        }
+      }
+
+      // notebook
+      &:not(.selected) > div:last-child {
+        color: var(--g-secondaryLabelColor) !important;
+      }
+
+      i.fa:before {
+        color: var(--s-accentColor);
+        font-family: var(--g-font-family-system) !important;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .fa-book:before {
+        content: var(--g-icon-folder); // folder
+      }
+    }
+  }
+}
+
+// note properties modal
+// 🤦‍♂️
+div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][style*='align-items: flex-start;']:not(.modal-layer) {
+  @include modalBackdrop();
+
+  > div {
+    @include modalDialog();
+    max-height: none !important;
+
+    // main heading
+    > div:first-child {
+      color: var(--g-labelColor) !important;
+      font-size: 1.3rem !important;
+      text-align: center;
+    }
+
+    // button container
+    > div:last-child {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 0.8rem;
+
+      @include modalFooter();
+
+      // ok-button
+      button:first-child {
+        @include buttonBase();
+        @include buttonPrimary();
+      }
+      // cancel-button
+      button:last-child {
+        @include buttonBase();
+      }
+    }
+  }
+  .note-property-box {
+    margin-bottom: 1rem !important;
+
+    input[type='text'] {
+      @include input;
+    }
+
+    a:not(:empty) {
+      background-color: transparent !important;
+      color: var(--s-controlAccentColor);
+      text-decoration: none !important;
+      margin-left: 0 !important;
+
+      .fas {
+        color: var(--s-controlAccentColor) !important;
+
+        &::before {
+          font-family: var(--g-font-family-system) !important;
+          font-weight: 400;
+        }
+
+        &.fa-edit::before {
+          content: var(--g-icon-square-and-pencil);
+        }
+        &.fa-copy::before {
+          content: var(--g-icon-doc-on-clipboard);
+        }
+        &.fa-save::before {
+          content: var(--g-icon-square-and-arrow-down);
+        }
+      }
+    }
+
+    div + a[style] {
+      margin-left: 1rem !important;
+    }
+
+    label {
+      color: var(--g-secondaryLabelColor) !important;
+      font-weight: 400 !important;
+      text-align: right !important;
+      margin-right: 0.8rem !important;
+
+      &::after {
+        // it's in the details ;)
+        content: ':';
+      }
+    }
+  }
+}
+
+// tag-selector modal
+.tag-selector {
+  [class*='control'] {
+    @include input();
+    top: 0.6rem;
+
+    height: 1.8rem !important;
+    min-height: 0;
+    padding: 0 0 0 0.4rem;
+
+    > div {
+      padding: 0;
+      height: 1.8rem;
+    }
+  }
+  input[type='text'],
+  input[type='text']:focus {
+    box-shadow: none !important;
+    font-size: var(--g-font-size--1) !important;
+  }
+
+  [class*='indicatorSeparator'] {
+    display: none;
+  }
+
+  [class*='indicatorContainer'] {
+    padding: 0 0.2rem;
+
+    &:after {
+      @include buttonBase();
+      @include buttonPrimary();
+      content: var(--g-icon-chevron-up-chevron-down);
+      font-size: var(--g-font-size--1) !important;
+      min-width: 0 !important;
+      height: 1.6rem !important;
+      padding: 0 !important;
+      min-width: 0;
+      text-align: center;
+      line-height: 1.8rem !important;
+      width: 1.6rem !important;
+    }
+
+    * {
+      display: none;
+    }
+  }
+
+  > div > div:first-child {
+    // space between tags
+    > div + div {
+      margin-left: 0rem;
+    }
+
+    input {
+      background: transparent !important;
+      line-height: 1.2rem;
+    }
+  }
+
+  // selected tag
+  [class*='multiValue'] {
+    background-color: var(--g-gridColor) !important;
+    border-radius: 0.2rem !important;
+    margin: 0 0.4rem 0 0 !important;
+    padding: 0 0.4rem !important;
+
+    * {
+      color: var(--g-textColor) !important;
+      font-size: 1.1rem !important;
+      font-family: var(--g-font-family-system);
+      line-height: 1.2rem !important;
+      height: 1.2rem !important;
+      padding: 0;
+    }
+
+    > div:first-child {
+      flex: 1 0 auto;
+    }
+
+    > div:last-child {
+      flex: 1 0 auto;
+      margin: 0 0 0 0.4rem !important;
+      line-height: 22px;
+      background-color: transparent !important;
+
+      &::after {
+        content: var(--g-icon-xmark);
+        color: var(--g-controlTextColor);
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      &:hover {
+        background-color: transparent;
+      }
+
+      svg {
+        display: none;
+      }
+    }
+  }
+
+  // dropdown
+  // unfortunately there's no way to determine which menu item has keyboard
+  // focus, which is why this is not styled
+  //
+  // [class*='menu'] {
+  // @include dropdownBackground();
+
+  // [class*='option'] {
+  // @include dropdownItem();
+  // background: unset !important;
+  //   }
+  // }
+}
+
+// todo datepicker
+.rdtPicker {
+  @include dropdownBackground();
+  border-radius: 0.4rem;
+  color: var(--g-text-color);
+  min-width: 0;
+  padding: 0.6rem 0.2rem 0 0.2rem !important;
+  min-width: 16rem;
+
+  *,
+  *:hover {
+    background-color: transparent !important;
+    cursor: default !important;
+    user-select: none;
+  }
+
+  thead {
+    .rdtSwitch {
+      order: -1;
+      flex: 1;
+      text-align: left;
+      width: auto;
+    }
+
+    .rdtPrev,
+    .rdtNext {
+      flex: 0 0 auto;
+      margin: 0 0.2rem;
+    }
+
+    tr th {
+      border-bottom: transparent;
+    }
+
+    tr:first-child th {
+      margin-left: 0.4rem;
+      font-size: 1.2rem;
+      color: var(--g-text-color);
+    }
+
+    tr:last-child {
+      border-bottom: 0.1rem solid var(--g-separatorColor);
+      margin-bottom: 0.4rem;
+      padding: 0 0 0.4rem;
+
+      th {
+        border-bottom: transparent;
+        color: var(--g-secondaryLabelColor);
+        font-size: 1rem;
+        height: auto;
+      }
+    }
+  }
+
+  tfoot {
+    border-top-color: var(--g-separatorColor);
+
+    .rdtTimeToggle {
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  tr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    th,
+    td {
+      padding: 0;
+      flex: 1;
+    }
+  }
+
+  td[data-value] {
+    padding: 0 0.5rem !important;
+    font-size: 1rem !important;
+    height: 1.6rem;
+    min-height: 0;
+    min-width: 2.5rem;
+
+    &.rdtToday {
+      color: var(--g-systemRed) !important;
+
+      &:before {
+        border-color: transparent;
+      }
+    }
+
+    &.rdtActive {
+      color: var(--g-textColor);
+      background-color: var(--g-quaternaryLabelColor) !important;
+      border-radius: 0.2rem;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      text-shadow: none;
+      top: 0;
+      z-index: -1;
+    }
+  }
+
+  * {
+    border-color: transparent;
+  }
+}
