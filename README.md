@@ -29,7 +29,7 @@ For the icons to work you need to install SF Pro from the [Apple website here](h
 ## Disclaimer
 ⚠️ Joplin uses styled-components for styling, which makes it incredibly hard to theme the app. A lot of hacky CSS workarounds and `!important`’s were used. These may cause UI issues with future Joplin releases. Since it's just CSS, your data remains safe and you can easily revert the styles.
 
-Feel free to [create an issue](https://github.com/ajilderda/joplin-macos-native-theme/issues) or post a message [on the forum](https://discourse.joplinapp.org/t/joplin-macos-native-theme/16499) if you run into issues.
+Feel free to [create an issue](https://github.com/ajilderda/joplin-macos-native-theme/issues) or post a message [on the forum](https://discourse.joplinapp.org/t/macos-theme-for-joplin/) if you run into issues.
 
 ## Development
 
