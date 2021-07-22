@@ -14,7 +14,6 @@ Native looking macOS theme for note taking app [Joplin](https://joplinapp.org/) 
 - Download and install SF Pro from the [Apple website here](https://developer.apple.com/fonts/),
 - Download the latest zip from [releases](https://github.com/ajilderda/joplin-macos-native-theme/releases) and copy the CSS to the clipboard,
 - Open Joplin's preferences (<kbd>cmd</kbd> + <kbd>,</kbd>) and go to the 'Appearance'-tab,
-- Make sure Theme is set to 'Light',
 - Click on 'Show Advanced Settings' › 'Custom stylesheet for rendered Markdown'. A file named `userstyle.css` should open in a texteditor. Paste in the CSS. Do the same for 'Custom stylesheet for Joplin-wide app styles' (filename `userchrome.css`),
 - Restart Joplin. Enjoy!
 
