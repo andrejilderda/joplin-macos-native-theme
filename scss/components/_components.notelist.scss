@@ -86,7 +86,7 @@
         content: var(--g-icon-xmark-circle-fill);
         font-family: var(--s-font-family-icons);
         display: block;
-        font-family: var(--g-font-family-system) !important;
+        font-family: var(--s-font-family-system) !important;
         position: absolute;
         right: 0.7rem;
         top: 0.7rem;
@@ -195,7 +195,7 @@
         font-family: var(--s-font-family-icons);
         color: var(--s-accentColor);
         font-weight: 400;
-        font-family: var(--g-font-family-system);
+        font-family: var(--s-font-family-system);
       }
     }
 

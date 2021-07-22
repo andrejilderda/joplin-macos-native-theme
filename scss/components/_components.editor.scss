@@ -24,7 +24,7 @@
 }
 
 @mixin toolbarButtonIcon {
-  font-family: var(--s-font-family-icons) !important;
+  font-family: var(--s-font-family-icons);
   font-size: var(--g-font-size-1) !important;
   font-weight: normal !important;
   -webkit-font-smoothing: antialiased;
@@ -93,7 +93,7 @@
       // date/timestamp
       .updated-time-label {
         color: var(--g-secondaryLabelColor) !important;
-        font-family: var(--g-font-family-system) !important;
+        font-family: var(--s-font-family-system) !important;
         font-size: 1.1rem;
         margin-top: 0.3rem;
         margin-right: 1rem;
@@ -105,7 +105,7 @@
           a {
             color: var(--g-secondaryLabelColor);
             margin: 0 0.2rem;
-            font-family: var(--g-font-family-system);
+            font-family: var(--s-font-family-system);
             line-height: 1;
 
             // hide default icons
@@ -128,7 +128,7 @@
               display: block;
               color: var(--g-secondaryLabelColor);
               margin: 0.2rem 0.2rem 0;
-              font-family: var(--g-font-family-system);
+              font-family: var(--s-font-family-system);
               line-height: 1;
               font-size: 1.4rem;
               font-weight: 400;
@@ -140,7 +140,7 @@
               }
               &[title]:not([title=''])::before {
                 content: attr(title);
-                font-family: var(--g-font-family-system-rounded);
+                font-family: var(--s-font-family-system-rounded);
                 font-size: 1.4rem !important;
                 font-weight: 400;
                 line-height: 2.6rem;
@@ -195,7 +195,7 @@
 
       &.markdown-active::after {
         content: 'MD';
-        font-family: var(--g-font-family-system-rounded);
+        font-family: var(--s-font-family-system-rounded);
         font-size: 1.2rem !important;
         line-height: 2.6rem;
         font-weight: 500 !important;
@@ -229,7 +229,7 @@
           content: var(--s-icon-folder);
           font-family: var(--s-font-family-icons);
           color: var(--s-accentColor);
-          font-family: var(--g-font-family-system);
+          font-family: var(--s-font-family-system);
           font-size: 1.3rem;
           font-weight: 400;
         }
@@ -395,7 +395,7 @@
     button:nth-child(1):before,
     button:nth-child(2):before,
     button:nth-child(3):before {
-      font-family: var(--g-font-family-system);
+      font-family: var(--s-font-family-system);
     }
 
     .tox-tbtn__select-label {
@@ -406,7 +406,7 @@
     button:nth-child(1):before,
     button:nth-child(2):before,
     button:nth-child(3):before {
-      font-family: var(--g-font-family-system-rounded);
+      font-family: var(--s-font-family-system-rounded);
     }
 
     button:nth-child(1):before {
@@ -510,7 +510,7 @@
         }
         .icon-heading::before {
           content: 'H2';
-          font-family: var(--g-font-family-system-rounded);
+          font-family: var(--s-font-family-system-rounded);
         }
         .fa-ellipsis-h::before {
           content: var(--s-icon-minus);

@@ -9,7 +9,7 @@ body {
 }
 
 body {
-  font-family: var(--g-font-family-system);
+  font-family: var(--s-font-family-system);
   /* set default font-size back to 16px */
   font-size: 1.6rem;
 
@@ -19,7 +19,7 @@ body {
   input,
   button {
     color: var(--g-primary-Color);
-    font-family: var(--g-font-family-system);
+    font-family: var(--s-font-family-system);
   }
   a {
     cursor: default;
@@ -32,7 +32,7 @@ body {
 }
 
 *[style*='Roboto'] {
-  font-family: var(--g-font-family-system) !important;
+  font-family: var(--s-font-family-system) !important;
 }
 
 *[style*='color:'] {

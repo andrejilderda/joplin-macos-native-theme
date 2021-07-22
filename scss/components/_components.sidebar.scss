@@ -18,7 +18,7 @@
   padding-top: 1rem;
 
   * {
-    font-family: var(--g-font-family-system) !important;
+    font-family: var(--s-font-family-system) !important;
   }
 
   > div {
@@ -173,7 +173,7 @@
     opacity: 1 !important;
 
     &::before {
-      font-family: var(--g-font-family-system);
+      font-family: var(--s-font-family-system);
       font-size: 9px;
       font-weight: 700;
       -webkit-font-smoothing: antialiased;
@@ -278,7 +278,6 @@
         &::before {
           content: var(--g-icon-arrow-triangle-2-circlepath);
           font-family: var(--s-font-family-icons);
-          font-family: var(--g-font-family-system);
           font-size: 1.2rem;
           -webkit-font-smoothing: antialiased;
         }

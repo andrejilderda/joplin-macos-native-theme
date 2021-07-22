@@ -11,6 +11,8 @@
   /* --u-accentColor--h: 243; */
   /* --u-accentColor--s: 75%; */
   /* --u-accentColor--l: 59%; */
+  /* --u-font-family-system-rounded: 'Segoe UI', sans-serif; */
+  /* --u-font-family-system: 'Segoe UI', sans-serif; */
 
   /*
 
@@ -26,7 +28,7 @@
     --u-sidebar-background-color: hsl(0, 0%, 20%);
     --u-sidebar-label-color: hsla(0, 0%, 100%, 0.25);
     --u-sidebar-item-color: hsla(0, 0%, 100%, 0.85);
-    -u-sidebar-icon-color: hsl(210, 100%, 52%);
+    --u-sidebar-icon-color: hsl(210, 100%, 52%);
     --u-sidebar-chevron-color: hsla(0, 0%, 100%, 0.55);
     --u-sidebar-synchronise-color: hsla(0, 0%, 100%, 0.55);
     --u-sidebar-selected-item-color: hsl(0, 0%, 27%);
@@ -121,6 +123,10 @@
   --s-accentColor--hsl: var(--s-accentColor--hs), var(--s-accentColor--l);
   --s-accentColor: hsl(var(--s-accentColor--hsl));
 
+  // fonts
+  --s-font-family-system-rounded: var(--u-font-family-system-rounded, var(--g-font-family-system-rounded));
+  --s-font-family-system: var(--u-font-family-system, var(--g-font-family-system));
+
   // selected accent color
   --s-selectedContentBackgroundColor--h: var(--u-accentColor--h, var(--g-selectedContentBackgroundColor--h));
   --s-selectedContentBackgroundColor--s: var(--u-accentColor--s, var(--g-selectedContentBackgroundColor--s));
@@ -149,6 +155,7 @@
 
   // icons
   --s-font-family-icons: var(--u-font-family-icons, var(--g-font-family-icons));
+
   --s-icon-folder: var(--u-icon-folder, var(--g-icon-folder));
   --s-icon-tag: var(--u-icon-tag, var(--g-icon-tag));
   --s-icon-arrow-triangle-2-circlepath: var(--u-icon-arrow-triangle-2-circlepath, var(--g-icon-arrow-triangle-2-circlepath));
