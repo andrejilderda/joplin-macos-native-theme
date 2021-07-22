@@ -117,8 +117,8 @@ body {
           background-color: var(--s-controlAccentColor);
           border-color: transparent;
           color: var(--g-alternateSelectedControlTextColor);
-          content: '􀆅';
-          font-family: var(--g-font-family-system);
+          content: var(--s-icon-checkmark);
+          font-family: var(--g-font-family-icons);
           font-size: 1rem;
           line-height: 1.5rem;
           position: absolute;

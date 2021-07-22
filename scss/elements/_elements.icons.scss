@@ -1,9 +1,12 @@
 .fa-caret-right::before {
-  content: '􀆊'; // chevron.right
+  content: var(--s-icon-chevron-right);
 }
 .fa-caret-down::before {
-  content: '􀆈'; // chevron.down
+  content: var(--s-icon-chevron-down);
 }
 .fa-plus::before {
-  content: '􀁌'; // plus.circle
+  content: var(--s-icon-plus-circle);
+}
+.fa-book::before {
+  content: var(--s-icon-folder);
 }

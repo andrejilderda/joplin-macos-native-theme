@@ -57,6 +57,57 @@
   /* paragraph spacing in editor - default 1.5rem */
   /* --u-editor-paragraph-spacing: 0rem; */
   /* --u-editor-max-width: none; */
+
+  /*
+
+    Icons --------------------------------
+  */
+  // --u-font-family-icons: 'Phosphor';
+  // --u-icon-folder: ''; // d
+  // --u-icon-tag: '􀋡';
+  // --u-icon-arrow-triangle-2-circlepath: '􀊯';
+  // --u-icon-bold: '􀅓';
+  // --u-icon-italic: '􀅔';
+  // --u-icon-highlighter: '􀦇';
+  // --u-icon-strikethrough: '􀅖';
+  // --u-icon-textformat-abc-dottedunderline: '􀅰';
+  // --u-icon-alarm: '􀐭';
+  // --u-icon-square-split-2x1: '􀏠';
+  // --u-icon-info-circle: '􀅴';
+  // --u-icon-chevron-backward: '􀯶';
+  // --u-icon-chevron-forward: '􀯻';
+  // --u-icon-chevron-down: '􀆈';
+  // --u-icon-chevron-up-chevron-down: '􀆏';
+  // --u-icon-arrow-up-forward-app: '􀮵';
+  // --u-icon-arrow-up-right-square-fill: '􀄕';
+  // --u-icon-ellipsis: '􀍠';
+  // --u-icon-link: ''; //d
+  // --u-icon-chevron-left-slash-chevron-right: '􀙚';
+  // --u-icon-curlybraces: '􀡅';
+  // --u-icon-paperclip: '􀉢';
+  // --u-icon-list-bullet: '􀋲';
+  // --u-icon-list-number: '􀋴';
+  // --u-icon-text-badge-checkmark: '􀋺';
+  // --u-icon-minus: '􀅽';
+  // --u-icon-text-quote: '􀋿';
+  // --u-icon-tablecells-badge-ellipsis: '􀏥';
+  // --u-icon-clock: '􀐫';
+  // --u-icon-calendar-badge-clock: '􀧞';
+  // --u-icon-doc-richtext: '􀉅';
+  // --u-icon-square-and-pencil: '􀈎';
+  // --u-icon-doc-on-clipboard: '􀉃';
+  // --u-icon-square-and-arrow-down: '􀈄';
+  // --u-icon-xmark-circle-fill: '􀁡';
+  // --u-icon-xmark: '􀆄';
+
+  // --u-icon-checkmark-circle: '􀊫';
+  // --u-icon-square-and-pencil: '􀈎';
+  // --u-icon-text-below-photo: '􀲱';
+  // --u-icon-checkmark: '􀆅';
+  // --u-icon-plus-circle: '􀁌';
+  // --u-icon-chevron-right: '􀆊';
+  // --u-icon-chevron-down: '􀆈';
+  // --u-icon-plus-circle: '􀁌';
 }
 
 // --s = user setting with default fallback
@@ -95,4 +146,53 @@
   --s-sidebar__chevron-Color: var(--u-sidebar-chevron-color, var(--g-secondaryLabelColor));
   --s-sidebar__synchronise-Color: var(--u-sidebar-synchronise-color, var(--g-secondaryLabelColor));
   --s-sidebar__synchronise-label-Color: var(--u-sidebar-synchronise-label-color, var(--g-textColor));
+
+  // icons
+  --s-font-family-icons: var(--u-font-family-icons, var(--g-font-family-icons));
+  --s-icon-folder: var(--u-icon-folder, var(--g-icon-folder));
+  --s-icon-tag: var(--u-icon-tag, var(--g-icon-tag));
+  --s-icon-arrow-triangle-2-circlepath: var(--u-icon-arrow-triangle-2-circlepath, var(--g-icon-arrow-triangle-2-circlepath));
+  --s-icon-bold: var(--u-icon-bold, var(--g-icon-bold));
+  --s-icon-italic: var(--u-icon-italic, var(--g-icon-italic));
+  --s-icon-highlighter: var(--u-icon-highlighter, var(--g-icon-highlighter));
+  --s-icon-strikethrough: var(--u-icon-strikethrough, var(--g-icon-strikethrough));
+  --s-icon-textformat-abc-dottedunderline: var(--u-icon-textformat-abc-dottedunderline, var(--g-icon-textformat-abc-dottedunderline));
+  --s-icon-alarm: var(--u-icon-alarm, var(--g-icon-alarm));
+  --s-icon-square-split-2x1: var(--u-icon-square-split-2x1, var(--g-icon-square-split-2x1));
+  --s-icon-info-circle: var(--u-icon-info-circle, var(--g-icon-info-circle));
+  --s-icon-chevron-backward: var(--u-icon-chevron-backward, var(--g-icon-chevron-backward));
+  --s-icon-chevron-forward: var(--u-icon-chevron-forward, var(--g-icon-chevron-forward));
+  --s-icon-chevron-down: var(--u-icon-chevron-down, var(--g-icon-chevron-down));
+  --s-icon-chevron-up-chevron-down: var(--u-icon-chevron-up-chevron-down, var(--g-icon-chevron-up-chevron-down));
+  --s-icon-arrow-up-forward-app: var(--u-icon-arrow-up-forward-app, var(--g-icon-arrow-up-forward-app));
+  --s-icon-arrow-up-right-square-fill: var(--u-icon-arrow-up-right-square-fill, var(--g-icon-arrow-up-right-square-fill));
+  --s-icon-ellipsis: var(--u-icon-ellipsis, var(--g-icon-ellipsis));
+  --s-icon-link: var(--u-icon-link, var(--g-icon-link));
+  --s-icon-chevron-left-slash-chevron-right: var(--u-icon-chevron-left-slash-chevron-right, var(--g-icon-chevron-left-slash-chevron-right));
+  --s-icon-curlybraces: var(--u-icon-curlybraces, var(--g-icon-curlybraces));
+  --s-icon-paperclip: var(--u-icon-paperclip, var(--g-icon-paperclip));
+  --s-icon-list-bullet: var(--u-icon-list-bullet, var(--g-icon-list-bullet));
+  --s-icon-list-number: var(--u-icon-list-number, var(--g-icon-list-number));
+  --s-icon-text-badge-checkmark: var(--u-icon-text-badge-checkmark, var(--g-icon-text-badge-checkmark));
+  --s-icon-minus: var(--u-icon-minus, var(--g-icon-minus));
+  --s-icon-text-quote: var(--u-icon-text-quote, var(--g-icon-text-quote));
+  --s-icon-tablecells-badge-ellipsis: var(--u-icon-tablecells-badge-ellipsis, var(--g-icon-tablecells-badge-ellipsis));
+  --s-icon-clock: var(--u-icon-clock, var(--g-icon-clock));
+  --s-icon-calendar-badge-clock: var(--u-icon-calendar-badge-clock, var(--g-icon-calendar-badge-clock));
+  --s-icon-doc-richtext: var(--u-icon-doc-richtext, var(--g-icon-doc-richtext));
+  --s-icon-square-and-pencil: var(--u-icon-square-and-pencil, var(--g-icon-square-and-pencil));
+  --s-icon-doc-on-clipboard: var(--u-icon-doc-on-clipboard, var(--g-icon-doc-on-clipboard));
+  --s-icon-square-and-arrow-down: var(--u-icon-square-and-arrow-down, var(--g-icon-square-and-arrow-down));
+  --s-icon-xmark-circle-fill: var(--u-icon-xmark-circle-fill, var(--g-icon-xmark-circle-fill));
+  --s-icon-xmark: var(--u-icon-xmark, var(--g-icon-xmark));
+  --s-icon-magnifyingglass: var(--u-icon-magnifyingglass, var(--g-icon-magnifyingglass));
+
+  --s-icon-checkmark-circle: var(--u-icon-checkmark-circle, var(--g-icon-checkmark-circle));
+  --s-icon-square-and-pencil: var(--u-icon-square-and-pencil, var(--g-icon-square-and-pencil));
+  --s-icon-text-below-photo: var(--u-icon-text-below-photo, var(--g-icon-text-below-photo));
+  --s-icon-checkmark: var(--u-icon-checkmark, var(--g-icon-checkmark));
+  --s-icon-plus-circle: var(--u-icon-plus-circle, var(--g-icon-plus-circle));
+  --s-icon-chevron-right: var(--u-icon-chevron-right, var(--g-icon-chevron-right));
+  --s-icon-chevron-down: var(--u-icon-chevron-down, var(--g-icon-chevron-down));
+  --s-icon-plus-circle: var(--u-icon-plus-circle, var(--g-icon-plus-circle));
 }

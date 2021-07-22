@@ -70,9 +70,9 @@
 
     .fa-question-circle {
       &::before {
-        content: '􀅴' !important; // info-circle
+        content: var(--s-icon-info-circle) !important;
+        font-family: var(--s-font-family-icons);
         color: var(--g-secondaryLabelColor) !important;
-        font-family: var(--g-font-family-system) !important;
         font-weight: 400;
         -webkit-font-smoothing: antialiased;
       }
@@ -210,7 +210,8 @@
       }
 
       .fa-book:before {
-        content: var(--g-icon-folder); // folder
+        content: var(--s-icon-folder); // folder
+        font-family: var(--s-font-family-icons);
       }
     }
   }
@@ -268,18 +269,18 @@ div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][sty
         color: var(--s-controlAccentColor) !important;
 
         &::before {
-          font-family: var(--g-font-family-system) !important;
+          font-family: var(--s-font-family-icons) !important;
           font-weight: 400;
         }
 
         &.fa-edit::before {
-          content: var(--g-icon-square-and-pencil);
+          content: var(--s-icon-square-and-pencil);
         }
         &.fa-copy::before {
-          content: var(--g-icon-doc-on-clipboard);
+          content: var(--s-icon-doc-on-clipboard);
         }
         &.fa-save::before {
-          content: var(--g-icon-square-and-arrow-down);
+          content: var(--s-icon-square-and-arrow-down);
         }
       }
     }
@@ -333,7 +334,8 @@ div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][sty
     &:after {
       @include buttonBase();
       @include buttonPrimary();
-      content: var(--g-icon-chevron-up-chevron-down);
+      content: var(--s-icon-chevron-up-chevron-down);
+      font-family: var(--s-font-family-icons);
       font-size: var(--g-font-size--1) !important;
       min-width: 0 !important;
       height: 1.6rem !important;
@@ -388,7 +390,8 @@ div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][sty
       background-color: transparent !important;
 
       &::after {
-        content: var(--g-icon-xmark);
+        content: var(--s-icon-xmark);
+        font-family: var(--s-font-family-icons);
         color: var(--g-controlTextColor);
         font-size: 0.8rem;
         font-weight: 600;

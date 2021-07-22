@@ -63,12 +63,12 @@
 
       // always show magnifying glass
       span::before {
+        content: var(--s-icon-magnifyingglass) !important;
+        font-family: var(--g-font-family-icons);
         position: absolute;
         left: 0;
-        content: '􀊫' !important; // magnifyingglass
         color: var(--g-secondaryLabelColor);
         font-size: 1.6rem;
-        font-family: var(--g-font-family-system);
         font-weight: normal !important;
         top: 0.5rem;
         left: 0.8rem;
@@ -84,6 +84,7 @@
       &::after {
         color: var(--g-secondaryLabelColor);
         content: var(--g-icon-xmark-circle-fill);
+        font-family: var(--s-font-family-icons);
         display: block;
         font-family: var(--g-font-family-system) !important;
         position: absolute;
@@ -121,7 +122,7 @@
         span:before {
           color: var(--g-secondaryLabelColor);
           display: block;
-          font-family: var(--g-font-family-system);
+          font-family: var(--g-font-family-icons);
           font-size: var(--g-font-size-2);
           font-weight: 500;
           -webkit-font-smoothing: antialiased;
@@ -129,11 +130,11 @@
         }
 
         &.new-todo-button span:before {
-          content: '􀁢';
+          content: var(--s-icon-checkmark-circle) !important;
         }
 
         &.new-note-button span:before {
-          content: '􀈎';
+          content: var(--s-icon-square-and-pencil);
         }
       }
     }
@@ -191,6 +192,7 @@
       margin-left: auto;
       &::before {
         content: var(--g-icon-arrow-up-right-square-fill);
+        font-family: var(--s-font-family-icons);
         color: var(--s-accentColor);
         font-weight: 400;
         font-family: var(--g-font-family-system);
@@ -292,8 +294,9 @@
         border-color: transparent;
 
         &:after {
+          content: var(--s-icon-checkmark);
           position: absolute;
-          content: '􀆅';
+          font-family: var(--s-font-family-icons) !important;
           color: var(--g-alternateSelectedControlTextColor);
           left: 0.15rem;
           top: 0.1rem;
