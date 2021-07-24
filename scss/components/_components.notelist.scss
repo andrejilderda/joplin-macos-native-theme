@@ -61,17 +61,21 @@
       right: auto;
       top: 1px;
 
+      .icon-search {
+        font-size: 1.4rem;
+      }
+
       // always show magnifying glass
-      span::before {
+      .icon-search::before {
         @include icon(magnifyingglass);
-        transform: scale(var(--u-font-family-icons, 1));
+        transform: translateY(-50%)  scale(var(--s-icon-size, 1));
 
         position: absolute;
         left: 0;
         color: var(--g-secondaryLabelColor);
-        font-size: 1.6rem;
+        font-size: calc(var(--u-font-family-icons, 1) * 1.7rem);
         font-weight: normal !important;
-        top: 0.5rem;
+        top: 50%;
         left: 0.8rem;
         pointer-events: none;
       }
