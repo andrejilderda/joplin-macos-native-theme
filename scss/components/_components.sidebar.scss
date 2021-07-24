@@ -29,7 +29,7 @@
         margin-right: 1.5rem;
         span::before {
           content: var(--s-icon-plus-circle);
-          font-family: var(--g-font-family-icons);
+          font-family: var(--s-font-family-icons);
         }
       }
 
@@ -129,11 +129,11 @@
     }
 
     .folders .list-item::before {
-      content: var(--g-icon-folder);
+      content: var(--s-icon-folder);
       font-family: var(--s-font-family-icons);
     }
     .tags .list-item::before {
-      content: var(--g-icon-tag);
+      content: var(--s-icon-tag);
       font-family: var(--s-font-family-icons);
     }
 
@@ -173,20 +173,20 @@
     opacity: 1 !important;
 
     &::before {
-      font-family: var(--s-font-family-system);
+      font-family: var(--s-font-family-icons);
       font-size: 9px;
       font-weight: 700;
       -webkit-font-smoothing: antialiased;
     }
 
     &.fa-caret-right::before {
-      content: var(--g-icon-chevron-forward);
+      content: var(--s-icon-chevron-forward);
       font-family: var(--s-font-family-icons);
       color: var(--s-sidebar__chevron-Color);
     }
 
     &.fa-caret-down::before {
-      content: var(--g-icon-chevron-down);
+      content: var(--s-icon-chevron-down);
       font-family: var(--s-font-family-icons);
       color: var(--s-sidebar__chevron-Color);
     }
@@ -276,7 +276,7 @@
         transform-origin: 50% 55%;
 
         &::before {
-          content: var(--g-icon-arrow-triangle-2-circlepath);
+          content: var(--s-icon-arrow-triangle-2-circlepath);
           font-family: var(--s-font-family-icons);
           font-size: 1.2rem;
           -webkit-font-smoothing: antialiased;

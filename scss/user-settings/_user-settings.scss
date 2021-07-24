@@ -34,11 +34,12 @@
     --u-sidebar-selected-item-color: hsl(0, 0%, 27%);
   */
   /*
-    ⚠️ IMPORTANT: The synchronise status is hidden by default, and only shown
-    after a timeout on hover by default. Any sync errors you might not notice.
-    Uncomment the line below to always show the sync status.
+    Comment out the line below to hide the sync status.
+
+    ⚠️ IMPORTANT: The sync status is only shown after by hovering after a
+    timeout. Any sync errors are easily overlooked.
   */
-  /* --u-sidebar-synchronise-label: ''; */
+  --u-sidebar-synchronise-label: '';
   /* --u-sidebar-synchronise-label-color: hsl(0, 0%, 50%); */
 
   /*
@@ -64,58 +65,58 @@
 
     Icons --------------------------------
   */
-  // --u-font-family-icons: 'Phosphor';
-  // --u-icon-folder: ''; // d
-  // --u-icon-tag: '􀋡';
-  // --u-icon-arrow-triangle-2-circlepath: '􀊯';
-  // --u-icon-bold: '􀅓';
-  // --u-icon-italic: '􀅔';
-  // --u-icon-highlighter: '􀦇';
-  // --u-icon-strikethrough: '􀅖';
-  // --u-icon-textformat-abc-dottedunderline: '􀅰';
-  // --u-icon-alarm: '􀐭';
-  // --u-icon-square-split-2x1: '􀏠';
-  // --u-icon-info-circle: '􀅴';
-  // --u-icon-chevron-backward: '􀯶';
-  // --u-icon-chevron-forward: '􀯻';
-  // --u-icon-chevron-down: '􀆈';
-  // --u-icon-chevron-up-chevron-down: '􀆏';
-  // --u-icon-arrow-up-forward-app: '􀮵';
-  // --u-icon-arrow-up-right-square-fill: '􀄕';
-  // --u-icon-ellipsis: '􀍠';
-  // --u-icon-link: ''; //d
-  // --u-icon-chevron-left-slash-chevron-right: '􀙚';
-  // --u-icon-curlybraces: '􀡅';
-  // --u-icon-paperclip: '􀉢';
-  // --u-icon-list-bullet: '􀋲';
-  // --u-icon-list-number: '􀋴';
-  // --u-icon-text-badge-checkmark: '􀋺';
-  // --u-icon-minus: '􀅽';
-  // --u-icon-text-quote: '􀋿';
-  // --u-icon-tablecells-badge-ellipsis: '􀏥';
-  // --u-icon-clock: '􀐫';
-  // --u-icon-calendar-badge-clock: '􀧞';
-  // --u-icon-doc-richtext: '􀉅';
-  // --u-icon-square-and-pencil: '􀈎';
-  // --u-icon-doc-on-clipboard: '􀉃';
-  // --u-icon-square-and-arrow-down: '􀈄';
-  // --u-icon-xmark-circle-fill: '􀁡';
-  // --u-icon-xmark: '􀆄';
+   --u-font-family-icons: 'Phosphor';
 
-  // --u-icon-checkmark-circle: '􀊫';
-  // --u-icon-square-and-pencil: '􀈎';
-  // --u-icon-text-below-photo: '􀲱';
-  // --u-icon-checkmark: '􀆅';
-  // --u-icon-plus-circle: '􀁌';
-  // --u-icon-chevron-right: '􀆊';
-  // --u-icon-chevron-down: '􀆈';
-  // --u-icon-plus-circle: '􀁌';
+   --u-icon-alarm: '';
+   --u-icon-arrow-triangle-2-circlepath: '';
+   --u-icon-arrow-up-forward-app: '';
+   --u-icon-arrow-up-right-square-fill: '';
+   --u-icon-bold: '';
+   --u-icon-chevron-left-slash-chevron-right: '';
+   --u-icon-curlybraces: '';
+   --u-icon-checkmark: '';
+   --u-icon-calendar-badge-clock: '􀧞';
+   --u-icon-checkmark-circle: '';
+   --u-icon-chevron-backward: '';
+   --u-icon-chevron-down: '';
+   --u-icon-chevron-forward: '';
+   --u-icon-chevron-right: '';
+   --u-icon-chevron-up-chevron-down: '';
+   --u-icon-clock: '';
+   --u-icon-doc-on-clipboard: '';
+   --u-icon-doc-richtext: '';
+  //  --u-icon-ellipsis: '';
+   --u-icon-ellipsis: '';
+   --u-icon-link: '';
+   --u-icon-folder: '';
+   --u-icon-tag: '';
+   --u-icon-text-badge-checkmark: '';
+   --u-icon-text-below-photo: '';
+   --u-icon-info-circle: '';
+   --u-icon-list-bullet: '';
+   --u-icon-list-number: '';
+   --u-icon-plus-circle: '';
+   --u-icon-highlighter: '';
+   --u-icon-minus: '';
+   --u-icon-italic: '';
+   --u-icon-strikethrough: '';
+   --u-icon-square-and-pencil: '';
+   --u-icon-xmark-circle-fill: '';
+   --u-icon-xmark: '';
+   --u-icon-square-and-arrow-down: '';
+   --u-icon-paperclip: '';
+   --u-icon-square-split-2x1: '';
+   --u-icon-tablecells-badge-ellipsis: '';
+   --u-icon-text-quote: '';
+   --u-icon-textformat-abc-dottedunderline: '';
 }
 
 // --s = user setting with default fallback
 :root {
   // main accent color
-  --s-accentColor--h: var(--u-accentColor--h, var(--g-systemBlue--h));
+  @include fallback(accentColor--h, systemBlue--h);
+  @include fallback(accentColor--s, systemBlue--s);
+  @include fallback(accentColor--l, systemBlue--l);
   --s-accentColor--s: var(--u-accentColor--s, var(--g-systemBlue--s));
   --s-accentColor--l: var(--u-accentColor--l, var(--g-systemBlue--l));
 
@@ -124,8 +125,8 @@
   --s-accentColor: hsl(var(--s-accentColor--hsl));
 
   // fonts
-  --s-font-family-system-rounded: var(--u-font-family-system-rounded, var(--g-font-family-system-rounded));
-  --s-font-family-system: var(--u-font-family-system, var(--g-font-family-system));
+  @include fallback(font-family-system);
+  @include fallback(font-family-rounded);
 
   // selected accent color
   --s-selectedContentBackgroundColor--h: var(--u-accentColor--h, var(--g-selectedContentBackgroundColor--h));
@@ -154,52 +155,51 @@
   --s-sidebar__synchronise-label-Color: var(--u-sidebar-synchronise-label-color, var(--g-textColor));
 
   // icons
-  --s-font-family-icons: var(--u-font-family-icons, var(--g-font-family-icons));
+  @include fallback(font-family-icons);
 
-  --s-icon-folder: var(--u-icon-folder, var(--g-icon-folder));
-  --s-icon-tag: var(--u-icon-tag, var(--g-icon-tag));
-  --s-icon-arrow-triangle-2-circlepath: var(--u-icon-arrow-triangle-2-circlepath, var(--g-icon-arrow-triangle-2-circlepath));
-  --s-icon-bold: var(--u-icon-bold, var(--g-icon-bold));
-  --s-icon-italic: var(--u-icon-italic, var(--g-icon-italic));
-  --s-icon-highlighter: var(--u-icon-highlighter, var(--g-icon-highlighter));
-  --s-icon-strikethrough: var(--u-icon-strikethrough, var(--g-icon-strikethrough));
-  --s-icon-textformat-abc-dottedunderline: var(--u-icon-textformat-abc-dottedunderline, var(--g-icon-textformat-abc-dottedunderline));
-  --s-icon-alarm: var(--u-icon-alarm, var(--g-icon-alarm));
-  --s-icon-square-split-2x1: var(--u-icon-square-split-2x1, var(--g-icon-square-split-2x1));
-  --s-icon-info-circle: var(--u-icon-info-circle, var(--g-icon-info-circle));
-  --s-icon-chevron-backward: var(--u-icon-chevron-backward, var(--g-icon-chevron-backward));
-  --s-icon-chevron-forward: var(--u-icon-chevron-forward, var(--g-icon-chevron-forward));
-  --s-icon-chevron-down: var(--u-icon-chevron-down, var(--g-icon-chevron-down));
-  --s-icon-chevron-up-chevron-down: var(--u-icon-chevron-up-chevron-down, var(--g-icon-chevron-up-chevron-down));
-  --s-icon-arrow-up-forward-app: var(--u-icon-arrow-up-forward-app, var(--g-icon-arrow-up-forward-app));
-  --s-icon-arrow-up-right-square-fill: var(--u-icon-arrow-up-right-square-fill, var(--g-icon-arrow-up-right-square-fill));
-  --s-icon-ellipsis: var(--u-icon-ellipsis, var(--g-icon-ellipsis));
-  --s-icon-link: var(--u-icon-link, var(--g-icon-link));
-  --s-icon-chevron-left-slash-chevron-right: var(--u-icon-chevron-left-slash-chevron-right, var(--g-icon-chevron-left-slash-chevron-right));
-  --s-icon-curlybraces: var(--u-icon-curlybraces, var(--g-icon-curlybraces));
-  --s-icon-paperclip: var(--u-icon-paperclip, var(--g-icon-paperclip));
-  --s-icon-list-bullet: var(--u-icon-list-bullet, var(--g-icon-list-bullet));
-  --s-icon-list-number: var(--u-icon-list-number, var(--g-icon-list-number));
-  --s-icon-text-badge-checkmark: var(--u-icon-text-badge-checkmark, var(--g-icon-text-badge-checkmark));
-  --s-icon-minus: var(--u-icon-minus, var(--g-icon-minus));
-  --s-icon-text-quote: var(--u-icon-text-quote, var(--g-icon-text-quote));
-  --s-icon-tablecells-badge-ellipsis: var(--u-icon-tablecells-badge-ellipsis, var(--g-icon-tablecells-badge-ellipsis));
-  --s-icon-clock: var(--u-icon-clock, var(--g-icon-clock));
-  --s-icon-calendar-badge-clock: var(--u-icon-calendar-badge-clock, var(--g-icon-calendar-badge-clock));
-  --s-icon-doc-richtext: var(--u-icon-doc-richtext, var(--g-icon-doc-richtext));
-  --s-icon-square-and-pencil: var(--u-icon-square-and-pencil, var(--g-icon-square-and-pencil));
-  --s-icon-doc-on-clipboard: var(--u-icon-doc-on-clipboard, var(--g-icon-doc-on-clipboard));
-  --s-icon-square-and-arrow-down: var(--u-icon-square-and-arrow-down, var(--g-icon-square-and-arrow-down));
-  --s-icon-xmark-circle-fill: var(--u-icon-xmark-circle-fill, var(--g-icon-xmark-circle-fill));
-  --s-icon-xmark: var(--u-icon-xmark, var(--g-icon-xmark));
-  --s-icon-magnifyingglass: var(--u-icon-magnifyingglass, var(--g-icon-magnifyingglass));
-
-  --s-icon-checkmark-circle: var(--u-icon-checkmark-circle, var(--g-icon-checkmark-circle));
-  --s-icon-square-and-pencil: var(--u-icon-square-and-pencil, var(--g-icon-square-and-pencil));
-  --s-icon-text-below-photo: var(--u-icon-text-below-photo, var(--g-icon-text-below-photo));
-  --s-icon-checkmark: var(--u-icon-checkmark, var(--g-icon-checkmark));
-  --s-icon-plus-circle: var(--u-icon-plus-circle, var(--g-icon-plus-circle));
-  --s-icon-chevron-right: var(--u-icon-chevron-right, var(--g-icon-chevron-right));
-  --s-icon-chevron-down: var(--u-icon-chevron-down, var(--g-icon-chevron-down));
-  --s-icon-plus-circle: var(--u-icon-plus-circle, var(--g-icon-plus-circle));
+  @include fallback(icon-alarm);
+  @include fallback(icon-arrow-triangle-2-circlepath);
+  @include fallback(icon-arrow-up-forward-app);
+  @include fallback(icon-arrow-up-right-square-fill);
+  @include fallback(icon-bold);
+  @include fallback(icon-calendar-badge-clock);
+  @include fallback(icon-checkmark-circle);
+  @include fallback(icon-checkmark);
+  @include fallback(icon-chevron-backward);
+  @include fallback(icon-chevron-down);
+  @include fallback(icon-chevron-down);
+  @include fallback(icon-chevron-forward);
+  @include fallback(icon-chevron-left-slash-chevron-right);
+  @include fallback(icon-chevron-right);
+  @include fallback(icon-chevron-up-chevron-down);
+  @include fallback(icon-clock);
+  @include fallback(icon-curlybraces);
+  @include fallback(icon-doc-on-clipboard);
+  @include fallback(icon-doc-richtext);
+  @include fallback(icon-ellipsis);
+  @include fallback(icon-folder);
+  @include fallback(icon-highlighter);
+  @include fallback(icon-info-circle);
+  @include fallback(icon-italic);
+  @include fallback(icon-link);
+  @include fallback(icon-list-bullet);
+  @include fallback(icon-list-number);
+  @include fallback(icon-magnifyingglass);
+  @include fallback(icon-minus);
+  @include fallback(icon-paperclip);
+  @include fallback(icon-plus-circle);
+  @include fallback(icon-plus-circle);
+  @include fallback(icon-square-and-arrow-down);
+  @include fallback(icon-square-and-pencil);
+  @include fallback(icon-square-and-pencil);
+  @include fallback(icon-square-split-2x1);
+  @include fallback(icon-strikethrough);
+  @include fallback(icon-tablecells-badge-ellipsis);
+  @include fallback(icon-tag);
+  @include fallback(icon-text-badge-checkmark);
+  @include fallback(icon-text-below-photo);
+  @include fallback(icon-text-quote);
+  @include fallback(icon-textformat-abc-dottedunderline);
+  @include fallback(icon-xmark-circle-fill);
+  @include fallback(icon-xmark);
 }

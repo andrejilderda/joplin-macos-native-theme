@@ -64,7 +64,7 @@
       // always show magnifying glass
       span::before {
         content: var(--s-icon-magnifyingglass) !important;
-        font-family: var(--g-font-family-icons);
+        font-family: var(--s-font-family-icons);
         position: absolute;
         left: 0;
         color: var(--g-secondaryLabelColor);
@@ -83,7 +83,7 @@
 
       &::after {
         color: var(--g-secondaryLabelColor);
-        content: var(--g-icon-xmark-circle-fill);
+        content: var(--s-icon-xmark-circle-fill);
         font-family: var(--s-font-family-icons);
         display: block;
         font-family: var(--s-font-family-system) !important;
@@ -122,7 +122,7 @@
         span:before {
           color: var(--g-secondaryLabelColor);
           display: block;
-          font-family: var(--g-font-family-icons);
+          font-family: var(--s-font-family-icons);
           font-size: var(--g-font-size-2);
           font-weight: 500;
           -webkit-font-smoothing: antialiased;
@@ -191,11 +191,10 @@
       order: 1;
       margin-left: auto;
       &::before {
-        content: var(--g-icon-arrow-up-right-square-fill);
+        content: var(--s-icon-arrow-up-right-square-fill);
         font-family: var(--s-font-family-icons);
         color: var(--s-accentColor);
         font-weight: 400;
-        font-family: var(--s-font-family-system);
       }
     }
 

@@ -204,13 +204,13 @@
 
       i.fa:before {
         color: var(--s-accentColor);
-        font-family: var(--s-font-family-system) !important;
+        font-family: var(--s-font-family-icons) !important;
         font-weight: 400;
         -webkit-font-smoothing: antialiased;
       }
 
       .fa-book:before {
-        content: var(--s-icon-folder); // folder
+        content: var(--s-icon-folder);
         font-family: var(--s-font-family-icons);
       }
     }
