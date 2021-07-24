@@ -1,12 +1,12 @@
 .fa-caret-right::before {
-  content: var(--s-icon-chevron-right);
+  @include icon(chevron-right);
 }
 .fa-caret-down::before {
-  content: var(--s-icon-chevron-down);
+  @include icon(chevron-down);
 }
 .fa-plus::before {
-  content: var(--s-icon-plus-circle);
+  @include icon(plus-circle);
 }
 .fa-book::before {
-  content: var(--s-icon-folder);
+  @include icon(folder);
 }

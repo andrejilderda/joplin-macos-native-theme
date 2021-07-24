@@ -28,8 +28,7 @@
         display: none;
         margin-right: 1.5rem;
         span::before {
-          content: var(--s-icon-plus-circle);
-          font-family: var(--s-font-family-icons);
+          @include icon(plus-circle);
         }
       }
 
@@ -129,12 +128,10 @@
     }
 
     .folders .list-item::before {
-      content: var(--s-icon-folder);
-      font-family: var(--s-font-family-icons);
+      @include icon(folder);
     }
     .tags .list-item::before {
-      content: var(--s-icon-tag);
-      font-family: var(--s-font-family-icons);
+      @include icon(tag);
     }
 
     .list-item-depth-0 {
@@ -173,21 +170,18 @@
     opacity: 1 !important;
 
     &::before {
-      font-family: var(--s-font-family-icons);
       font-size: 9px;
       font-weight: 700;
       -webkit-font-smoothing: antialiased;
     }
 
     &.fa-caret-right::before {
-      content: var(--s-icon-chevron-forward);
-      font-family: var(--s-font-family-icons);
+      @include icon(chevron-forward);
       color: var(--s-sidebar__chevron-Color);
     }
 
     &.fa-caret-down::before {
-      content: var(--s-icon-chevron-down);
-      font-family: var(--s-font-family-icons);
+      @include icon(chevron-down);
       color: var(--s-sidebar__chevron-Color);
     }
     &.fa-plus::before {
@@ -276,8 +270,7 @@
         transform-origin: 50% 55%;
 
         &::before {
-          content: var(--s-icon-arrow-triangle-2-circlepath);
-          font-family: var(--s-font-family-icons);
+          @include icon(arrow-triangle-2-circlepath);
           font-size: 1.2rem;
           -webkit-font-smoothing: antialiased;
         }

@@ -32,3 +32,11 @@
 
   --s-#{$customProp}: var(--u-#{$userProp}, var(--g-#{$globalProp}));
 }
+
+@mixin icon($name) {
+  content: var(--s-icon-#{$name}) !important;
+  font-family: var(--s-font-family-icons) !important;
+  vertical-align: middle;
+  display: block;
+  transform: scale(var(--s-icon-size));
+}

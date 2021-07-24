@@ -24,7 +24,6 @@
 }
 
 @mixin toolbarButtonIcon {
-  font-family: var(--s-font-family-icons);
   font-size: var(--g-font-size-1) !important;
   font-weight: normal !important;
   -webkit-font-smoothing: antialiased;
@@ -116,6 +115,10 @@
             &:hover {
               background: var(--g-quaternaryLabelColor);
             }
+
+            &::before {
+              font-size: 1.4rem;
+            }
           }
 
           // spellchecker
@@ -127,15 +130,15 @@
             i {
               display: block;
               color: var(--g-secondaryLabelColor);
-              margin: 0.2rem 0.2rem 0;
+              // only tweak icon position for SF Pro
+              margin: var(--s-font-family-icons, 0.2rem 0.2rem 0);
               font-family: var(--s-font-family-system);
               line-height: 1;
               font-size: 1.4rem;
               font-weight: 400;
 
               &::before {
-                content: var(--s-icon-textformat-abc-dottedunderline);
-                font-family: var(--s-font-family-icons);
+                @include icon(textformat-abc-dottedunderline);
                 text-transform: uppercase;
               }
               &[title]:not([title=''])::before {
@@ -151,8 +154,7 @@
           }
           // set alarm
           a:nth-child(2):before {
-            content: var(--s-icon-alarm);
-            font-family: var(--s-font-family-icons);
+            @include icon(alarm);
           }
           // toggle editor layout
           a:nth-child(3) {
@@ -161,14 +163,12 @@
             }
 
             &:before {
-              content: var(--s-icon-square-split-2x1);
-              font-family: var(--s-font-family-icons);
+              @include icon(square-split-2x1);
             }
           }
           // note properties
           a:nth-child(4):before {
-            content: var(--s-icon-info-circle);
-            font-family: var(--s-font-family-icons);
+            @include icon(info-circle);
           }
         }
       }
@@ -202,8 +202,7 @@
       }
 
       &.richText-active::after {
-        font-family: var(--s-font-family-icons);
-        content: var(--s-icon-text-below-photo);
+        @include icon(text-below-photo);
       }
     }
 
@@ -226,8 +225,7 @@
         }
 
         .icon-notebooks::before {
-          content: var(--s-icon-folder);
-          font-family: var(--s-font-family-icons);
+          @include icon(folder);
           color: var(--s-accentColor);
           font-family: var(--s-font-family-system);
           font-size: 1.3rem;
@@ -271,13 +269,11 @@
 
         // icon: back
         &:nth-of-type(1) span:before {
-          content: var(--s-icon-chevron-backward);
-          font-family: var(--s-font-family-icons);
+          @include icon(chevron-backward);
         }
         // icon: forward
         &:nth-of-type(2) span:before {
-          content: var(--s-icon-chevron-forward);
-          font-family: var(--s-font-family-icons);
+          @include icon(chevron-forward);
         }
         // icon: external editor
         &:nth-of-type(3):nth-of-type(3) {
@@ -290,13 +286,11 @@
             &[title]:not([title=''])::before {
               color: var(--s-accentColor) !important;
 
-              content: var(--s-icon-arrow-up-right-square-fill);
-              font-family: var(--s-font-family-icons);
+              @include icon(arrow-up-right-square-fill);
             }
 
             &::before {
-              content: var(--s-icon-arrow-up-forward-app);
-              font-family: var(--s-font-family-icons);
+              @include icon(arrow-up-forward-app);
             }
           }
         }
@@ -328,28 +322,23 @@
   // bold, italic, etc.
   .tox-toolbar__group:nth-child(1) {
     button:nth-child(1):before {
-      content: var(--s-icon-bold);
-      font-family: var(--s-font-family-icons);
+      @include icon(bold);
     }
     button:nth-child(2):before {
-      content: var(--s-icon-italic);
-      font-family: var(--s-font-family-icons);
+      @include icon(italic);
     }
     button:nth-child(3):before {
-      content: var(--s-icon-highlighter);
-      font-family: var(--s-font-family-icons);
+      @include icon(highlighter);
     }
     button:nth-child(4):before {
-      content: var(--s-icon-strikethrough);
-      font-family: var(--s-font-family-icons);
+      @include icon(strikethrough);
     }
     button:nth-child(5) {
       width: 2.6rem !important;
       min-width: 0;
 
       &:before {
-        content: var(--s-icon-ellipsis);
-        font-family: var(--s-font-family-icons);
+        @include icon(ellipsis);
       }
     }
   }
@@ -357,36 +346,29 @@
   // link, inline code, code block, attachment
   .tox-toolbar__group:nth-child(2) {
     button:nth-child(1):before {
-      content: var(--s-icon-link);
-      font-family: var(--s-font-family-icons);
+      @include icon(link);
     }
     button:nth-child(2):before {
-      content: var(--s-icon-chevron-left-slash-chevron-right);
-      font-family: var(--s-font-family-icons);
+      @include icon(chevron-left-slash-chevron-right);
     }
     button:nth-child(3):before {
-      content: var(--s-icon-curlybraces);
-      font-family: var(--s-font-family-icons);
+      @include icon(curlybraces);
     }
     button:nth-child(4):before {
-      content: var(--s-icon-paperclip);
-      font-family: var(--s-font-family-icons);
+      @include icon(paperclip);
     }
   }
 
   // lists
   .tox-toolbar__group:nth-child(3) {
     button:nth-child(1):before {
-      content: var(--s-icon-list-bullet);
-      font-family: var(--s-font-family-icons);
+      @include icon(list-bullet);
     }
     button:nth-child(2):before {
-      content: var(--s-icon-list-number);
-      font-family: var(--s-font-family-icons);
+      @include icon(list-number);
     }
     button:nth-child(3):before {
-      content: var(--s-icon-text-badge-checkmark);
-      font-family: var(--s-font-family-icons);
+      @include icon(text-badge-checkmark);
     }
   }
 
@@ -419,20 +401,16 @@
       content: 'H3';
     }
     button:nth-child(4):before {
-      content: var(--s-icon-minus);
-      font-family: var(--s-font-family-icons);
+      @include icon(minus);
     }
     button:nth-child(5):before {
-      content: var(--s-icon-text-quote);
-      font-family: var(--s-font-family-icons);
+      @include icon(text-quote);
     }
     button:nth-child(6):before {
-      content: var(--s-icon-tablecells-badge-ellipsis);
-      font-family: var(--s-font-family-icons);
+      @include icon(tablecells-badge-ellipsis);
     }
     button:nth-child(7):before {
-      content: var(--s-icon-clock);
-      font-family: var(--s-font-family-icons);
+      @include icon(clock);
     }
   }
 
@@ -477,48 +455,38 @@
         }
 
         .icon-bold::before {
-          content: var(--s-icon-bold);
-          font-family: var(--s-font-family-icons);
+          @include icon(bold);
         }
         .icon-italic::before {
-          content: var(--s-icon-italic);
-          font-family: var(--s-font-family-icons);
+          @include icon(italic);
         }
         .icon-link::before {
-          content: var(--s-icon-link);
-          font-family: var(--s-font-family-icons);
+          @include icon(link);
         }
         .icon-code::before {
-          content: var(--s-icon-chevron-left-slash-chevron-right);
-          font-family: var(--s-font-family-icons);
+          @include icon(chevron-left-slash-chevron-right);
         }
         .icon-attachment::before {
-          content: var(--s-icon-paperclip);
-          font-family: var(--s-font-family-icons);
+          @include icon(paperclip);
         }
         .icon-bulleted-list::before {
-          content: var(--s-icon-list-bullet);
-          font-family: var(--s-font-family-icons);
+          @include icon(list-bullet);
         }
         .icon-numbered-list::before {
-          content: var(--s-icon-list-number);
-          font-family: var(--s-font-family-icons);
+          @include icon(list-number);
         }
         .icon-to-do-list::before {
-          content: var(--s-icon-text-badge-checkmark);
-          font-family: var(--s-font-family-icons);
+          @include icon(text-badge-checkmark);
         }
         .icon-heading::before {
           content: 'H2';
           font-family: var(--s-font-family-system-rounded);
         }
         .fa-ellipsis-h::before {
-          content: var(--s-icon-minus);
-          font-family: var(--s-font-family-icons);
+          @include icon(minus);
         }
         .icon-add-date::before {
-          content: var(--s-icon-calendar-badge-clock);
-          font-family: var(--s-font-family-icons);
+          @include icon(calendar-badge-clock);
         }
       }
     }
@@ -701,8 +669,7 @@
 
     &::before {
       font-family: 'SF Pro';
-      content: var(--s-icon-tag) !important;
-      font-family: var(--s-font-family-icons);
+      @include icon(tag);
     }
   }
 
