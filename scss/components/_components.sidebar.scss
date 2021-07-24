@@ -18,7 +18,7 @@
   padding-top: 1rem;
 
   * {
-    font-family: var(--g-font-family-system) !important;
+    font-family: var(--s-font-family-system) !important;
   }
 
   > div {
@@ -28,7 +28,7 @@
         display: none;
         margin-right: 1.5rem;
         span::before {
-          content: '􀁌'; // plus.circle
+          @include icon(plus-circle);
         }
       }
 
@@ -72,7 +72,10 @@
       }
 
       &.selected {
-        background: var(--u-sidebar-selected-item-color, var(--g-unemphasizedSelectedTextBackgroundColor));
+        background: var(
+          --u-sidebar-selected-item-color,
+          var(--g-unemphasizedSelectedTextBackgroundColor)
+        );
       }
 
       // dropdown caret
@@ -104,7 +107,10 @@
         display: var(--u-sidebar-note-count-label, block);
         padding-left: 5px;
         padding-right: 8px;
-        color: var(--u-sidebar-note-count-label-color, var(--g-secondaryLabelColor));
+        color: var(
+          --u-sidebar-note-count-label-color,
+          var(--g-secondaryLabelColor)
+        );
         opacity: 0.5;
         font-size: 1.1rem;
         line-height: 1;
@@ -122,10 +128,10 @@
     }
 
     .folders .list-item::before {
-      content: var(--g-icon-folder);
+      @include icon(folder);
     }
     .tags .list-item::before {
-      content: var(--g-icon-tag);
+      @include icon(tag);
     }
 
     .list-item-depth-0 {
@@ -164,19 +170,18 @@
     opacity: 1 !important;
 
     &::before {
-      font-family: var(--g-font-family-system);
       font-size: 9px;
       font-weight: 700;
       -webkit-font-smoothing: antialiased;
     }
 
     &.fa-caret-right::before {
-      content: var(--g-icon-chevron-forward);
+      @include icon(chevron-forward);
       color: var(--s-sidebar__chevron-Color);
     }
 
     &.fa-caret-down::before {
-      content: var(--g-icon-chevron-down);
+      @include icon(chevron-down);
       color: var(--s-sidebar__chevron-Color);
     }
     &.fa-plus::before {
@@ -265,8 +270,7 @@
         transform-origin: 50% 55%;
 
         &::before {
-          content: var(--g-icon-arrow-triangle-2-circlepath);
-          font-family: var(--g-font-family-system);
+          @include icon(arrow-triangle-2-circlepath);
           font-size: 1.2rem;
           -webkit-font-smoothing: antialiased;
         }

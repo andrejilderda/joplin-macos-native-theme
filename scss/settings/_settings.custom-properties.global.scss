@@ -233,15 +233,13 @@
   --g-border-width-6: 1.6rem;
 
   // font-family
-  --g-font-family-system-rounded: 'SF Pro Rounded', 'SF Pro', -apple-system,
-    BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji',
-    sans-serif;
+  --g-font-family-system-rounded: 'SF Pro Rounded', var(--s-font-family-system);
   --g-font-family-system: 'SF Pro', -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', sans-serif;
   --g-font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     'Liberation Mono', 'Courier New', monospace;
+  --g-font-family-icons: 'SF Pro';
 
   // font-size
   --g-font-size--1: 1.1rem;

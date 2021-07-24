@@ -63,12 +63,13 @@
 
       // always show magnifying glass
       span::before {
+        @include icon(magnifyingglass);
+        transform: scale(var(--u-font-family-icons, 1));
+
         position: absolute;
         left: 0;
-        content: '􀊫' !important; // magnifyingglass
         color: var(--g-secondaryLabelColor);
         font-size: 1.6rem;
-        font-family: var(--g-font-family-system);
         font-weight: normal !important;
         top: 0.5rem;
         left: 0.8rem;
@@ -83,9 +84,9 @@
 
       &::after {
         color: var(--g-secondaryLabelColor);
-        content: var(--g-icon-xmark-circle-fill);
+        @include icon(xmark-circle-fill);
         display: block;
-        font-family: var(--g-font-family-system) !important;
+        font-family: var(--s-font-family-system) !important;
         position: absolute;
         right: 0.7rem;
         top: 0.7rem;
@@ -121,7 +122,6 @@
         span:before {
           color: var(--g-secondaryLabelColor);
           display: block;
-          font-family: var(--g-font-family-system);
           font-size: var(--g-font-size-2);
           font-weight: 500;
           -webkit-font-smoothing: antialiased;
@@ -129,11 +129,11 @@
         }
 
         &.new-todo-button span:before {
-          content: '􀁢';
+          @include icon(checkmark-circle);
         }
 
         &.new-note-button span:before {
-          content: '􀈎';
+          @include icon(square-and-pencil);
         }
       }
     }
@@ -190,10 +190,9 @@
       order: 1;
       margin-left: auto;
       &::before {
-        content: var(--g-icon-arrow-up-right-square-fill);
+        @include icon(arrow-up-right-square-fill);
         color: var(--s-accentColor);
         font-weight: 400;
-        font-family: var(--g-font-family-system);
       }
     }
 
@@ -279,24 +278,25 @@
     }
 
     input {
-      border: 0.1rem solid var(--g-tertiaryLabelColor);
-      margin: 0 -0.3rem -0.2rem 0 !important;
-      border-radius: 50%;
+      align-items: center;
       appearance: none;
+      border-radius: 50%;
+      border: 0.1rem solid var(--g-tertiaryLabelColor);
+      display: flex;
       height: 1.5rem;
-      width: 1.5rem;
+      justify-content: center;
+      margin: 0 -0.3rem -0.2rem 0 !important;
       position: relative;
+      width: 1.5rem;
 
       &:checked {
         background-color: var(--s-controlAccentColor);
         border-color: transparent;
 
         &:after {
+          @include icon(checkmark);
           position: absolute;
-          content: '􀆅';
           color: var(--g-alternateSelectedControlTextColor);
-          left: 0.15rem;
-          top: 0.1rem;
           font-size: 0.9rem;
         }
       }

@@ -69,10 +69,11 @@
     position: absolute;
 
     .fa-question-circle {
+      display: block;
+
       &::before {
-        content: '􀅴' !important; // info-circle
+        @include icon(info-circle);
         color: var(--g-secondaryLabelColor) !important;
-        font-family: var(--g-font-family-system) !important;
         font-weight: 400;
         -webkit-font-smoothing: antialiased;
       }
@@ -204,13 +205,12 @@
 
       i.fa:before {
         color: var(--s-accentColor);
-        font-family: var(--g-font-family-system) !important;
         font-weight: 400;
         -webkit-font-smoothing: antialiased;
       }
 
       .fa-book:before {
-        content: var(--g-icon-folder); // folder
+        @include icon(folder);
       }
     }
   }
@@ -268,18 +268,17 @@ div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][sty
         color: var(--s-controlAccentColor) !important;
 
         &::before {
-          font-family: var(--g-font-family-system) !important;
           font-weight: 400;
         }
 
         &.fa-edit::before {
-          content: var(--g-icon-square-and-pencil);
+          @include icon(square-and-pencil);
         }
         &.fa-copy::before {
-          content: var(--g-icon-doc-on-clipboard);
+          @include icon(doc-on-clipboard);
         }
         &.fa-save::before {
-          content: var(--g-icon-square-and-arrow-down);
+          @include icon(square-and-arrow-down);
         }
       }
     }
@@ -333,7 +332,7 @@ div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][sty
     &:after {
       @include buttonBase();
       @include buttonPrimary();
-      content: var(--g-icon-chevron-up-chevron-down);
+      @include icon(chevron-up-chevron-down);
       font-size: var(--g-font-size--1) !important;
       min-width: 0 !important;
       height: 1.6rem !important;
@@ -371,7 +370,7 @@ div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][sty
     * {
       color: var(--g-textColor) !important;
       font-size: 1.1rem !important;
-      font-family: var(--g-font-family-system);
+      font-family: var(--s-font-family-system);
       line-height: 1.2rem !important;
       height: 1.2rem !important;
       padding: 0;
@@ -388,7 +387,7 @@ div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][sty
       background-color: transparent !important;
 
       &::after {
-        content: var(--g-icon-xmark);
+        @include icon(xmark);
         color: var(--g-controlTextColor);
         font-size: 0.8rem;
         font-weight: 600;

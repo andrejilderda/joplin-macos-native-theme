@@ -24,7 +24,6 @@
 }
 
 @mixin toolbarButtonIcon {
-  font-family: 'SF Pro';
   font-size: var(--g-font-size-1) !important;
   font-weight: normal !important;
   -webkit-font-smoothing: antialiased;
@@ -93,7 +92,7 @@
       // date/timestamp
       .updated-time-label {
         color: var(--g-secondaryLabelColor) !important;
-        font-family: var(--g-font-family-system) !important;
+        font-family: var(--s-font-family-system) !important;
         font-size: 1.1rem;
         margin-top: 0.3rem;
         margin-right: 1rem;
@@ -105,7 +104,7 @@
           a {
             color: var(--g-secondaryLabelColor);
             margin: 0 0.2rem;
-            font-family: var(--g-font-family-system);
+            font-family: var(--s-font-family-system);
             line-height: 1;
 
             // hide default icons
@@ -115,6 +114,10 @@
 
             &:hover {
               background: var(--g-quaternaryLabelColor);
+            }
+
+            &::before {
+              font-size: 1.4rem;
             }
           }
 
@@ -127,19 +130,20 @@
             i {
               display: block;
               color: var(--g-secondaryLabelColor);
-              margin: 0.2rem 0.2rem 0;
-              font-family: var(--g-font-family-system);
+              // only tweak icon position for SF Pro
+              margin: var(--s-font-family-icons, 0.2rem 0.2rem 0);
+              font-family: var(--s-font-family-system);
               line-height: 1;
               font-size: 1.4rem;
               font-weight: 400;
 
               &::before {
-                content: var(--g-icon-textformat-abc-dottedunderline);
+                @include icon(textformat-abc-dottedunderline);
                 text-transform: uppercase;
               }
               &[title]:not([title=''])::before {
                 content: attr(title);
-                font-family: var(--g-font-family-system-rounded);
+                font-family: var(--s-font-family-system-rounded);
                 font-size: 1.4rem !important;
                 font-weight: 400;
                 line-height: 2.6rem;
@@ -150,7 +154,7 @@
           }
           // set alarm
           a:nth-child(2):before {
-            content: var(--g-icon-alarm);
+            @include icon(alarm);
           }
           // toggle editor layout
           a:nth-child(3) {
@@ -159,12 +163,12 @@
             }
 
             &:before {
-              content: var(--g-icon-square-split-2x1);
+              @include icon(square-split-2x1);
             }
           }
           // note properties
           a:nth-child(4):before {
-            content: var(--g-icon-info-circle);
+            @include icon(info-circle);
           }
         }
       }
@@ -191,14 +195,14 @@
 
       &.markdown-active::after {
         content: 'MD';
-        font-family: var(--g-font-family-system-rounded);
+        font-family: var(--s-font-family-system-rounded);
         font-size: 1.2rem !important;
         line-height: 2.6rem;
         font-weight: 500 !important;
       }
 
       &.richText-active::after {
-        content: '􀲱';
+        @include icon(text-below-photo);
       }
     }
 
@@ -221,9 +225,9 @@
         }
 
         .icon-notebooks::before {
-          content: var(--g-icon-folder);
+          @include icon(folder);
           color: var(--s-accentColor);
-          font-family: var(--g-font-family-system);
+          font-family: var(--s-font-family-system);
           font-size: 1.3rem;
           font-weight: 400;
         }
@@ -265,11 +269,11 @@
 
         // icon: back
         &:nth-of-type(1) span:before {
-          content: var(--g-icon-chevron-backward);
+          @include icon(chevron-backward);
         }
         // icon: forward
         &:nth-of-type(2) span:before {
-          content: var(--g-icon-chevron-forward);
+          @include icon(chevron-forward);
         }
         // icon: external editor
         &:nth-of-type(3):nth-of-type(3) {
@@ -282,11 +286,11 @@
             &[title]:not([title=''])::before {
               color: var(--s-accentColor) !important;
 
-              content: var(--g-icon-arrow-up-right-square-fill);
+              @include icon(arrow-up-right-square-fill);
             }
 
             &::before {
-              content: var(--g-icon-arrow-up-forward-app);
+              @include icon(arrow-up-forward-app);
             }
           }
         }
@@ -318,23 +322,23 @@
   // bold, italic, etc.
   .tox-toolbar__group:nth-child(1) {
     button:nth-child(1):before {
-      content: var(--g-icon-bold);
+      @include icon(bold);
     }
     button:nth-child(2):before {
-      content: var(--g-icon-italic);
+      @include icon(italic);
     }
     button:nth-child(3):before {
-      content: var(--g-icon-highlighter);
+      @include icon(highlighter);
     }
     button:nth-child(4):before {
-      content: var(--g-icon-strikethrough);
+      @include icon(strikethrough);
     }
     button:nth-child(5) {
       width: 2.6rem !important;
       min-width: 0;
 
       &:before {
-        content: var(--g-icon-ellipsis);
+        @include icon(ellipsis);
       }
     }
   }
@@ -342,29 +346,29 @@
   // link, inline code, code block, attachment
   .tox-toolbar__group:nth-child(2) {
     button:nth-child(1):before {
-      content: var(--g-icon-link);
+      @include icon(link);
     }
     button:nth-child(2):before {
-      content: var(--g-icon-chevron-left-slash-chevron-right);
+      @include icon(chevron-left-slash-chevron-right);
     }
     button:nth-child(3):before {
-      content: var(--g-icon-curlybraces);
+      @include icon(curlybraces);
     }
     button:nth-child(4):before {
-      content: var(--g-icon-paperclip);
+      @include icon(paperclip);
     }
   }
 
   // lists
   .tox-toolbar__group:nth-child(3) {
     button:nth-child(1):before {
-      content: var(--g-icon-list-bullet);
+      @include icon(list-bullet);
     }
     button:nth-child(2):before {
-      content: var(--g-icon-list-number);
+      @include icon(list-number);
     }
     button:nth-child(3):before {
-      content: var(--g-icon-text-badge-checkmark);
+      @include icon(text-badge-checkmark);
     }
   }
 
@@ -373,7 +377,7 @@
     button:nth-child(1):before,
     button:nth-child(2):before,
     button:nth-child(3):before {
-      font-family: var(--g-font-family-system);
+      font-family: var(--s-font-family-system);
     }
 
     .tox-tbtn__select-label {
@@ -384,7 +388,7 @@
     button:nth-child(1):before,
     button:nth-child(2):before,
     button:nth-child(3):before {
-      font-family: var(--g-font-family-system-rounded);
+      font-family: var(--s-font-family-system-rounded);
     }
 
     button:nth-child(1):before {
@@ -397,16 +401,16 @@
       content: 'H3';
     }
     button:nth-child(4):before {
-      content: var(--g-icon-minus);
+      @include icon(minus);
     }
     button:nth-child(5):before {
-      content: var(--g-icon-text-quote);
+      @include icon(text-quote);
     }
     button:nth-child(6):before {
-      content: var(--g-icon-tablecells-badge-ellipsis);
+      @include icon(tablecells-badge-ellipsis);
     }
     button:nth-child(7):before {
-      content: var(--g-icon-clock);
+      @include icon(clock);
     }
   }
 
@@ -451,38 +455,38 @@
         }
 
         .icon-bold::before {
-          content: var(--g-icon-bold);
+          @include icon(bold);
         }
         .icon-italic::before {
-          content: var(--g-icon-italic);
+          @include icon(italic);
         }
         .icon-link::before {
-          content: var(--g-icon-link);
+          @include icon(link);
         }
         .icon-code::before {
-          content: var(--g-icon-chevron-left-slash-chevron-right);
+          @include icon(chevron-left-slash-chevron-right);
         }
         .icon-attachment::before {
-          content: var(--g-icon-paperclip);
+          @include icon(paperclip);
         }
         .icon-bulleted-list::before {
-          content: var(--g-icon-list-bullet);
+          @include icon(list-bullet);
         }
         .icon-numbered-list::before {
-          content: var(--g-icon-list-number);
+          @include icon(list-number);
         }
         .icon-to-do-list::before {
-          content: var(--g-icon-text-badge-checkmark);
+          @include icon(text-badge-checkmark);
         }
         .icon-heading::before {
           content: 'H2';
-          font-family: var(--g-font-family-system-rounded);
+          font-family: var(--s-font-family-system-rounded);
         }
         .fa-ellipsis-h::before {
-          content: var(--g-icon-minus);
+          @include icon(minus);
         }
         .icon-add-date::before {
-          content: var(--g-icon-calendar-badge-clock);
+          @include icon(calendar-badge-clock);
         }
       }
     }
@@ -665,7 +669,7 @@
 
     &::before {
       font-family: 'SF Pro';
-      content: var(--g-icon-tag) !important;
+      @include icon(tag);
     }
   }
 

@@ -114,14 +114,15 @@ body {
         opacity: 1;
 
         &:before {
+          @include icon(checkmark);
           background-color: var(--s-controlAccentColor);
           border-color: transparent;
           color: var(--g-alternateSelectedControlTextColor);
-          content: '􀆅';
-          font-family: var(--g-font-family-system);
+          display: flex;
           font-size: 1rem;
           line-height: 1.5rem;
           position: absolute;
+          transform: scale(1);
         }
       }
     }

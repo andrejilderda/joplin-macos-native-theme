@@ -1,0 +1,42 @@
+// Generates a custom property prefixed with --s:
+// --s = user setting with default fallback
+//
+// Accepts:
+// - customProperty: name of the custom property you want to define a fallback for
+// - userProp (optional): name of the user's custom property (falls back to $customProperty)
+// - globalProp (last argument, optional): name of the global custom property (falls back to $customProperty)
+//
+// Example:
+//
+// @include fallback(arg-1);
+// --s-arg-1: var(--u-arg-1, var(--g-arg-1));
+//
+// @include fallback(arg-1, arg-2);
+// --s-arg-1: var(--u-arg-1, var(--g-arg-2));
+//
+// @include fallback(arg-1, arg-2, arg-3);
+// --s-arg-1: var(--u-arg-2, var(--g-arg-3));
+
+@mixin fallback($args...) {
+  $customProp: nth($args, 1);
+  $userProp: $customProp;
+  $globalProp: $customProp;
+
+  @if length($args) == 2 {
+    $globalProp: nth($args, 2);
+  }
+  @if length($args) == 3 {
+    $userProp: nth($args, 2);
+    $globalProp: nth($args, 3);
+  }
+
+  --s-#{$customProp}: var(--u-#{$userProp}, var(--g-#{$globalProp}));
+}
+
+@mixin icon($name) {
+  content: var(--s-icon-#{$name}) !important;
+  font-family: var(--s-font-family-icons) !important;
+  vertical-align: middle;
+  display: block;
+  transform: scale(var(--s-icon-size));
+}
