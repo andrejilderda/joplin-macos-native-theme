@@ -486,7 +486,7 @@
           @include icon(minus);
         }
         .icon-add-date::before {
-          @include icon(calendar-badge-clock);
+          @include icon(clock);
         }
       }
     }
