@@ -63,7 +63,7 @@
 
   /*
 
-    Icons --------------------------------
+  Icons --------------------------------
   */
 
   /*
@@ -75,7 +75,6 @@
    --u-icon-arrow-up-forward-app: '';
    --u-icon-arrow-up-right-square-fill: '';
    --u-icon-bold: '';
-   --u-icon-calendar-badge-clock: '';
    --u-icon-checkmark-circle: '';
    --u-icon-checkmark: '';
    --u-icon-chevron-backward: '';
@@ -167,7 +166,6 @@
   @include fallback(icon-arrow-up-forward-app);
   @include fallback(icon-arrow-up-right-square-fill);
   @include fallback(icon-bold);
-  @include fallback(icon-calendar-badge-clock);
   @include fallback(icon-checkmark-circle);
   @include fallback(icon-checkmark);
   @include fallback(icon-chevron-backward);
