@@ -34,6 +34,8 @@
   }
 
   .search-bar {
+    position: relative;
+
     input[type='text'] {
       @include focusRing;
 
@@ -53,32 +55,25 @@
       }
     }
 
-    // search button
-    input[type='text'] + button {
-      flex: 0;
-      position: unset;
-      padding: 0;
-      right: auto;
-      top: 1px;
+    &::after {
+      @include icon(magnifyingglass);
+      transform: translateY(-50%) scale(var(--s-icon-size, 1));
 
-      .icon-search {
-        font-size: 1.4rem;
-      }
+      position: absolute;
+      left: 0;
+      color: var(--g-secondaryLabelColor);
+      font-size: calc(var(--u-font-family-icons, 1) * 1.7rem);
+      font-weight: normal !important;
+      top: 50%;
+      left: 0.8rem;
+      pointer-events: none;
+    }
 
-      // always show magnifying glass
-      .icon-search::before {
-        @include icon(magnifyingglass);
-        transform: translateY(-50%)  scale(var(--s-icon-size, 1));
-
-        position: absolute;
-        left: 0;
-        color: var(--g-secondaryLabelColor);
-        font-size: calc(var(--u-font-family-icons, 1) * 1.7rem);
-        font-weight: normal !important;
-        top: 50%;
-        left: 0.8rem;
-        pointer-events: none;
-      }
+    // .icon-search is replaced by a crossmark icon after input (which is not
+    // what we want). That's why we hide this element and use a pseudo-element
+    // with the icon on .search-bar in stead.
+    .icon-search {
+      display: none;
     }
 
     // cross when input value !== empty
@@ -87,25 +82,21 @@
       font-weight: normal;
 
       &::after {
-        color: var(--g-secondaryLabelColor);
         @include icon(xmark-circle-fill);
+        color: var(--g-secondaryLabelColor);
         display: block;
         font-family: var(--s-font-family-system) !important;
         position: absolute;
         right: 0.7rem;
-        top: 0.7rem;
+        top: 50%;
+        transform: translateY(-50%) scale(var(--s-icon-size, 1));
       }
     }
 
     // 'add'-buttons next to search
     + div {
-      position: relative;
-      overflow: hidden;
-      width: auto;
-      max-height: 2.8rem;
-      flex: 1 0 auto;
-
-      button {
+      .new-todo-button,
+      .new-note-button {
         background: none;
         border-radius: 0.6rem;
         margin-left: 0.6rem;
@@ -113,10 +104,6 @@
         max-width: none;
         height: 2.6rem;
         width: 2.6rem;
-
-        + button {
-          margin-left: 0.1rem;
-        }
 
         &:focus,
         &:hover {
@@ -131,14 +118,18 @@
           -webkit-font-smoothing: antialiased;
           transform: translateY(0.05rem);
         }
+      }
 
-        &.new-todo-button span:before {
-          @include icon(checkmark-circle);
-        }
+      .new-note-button {
+        margin-left: 0.1rem;
+      }
 
-        &.new-note-button span:before {
-          @include icon(square-and-pencil);
-        }
+      .new-todo-button span:before {
+        @include icon(checkmark-circle);
+      }
+
+      .new-note-button span:before {
+        @include icon(square-and-pencil);
       }
     }
   }
@@ -147,14 +138,9 @@
   .note-list {
     padding: 0 1rem 1rem;
 
-    // cover up last border in notelist (workaround, since we can't target the last-child due to an extra (empty) element
-    > div:last-child:empty {
-      height: 0.1rem !important;
-      background: var(--notelist--Background);
-      position: absolute;
-      margin-top: -0.1rem;
-      left: 0;
-      right: 0;
+    // remove last border in notelist
+    div:nth-last-of-type(2):not(:empty):before {
+      content: none;
     }
   }
 
