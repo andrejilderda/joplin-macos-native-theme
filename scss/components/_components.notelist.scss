@@ -95,13 +95,8 @@
 
     // 'add'-buttons next to search
     + div {
-      position: relative;
-      overflow: hidden;
-      width: auto;
-      max-height: 2.8rem;
-      flex: 1 0 auto;
-
-      button {
+      .new-todo-button,
+      .new-note-button {
         background: none;
         border-radius: 0.6rem;
         margin-left: 0.6rem;
@@ -109,10 +104,6 @@
         max-width: none;
         height: 2.6rem;
         width: 2.6rem;
-
-        + button {
-          margin-left: 0.1rem;
-        }
 
         &:focus,
         &:hover {
@@ -127,14 +118,18 @@
           -webkit-font-smoothing: antialiased;
           transform: translateY(0.05rem);
         }
+      }
 
-        &.new-todo-button span:before {
-          @include icon(checkmark-circle);
-        }
+      .new-note-button {
+        margin-left: 0.1rem;
+      }
 
-        &.new-note-button span:before {
-          @include icon(square-and-pencil);
-        }
+      .new-todo-button span:before {
+        @include icon(checkmark-circle);
+      }
+
+      .new-note-button span:before {
+        @include icon(square-and-pencil);
       }
     }
   }
@@ -143,14 +138,9 @@
   .note-list {
     padding: 0 1rem 1rem;
 
-    // cover up last border in notelist (workaround, since we can't target the last-child due to an extra (empty) element
-    > div:last-child:empty {
-      height: 0.1rem !important;
-      background: var(--notelist--Background);
-      position: absolute;
-      margin-top: -0.1rem;
-      left: 0;
-      right: 0;
+    // remove last border in notelist
+    div:nth-last-of-type(2):not(:empty):before {
+      content: none;
     }
   }
 
