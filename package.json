@@ -1,24 +1,39 @@
 {
-  "name": "joplin-macos-native-theme",
-  "version": "1.1.1",
-  "description": "Native looking macOS theme for note taking app Joplin",
+  "name": "joplin-plugin-macos-theme",
+  "version": "1.0.0",
   "keywords": [
     "joplin",
-    "themes",
+    "joplin-plugin",
+    "theme",
     "css",
     "macos"
   ],
-  "author": "Andre Jilderda",
-  "license": "MIT",
   "scripts": {
-    "start": "sass --load-path scss scss/macos-theme-for-joplin.scss   dist/macos-theme-for-joplin.css --watch",
-    "serve": "http-server dist -c-1 -o macos-theme-for-joplin.css",
-    "build": "sass --load-path scss scss/macos-theme-for-joplin.scss   dist/macos-theme-for-joplin.css --no-source-map ",
-    "clean": "rm -rf dist"
+    "start": "sass --load-path scss src/scss/macos-theme-for-joplin.scss   src/dist/macos-theme-for-joplin.css --watch",
+    "serve": "http-server src/dist -c-1 -o macos-theme-for-joplin.css",
+    "dev": "run-p start serve",
+    "build:css": "sass --load-path scss src/scss/macos-theme-for-joplin.scss   src/dist/macos-theme-for-joplin.css --no-source-map",
+    "clean": "rm -rf dist",
+    "dist": "npm run build:css && webpack --joplin-plugin-config buildMain && webpack --joplin-plugin-config buildExtraScripts && webpack --joplin-plugin-config createArchive",
+    "prepare": "npm run dist",
+    "update": "npm install -g generator-joplin && yo joplin --update"
   },
-  "dependencies": {},
+  "license": "MIT",
   "devDependencies": {
+    "@types/node": "^14.0.14",
+    "chalk": "^4.1.0",
+    "copy-webpack-plugin": "^6.1.0",
+    "fs-extra": "^9.0.1",
+    "glob": "^7.1.6",
     "http-server": "^0.12.3",
-    "sass": "^1.35.2"
+    "npm-run-all": "^4.1.5",
+    "on-build-webpack": "^0.1.0",
+    "sass": "^1.36.0",
+    "tar": "^6.0.5",
+    "ts-loader": "^7.0.5",
+    "typescript": "^3.9.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "yargs": "^16.2.0"
   }
 }
