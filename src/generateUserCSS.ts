@@ -198,7 +198,6 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
 		iconFamily,
 		appearance,
 		accentColor,
-		hideNoteCount,
 		hideSyncStatus,
 		notelistSeparators,
 		editorParagraphSpacing,
@@ -288,7 +287,6 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
 		}
 
 			/* Sidebar --------------------------------- */
-			${hideNoteCount ? '--u-sidebar-note-count-label: none;' : ''}
 			${hideSyncStatus ? `--u-sidebar-synchronise-label: '';` : ''}
 
 			/* Note list ----------------------------- */

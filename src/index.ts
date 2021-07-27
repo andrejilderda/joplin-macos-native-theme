@@ -10,7 +10,6 @@ export type ThemeSettings = {
 	iconFamily: 'phosphor' | 'macos';
 	appearance: AppearanceSetting;
 	accentColor: 'blue' | 'graphite' | 'green' | 'indigo' | 'orange' | 'pink' | 'purple' | 'red' | 'teal' | 'yellow';
-	hideNoteCount: boolean;
 	hideSyncStatus: boolean;
 	notelistSeparators: 'dividers' | 'zebraStripes' | 'none';
 	editorParagraphSpacing: number;
@@ -91,14 +90,6 @@ joplin.plugins.register({
 					'teal': 'Teal',
 					'graphite': 'Graphite',
 				},
-			},
-
-			'hideNoteCount': {
-				label: 'Hide note count in sidebar',
-				value: true,
-				type: SettingItemType.Bool,
-				section: 'macOSThemeSection',
-				public: true,
 			},
 
 			'hideSyncStatus': {
@@ -236,7 +227,6 @@ joplin.plugins.register({
 		const iconFamily = await joplin.settings.value('iconFamily');
 		const appearance = await joplin.settings.value('appearance');
 		const accentColor = await joplin.settings.value('accentColor');
-		const hideNoteCount = await joplin.settings.value('hideNoteCount');
 		const hideSyncStatus = await joplin.settings.value('hideSyncStatus');
 		const notelistSeparators = await joplin.settings.value('notelistSeparators');
 		const editorParagraphSpacing = await joplin.settings.value('editorParagraphSpacing');
@@ -249,7 +239,6 @@ joplin.plugins.register({
 			iconFamily,
 			appearance,
 			accentColor,
-			hideNoteCount,
 			hideSyncStatus,
 			notelistSeparators,
 			editorParagraphSpacing,
