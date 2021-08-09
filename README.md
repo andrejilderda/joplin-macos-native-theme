@@ -1,30 +1,28 @@
 # macOS theme for Joplin
 
-Native looking macOS theme for note taking app [Joplin](https://joplinapp.org/) v2.0.2 and above. Also works on non-mac devices.
+Native looking macOS theme for note taking app [Joplin](https://joplinapp.org/) v2.2.4 and above. Also works on non-macOS devices.
 
 ![macOS theme for Joplin](/images/macos-theme-for-joplin.png)
 
-- ✨ Completely styled UI, including all controls
-- 🌜 Auto light/dark mode based on system theme
-- 👌 Native icons for macOS users, alternative icons for non-mac users
-- 👨‍🎨 Easy to customise with CSS custom properties
+- ✨ Completely styled UI, including all controls,
+- 🌜 Choose between light, dark, light with dark sidebar or auto (light/dark based on system preferences),
+- 👌 Use native icons (macOS only) or Phosphor icon family,
+- 👨‍🎨 Easy to customise via Joplin preferences.
 
 ## Installation
 
-- Download the latest .css from [releases](https://github.com/ajilderda/joplin-macos-native-theme/releases) and copy the CSS to the clipboard,
-- Open Joplin's preferences (<kbd>cmd</kbd> + <kbd>,</kbd>) and go to the 'Appearance'-tab,
-- Click on 'Show Advanced Settings' › 'Custom stylesheet for rendered Markdown'. A file named `userstyle.css` should open in a texteditor. Paste in the CSS. Do the same for 'Custom stylesheet for Joplin-wide app styles' (filename `userchrome.css`),
-- **Mac users**: Download and install SF Pro from the [Apple website here](https://developer.apple.com/fonts/),
-- **Non-mac users**: Download and install the .ttf from the [Phosphor icon family](https://phosphoricons.com/assets/phosphor-icons.zip) ([direct link to .ttf](https://github.com/phosphor-icons/phosphor-icons/raw/master/src/font/phosphor.ttf)). Also make sure to uncomment all the custom properties prefixed with `--u-icon-` & `--u-font-family-icons`.
+- Open Joplin preferences › 'Plugins', search for 'macOS theme' and install the theme.
 - Restart Joplin. Enjoy!
 
-## Customizing
+## Customization
 
-At the top of the CSS there are a few custom properties prefixed with `--u-` you can use to easily customize the theme. Uncomment and tweak to your liking.
+After installing you can find an extra item named 'macOS theme' in Joplin's preferences. You need to restart Joplin for the changes to apply.
+
+**Mac users**: If you want to use the native icons, download and install SF Pro from the [Apple website here](https://developer.apple.com/fonts/),
 
 ## No icons?
 
-For the icons to work you need to install the correct icon font. macOS can download and install SF Pro from the [Apple website](https://developer.apple.com/fonts/). Since Apple prohibits SF Pro to be redistributed non-mac users can use the Phosphor icon family as a replacement. How to? See the installation instructions above.
+If you have the 'Icon family'-setting set to 'macOS native (SF Pro)' you need to have SF Pro installed from the [Apple website](https://developer.apple.com/fonts/). Note that this only works on macOS-devices.
 
 ## Disclaimer
 
@@ -34,7 +32,7 @@ Feel free to [create an issue](https://github.com/ajilderda/joplin-macos-native-
 
 ## Development
 
-The easiest way to tweak the theme is to customize the custom properties in the built CSS. If you want to go all out follow the following steps to make your own build.
+You can tweak the theme via Joplin's preferences. If you want to go all out follow the following steps to make your own build.
 
 Install dependencies:
 
@@ -42,22 +40,24 @@ Install dependencies:
 npm install
 ```
 
-To create a production build:
+To build the plugin:
 
 ```sh
-npm run build
+npm run dist
 ```
 
-To watch for file changes:
+To update the plugin framework:
 
 ```sh
-npm run start
+npm run update
 ```
 
-Open a second Terminal window for if you want to inject the CSS dynamically while debugging. The generated CSS will be available at: http://localhost:8080/macos-theme-for-joplin.css:
+To build just the CSS and watch for changes:
 
 ```sh
-npm run serve
+npm run dev
 ```
+
+The generated CSS will be available at: http://localhost:8080/macos-theme-for-joplin.css.
 
 > You may want to refresh the CSS when Joplin gets focus. To do so toggle Joplin's devtools and paste [this script](https://gist.github.com/ajilderda/05caf6385501e1b32202e0414d00ed61) in the console.
