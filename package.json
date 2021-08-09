@@ -5,7 +5,6 @@
     "joplin",
     "joplin-plugin",
     "theme",
-    "css",
     "macos"
   ],
   "scripts": {

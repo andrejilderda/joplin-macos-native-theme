@@ -64,7 +64,7 @@ joplin.plugins.register({
 				isEnum: true,
 				public: true,
 				options: {
-					'auto': 'Auto (light/dark based on system preferences)',
+					'auto': 'Auto (light/dark based on system preference)',
 					'light': 'Light',
 					'light-with-dark-sidebar': 'Light with dark sidebar',
 					'dark': 'Dark',
