@@ -18,7 +18,7 @@ Native looking macOS theme for note taking app [Joplin](https://joplinapp.org/) 
 
 After installing you can find an extra item named 'macOS theme' in Joplin's preferences. You need to restart Joplin for the changes to apply.
 
-**Mac users**: If you want to use the native icons, download and install SF Pro from the [Apple website here](https://developer.apple.com/fonts/),
+**Mac users**: If you want to use the native icons, download and install SF Pro from the [Apple website here](https://developer.apple.com/fonts/).
 
 ## No icons?
 

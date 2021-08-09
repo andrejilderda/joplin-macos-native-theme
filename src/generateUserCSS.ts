@@ -287,7 +287,7 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
 		}
 
 			/* Sidebar --------------------------------- */
-			${hideSyncStatus ? `--u-sidebar-synchronise-label: '';` : ''}
+			${hideSyncStatus ? '' : `--u-sidebar-synchronise-label: '';`}
 
 			/* Note list ----------------------------- */
 			${notelistSeparators === 'none' ? '--u-note-list-dividers: none;' : ''}
