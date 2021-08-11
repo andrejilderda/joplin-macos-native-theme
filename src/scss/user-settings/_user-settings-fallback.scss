@@ -1,0 +1,92 @@
+// --s = user setting with default fallback
+:root {
+  // main accent color
+  @include fallback(accentColor--h, systemBlue--h);
+  @include fallback(accentColor--s, systemBlue--s);
+  @include fallback(accentColor--l, systemBlue--l);
+  --s-accentColor--s: var(--u-accentColor--s, var(--g-systemBlue--s));
+  --s-accentColor--l: var(--u-accentColor--l, var(--g-systemBlue--l));
+
+  --s-accentColor--hs: var(--s-accentColor--h), var(--s-accentColor--s);
+  --s-accentColor--hsl: var(--s-accentColor--hs), var(--s-accentColor--l);
+  --s-accentColor: hsl(var(--s-accentColor--hsl));
+
+  // fonts
+  @include fallback(font-family-system);
+  @include fallback(font-family-system-rounded);
+
+  // selected accent color
+  --s-selectedContentBackgroundColor--h: var(--u-accentColor--h, var(--g-selectedContentBackgroundColor--h));
+  --s-selectedContentBackgroundColor--s: var(--u-accentColor--s, var(--g-selectedContentBackgroundColor--s));
+  --s-selectedContentBackgroundColor--l: var(--u-accentColor--l, var(--g-selectedContentBackgroundColor--l));
+  --s-selectedContentBackgroundColor: hsl(var(--s-selectedContentBackgroundColor--h), var(--s-selectedContentBackgroundColor--s), var(--s-selectedContentBackgroundColor--l));
+  --s-accentColor--selected: var(--s-selectedContentBackgroundColor);
+
+  // control accent color
+  --s-controlAccentColor--h: var(--u-accentColor--h, var(--g-controlAccentColor--h));
+  --s-controlAccentColor--s: var(--u-accentColor--s, var(--g-controlAccentColor--s));
+  --s-controlAccentColor--l: var(--u-accentColor--l, var(--g-controlAccentColor--l));
+  --s-controlAccentColor--hsl: var(--s-controlAccentColor--h), var(--s-controlAccentColor--s), var(--s-controlAccentColor--l);
+  --s-controlAccentColor: hsl(var(--s-controlAccentColor--hsl));
+  --s-controlAccentColor--selected: var(--s-controlAccentColor);
+
+  // sidebar
+  --s-sidebar__BackgroundColor: var(--u-sidebar-background-color, var(--g-windowBackgroundColor));
+  --s-sidebar__label-FontSize: var(--u-sidebar-label-font-size, var(--g-font-size--1));
+  --s-sidebar__label-Color: var(--u-sidebar-label-color, var(--g-tertiaryLabelColor));
+  --s-sidebar__item-Color: var(--u-sidebar-item-color, var(--g-labelColor));
+  --s-sidebar__item--selected-BackgroundColor: var(--u-sidebar-selected-item-color, var(var(--g-unemphasizedSelectedTextBackgroundColor)));
+  --s-sidebar__icon-Color: var(--u-sidebar-icon-color, var(--s-accentColor));
+  --s-sidebar__chevron-Color: var(--u-sidebar-chevron-color, var(--g-secondaryLabelColor));
+  --s-sidebar__synchronise-Color: var(--u-sidebar-synchronise-color, var(--g-secondaryLabelColor));
+  --s-sidebar__synchronise-label-Color: var(--u-sidebar-synchronise-label-color, var(--g-secondaryLabelColor));
+
+  // icons
+  @include fallback(font-family-icons);
+  @include fallback(icon-size-factor);
+
+  @include fallback(icon-alarm);
+  @include fallback(icon-arrow-triangle-2-circlepath);
+  @include fallback(icon-arrow-up-forward-app);
+  @include fallback(icon-arrow-up-right-square-fill);
+  @include fallback(icon-bold);
+  @include fallback(icon-checkmark-circle);
+  @include fallback(icon-checkmark);
+  @include fallback(icon-chevron-backward);
+  @include fallback(icon-chevron-down);
+  @include fallback(icon-chevron-down);
+  @include fallback(icon-chevron-forward);
+  @include fallback(icon-chevron-left-slash-chevron-right);
+  @include fallback(icon-chevron-right);
+  @include fallback(icon-chevron-up-chevron-down);
+  @include fallback(icon-clock);
+  @include fallback(icon-curlybraces);
+  @include fallback(icon-doc-on-clipboard);
+  @include fallback(icon-doc-richtext);
+  @include fallback(icon-ellipsis);
+  @include fallback(icon-folder);
+  @include fallback(icon-highlighter);
+  @include fallback(icon-info-circle);
+  @include fallback(icon-italic);
+  @include fallback(icon-link);
+  @include fallback(icon-list-bullet);
+  @include fallback(icon-list-number);
+  @include fallback(icon-magnifyingglass);
+  @include fallback(icon-minus);
+  @include fallback(icon-paperclip);
+  @include fallback(icon-plus-circle);
+  @include fallback(icon-plus-circle);
+  @include fallback(icon-square-and-arrow-down);
+  @include fallback(icon-square-and-pencil);
+  @include fallback(icon-square-and-pencil);
+  @include fallback(icon-square-split-2x1);
+  @include fallback(icon-strikethrough);
+  @include fallback(icon-tablecells-badge-ellipsis);
+  @include fallback(icon-tag);
+  @include fallback(icon-text-badge-checkmark);
+  @include fallback(icon-text-below-photo);
+  @include fallback(icon-text-quote);
+  @include fallback(icon-textformat-abc-dottedunderline);
+  @include fallback(icon-xmark-circle-fill);
+  @include fallback(icon-xmark);
+}
