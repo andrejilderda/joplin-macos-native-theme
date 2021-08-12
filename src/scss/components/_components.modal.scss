@@ -310,8 +310,9 @@ div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][sty
   }
 }
 
-// tag-selector modal
-.tag-selector {
+// shared styles for item & tag-selector modal
+.tag-selector,
+.item-selector {
   [class*='control'] {
     @include input();
     top: 0.6rem;
@@ -356,7 +357,10 @@ div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][sty
       display: none;
     }
   }
+}
 
+// tag-selector modal
+.tag-selector {
   > div > div:first-child {
     // space between tags
     > div + div {
@@ -424,6 +428,23 @@ div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][sty
   // background: unset !important;
   //   }
   // }
+}
+
+// item-selector modal (regular single-item dropdown, which is used by f.e. template plugin)
+.item-selector {
+  > div[class*='control'] > div:first-child {
+    font-size: 1.1rem;
+    line-height: 1.8;
+
+    // input container
+    > div:last-child {
+      min-width: 0;
+      position: absolute;
+      input {
+        background: transparent !important;
+      }
+    }
+  }
 }
 
 // todo datepicker
