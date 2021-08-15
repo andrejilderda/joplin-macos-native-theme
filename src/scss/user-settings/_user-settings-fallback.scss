@@ -70,6 +70,7 @@
   @include fallback(icon-italic);
   @include fallback(icon-link);
   @include fallback(icon-list-bullet);
+  @include fallback(icon-list-bullet-rectangle);
   @include fallback(icon-list-number);
   @include fallback(icon-magnifyingglass);
   @include fallback(icon-minus);
@@ -77,7 +78,6 @@
   @include fallback(icon-plus-circle);
   @include fallback(icon-plus-circle);
   @include fallback(icon-square-and-arrow-down);
-  @include fallback(icon-square-and-pencil);
   @include fallback(icon-square-and-pencil);
   @include fallback(icon-square-split-2x1);
   @include fallback(icon-strikethrough);

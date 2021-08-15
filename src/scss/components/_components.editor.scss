@@ -170,6 +170,10 @@
           a:nth-child(4):before {
             @include icon(info-circle);
           }
+          // outline
+          a[title='Toggle outline']:before {
+            @include icon(list-bullet-rectangle);
+          }
         }
       }
     }

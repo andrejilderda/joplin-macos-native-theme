@@ -266,6 +266,7 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
 				--u-icon-italic: '';
 				--u-icon-link: '';
 				--u-icon-list-bullet: '';
+				--u-icon-list-bullet-rectangle: '';
 				--u-icon-list-number: '';
 				--u-icon-minus: '';
 				--u-icon-magnifyingglass: '';
