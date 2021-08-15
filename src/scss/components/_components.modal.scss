@@ -254,7 +254,7 @@ div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][sty
         @include buttonPrimary();
       }
       // cancel-button
-      button:last-child {
+      button:last-child:not(:first-child) {
         @include buttonBase();
       }
     }
