@@ -10,7 +10,7 @@ body {
   color: var(--g-textColor);
   -webkit-font-smoothing: antialiased;
 
-  *[style*='color:'] {
+  *[style*='color:']:not(.jop-noMdConv) {
     color: unset !important;
   }
 
