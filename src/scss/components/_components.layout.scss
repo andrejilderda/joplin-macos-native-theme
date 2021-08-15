@@ -1,0 +1,45 @@
+.rli-root {
+  .resizableLayoutItem {
+    position: relative;
+
+    // drag handles
+    > span > div[style*='cursor: row-resize;'],
+    > span > div[style*='cursor: col-resize;'] {
+      z-index: 9999;
+    }
+  }
+
+  > .resizableLayoutItem {
+    // add vertical dividers between panels
+    &:not(:first-child):after {
+      content: '';
+      background-color: var(--g-gridColor);
+      bottom: 0;
+      pointer-events: none;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0.1rem;
+      z-index: 999;
+    }
+
+    // add horizontal dividers between vertical panels in a group
+    .resizableLayoutItem:not(:first-child):after {
+      content: '';
+      background-color: var(--g-gridColor);
+      bottom: auto;
+      height: 0.1rem;
+      left: 0;
+      pointer-events: none;
+      position: absolute;
+      right: 0;
+      top: 0.1rem;
+      width: 100%;
+    }
+  }
+}
+
+#plugin-view-outline-outline\.panel {
+  border-bottom: none;
+  padding: 1.2rem 0.5rem;
+}

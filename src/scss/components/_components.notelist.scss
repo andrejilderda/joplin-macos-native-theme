@@ -14,10 +14,6 @@
   --notelist--Background: var(--g-primary-Background);
   --notelist--item--Line-height: 3.6rem;
 
-  > div:first-child {
-    border-right: 1px solid var(--g-gridColor);
-  }
-
   > div > div {
     background-color: var(--notelist--Background);
 
@@ -26,6 +22,7 @@
       background-color: transparent;
       height: auto;
       width: 100%;
+      padding: 1.2rem 0.6rem 1.2rem 1.2rem;
     }
 
     div:nth-child(2) > div {
@@ -137,6 +134,8 @@
   // note list + items
   .note-list {
     padding: 0 1rem 1rem;
+    width: auto !important;
+    overflow: hidden overlay !important;
 
     // remove last border in notelist
     div:nth-last-of-type(2):not(:empty):before {
