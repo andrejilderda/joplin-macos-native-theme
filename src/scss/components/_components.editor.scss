@@ -37,8 +37,8 @@
   background-color: var(--g-separatorColor);
   height: 0.1rem;
   position: absolute;
-  left: -1.4rem;
-  right: -1.4rem;
+  left: -0.7rem;
+  right: 0;
 }
 
 @mixin toolbarDivider {
@@ -55,6 +55,8 @@
 }
 
 .rli-editor {
+  overflow: hidden;
+
   // reset all inline + toolbar background colors
   .tox .tox-edit-area__iframe,
   .tox .tox-toolbar,
@@ -170,6 +172,10 @@
           a:nth-child(4):before {
             @include icon(info-circle);
           }
+          // outline
+          a[title='Toggle outline']:before {
+            @include icon(list-bullet-rectangle);
+          }
         }
       }
     }
@@ -213,7 +219,6 @@
       button {
         align-items: baseline;
         background: transparent;
-        color: red !important;
         font-size: 1.3rem;
         margin-bottom: 0.4rem;
         margin-left: 1.6rem;
@@ -231,6 +236,18 @@
           font-size: 1.3rem;
           font-weight: 400;
         }
+      }
+    }
+
+    // divider between split editors
+    [style*='border-left: 1px'] {
+      border-color: var(--g-gridColor) !important;
+
+      // prevent the divider border from being shown when markdown preview is
+      // enabled and the editor is active (no idea why this was implemented in
+      // this way)
+      [style*='width: 1px; max-width: 1px;'] {
+        border-left: none;
       }
     }
   }
@@ -687,6 +704,64 @@
       &:last-child {
         margin-right: 0.8rem !important;
       }
+    }
+  }
+}
+
+// find in note
+.note-search-bar {
+  border-top-color: var(--g-gridColor) !important;
+  padding-left: 0.8rem;
+  position: relative;
+  width: 100%;
+
+  input {
+    @include input;
+  }
+
+  a {
+    padding: 0 !important;
+
+    .fas {
+      color: var(--g-secondaryLabelColor) !important;
+      font-size: 1.4rem !important;
+    }
+  }
+
+  .fa-chevron-down::before {
+    @include icon(chevron-down);
+    font-weight: 500;
+  }
+
+  .fa-chevron-up::before {
+    @include icon(chevron-up);
+    font-weight: 500;
+  }
+
+  > div {
+    // close button
+    > a:first-child {
+      position: absolute;
+      right: 0.7rem;
+      top: 50%;
+
+      .fa-times {
+        font-size: 13px;
+        font-weight: normal;
+
+        &::after {
+          @include icon(xmark);
+          color: var(--g-secondaryLabelColor);
+          font-weight: 500;
+          transform: translateY(-50%) scale(var(--s-icon-size-factor, 1));
+        }
+      }
+    }
+
+    // amount of search results
+    > div {
+      color: var(--g-secondaryLabelColor) !important;
+      padding-left: 1rem;
     }
   }
 }

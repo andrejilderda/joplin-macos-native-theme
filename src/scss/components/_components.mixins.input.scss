@@ -1,0 +1,27 @@
+@mixin input {
+  border: none !important;
+  background-color: var(--g-controlBackgroundColor) !important;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 0px 1px rgba(0, 0, 0, 0.15),
+    0 0 0 16px hsla(var(--s-controlAccentColor--hsl), 0) !important;
+  height: 2rem;
+  padding-left: 1rem;
+
+  &:focus-within,
+  &:focus {
+    transition: 0.25s box-shadow cubic-bezier(0.61, 1, 0.88, 1);
+    transition-delay: 0.125s;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 0px 1px rgba(0, 0, 0, 0.15),
+      0 0 0 0.35rem hsla(var(--s-controlAccentColor--hsl), 0.5) !important;
+  }
+}
+
+@mixin focusRing {
+  box-shadow: 0 0 0 16px hsla(var(--g-controlAccentColor--hsl), 0);
+
+  &:focus {
+    transition: 0.25s box-shadow cubic-bezier(0.61, 1, 0.88, 1);
+    transition-delay: 0.125s;
+    box-shadow: 0 0 0 0.35rem hsla(var(--g-controlAccentColor--hsl), 0.5);
+  }
+}

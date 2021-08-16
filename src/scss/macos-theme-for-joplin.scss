@@ -7,10 +7,13 @@
 @import 'elements/elements.page';
 
 @import 'components/components.mixins.button';
+@import 'components/components.mixins.checkbox';
+@import 'components/components.mixins.input';
 
 @import 'components/components.editor';
 @import 'components/components.notelist';
 @import 'components/components.modal';
 @import 'components/components.sidebar';
 @import 'components/components.codeMirror';
+@import 'components/components.layout';
 @import 'components/components.tinyMCE';

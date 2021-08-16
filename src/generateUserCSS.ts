@@ -39,6 +39,7 @@ const lightTheme = `
 
   /* Text */
   --g-textColor: rgba(0, 0, 0, 1);
+  --g-textColorDark: rgba(0, 0, 0, 1);
   --g-placeholderTextColor: rgba(0, 0, 0, 0.247);
   --g-selectedTextColor: rgba(0, 0, 0, 1);
   --g-textBackgroundColor: rgba(255, 255, 255, 1);
@@ -121,6 +122,7 @@ const darkTheme = `
 
 	/* Text */
 	--g-textColor: rgba(255, 255, 255, 1);
+	--g-textColorDark: rgba(0, 0, 0, 1);
 	--g-placeholderTextColor: rgba(255, 255, 255, 0.247);
 	--g-selectedTextColor: rgba(255, 255, 255, 1);
 	--g-textBackgroundColor: rgba(30, 30, 30, 1);
@@ -233,9 +235,11 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
 			/* General --------------------------------- */
 			--u-base-font-size: ${baseFontSize}%;
 
-			--u-accentColor--h: ${accentColorH};
-			--u-accentColor--s: ${accentColorS}%;
-			--u-accentColor--l: ${accentColorL}%;
+			${accentColor !== 'blue' ? `
+				--u-accentColor--h: ${accentColorH};
+				--u-accentColor--s: ${accentColorS}%;
+				--u-accentColor--l: ${accentColorL}%;
+			` : ''}
 
 			/* Icons -------------------------------- */
 			${iconFamily === 'phosphor' ? `
@@ -251,6 +255,7 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
 				--u-icon-checkmark: '';
 				--u-icon-chevron-backward: '';
 				--u-icon-chevron-down: '';
+				--u-icon-chevron-up: '';
 				--u-icon-chevron-forward: '';
 				--u-icon-chevron-left-slash-chevron-right: '';
 				--u-icon-chevron-right: '';
@@ -266,6 +271,7 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
 				--u-icon-italic: '';
 				--u-icon-link: '';
 				--u-icon-list-bullet: '';
+				--u-icon-list-bullet-rectangle: '';
 				--u-icon-list-number: '';
 				--u-icon-minus: '';
 				--u-icon-magnifyingglass: '';
@@ -322,9 +328,11 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
 					:root {
 						${darkTheme}
 
-						--u-accentColor--h: ${accentColorDarkH};
-						--u-accentColor--s: ${accentColorDarkS}%;
-						--u-accentColor--l: ${accentColorDarkL}%;
+						${accentColor !== 'blue' ? `
+							--u-accentColor--h: ${accentColorDarkH};
+							--u-accentColor--s: ${accentColorDarkS}%;
+							--u-accentColor--l: ${accentColorDarkL}%;
+						` : ''}
 					}
 
 					${strippedCmThemeDark}

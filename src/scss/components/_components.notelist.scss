@@ -1,22 +1,6 @@
-// TODO: Set and use CSS-vars in stead of SCSS-vars
-
-@mixin focusRing {
-  box-shadow: 0 0 0 16px hsla(var(--g-controlAccentColor--hsl), 0);
-
-  &:focus {
-    transition: 0.25s box-shadow cubic-bezier(0.61, 1, 0.88, 1);
-    transition-delay: 0.125s;
-    box-shadow: 0 0 0 0.35rem hsla(var(--g-controlAccentColor--hsl), 0.5);
-  }
-}
-
 .rli-noteList {
   --notelist--Background: var(--g-primary-Background);
   --notelist--item--Line-height: 3.6rem;
-
-  > div:first-child {
-    border-right: 1px solid var(--g-gridColor);
-  }
 
   > div > div {
     background-color: var(--notelist--Background);
@@ -26,6 +10,7 @@
       background-color: transparent;
       height: auto;
       width: 100%;
+      padding: 1.2rem 0.6rem 1.2rem 1.2rem;
     }
 
     div:nth-child(2) > div {
@@ -137,6 +122,8 @@
   // note list + items
   .note-list {
     padding: 0 1rem 1rem;
+    width: auto !important;
+    overflow: hidden overlay !important;
 
     // remove last border in notelist
     div:nth-last-of-type(2):not(:empty):before {
@@ -188,7 +175,7 @@
 
     mark {
       background: var(--g-systemYellow);
-      color: var(--g-shadowColor) !important;
+      color: var(--g-textColorDark) !important;
       border-radius: 0.2rem;
     }
 
@@ -203,7 +190,7 @@
       // search highlight
       mark {
         background: var(--g-systemYellow);
-        color: var(--g-shadowColor) !important;
+        color: var(--g-textColorDark) !important;
       }
 
       &:before {

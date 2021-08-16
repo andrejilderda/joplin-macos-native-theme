@@ -2,10 +2,7 @@
 // - classnames for sync states
 
 .rli-sideBar {
-  // remove white space between sidebar and notelist
-  &:first-child {
-    width: auto !important;
-  }
+  background: var(--s-sidebar__BackgroundColor);
 
   // fix resize handle
   > span > div {
@@ -14,7 +11,7 @@
 }
 
 .sidebar.sidebar {
-  background: var(--s-sidebar__BackgroundColor);
+  background-color: transparent;
   padding-top: 1rem;
 
   * {
