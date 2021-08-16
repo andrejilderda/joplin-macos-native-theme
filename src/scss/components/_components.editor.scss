@@ -240,11 +240,16 @@
       }
     }
 
-    // prevent the divider border from being shown when markdown preview is
-    // enabled and the editor is active (no idea why this was implemented in
-    // this way)
-    [style*='border-left: 1px'][style*='width: 1px; max-width: 1px;'] {
-      border-left: none;
+    // divider between split editors
+    [style*='border-left: 1px'] {
+      border-color: var(--g-gridColor) !important;
+
+      // prevent the divider border from being shown when markdown preview is
+      // enabled and the editor is active (no idea why this was implemented in
+      // this way)
+      [style*='width: 1px; max-width: 1px;'] {
+        border-left: none;
+      }
     }
   }
 
