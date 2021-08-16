@@ -74,11 +74,13 @@
 
     .fa-question-circle {
       display: block;
+      height: auto !important;
 
       &::before {
         @include icon(info-circle);
         color: var(--g-secondaryLabelColor) !important;
         font-weight: 400;
+        transform-origin: 50% 60%;
         -webkit-font-smoothing: antialiased;
       }
     }
