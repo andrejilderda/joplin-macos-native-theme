@@ -1,0 +1,39 @@
+$checkboxSize: 1.4rem;
+
+@mixin checkbox {
+  position: relative;
+
+  &:before {
+    content: '';
+    border-radius: 50%;
+    border: 0.1rem solid var(--g-tertiaryLabelColor);
+    display: flex;
+    height: $checkboxSize;
+    justify-content: center;
+    margin-left: -2.4rem;
+    width: $checkboxSize;
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+}
+
+@mixin checkboxChecked {
+  &:before {
+    @include icon(checkmark);
+    background-color: var(--s-controlAccentColor);
+    border: 0.1rem solid var(--s-controlAccentColor);
+    border-radius: 50%;
+    color: var(--g-alternateSelectedControlTextColor);
+    display: block;
+    font-size: 1rem;
+    top: 0;
+    margin-left: -2.4rem;
+    height: $checkboxSize;
+    line-height: 1.5rem;
+    position: absolute;
+    text-align: center;
+    transform: scale(1);
+    width: $checkboxSize;
+  }
+}

@@ -106,36 +106,45 @@ body {
 
   ul.joplin-checklist {
     margin-left: 2.2rem;
-    li {
-      position: relative;
+
+    li:not(.checked) {
+      @include checkbox();
 
       &:before {
-        content: '';
-        border-radius: 50%;
-        border: 0.1rem solid var(--g-tertiaryLabelColor);
-        display: flex;
-        height: 1.4rem;
-        justify-content: center;
-        margin-left: -2.4rem;
-        width: 1.4rem;
-        left: 0;
         top: 0.3rem;
       }
+    }
 
-      &.checked {
+    li.checked {
+      @include checkboxChecked();
+      opacity: 1;
+
+      &:before {
+        top: 0.3rem;
+      }
+    }
+  }
+
+  // checkboxes have different classnames when editor is split
+  li.joplin-checkbox {
+    input {
+      display: none;
+    }
+
+    .checkbox-wrapper {
+      position: relative;
+    }
+
+    .checkbox-label {
+      &-unchecked {
+        @include checkbox();
+      }
+
+      &-checked {
         opacity: 1;
+        position: relative;
 
-        &:before {
-          @include icon(checkmark);
-          background-color: var(--s-controlAccentColor);
-          border-color: transparent;
-          color: var(--g-alternateSelectedControlTextColor);
-          display: flex;
-          font-size: 1rem;
-          line-height: 1.5rem;
-          position: absolute;
-          transform: scale(1);
-        }
+        @include checkboxChecked();
       }
     }
   }
