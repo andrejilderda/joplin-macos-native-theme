@@ -703,3 +703,61 @@
     }
   }
 }
+
+// find in note
+.note-search-bar {
+  border-top-color: var(--g-gridColor) !important;
+  padding-left: 0.8rem;
+  position: relative;
+  width: 100%;
+
+  input {
+    @include input;
+  }
+
+  a {
+    padding: 0 !important;
+
+    .fas {
+      color: var(--g-secondaryLabelColor) !important;
+      font-size: 1.4rem !important;
+    }
+  }
+
+  .fa-chevron-down::before {
+    @include icon(chevron-down);
+    font-weight: 500;
+  }
+
+  .fa-chevron-up::before {
+    @include icon(chevron-up);
+    font-weight: 500;
+  }
+
+  > div {
+    // close button
+    > a:first-child {
+      position: absolute;
+      right: 0.7rem;
+      top: 50%;
+
+      .fa-times {
+        font-size: 13px;
+        font-weight: normal;
+
+        &::after {
+          @include icon(xmark);
+          color: var(--g-secondaryLabelColor);
+          font-weight: 500;
+          transform: translateY(-50%) scale(var(--s-icon-size-factor, 1));
+        }
+      }
+    }
+
+    // amount of search results
+    > div {
+      color: var(--g-secondaryLabelColor) !important;
+      padding-left: 1rem;
+    }
+  }
+}

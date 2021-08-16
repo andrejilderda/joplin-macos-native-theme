@@ -251,6 +251,7 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
 				--u-icon-checkmark: '';
 				--u-icon-chevron-backward: '';
 				--u-icon-chevron-down: '';
+				--u-icon-chevron-up: '';
 				--u-icon-chevron-forward: '';
 				--u-icon-chevron-left-slash-chevron-right: '';
 				--u-icon-chevron-right: '';
