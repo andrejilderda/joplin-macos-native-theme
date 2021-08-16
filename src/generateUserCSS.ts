@@ -39,6 +39,7 @@ const lightTheme = `
 
   /* Text */
   --g-textColor: rgba(0, 0, 0, 1);
+  --g-textColorDark: rgba(0, 0, 0, 1);
   --g-placeholderTextColor: rgba(0, 0, 0, 0.247);
   --g-selectedTextColor: rgba(0, 0, 0, 1);
   --g-textBackgroundColor: rgba(255, 255, 255, 1);
@@ -121,6 +122,7 @@ const darkTheme = `
 
 	/* Text */
 	--g-textColor: rgba(255, 255, 255, 1);
+	--g-textColorDark: rgba(0, 0, 0, 1);
 	--g-placeholderTextColor: rgba(255, 255, 255, 0.247);
 	--g-selectedTextColor: rgba(255, 255, 255, 1);
 	--g-textBackgroundColor: rgba(30, 30, 30, 1);

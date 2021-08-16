@@ -175,7 +175,7 @@
 
     mark {
       background: var(--g-systemYellow);
-      color: var(--g-shadowColor) !important;
+      color: var(--g-textColorDark) !important;
       border-radius: 0.2rem;
     }
 
@@ -190,7 +190,7 @@
       // search highlight
       mark {
         background: var(--g-systemYellow);
-        color: var(--g-shadowColor) !important;
+        color: var(--g-textColorDark) !important;
       }
 
       &:before {
