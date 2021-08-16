@@ -233,9 +233,11 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
 			/* General --------------------------------- */
 			--u-base-font-size: ${baseFontSize}%;
 
-			--u-accentColor--h: ${accentColorH};
-			--u-accentColor--s: ${accentColorS}%;
-			--u-accentColor--l: ${accentColorL}%;
+			${accentColor !== 'blue' ? `
+				--u-accentColor--h: ${accentColorH};
+				--u-accentColor--s: ${accentColorS}%;
+				--u-accentColor--l: ${accentColorL}%;
+			` : ''}
 
 			/* Icons -------------------------------- */
 			${iconFamily === 'phosphor' ? `
@@ -324,9 +326,11 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
 					:root {
 						${darkTheme}
 
-						--u-accentColor--h: ${accentColorDarkH};
-						--u-accentColor--s: ${accentColorDarkS}%;
-						--u-accentColor--l: ${accentColorDarkL}%;
+						${accentColor !== 'blue' ? `
+							--u-accentColor--h: ${accentColorDarkH};
+							--u-accentColor--s: ${accentColorDarkS}%;
+							--u-accentColor--l: ${accentColorDarkL}%;
+						` : ''}
 					}
 
 					${strippedCmThemeDark}
