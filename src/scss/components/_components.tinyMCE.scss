@@ -126,6 +126,8 @@ body {
 
   // checkboxes have different classnames when editor is split
   li.joplin-checkbox {
+    margin-left: 0.6rem;
+
     input {
       display: none;
     }

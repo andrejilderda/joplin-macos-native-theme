@@ -19,6 +19,8 @@ $checkboxSize: 1.4rem;
 }
 
 @mixin checkboxChecked {
+  position: relative;
+
   &:before {
     @include icon(checkmark);
     background-color: var(--s-controlAccentColor);
