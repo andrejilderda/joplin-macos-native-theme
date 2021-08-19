@@ -2,32 +2,42 @@
   font-size: 1.4rem !important;
   line-height: 1.6 !important;
   background-color: transparent !important;
+  color: var(--g-textColor) !important;
 
-  .cm-header,
-  .cm-link-text,
-  .cm-strong,
-  .cm-url,
-  // syntax
-  .cm-atom,
-  .cm-attribute,
-  .cm-bracket,
-  .cm-builtin,
-  .cm-comment,
-  .cm-def,
-  .cm-error,
-  .cm-keyword,
-  .cm-link,
-  .cm-meta,
-  .cm-number,
-  .cm-operator,
-  .cm-property,
-  .cm-qualifier,
-  .cm-string,
-  .cm-tag,
-  .cm-type,
-  .cm-variable {
+  .cm-header-1,
+  .cm-header-2,
+  .cm-header-3,
+  .cm-header-4,
+  .cm-header-5,
+  .cm-header-6 {
     color: inherit;
   }
+
+  // .cm-header,
+  // .cm-link-text,
+  // .cm-strong,
+  // .cm-url,
+  // // syntax
+  // .cm-atom,
+  // .cm-attribute,
+  // .cm-bracket,
+  // .cm-builtin,
+  // .cm-comment,
+  // .cm-def,
+  // .cm-error,
+  // .cm-keyword,
+  // .cm-link,
+  // .cm-meta,
+  // .cm-number,
+  // .cm-operator,
+  // .cm-property,
+  // .cm-qualifier,
+  // .cm-string,
+  // .cm-tag,
+  // .cm-type,
+  // .cm-variable {
+  //   color: inherit;
+  // }
 
   // .cm-link-text {
   //   color: var(--s-accentColor) !important;
@@ -66,15 +76,6 @@
 
   // span.cm-hr {
   //   color: #555555;
-  // }
-
-  // .cm-header-1,
-  // .cm-header-2,
-  // .cm-header-3,
-  // .cm-header-4,
-  // .cm-header-5,
-  // .cm-header-6 {
-  //   line-height: 1.5em;
   // }
 
   // // .cm-search-marker {

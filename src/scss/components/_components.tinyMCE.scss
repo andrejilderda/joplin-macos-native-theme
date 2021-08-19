@@ -4,18 +4,17 @@ body {
 
 #rendered-md {
   font-size: 1.4rem;
+  font-family: var(--s-font-family-system);
   line-height: 1.6;
   padding: 2.8rem;
-  max-width: var(--u-editor-max-width, 75ch);
   color: var(--g-textColor);
   -webkit-font-smoothing: antialiased;
-
-  *[style*='color:']:not(.jop-noMdConv) {
-    color: unset !important;
-  }
+  margin-left: var(--u-editor-margin-left, auto);
+  margin-right: var(--u-editor-margin-right, auto);
 
   a {
     color: var(--g-linkColor);
+    cursor: pointer;
   }
 
   > * {

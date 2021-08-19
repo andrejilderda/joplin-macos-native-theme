@@ -33,7 +33,7 @@
   @include modalBackdrop();
 
   *[style*='color:'] {
-    color: unset !important;
+    color: var(--g-textColor) !important;
   }
 }
 
@@ -95,7 +95,7 @@
   }
 
   // button-container
-  > div:last-child {
+  > div:last-child:not([style*='height: 0px']) {
     display: flex;
     justify-content: space-between;
     flex-direction: row-reverse;
@@ -214,7 +214,7 @@ div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][sty
     max-height: none !important;
 
     *[style*='color:'] {
-      color: unset !important;
+      color: var(--g-textColor) !important;
     }
 
     // main heading
@@ -538,5 +538,158 @@ div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][sty
 
   * {
     border-color: transparent;
+  }
+}
+
+// insert hyperlink modal in the editor
+.smalltalk {
+  @include modalBackdrop();
+
+  * {
+    font-family: var(--s-font-family-system);
+  }
+
+  .page {
+    @include modalDialog();
+
+    header,
+    .close-button {
+      display: none;
+    }
+
+    .content-area {
+      align-items: center;
+      color: var(--g-secondaryLabelColor) !important;
+      display: flex;
+      gap: 0.8rem;
+      font-size: 1.2rem;
+      overflow: initial;
+      padding: 0;
+
+      input[type='text'] {
+        @include input;
+        color: var(--g-textColor);
+        flex: 1 0;
+        margin-top: 0;
+      }
+    }
+
+    .action-area {
+      padding: 0;
+    }
+
+    .button-strip {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 0.8rem;
+
+      @include modalFooter();
+
+      button {
+        text-shadow: none;
+        @include focusRing;
+      }
+
+      // ok-button
+      button:first-child {
+        @include buttonBase();
+        @include buttonPrimary();
+      }
+      // cancel-button
+      button:last-child:not(:first-child) {
+        @include buttonBase();
+
+        background-image: none;
+        margin-left: auto !important;
+      }
+    }
+  }
+}
+
+// Insert/edit link via wysiwyg-editor (yet another modal implementation)
+.tox .tox-dialog-wrap {
+  .tox-dialog-wrap__backdrop {
+    @include modalBackdrop();
+  }
+
+  .tox-dialog {
+    @include modalDialog();
+    border: none;
+  }
+
+  .tox-form__group {
+    align-items: center;
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 0;
+    overflow: initial;
+    padding: 0;
+
+    + .tox-form__group {
+      margin-top: 0.8rem;
+    }
+
+    .tox-label {
+      color: var(--g-secondaryLabelColor) !important;
+      font-size: 1.2rem;
+      width: 10rem;
+      text-align: right;
+      padding: 0;
+    }
+
+    input {
+      @include input;
+      flex: 1;
+      font-size: 1.2rem;
+      min-height: unset;
+    }
+  }
+
+  .tox-dialog__body-content {
+    overflow: initial;
+    padding: 0;
+  }
+
+  .tox-dialog__header {
+    background-color: transparent !important;
+    display: flex;
+    justify-content: center;
+    padding: 0 0 2rem;
+
+    .tox-dialog__title {
+      color: var(--g-labelColor) !important;
+      font-size: 1.3rem !important;
+      font-weight: bold;
+    }
+
+    // hide cross-icon
+    button {
+      display: none;
+    }
+  }
+
+  .tox-dialog__footer {
+    @include modalFooter();
+
+    background-color: transparent !important;
+    padding: 0;
+
+    &-end {
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    button:first-child {
+      @include buttonBase();
+
+      background-image: none;
+      margin-left: auto !important;
+    }
+
+    // cancel-button
+    button:last-child:not(:first-child) {
+      @include buttonBase();
+      @include buttonPrimary();
+    }
   }
 }
