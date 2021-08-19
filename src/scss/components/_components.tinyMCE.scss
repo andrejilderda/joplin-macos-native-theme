@@ -4,16 +4,13 @@ body {
 
 #rendered-md {
   font-size: 1.4rem;
+  font-family: var(--s-font-family-system);
   line-height: 1.6;
   padding: 2.8rem;
   color: var(--g-textColor);
   -webkit-font-smoothing: antialiased;
   margin-left: var(--u-editor-margin-left, auto);
   margin-right: var(--u-editor-margin-right, auto);
-
-  *[style*='color:']:not(.jop-noMdConv) {
-    color: unset !important;
-  }
 
   a {
     color: var(--g-linkColor);

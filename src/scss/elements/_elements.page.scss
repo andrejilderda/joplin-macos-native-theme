@@ -13,9 +13,6 @@ body {
   /* set default font-size back to 16px */
   font-size: 1.6rem;
 
-  div,
-  span,
-  a,
   input,
   button {
     color: var(--g-primary-Color);
@@ -34,4 +31,3 @@ body {
 *[style*='Roboto'] {
   font-family: var(--s-font-family-system) !important;
 }
-

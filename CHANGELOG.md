@@ -13,8 +13,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Fix panel dividers in front of insert hyperlink modal
-- Theme doesn't take into account max-width introduced in latest joplin version
+- Fix panel dividers in front of insert hyperlink modal (#17)
+- Theme doesn't take into account max-width introduced in latest joplin version (#16)
+- Fix display of chemical equations (#15)
 
 ## [1.1.0] - 2021-08-16
 
