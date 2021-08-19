@@ -203,6 +203,7 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
 		hideSyncStatus,
 		notelistSeparators,
 		editorParagraphSpacing,
+		editorAlignment,
 		editorMarkdownThemeLight,
 		editorMarkdownThemeDark,
 	} = settings;
@@ -218,6 +219,12 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
 
 	const { h: accentColorH, s: accentColorS, l: accentColorL } = hexToHSL(accentColorMap.light[accentColor]);
 	const { h: accentColorDarkH, s: accentColorDarkS, l: accentColorDarkL } = hexToHSL(accentColorMap.dark[accentColor]);
+
+	const getEditorAlignment = (alignment: ThemeSettings['editorAlignment']) => {
+		if (alignment === 'left') return ['auto', '0']
+		else if (alignment === 'center') return ['auto', 'auto']
+		else if (alignment === 'right') return ['0', 'auto']
+	}
 
 	return /* css */`
 		${iconFamily === 'phosphor' ? `
@@ -305,6 +312,8 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
 
 			/* Editor -------------------------------- */
 			--u-editor-paragraph-spacing: ${editorParagraphSpacing / 10}rem;
+			--u-editor-margin-right: ${getEditorAlignment(editorAlignment)[0]} ;
+			--u-editor-margin-left: ${getEditorAlignment(editorAlignment)[1]} ;
 
 			/*
 				properties that currently can't be selected via the UI, but maybe should...

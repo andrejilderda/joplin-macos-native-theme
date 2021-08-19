@@ -13,6 +13,7 @@ export type ThemeSettings = {
 	hideSyncStatus: boolean;
 	notelistSeparators: 'dividers' | 'zebraStripes' | 'none';
 	editorParagraphSpacing: number;
+	editorAlignment: 'left' | 'center' | 'right';
 	editorMarkdownThemeLight: string;
 	editorMarkdownThemeDark: string;
 };
@@ -123,8 +124,19 @@ joplin.plugins.register({
 				public: true,
 			},
 
+			'editorAlignment': {
+				label: 'Editor alignment',
+				value: 'left',
+				type: SettingItemType.String,
 				section: 'macOSThemeSection',
+				isEnum: true,
 				public: true,
+				options: {
+					'left': 'Left',
+					'center': 'Center',
+					'right': 'Right',
+				},
+				description: `Alignment of the editor content when a maximum width is set on the editor (under 'Appearance')`,
 			},
 
 			'editorMarkdownThemeLight': {
@@ -224,6 +236,7 @@ joplin.plugins.register({
 		const hideSyncStatus = await joplin.settings.value('hideSyncStatus');
 		const notelistSeparators = await joplin.settings.value('notelistSeparators');
 		const editorParagraphSpacing = await joplin.settings.value('editorParagraphSpacing');
+		const editorAlignment = await joplin.settings.value('editorAlignment');
 		const editorMarkdownThemeLight = await joplin.settings.value('editorMarkdownThemeLight');
 		const editorMarkdownThemeDark = await joplin.settings.value('editorMarkdownThemeDark');
 
