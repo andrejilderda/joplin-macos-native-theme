@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Add option to set the alignment of the editor content when a max. width is set
+- Styling for insert hyperlink in both Markdown and wysiwyg-editor (#13)
 
 ### Fixed
 
