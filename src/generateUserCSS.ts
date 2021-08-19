@@ -29,78 +29,7 @@ const accentColorMap = {
 	},
 };
 
-// Dynamic system colors
-const lightTheme = `
-  /* Labels */
-  --g-labelColor: rgba(0, 0, 0, 0.847);
-  --g-secondaryLabelColor: rgba(0, 0, 0, 0.498);
-  --g-tertiaryLabelColor: rgba(0, 0, 0, 0.259);
-  --g-quaternaryLabelColor: rgba(0, 0, 0, 0.098);
-
-  /* Text */
-  --g-textColor: rgba(0, 0, 0, 1);
-  --g-textColorDark: rgba(0, 0, 0, 1);
-  --g-placeholderTextColor: rgba(0, 0, 0, 0.247);
-  --g-selectedTextColor: rgba(0, 0, 0, 1);
-  --g-textBackgroundColor: rgba(255, 255, 255, 1);
-  --g-selectedTextBackgroundColor: rgba(179, 215, 255, 1);
-  --g-keyboardFocusIndicatorColor: rgba(0, 103, 244, 0.247);
-  --g-unemphasizedSelectedTextColor: rgba(0, 0, 0, 1);
-  --g-unemphasizedSelectedTextBackgroundColor: rgba(220, 220, 220, 1);
-
-  /* Content */
-  --g-alternatingContentBackgroundColorsEven: rgba(255, 255, 255, 1);
-  --g-alternatingContentBackgroundColorsOdd: rgba(244, 245, 245, 1);
-  --g-linkColor: rgba(0, 104, 218, 1);
-  --g-separatorColor: rgba(0, 0, 0, 0.098);
-  --g-selectedContentBackgroundColor: rgba(0, 99, 225, 1);
-  --g-selectedContentBackgroundColor--h: 214;
-  --g-selectedContentBackgroundColor--s: 100%;
-  --g-selectedContentBackgroundColor--l: 44%;
-  --g-unemphasizedSelectedContentBackgroundColor: rgba(220, 220, 220, 1);
-
-  /* Menus */
-  --g-selectedMenuItemTextColor: rgba(255, 255, 255, 1);
-
-  /* Tables */
-  --g-gridColor: rgba(230, 230, 230, 1);
-  --g-headerTextColor: rgba(0, 0, 0, 0.847);
-
-  /* Controls */
-  --g-controlAccentColor--h: 211;
-  --g-controlAccentColor--s: 100%;
-  --g-controlAccentColor--l: 50%;
-  --g-controlAccentColor--hsl: var(--g-controlAccentColor--h), var(--g-controlAccentColor--s), var(--g-controlAccentColor--l);
-  --g-controlAccentColor: hsla(var(--g-controlAccentColor--hsl), 1);
-  --g-controlColor--rgb: 255, 255, 255;
-  --g-controlColor: rgba(var(--g-controlColor--rgb), 1);
-  --g-controlColor--hsl: 0, 0%, 100%;
-  --g-controlBackgroundColor: rgba(255, 255, 255, 1);
-  --g-controlTextColor: rgba(0, 0, 0, 0.847);
-  --g-disabledControlTextColor: rgba(0, 0, 0, 0.247);
-  --g-scrubberTexturedBackground: rgba(255, 255, 255, 1);
-  --g-selectedControlColor: rgba(179, 215, 255, 1);
-  --g-selectedControlTextColor: rgba(0, 0, 0, 0.847);
-  --g-alternateSelectedControlTextColor--rgb: 255, 255, 255;
-  --g-alternateSelectedControlTextColor: rgba(
-    var(--g-alternateSelectedControlTextColor--rgb),
-    1
-  );
-
-  /* Windows */
-  --g-windowBackgroundColor: rgba(236, 236, 236, 1);
-  --g-windowFrameTextColor: rgba(0, 0, 0, 0.847);
-  --g-underPageBackgroundColor: rgba(150, 150, 150, 0.898);
-  --g-underPageBackgroundColor--rgb: 150, 150, 150;
-
-  /* Highlights & Shadows */
-  --g-findHighlightColor: rgba(255, 255, 0, 1);
-  --g-highlightColor: rgba(255, 255, 255, 1);
-  --g-highlightColor--rgb: 255, 255, 255;
-  --g-shadowColor: rgba(0, 0, 0, 1);
-  --g-shadowColor--rgb: 0, 0, 0;
-`;
-
+// light is default
 const darkTheme = `
 	--g-systemBlue: rgba(10, 132, 255, 1);
 	--g-systemBrown: rgba(172, 142, 104, 1);
@@ -327,7 +256,6 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
 
 			${appearance === 'auto' ? `
 				@media(prefers-color-scheme: light) {
-					:root { ${lightTheme} }
 					${strippedCmThemeLight}
 				}
 
@@ -346,12 +274,10 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
 				`
 			: ''}
 			${appearance === 'light' ? `
-				:root { ${lightTheme} }
 				${strippedCmThemeLight}
 			` : ''}
 			${appearance === 'light-with-dark-sidebar' ? `
 				:root {
-					${lightTheme}
 					${darkSidebar}
 				}
 				${strippedCmThemeLight}
