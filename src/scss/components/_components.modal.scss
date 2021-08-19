@@ -33,7 +33,7 @@
   @include modalBackdrop();
 
   *[style*='color:'] {
-    color: unset !important;
+    color: var(--g-textColor) !important;
   }
 }
 
@@ -214,7 +214,7 @@ div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][sty
     max-height: none !important;
 
     *[style*='color:'] {
-      color: unset !important;
+      color: var(--g-textColor) !important;
     }
 
     // main heading
@@ -614,6 +614,7 @@ div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][sty
 
   .tox-dialog {
     @include modalDialog();
+    border: none;
   }
 
   .tox-form__group {
