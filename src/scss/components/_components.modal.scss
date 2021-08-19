@@ -95,7 +95,7 @@
   }
 
   // button-container
-  > div:last-child {
+  > div:last-child:not([style*='height: 0px']) {
     display: flex;
     justify-content: space-between;
     flex-direction: row-reverse;
