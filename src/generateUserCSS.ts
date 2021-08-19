@@ -1,5 +1,5 @@
 import joplin from 'api';
-import { AppearanceSetting, ThemeSettings } from 'src';
+import { ThemeSettings } from 'src';
 import { hexToHSL } from './utils/color';
 
 const accentColorMap = {
@@ -203,7 +203,6 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
 		hideSyncStatus,
 		notelistSeparators,
 		editorParagraphSpacing,
-		editorMaxCharactersPerLine,
 		editorMarkdownThemeLight,
 		editorMarkdownThemeDark,
 	} = settings;
@@ -306,7 +305,6 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
 
 			/* Editor -------------------------------- */
 			--u-editor-paragraph-spacing: ${editorParagraphSpacing / 10}rem;
-			--u-editor-max-width: ${editorMaxCharactersPerLine === 0 ? 'none' : `${editorMaxCharactersPerLine}ch`};
 
 			/*
 				properties that currently can't be selected via the UI, but maybe should...
