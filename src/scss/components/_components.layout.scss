@@ -5,7 +5,7 @@
     // drag handles
     > span > div[style*='cursor: row-resize;'],
     > span > div[style*='cursor: col-resize;'] {
-      z-index: 9999;
+      z-index: 100;
     }
   }
 
@@ -20,7 +20,7 @@
       left: 0;
       top: 0;
       width: 0.1rem;
-      z-index: 999;
+      z-index: 100;
     }
 
     // add horizontal dividers between vertical panels in a group

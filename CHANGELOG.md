@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix panel dividers in front of insert hyperlink modal
+
 ## [1.1.0] - 2021-08-16
 
 ### Added
