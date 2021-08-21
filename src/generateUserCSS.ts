@@ -159,7 +159,9 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
 		${iconFamily === 'phosphor' ? `
 			@font-face {
 				font-family: "Phosphor";
-				src: url("${installDir}/webfont/Phosphor.ttf") format("truetype");
+				src: url("${installDir}/webfont/Phosphor.ttf") format("truetype"),
+					url("${installDir}/webfont/Phosphor.woff") format("woff"),
+					url("${installDir}/webfont/Phosphor.svg#Phosphor") format("svg");
 				font-weight: normal;
 				font-style: normal;
 				font-display: block;
