@@ -5,20 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
-
-### Added
-
-- Add option to set the alignment of the editor content when a max. width is set
-- Styling for insert hyperlink in both Markdown and wysiwyg-editor (#13)
+## [1.2.1] - 2021-08-21
 
 ### Fixed
 
-- Fix panel dividers in front of insert hyperlink modal (#17)
-- Fix display of chemical equations (#15)
-- Anchor-tags don't have pointer in editor preview (#14)
-- Height of go-to-anything modal when no results are shown
-- Clear icon when search bar has value
+- Hopefully fixes issue on Linux where Phosphor icons are not displayed.
+
+## [1.2.0] - 2021-08-19
+
+### Added
+
+- Add option to set the alignment of the editor content when a max. width is set.
+- Styling for insert hyperlink in both Markdown and wysiwyg-editor (#13).
+
+### Fixed
+
+- Fix panel dividers in front of insert hyperlink modal (#17).
+- Fix display of chemical equations (#15).
+- Anchor-tags don't have pointer in editor preview (#14).
+- Height of go-to-anything modal when no results are shown.
+- Clear icon when search bar has value.
 
 ### Removed
 
