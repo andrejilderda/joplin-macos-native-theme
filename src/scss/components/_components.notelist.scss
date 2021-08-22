@@ -242,9 +242,10 @@
     }
 
     > a > span {
+      color: inherit;
+      font-family: var(--s-font-family-system);
       overflow: hidden;
       text-overflow: ellipsis;
-      color: inherit;
     }
   }
 
