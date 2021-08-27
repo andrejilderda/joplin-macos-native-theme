@@ -155,13 +155,14 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
 		else if (alignment === 'right') return ['0', 'auto']
 	}
 
+	// rewrite backslashes to forward slashes to prevent issues on Windows
 	return /* css */`
 		${iconFamily === 'phosphor' ? `
 			@font-face {
 				font-family: "Phosphor";
-				src: url("${installDir}/webfont/Phosphor.ttf") format("truetype"),
-					url("${installDir}/webfont/Phosphor.woff") format("woff"),
-					url("${installDir}/webfont/Phosphor.svg#Phosphor") format("svg");
+				src: url("${installDir.replace(/\\/g, "/")}/webfont/Phosphor.ttf") format("truetype"),
+					url("${installDir.replace(/\\/g, "/")}/webfont/Phosphor.woff") format("woff"),
+					url("${installDir.replace(/\\/g, "/")}/webfont/Phosphor.svg#Phosphor") format("svg");
 				font-weight: normal;
 				font-style: normal;
 				font-display: block;
