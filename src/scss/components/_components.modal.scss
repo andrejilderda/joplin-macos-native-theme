@@ -177,12 +177,12 @@
 
           // match highlight
           span {
-            color: var(--g-highlightColor) !important;
+            color: var(--g-selectedMenuItemTextColor) !important;
           }
         }
 
         i.fa:before {
-          color: rgba(var(--g-highlightColor--rgb) 0.75);
+          color: rgba(255, 255, 255, 0.75);
         }
       }
 
