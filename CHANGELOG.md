@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.5] - 2021-09-27
+
+### Fixed
+
+- Improve legibility of highlighted go-to-anything items (#32).
+
 ## [1.2.5] - 2021-08-30
 
 ### Fixed
