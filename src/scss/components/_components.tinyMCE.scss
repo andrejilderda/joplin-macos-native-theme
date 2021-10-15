@@ -29,7 +29,8 @@ body {
     color: var(--g-headerTextColor);
     padding: 0;
     line-height: 1.25;
-    margin: calc(var(--u-editor-paragraph-spacing, 1.5rem) / 2) 0 !important;
+    margin: 0 !important;
+    padding: calc(var(--u-editor-paragraph-spacing, 1.5rem) / 2) 0 !important;
   }
 
   h1 {

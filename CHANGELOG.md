@@ -1,11 +1,16 @@
 # Changelog
 
+## [1.2.9] - 2021-10-15
+
+### Fixed
+
+- Fix collapsing margins for empty sibling heading tags (`##`) in Markdown preview (#28).
+
 ## [1.2.8] - 2021-10-15
 
 ### Fixed
 
 - Fix horizontal rule icon boldness.
--
 
 ## [1.2.7] - 2021-10-15
 
