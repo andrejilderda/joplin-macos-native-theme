@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.8] - 2021-10-15
+
+### Fixed
+
+- Fix horizontal rule icon boldness.
+-
+
 ## [1.2.7] - 2021-10-15
 
 ### Fixed
