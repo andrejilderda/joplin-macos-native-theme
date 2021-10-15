@@ -33,6 +33,11 @@
   --s-#{$customProp}: var(--u-#{$userProp}, var(--g-#{$globalProp}));
 }
 
+@mixin createSfSymbol($name, $sfSymbol) {
+  --g-icon-#{$name}: '#{$sfSymbol}';
+  @include fallback(icon-#{$name});
+}
+
 @mixin icon($name) {
   content: var(--s-icon-#{$name}) !important;
   font-family: var(--s-font-family-icons) !important;

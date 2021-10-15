@@ -109,9 +109,8 @@
             font-family: var(--s-font-family-system);
             line-height: 1;
 
-            // hide default icons
             > * {
-              display: none;
+              color: var(--g-secondaryLabelColor);
             }
 
             &:hover {
@@ -120,6 +119,19 @@
 
             &::before {
               font-size: 1.4rem;
+            }
+          }
+
+          // hide default icons of the default and themed icons
+          a:nth-child(1),
+          a:nth-child(2),
+          a:nth-child(3),
+          a:nth-child(4),
+          a[title='Toggle outline'],
+          a[title='Toggle sidebar'],
+          a[title='Toggle note list'] {
+            > * {
+              display: none;
             }
           }
 
@@ -172,8 +184,17 @@
           a:nth-child(4):before {
             @include icon(info-circle);
           }
-          // outline
+
+          // icons for plugins
           a[title='Toggle outline']:before {
+            @include icon(list-bullet-indent);
+          }
+
+          a[title='Toggle sidebar']:before {
+            @include icon(sidebar-left);
+          }
+
+          a[title='Toggle note list']:before {
             @include icon(list-bullet-rectangle);
           }
         }
@@ -470,6 +491,7 @@
         span::before,
         i::before {
           @include toolbarButtonIcon();
+          font-weight: inherit !important;
         }
 
         .icon-bold::before {
@@ -505,6 +527,35 @@
         }
         .icon-add-date::before {
           @include icon(clock);
+        }
+
+        // plugin icons
+        .fa-highlighter::before,
+        .fa-strikethrough::before,
+        .fa-underline::before,
+        .fa-superscript::before,
+        .fa-subscript::before,
+        .fa-hand-point-left::before {
+          font-weight: 500 !important;
+        }
+
+        .fa-highlighter::before {
+          @include icon(highlighter);
+        }
+        .fa-strikethrough::before {
+          @include icon(strikethrough);
+        }
+        .fa-underline::before {
+          @include icon(underline);
+        }
+        .fa-subscript::before {
+          @include icon(textformat-subscript);
+        }
+        .fa-superscript::before {
+          @include icon(textformat-superscript);
+        }
+        .fa-hand-point-left::before {
+          @include icon(link-circle);
         }
       }
     }

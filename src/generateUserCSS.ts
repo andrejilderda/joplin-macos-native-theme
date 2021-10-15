@@ -1,5 +1,6 @@
 import joplin from 'api';
 import { ThemeSettings } from 'src';
+import phosphorIcons from './phosphorIcons';
 import { hexToHSL } from './utils/color';
 
 const accentColorMap = {
@@ -184,50 +185,8 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
 				--u-font-family-icons: 'Phosphor';
 				--u-icon-size-factor: 1.25;
 
-				--u-icon-alarm: '';
-				--u-icon-arrow-triangle-2-circlepath: '';
-				--u-icon-arrow-up-forward-app: '';
-				--u-icon-arrow-up-right-square-fill: '';
-				--u-icon-bold: '';
-				--u-icon-checkmark-circle: '';
-				--u-icon-checkmark: '';
-				--u-icon-chevron-backward: '';
-				--u-icon-chevron-down: '';
-				--u-icon-chevron-up: '';
-				--u-icon-chevron-forward: '';
-				--u-icon-chevron-left-slash-chevron-right: '';
-				--u-icon-chevron-right: '';
-				--u-icon-chevron-up-chevron-down: '';
-				--u-icon-clock: '';
-				--u-icon-curlybraces: '';
-				--u-icon-doc-on-clipboard: '';
-				--u-icon-doc-richtext: '';
-				--u-icon-ellipsis: '';
-				--u-icon-folder: '';
-				--u-icon-highlighter: '';
-				--u-icon-info-circle: '';
-				--u-icon-italic: '';
-				--u-icon-link: '';
-				--u-icon-list-bullet: '';
-				--u-icon-list-bullet-rectangle: '';
-				--u-icon-list-number: '';
-				--u-icon-minus: '';
-				--u-icon-magnifyingglass: '';
-				--u-icon-paperclip: '';
-				--u-icon-plus-circle: '';
-				--u-icon-square-and-arrow-down: '';
-				--u-icon-square-and-pencil: '';
-				--u-icon-square-split-2x1: '';
-				--u-icon-strikethrough: '';
-				--u-icon-tablecells-badge-ellipsis: '';
-				--u-icon-tag: '';
-				--u-icon-text-badge-checkmark: '';
-				--u-icon-text-below-photo: '';
-				--u-icon-text-quote: '';
-				--u-icon-textformat-abc-dottedunderline: '';
-				--u-icon-xmark-circle-fill: '';
-				--u-icon-xmark: '';
-				` : ''
+				${Object.entries(phosphorIcons).map(([name, symbol]) => `--u-icon-${name}: '${symbol}';`).join("\n")}
+		` : ''
 		}
 
 			/* Sidebar --------------------------------- */
