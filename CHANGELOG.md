@@ -1,6 +1,12 @@
 # Changelog
 
-## [1.2.5] - 2021-09-27
+## [1.2.7] - 2021-10-15
+
+### Fixed
+
+- Fix plugin icons not showing (#35).
+
+## [1.2.6] - 2021-09-27
 
 ### Fixed
 
