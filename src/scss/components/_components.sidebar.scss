@@ -23,7 +23,10 @@
       // plus icon
       button {
         display: none;
-        margin-right: 1.5rem;
+        margin-right: 0;
+        position: absolute;
+        right: 0;
+
         span::before {
           @include icon(plus-circle);
         }
