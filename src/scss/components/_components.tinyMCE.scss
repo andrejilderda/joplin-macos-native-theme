@@ -66,6 +66,8 @@ body {
   }
 
   table {
+    background: var(--g-alternatingContentBackgroundColorsEven);
+
     th {
       background: var(--g-alternatingContentBackgroundColorsOdd);
       border-bottom-width: 0.1rem;
@@ -82,6 +84,7 @@ body {
     td {
       font-family: var(--g-global-font-family-system);
       border-color: var(--g-gridColor);
+      color: var(--g-textColor);
     }
   }
 
