@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.10] - 2021-11-14
+
+### Fixed
+
+- Prevent 'New notebook'-button hover jiggle (#37).
+- Fix legibility of table in rendered markdown in dark mode (#36).
+- Fix unreadable bold text in dark mode.
+
 ## [1.2.9] - 2021-10-15
 
 ### Fixed
