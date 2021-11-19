@@ -101,6 +101,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
         flex: 1;
+        line-height: 1 !important;
       }
 
       .note-count-label {

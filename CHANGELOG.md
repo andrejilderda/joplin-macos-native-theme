@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.11] - 2021-11-19
+
+### Fixed
+
+- Fix sidebar titles not visible in v2.6.2 (currently in alpha).
+
 ## [1.2.10] - 2021-11-14
 
 ### Fixed
