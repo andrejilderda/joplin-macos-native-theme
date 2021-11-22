@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.12] - 2021-11-22
+
+### Fixed
+
+- Fix sidebar titles text being cut off (#41).
+
 ## [1.2.11] - 2021-11-19
 
 ### Fixed
