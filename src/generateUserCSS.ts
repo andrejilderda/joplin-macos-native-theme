@@ -119,6 +119,7 @@ const darkSidebar = `
 	--u-sidebar-icon-color: hsl(var(--s-accentColor--h), var(--s-accentColor--s), var(--s-accentColor--l));
 	--u-sidebar-chevron-color: hsla(0, 0%, 100%, 0.55);
 	--u-sidebar-synchronise-color: hsla(0, 0%, 100%, 0.55);
+	--u-sidebar-synchronise-label-color: hsla(0, 0%, 100%, 0.55);
 	--u-sidebar-selected-item-color: hsl(0, 0%, 27%);
 `;
 

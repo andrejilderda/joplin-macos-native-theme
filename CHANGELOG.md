@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.13] - 2021-11-30
+
+### Fixed
+
+- Fix synchronisation status hard to read when color scheme is set to light with dark sidebar (#43).
+
 ## [1.2.12] - 2021-11-22
 
 ### Fixed
