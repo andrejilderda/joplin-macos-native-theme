@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.14] - 2022-01-08
+
+### Fixed
+
+- Fix grey background to a portion of the toolbar (#47).
+
 ## [1.2.13] - 2021-11-30
 
 ### Fixed
