@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.15] - 2022-02-18
+
+### Fixed
+
+- Remove background on mermaid diagrams (#55).
+
 ## [1.2.14] - 2022-01-08
 
 ### Fixed

@@ -89,7 +89,7 @@ body {
   }
 
   // code
-  pre,
+  pre:not(.mermaid),
   .inline-code {
     background-color: var(--g-alternatingContentBackgroundColorsOdd);
     color: var(--g-textColor);
@@ -104,6 +104,10 @@ body {
     * {
       font-family: inherit !important;
     }
+  }
+
+  pre.mermaid {
+    background: none;
   }
 
   ul.joplin-checklist {
