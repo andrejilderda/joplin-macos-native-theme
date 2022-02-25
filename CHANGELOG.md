@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.16] - 2022-02-25
+
+### Fixed
+
+- Decrease size of emoji in sidebar (#59).
+- Fix height of timepicker (#58).
+- Improve sizing when sidebar is really small (#57).
+
 ## [1.2.15] - 2022-02-18
 
 ### Fixed

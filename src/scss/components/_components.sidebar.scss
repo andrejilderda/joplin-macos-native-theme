@@ -117,6 +117,11 @@
         line-height: 1;
         font-weight: 500;
       }
+
+      // emoji
+      span[style*="font-size: 20px;"] {
+        font-size: 16px !important;
+      }
     }
 
     .folders .list-item::before,

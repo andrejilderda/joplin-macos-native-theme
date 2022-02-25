@@ -28,7 +28,7 @@ If you have the 'Icon family'-setting set to 'macOS native (SF Pro)' you need to
 
 ⚠️ Joplin uses styled-components for styling, which makes it incredibly hard to theme the app. A lot of hacky CSS workarounds and `!important`’s were used. These may cause UI issues with future Joplin releases. Since it's just CSS, your data remains safe and you can easily revert the styles.
 
-Feel free to [create an issue](https://github.com/ajilderda/joplin-macos-native-theme/issues) or post a message [on the forum](https://discourse.joplinapp.org/t/macos-theme-for-joplin/) if you run into issues.
+Feel free to [create an issue](https://github.com/ajilderda/joplin-macos-native-theme/issues) or post a message [on the forum](https://discourse.joplinapp.org/t/plugin-macos-theme-for-joplin) if you run into issues.
 
 ## Development
 

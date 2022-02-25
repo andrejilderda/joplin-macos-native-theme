@@ -24,7 +24,7 @@ body {
 }
 
 // reset default background color
-#react-root > div > div {
+#react-root > div:nth-child(2) > div {
   background: transparent !important;
 }
 
