@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.17] - 2022-02-25
+
+### Changed
+
+- Remove Phosphor icons SVG to decrease bundle size (and improve performance?)
+
 ## [1.2.16] - 2022-02-25
 
 ### Fixed
