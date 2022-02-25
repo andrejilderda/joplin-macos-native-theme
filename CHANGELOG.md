@@ -5,6 +5,7 @@
 ### Fixed
 
 - Decrease size of emoji in sidebar (#59).
+- Fix height of timepicker (#58).
 
 ## [1.2.15] - 2022-02-18
 
