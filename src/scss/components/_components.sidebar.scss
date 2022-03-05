@@ -106,7 +106,9 @@
 
       .note-count-label {
         display: block;
-        padding-left: 5px;
+
+        padding-left: 0;
+        margin-left: 5px;
         padding-right: 8px;
         color: var(
           --u-sidebar-note-count-label-color,
@@ -116,6 +118,25 @@
         font-size: 1.1rem;
         line-height: 1;
         font-weight: 500;
+      }
+
+      // shared via Joplin Server:
+      // <i class="fas fa-share-alt"></i>
+      .fa-share-alt {
+        &::before {
+          @include icon(person-2);
+          color: var(
+            --u-sidebar-note-count-label-color,
+            var(--g-secondaryLabelColor)
+          );
+          font-size: 11px;
+          font-weight: 500;
+        }
+
+        // add margin when note-count is hidden
+        &:last-child {
+          margin-right: 8px;
+        }
       }
 
       // emoji

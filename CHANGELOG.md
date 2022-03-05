@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.18] - 2022-03-05
+
+### Added
+
+- Add shared notebook icon in sidebar (#62).
+
 ## [1.2.17] - 2022-02-25
 
 ### Changed
