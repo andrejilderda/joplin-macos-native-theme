@@ -21,7 +21,7 @@
   .search-bar {
     position: relative;
 
-    input[type='text'] {
+    input[type="text"] {
       @include focusRing;
 
       border: 1px solid var(--g-separatorColor);
@@ -88,13 +88,14 @@
       .new-note-button {
         background: none;
         border-radius: 0.6rem;
-        margin-left: 0.6rem;
+        cursor: default;
+        margin-left: 0;
         max-height: none;
         max-width: none;
         height: 2.6rem;
         width: 2.6rem;
 
-        &:focus,
+        &:focus-visible,
         &:hover {
           background: var(--g-quaternaryLabelColor);
         }
@@ -123,6 +124,76 @@
     }
   }
 
+  .sort-order-field-button {
+    border: none;
+    cursor: default;
+    border-radius: 0.6rem;
+    
+    .fas,
+    .far {
+      font-size: var(--g-font-size-2);
+      font-weight: 500;
+      color: var(--g-secondaryLabelColor);
+    }
+
+    // Sort by:
+    // updated date
+    .fa-calendar-alt::before {
+      @include icon(clock);
+    }
+    
+    // created date
+    .fa-calendar-plus::before {
+      @include icon(calendar);
+    }
+    
+    // title
+    .fa-font::before {
+      @include icon(character);
+    }
+    
+    // custom
+    .fa-wrench::before {
+      @include icon(person);
+    }
+
+    &:focus-visible,
+    &:hover {
+      background: var(--g-quaternaryLabelColor);
+    }
+  }
+
+  .sort-order-reverse-button {
+    background: var(--notelist--Background) !important;
+    border: none;
+    border-radius: 50%;
+    height: 1.2rem !important;
+    margin-left: -11px !important;
+    min-height: 0;
+    padding: 0;
+    position: relative;
+    top: 13px !important;
+    width: 1.2rem;
+    cursor: default;
+
+    .fa-long-arrow-alt-down,
+    .fa-long-arrow-alt-up {
+      &::before {
+        color: var(--g-secondaryLabelColor);
+        font-weight: 700;
+        font-size: 10px;
+      }
+    }
+
+    .fa-long-arrow-alt-up::before {
+      @include icon(arrow-up-circle-fill);
+    }
+
+    .fa-long-arrow-alt-down::before {
+      @include icon(arrow-down-circle-fill);
+    }
+  }
+
   // note list + items
   .note-list {
     padding: 0 1rem 1rem;
@@ -144,7 +215,7 @@
     // remove divider
     &.odd::before,
     &.even::before {
-      content: var(--u-note-list-dividers, '');
+      content: var(--u-note-list-dividers, "");
     }
 
     &.odd {
@@ -219,7 +290,7 @@
         }
 
         &:after {
-          content: '';
+          content: "";
           background-color: var(--g-separatorColor);
           position: absolute;
           height: 0.1rem;

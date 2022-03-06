@@ -168,6 +168,11 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
 				font-style: normal;
 				font-display: block;
 			}
+
+			.rli-noteList .sort-order-reverse-button .far::before,
+			.rli-noteList .sort-order-reverse-button .fas::before {
+				font-weight: 100;
+			}
 		`: ''}
 
 		:root {

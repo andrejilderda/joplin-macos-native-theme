@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.0] - 2022-03-06
+
+### Added
+
+- Style toggle sort order field (#44).
+
 ## [1.2.18] - 2022-03-05
 
 ### Added
