@@ -90,10 +90,14 @@
   @include fallback(icon-size-factor);
 
   @include createSfSymbol('alarm', '􀐭');
+  @include createSfSymbol('arrow-down-circle-fill', '􀁹');
   @include createSfSymbol('arrow-triangle-2-circlepath', '􀊯');
+  @include createSfSymbol('arrow-up-circle-fill', '􀁷');
   @include createSfSymbol('arrow-up-forward-app', '􀮵');
   @include createSfSymbol('arrow-up-right-square-fill', '􀄕');
   @include createSfSymbol('bold', '􀅓');
+  @include createSfSymbol('calendar', '􀉉');
+  @include createSfSymbol('character', '􀀄');
   @include createSfSymbol('checkmark-circle', '􀁢');
   @include createSfSymbol('checkmark', '􀆅');
   @include createSfSymbol('chevron-backward', '􀯶');
@@ -122,6 +126,7 @@
   @include createSfSymbol('minus', '􀅽');
   @include createSfSymbol('paperclip', '􀉢');
   @include createSfSymbol('person-2', '􀉫');
+  @include createSfSymbol('person', '􀉩');
   @include createSfSymbol('plus-circle', '􀁌');
   @include createSfSymbol('sidebar-left', '􀏚');
   @include createSfSymbol('square-and-arrow-down', '􀈄');
