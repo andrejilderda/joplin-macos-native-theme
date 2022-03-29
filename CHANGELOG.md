@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.1] - 2022-03-29
+
+### Fixed
+
+- Remove white background color of sort order button in dark mode.
+
 ## [1.3.0] - 2022-03-06
 
 ### Added
