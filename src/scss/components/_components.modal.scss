@@ -19,7 +19,7 @@
   padding-top: 2rem !important;
 
   &:before {
-    content: '';
+    content: "";
     top: 0;
     left: -2rem;
     right: -2rem;
@@ -32,7 +32,7 @@
 .modal-layer {
   @include modalBackdrop();
 
-  *[style*='color:'] {
+  *[style*="color:"] {
     color: var(--g-textColor) !important;
   }
 }
@@ -40,12 +40,12 @@
 .modal-dialog {
   @include modalDialog();
 
-  > div:first-child input[type='text'],
-  .datetime-picker input[type='text'] {
+  > div:first-child input[type="text"],
+  .datetime-picker input[type="text"] {
     @include input;
   }
 
-  input[type='text'] {
+  input[type="text"] {
     @include input;
   }
 
@@ -95,7 +95,7 @@
   }
 
   // button-container
-  > div:last-child:not([style*='height: 0px']) {
+  > div:last-child:not([style*="height: 0px"]) {
     display: flex;
     justify-content: space-between;
     flex-direction: row-reverse;
@@ -126,7 +126,7 @@
       position: relative;
 
       &::before {
-        content: '';
+        content: "";
         top: 0;
         left: 1rem;
         right: 1rem;
@@ -206,14 +206,14 @@
 
 // note properties modal
 // 🤦‍♂️
-div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][style*='align-items: flex-start;']:not(.modal-layer) {
+div[style*="z-index: 9999;"][style*="background-color: rgba(0, 0, 0, 0.6);"][style*="align-items: flex-start;"]:not(.modal-layer) {
   @include modalBackdrop();
 
   > div {
     @include modalDialog();
     max-height: none !important;
 
-    *[style*='color:'] {
+    *[style*="color:"] {
       color: var(--g-textColor) !important;
     }
 
@@ -247,7 +247,7 @@ div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][sty
   .note-property-box {
     margin-bottom: 1rem !important;
 
-    input[type='text'] {
+    input[type="text"] {
       @include input;
     }
 
@@ -288,7 +288,7 @@ div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][sty
 
       &::after {
         // it's in the details ;)
-        content: ':';
+        content: ":";
       }
     }
   }
@@ -297,7 +297,7 @@ div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][sty
 // shared styles for item & tag-selector modal
 .tag-selector,
 .item-selector {
-  [class*='control'] {
+  [class*="control"] {
     @include input();
     top: 0.6rem;
 
@@ -310,17 +310,17 @@ div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][sty
       height: 1.8rem;
     }
   }
-  input[type='text'],
-  input[type='text']:focus {
+  input[type="text"],
+  input[type="text"]:focus {
     box-shadow: none !important;
     font-size: var(--g-font-size--1) !important;
   }
 
-  [class*='indicatorSeparator'] {
+  [class*="indicatorSeparator"] {
     display: none;
   }
 
-  [class*='indicatorContainer'] {
+  [class*="indicatorContainer"] {
     padding: 0 0.2rem;
 
     &:after {
@@ -358,7 +358,7 @@ div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][sty
   }
 
   // selected tag
-  [class*='multiValue'] {
+  [class*="multiValue"] {
     background-color: var(--g-gridColor) !important;
     border-radius: 0.2rem !important;
     margin: 0 0.4rem 0 0 !important;
@@ -416,7 +416,7 @@ div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][sty
 
 // item-selector modal (regular single-item dropdown, which is used by f.e. template plugin)
 .item-selector {
-  > div[class*='control'] > div:first-child {
+  > div[class*="control"] > div:first-child {
     font-size: 1.1rem;
     line-height: 1.8;
 
@@ -567,7 +567,7 @@ div[style*='z-index: 9999;'][style*='background-color: rgba(0, 0, 0, 0.6);'][sty
       overflow: initial;
       padding: 0;
 
-      input[type='text'] {
+      input[type="text"] {
         @include input;
         color: var(--g-textColor);
         flex: 1 0;
