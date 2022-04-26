@@ -33,7 +33,7 @@
 
 // divider between the toolbar and the editor
 @mixin editorDivider {
-  content: '';
+  content: "";
   background-color: var(--g-separatorColor);
   height: 0.1rem;
   position: absolute;
@@ -46,7 +46,7 @@
   padding-right: 0 !important;
 
   &::before {
-    content: '';
+    content: "";
     background-color: var(--g-separatorColor);
     height: 100%;
     width: 0.1rem;
@@ -71,7 +71,7 @@
   .tox textarea,
   .tox input,
   .tox .tox-dialog__footer,
-  *[style*='background'] {
+  *[style*="background"] {
     background-color: transparent !important;
   }
 
@@ -89,6 +89,7 @@
         padding-top: 1.4rem !important;
         font-weight: 700 !important;
         font-size: 2rem !important;
+        max-width: calc(100% - 40px);
       }
 
       // date/timestamp
@@ -127,9 +128,9 @@
           a:nth-child(2),
           a:nth-child(3),
           a:nth-child(4),
-          a[title='Toggle outline'],
-          a[title='Toggle sidebar'],
-          a[title='Toggle note list'] {
+          a[title="Toggle outline"],
+          a[title="Toggle sidebar"],
+          a[title="Toggle note list"] {
             > * {
               display: none;
             }
@@ -155,7 +156,7 @@
                 @include icon(textformat-abc-dottedunderline);
                 text-transform: uppercase;
               }
-              &[title]:not([title=''])::before {
+              &[title]:not([title=""])::before {
                 content: attr(title);
                 font-family: var(--s-font-family-system-rounded);
                 font-size: 1.4rem !important;
@@ -186,15 +187,15 @@
           }
 
           // icons for plugins
-          a[title='Toggle outline']:before {
+          a[title="Toggle outline"]:before {
             @include icon(list-bullet-indent);
           }
 
-          a[title='Toggle sidebar']:before {
+          a[title="Toggle sidebar"]:before {
             @include icon(sidebar-left);
           }
 
-          a[title='Toggle note list']:before {
+          a[title="Toggle note list"]:before {
             @include icon(list-bullet-rectangle);
           }
         }
@@ -221,7 +222,7 @@
       }
 
       &.markdown-active::after {
-        content: 'MD';
+        content: "MD";
         font-family: var(--s-font-family-system-rounded);
         font-size: 1.2rem !important;
         line-height: 2.6rem;
@@ -234,7 +235,7 @@
     }
 
     // notebook folder when in all notes or tag view
-    &:nth-child(2)[style*='padding-top'] {
+    &:nth-child(2)[style*="padding-top"] {
       padding: 0 !important;
 
       button {
@@ -261,13 +262,13 @@
     }
 
     // divider between split editors
-    [style*='border-left: 1px'] {
+    [style*="border-left: 1px"] {
       border-color: var(--g-gridColor) !important;
 
       // prevent the divider border from being shown when markdown preview is
       // enabled and the editor is active (no idea why this was implemented in
       // this way)
-      [style*='width: 1px; max-width: 1px;'] {
+      [style*="width: 1px; max-width: 1px;"] {
         border-left: none;
       }
     }
@@ -322,7 +323,7 @@
           span {
             margin-right: 0 !important;
 
-            &[title]:not([title=''])::before {
+            &[title]:not([title=""])::before {
               color: var(--s-accentColor) !important;
 
               @include icon(arrow-up-right-square-fill);
@@ -346,7 +347,7 @@
     @include toolbarDivider();
 
     button,
-    button[aria-haspopup='true'] {
+    button[aria-haspopup="true"] {
       @include toolbarButton();
 
       &:before {
@@ -431,13 +432,13 @@
     }
 
     button:nth-child(1):before {
-      content: 'H1';
+      content: "H1";
     }
     button:nth-child(2):before {
-      content: 'H2';
+      content: "H2";
     }
     button:nth-child(3):before {
-      content: 'H3';
+      content: "H3";
     }
     button:nth-child(4):before {
       @include icon(minus);
@@ -519,7 +520,7 @@
           @include icon(text-badge-checkmark);
         }
         .icon-heading::before {
-          content: 'H2';
+          content: "H2";
           font-family: var(--s-font-family-system-rounded);
         }
         .fa-ellipsis-h::before {
@@ -657,7 +658,7 @@
       // dividers
       + * {
         &:before {
-          content: '';
+          content: "";
           display: block;
           height: 0.1rem;
           margin: 0.5rem 0.8rem !important;
@@ -725,7 +726,7 @@
 
     // increase click area, so that clicking on the tags also open the modal
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       left: 0;
       right: 0;
@@ -738,7 +739,7 @@
     height: 1.8rem;
 
     &::before {
-      font-family: 'SF Pro';
+      font-family: "SF Pro";
       @include icon(tag);
     }
   }

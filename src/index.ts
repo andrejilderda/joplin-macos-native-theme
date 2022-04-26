@@ -1,5 +1,4 @@
 import joplin from 'api';
-import { ChangeEvent } from 'api/JoplinSettings';
 import { SettingItemType } from 'api/types';
 import { generateUserCSS } from './generateUserCSS';
 

@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.2] - 2022-04-26
+
+### Fixed
+
+- Shortcut to note title scrolls editor pane to right (#68).
+- Border color sized incorrectly (#67).
+- Table properties options difficult to view (#66).
+
 ## [1.3.1] - 2022-03-29
 
 ### Fixed
