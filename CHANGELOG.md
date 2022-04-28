@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.3] - 2022-04-28
+
+### Fixed
+
+- 'New note' prompt not distinct (#70).
+
 ## [1.3.2] - 2022-04-26
 
 ### Fixed
