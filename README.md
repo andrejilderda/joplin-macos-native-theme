@@ -14,6 +14,8 @@ Native looking macOS theme for note taking app [Joplin](https://joplinapp.org/) 
 - Open Joplin preferences › 'Plugins', search for 'macOS theme' and install the theme.
 - Restart Joplin. Enjoy!
 
+Sync the Light/Dark-settings under ‘Appearance › Theme’ with the value selected under ‘macOS › Appearance’ if you experience a flash when switching notebooks.
+
 ## Customization
 
 After installing you can find an extra item named 'macOS theme' in Joplin's preferences. You need to restart Joplin for the changes to apply.
@@ -60,4 +62,4 @@ npm run dev
 
 The generated CSS will be available at: http://localhost:8080/macos-theme-for-joplin.css.
 
-> You may want to refresh the CSS when Joplin gets focus. To do so toggle Joplin's devtools and paste [this script](https://gist.github.com/ajilderda/05caf6385501e1b32202e0414d00ed61) in the console.
+> You may want to refresh the CSS when Joplin gets focus. To do so toggle Joplin's devtools and paste [this script](https://gist.github.com/andrejilderda/f6673f1b1a986b2dc0cd01607acbff26) in the console.
