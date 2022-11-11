@@ -1,8 +1,11 @@
 .CodeMirror.CodeMirror {
-  font-size: 1.4rem !important;
   line-height: 1.6 !important;
   background-color: transparent !important;
   color: var(--g-textColor) !important;
+
+  * {
+    -webkit-font-smoothing: antialiased;
+  }
 
   .cm-header-1,
   .cm-header-2,

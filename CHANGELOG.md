@@ -4,6 +4,7 @@
 
 ### Added
 
+- Make editor respect the user's preferred font size (#78).
 - Add the ability to show an emoji in stead of folder (#77).
 
 ### Fixed
