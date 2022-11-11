@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.3.4] - 2022-11-11
+
+### Added
+
+- Make editor respect the user's preferred font size (#78).
+- Add the ability to show an emoji in stead of folder (#77).
+
+### Fixed
+
+- Vertical alignment of dropdown caret (#82).
+- Padding issues in the tinyMCE editor.
+
 ## [1.3.3] - 2022-04-28
 
 ### Fixed
