@@ -12,6 +12,11 @@ body {
   margin-left: var(--u-editor-margin-left, auto);
   margin-right: var(--u-editor-margin-right, auto);
 
+  // In the tinymce-editor this id is reused and nested.
+  #rendered-md {
+    padding: 0;
+  }
+
   a {
     color: var(--g-linkColor);
     cursor: pointer;
@@ -157,7 +162,7 @@ body {
     }
   }
 
-  [data-mce-selected='inline-boundary'] {
+  [data-mce-selected="inline-boundary"] {
     &.inline-code {
       background-color: rgb(243, 243, 243);
     }
