@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.4] - 2022-11-11
+
+### Fixed
+
+- Vertical alignment of dropdown caret (#82).
+
 ## [1.3.3] - 2022-04-28
 
 ### Fixed
