@@ -76,6 +76,11 @@
           --u-sidebar-selected-item-color,
           var(--g-unemphasizedSelectedTextBackgroundColor)
         );
+        .emoji-box {
+          background-color: var(
+            --g-unemphasizedSelectedTextBackgroundColor
+          ) !important;
+        }
       }
 
       // dropdown caret
@@ -158,6 +163,35 @@
     }
     .tags .list-item::before {
       @include icon(tag);
+    }
+
+    // when one of the folders has an emoji the DOM structure changes and an
+    // extra folder icon is added by Joplin. Since there's no way to determine
+    // (yet, Chrome version 102 doesn't have `has()`-support) is the `list-item`
+    // has an emoji, we have to work around this by hiding the folder icon
+    // appended by Joplin and move the emoji over the theme's folder icon.
+    .folders .list-item {
+      position: relative;
+
+      div:first-child:first-of-type {
+        margin-right: 0 !important;
+
+        .fa-folder {
+          display: none;
+        }
+
+        .emoji-box {
+          align-items: center;
+          background-color: var(--s-sidebar__BackgroundColor);
+          display: flex;
+          font-size: 18px !important;
+          left: 0;
+          width: 18px !important;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
     }
 
     .list-item-depth-0 {

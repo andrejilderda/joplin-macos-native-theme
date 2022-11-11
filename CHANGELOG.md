@@ -2,6 +2,10 @@
 
 ## [1.3.4] - 2022-11-11
 
+### Added
+
+- Add the ability to show an emoji in stead of folder (#77).
+
 ### Fixed
 
 - Vertical alignment of dropdown caret (#82).
