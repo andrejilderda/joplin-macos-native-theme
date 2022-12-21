@@ -2,7 +2,7 @@
 // is at the start of the editor and the user presses backspace (in that case a
 // paragraph is the first direct element).
 body#tinymce,
-.joplin-container-content {
+#joplin-container-content {
   background: var(--g-primary-Background);
   font-size: 1.4rem;
   font-family: var(--s-font-family-system);

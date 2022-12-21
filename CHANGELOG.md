@@ -2,17 +2,31 @@
 
 ## [1.3.8] - 2022-12-21
 
+### Fixed
+
+- Use id in stead of classname.
+
+## [1.3.8] - 2022-12-21
+
+### Fixed
+
 - Fix Markdown rendering issues (#72).
 
 ## [1.3.7] - 2022-12-21
+
+### Fixed
 
 - Possible fix for Markdown rendering issues (#72).
 
 ## [1.3.6] - 2022-12-21
 
+### Added
+
 - Support images as folder icon (#89).
 
 ## [1.3.5] - 2022-11-11
+
+### Chore
 
 - Version bump
 
