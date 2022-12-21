@@ -1,7 +1,6 @@
 // there's a weird bug that removes `#rendered-md` from the DOM when the caret
 // is at the start of the editor and the user presses backspace (in that case a
-// paragraph is the first direct element). To deal with that, we simply target
-// the first direct element
+// paragraph is the first direct element).
 body#tinymce,
 .joplin-container-content {
   background: var(--g-primary-Background);
@@ -13,11 +12,6 @@ body#tinymce,
   -webkit-font-smoothing: antialiased;
   margin-left: var(--u-editor-margin-left, auto);
   margin-right: var(--u-editor-margin-right, auto);
-
-  // In the tinymce-editor this id is reused and nested.
-  #rendered-md {
-    padding: 0;
-  }
 
   a {
     color: var(--g-linkColor);
