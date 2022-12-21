@@ -1,8 +1,10 @@
-body {
+// there's a weird bug that removes `#rendered-md` from the DOM when the caret
+// is at the start of the editor and the user presses backspace (in that case a
+// paragraph is the first direct element). To deal with that, we simply target
+// the first direct element
+body#tinymce,
+.joplin-container-content {
   background: var(--g-primary-Background);
-}
-
-#rendered-md {
   font-size: 1.4rem;
   font-family: var(--s-font-family-system);
   line-height: 1.6;
