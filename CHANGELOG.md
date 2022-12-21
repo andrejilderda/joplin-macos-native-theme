@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.3.6] - 2022-12-21
+
+- Support images as folder icon (#89).
+
 ## [1.3.5] - 2022-11-11
 
 - Version bump
