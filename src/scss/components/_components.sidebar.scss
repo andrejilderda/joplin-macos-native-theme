@@ -76,7 +76,8 @@
           --u-sidebar-selected-item-color,
           var(--g-unemphasizedSelectedTextBackgroundColor)
         );
-        .emoji-box {
+        .emoji-box,
+        img {
           background-color: var(
             --g-unemphasizedSelectedTextBackgroundColor
           ) !important;
@@ -179,18 +180,19 @@
         .fa-folder {
           display: none;
         }
+      }
 
-        .emoji-box {
-          align-items: center;
-          background-color: var(--s-sidebar__BackgroundColor);
-          display: flex;
-          font-size: 18px !important;
-          left: 0;
-          width: 18px !important;
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-        }
+      .emoji-box,
+      img {
+        align-items: center;
+        background-color: var(--s-sidebar__BackgroundColor);
+        display: block;
+        font-size: 18px !important;
+        left: 0;
+        width: 18px !important;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
       }
     }
 
