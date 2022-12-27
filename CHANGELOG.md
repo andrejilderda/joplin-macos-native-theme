@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.10] - 2022-12-27
+
+### Fixed
+
+- Incosistent size of folder images in sidebar (#92).
+
 ## [1.3.9] - 2022-12-21
 
 ### Fixed
