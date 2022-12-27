@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.11] - 2022-12-27
+
+### Fixed
+
+- Selected background for emoji folder icon (#86).
+
 ## [1.3.10] - 2022-12-27
 
 ### Fixed

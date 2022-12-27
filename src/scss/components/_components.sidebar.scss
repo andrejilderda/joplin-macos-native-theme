@@ -79,7 +79,8 @@
         .emoji-box,
         img {
           background-color: var(
-            --g-unemphasizedSelectedTextBackgroundColor
+            --u-sidebar-selected-item-color,
+            var(--g-unemphasizedSelectedTextBackgroundColor)
           ) !important;
         }
       }
