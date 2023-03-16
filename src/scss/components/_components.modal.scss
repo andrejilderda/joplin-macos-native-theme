@@ -112,7 +112,10 @@
     padding-top: 0 !important;
     margin-left: -0.5rem;
     margin-right: -0.5rem;
-    height: auto !important;
+
+    &[style="height: 0px;"]:empty {
+      display: none;
+    }
 
     &:before {
       content: none;
@@ -164,10 +167,6 @@
         }
       }
 
-      &:empty {
-        display: none;
-      }
-
       &.selected {
         background: var(--s-accentColor) !important;
         border-radius: 0.5rem;
@@ -206,7 +205,9 @@
 
 // note properties modal
 // 🤦‍♂️
-div[style*="z-index: 9999;"][style*="background-color: rgba(0, 0, 0, 0.6);"][style*="align-items: flex-start;"]:not(.modal-layer) {
+div[style*="z-index: 9999;"][style*="background-color: rgba(0, 0, 0, 0.6);"][style*="align-items: flex-start;"]:not(
+    .modal-layer
+  ) {
   @include modalBackdrop();
 
   > div {

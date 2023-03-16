@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.12] - 2023-03-16
+
+### Fixed
+
+- Fix not being able to scroll in Go To Anything-modal.
+
 ## [1.3.11] - 2022-12-27
 
 ### Fixed
