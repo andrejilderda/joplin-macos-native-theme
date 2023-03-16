@@ -113,18 +113,13 @@
     margin-left: -0.5rem;
     margin-right: -0.5rem;
 
-    &[style="height: 0px;"]:empty {
-      display: none;
-    }
-
     &:before {
       content: none;
     }
 
     // items
-    > div {
+    > div:not(:empty) {
       border-bottom: none !important;
-      //   height: auto !important;
       padding: 1.5rem 1.5rem !important;
       position: relative;
 

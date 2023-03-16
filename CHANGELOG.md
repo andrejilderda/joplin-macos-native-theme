@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.13] - 2023-03-16
+
+### Fixed
+
+- Tweak Go To Anything-modal.
+
 ## [1.3.12] - 2023-03-16
 
 ### Fixed
