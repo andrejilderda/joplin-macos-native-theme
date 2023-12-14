@@ -14,7 +14,7 @@
     }
 
     div:nth-child(2) > div {
-      background-color: transparent !important;
+      //background-color: transparent !important;
       color: var(--g-textColor) !important;
     }
   }
@@ -233,9 +233,13 @@
       );
     }
 
+    >div>div {
+      font-size: 1.2rem !important;
+    }
+
     a {
       padding: 0 1rem !important;
-      font-size: 1.2rem !important;
+      // font-size: 1.2rem !important;
       // color: var(--g-textColor) !important;
       color: var(--g-labelColor) !important;
     }
@@ -256,7 +260,7 @@
       border-radius: 0.2rem;
     }
 
-    &.selected {
+    &>.content.-selected {
       background: var(--s-accentColor--selected) !important;
 
       a,
