@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.3.15] - 2023-12-17
+
+### Added
+
+- Make note list respect the user's preferred font size.
+
+### Fixed
+
+- Note list items color in dark mode.
+
 ## [1.3.14] - 2023-12-17
 
 ### Fixed

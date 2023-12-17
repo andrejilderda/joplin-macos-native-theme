@@ -239,7 +239,7 @@ joplin.plugins.register({
 		const editorMarkdownThemeLight = await joplin.settings.value('editorMarkdownThemeLight');
 		const editorMarkdownThemeDark = await joplin.settings.value('editorMarkdownThemeDark');
 
-		const settings = {
+		const settings: ThemeSettings = {
 			baseFontSize,
 			iconFamily,
 			appearance,
@@ -250,7 +250,7 @@ joplin.plugins.register({
 			editorAlignment,
 			editorMarkdownThemeLight,
 			editorMarkdownThemeDark,
-		} satisfies ThemeSettings;
+		};
 
 		const generatedCSS = await generateUserCSS(settings);
 		await fs.writeFile(installDir + '/user-settings.css', generatedCSS, 'utf8');
