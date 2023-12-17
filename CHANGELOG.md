@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.16] - 2023-12-17
+
+### Fixed
+
+- Alignment of sync button (#103).
+
 ## [1.3.15] - 2023-12-17
 
 ### Added
