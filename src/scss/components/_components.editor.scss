@@ -439,20 +439,32 @@
     }
     button:nth-child(3):before {
       content: "H3";
-    }
-    button:nth-child(4):before {
-      @include icon(minus);
-    }
-    button:nth-child(5):before {
-      @include icon(text-quote);
-    }
-    button:nth-child(6):before {
-      @include icon(tablecells-badge-ellipsis);
-    }
-    button:nth-child(7):before {
-      @include icon(clock);
-    }
+    } 
   }
+
+  .tox-toolbar__group:nth-child(5) {
+    button:nth-child(1):before {
+     @include icon(minus);
+   }
+  }
+
+  .tox-toolbar__group:nth-child(6) {
+    button:nth-child(1):before {
+     @include icon(text-quote);
+   }
+  }
+
+  .tox-toolbar__group:nth-child(7) {
+    button:nth-child(1):before {
+     @include icon(tablecells-badge-ellipsis);
+   }
+  }
+  
+  .tox-toolbar__group:nth-child(8) {
+    button:nth-child(1):before {
+     @include icon(clock);
+   }
+ }
 
   // add divider between editor icons and text input field
   .tox-editor-header {
