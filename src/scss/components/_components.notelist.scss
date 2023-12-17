@@ -194,10 +194,13 @@
 
   // note list + items
   .note-list {
-    color: var(--g-textColor) !important;
     padding: 0 1rem 1rem;
     width: auto !important;
     overflow: hidden overlay !important;
+    
+    & .title {
+      color: var(--g-textColor) !important;
+    }
 
     // remove last border in notelist
     div:nth-last-of-type(2):not(:empty):before {
