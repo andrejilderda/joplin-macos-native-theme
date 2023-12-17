@@ -13,10 +13,6 @@
       padding: 1.2rem 0.6rem 1.2rem 1.2rem;
     }
 
-    div:nth-child(2) > div {
-      background-color: transparent !important;
-      color: var(--g-textColor) !important;
-    }
   }
 
   .search-bar {
@@ -198,6 +194,7 @@
 
   // note list + items
   .note-list {
+    color: var(--g-textColor) !important;
     padding: 0 1rem 1rem;
     width: auto !important;
     overflow: hidden overlay !important;
@@ -233,6 +230,10 @@
       );
     }
 
+    &:hover {
+      background-color: transparent;
+    }
+
     a {
       padding: 0 1rem !important;
       font-size: 1.2rem !important;
@@ -256,8 +257,9 @@
       border-radius: 0.2rem;
     }
 
-    &.selected {
+    &>.content.-selected {
       background: var(--s-accentColor--selected) !important;
+      border-radius: 0.4rem;
 
       a,
       span {
@@ -280,13 +282,7 @@
         color: var(--g-alternateSelectedControlTextColor);
       }
 
-      + .selected {
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-        // a hack for removing the rounded corners in between items when having multiple items selected
-        margin-top: -0.4rem;
-        padding-top: 0.4rem;
-
+      + .-selected {
         &:before {
           border-color: transparent;
         }
@@ -300,15 +296,6 @@
           left: 1rem;
           right: 1rem;
         }
-      }
-
-      &:first-of-type {
-        border-top-left-radius: 0.4rem;
-        border-top-right-radius: 0.4rem;
-      }
-      &:last-of-type {
-        border-bottom-right-radius: 0.4rem;
-        border-bottom-right-radius: 0.4rem;
       }
     }
 
@@ -357,7 +344,7 @@
       }
     }
 
-    &.selected input {
+    &.-selected input {
       border-color: hsla(var(--g-controlColor--hsl), 0.5);
 
       &:checked {
