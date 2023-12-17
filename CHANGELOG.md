@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.14] - 2023-12-17
+
+### Fixed
+
+- Missing buttons in RTE (#112)
+- Selected and hover colors in notelist (#109, #110)
+
 ## [1.3.13] - 2023-03-16
 
 ### Fixed
