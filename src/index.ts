@@ -250,7 +250,7 @@ joplin.plugins.register({
 			editorAlignment,
 			editorMarkdownThemeLight,
 			editorMarkdownThemeDark,
-		}
+		} satisfies ThemeSettings;
 
 		const generatedCSS = await generateUserCSS(settings);
 		await fs.writeFile(installDir + '/user-settings.css', generatedCSS, 'utf8');
