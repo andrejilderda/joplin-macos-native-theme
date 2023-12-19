@@ -222,6 +222,7 @@ joplin.plugins.register({
 					'xq-dark': 'xq-dark',
 					'yonce': 'yonce',
 					'zenburn': 'zenburn',
+					'one-dark': 'one-dark',
 				},
 			}
 		});
