@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.17] - 2023-12-28
+
+### Feature
+
+- Add One Dark theme (thanks to @mikicvi) (#113).
+
 ## [1.3.16] - 2023-12-17
 
 ### Fixed
