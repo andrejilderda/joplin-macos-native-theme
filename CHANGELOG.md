@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.18] - 2023-12-28
+
+### Fix
+
+- Alignment of icon while syncing.
+
 ## [1.3.17] - 2023-12-28
 
 ### Feature
