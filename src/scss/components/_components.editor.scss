@@ -663,6 +663,11 @@
   }
 }
 
+// color menu -- more selectors for extra specificity
+.tox .tox-menu.tox-swatches-menu {
+  @include dropdownBackground();
+}
+
 // table menu
 .tox-menu {
   @include dropdownBackground();
