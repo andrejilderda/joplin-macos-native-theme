@@ -632,20 +632,25 @@
     padding: 0;
 
     &:focus-within:hover {
-      button:focus:not(:hover) {
-        @include dropdownItemDefault();
+      &, .tox-split-button {
+        &:not(:hover) {
+          @include dropdownItemDefault();
+        }
       }
     }
 
-    button {
+    button, .tox-split-button {
       @include dropdownItem();
 
       justify-content: flex-start;
       flex: 1;
       text-align: left;
-      width: calc(100% - 2rem);
+      width: 100%;
+      box-sizing: border-box;
 
       &:after {
+        padding: 0.5rem 0;
+
         color: inherit;
         content: attr(aria-label);
         text-align: left;
