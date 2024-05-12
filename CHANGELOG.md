@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.4
+
+### Patch Changes
+
+- [#136](https://github.com/andrejilderda/joplin-macos-native-theme/pull/136) [`e5a01c0`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/e5a01c049df3b0402b0886e98b83cbc40d936294) Thanks [@andrejilderda](https://github.com/andrejilderda)! - fix: misalignment of new note/todo buttons
+
 ## 1.5.3
 
 ### Patch Changes
