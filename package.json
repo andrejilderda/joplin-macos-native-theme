@@ -1,38 +1,51 @@
 {
   "name": "joplin-plugin-macos-theme",
-  "version": "1.3.18",
+  "version": "1.4.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andrejilderda/joplin-macos-native-theme"
+  },
   "keywords": [
     "joplin",
     "joplin-plugin",
     "theme",
     "macos"
   ],
+  "files": [
+    "publish"
+  ],
   "scripts": {
-    "start": "sass --load-path scss src/scss/macos-theme-for-joplin.scss   src/dist/macos-theme-for-joplin.css --watch",
-    "serve": "http-server src/dist -c-1 -o macos-theme-for-joplin.css",
-    "dev": "run-p start serve",
     "build:css": "sass --load-path scss src/scss/macos-theme-for-joplin.scss   src/dist/macos-theme-for-joplin.css --no-source-map",
+    "build": "npm run build:css && webpack --env joplin-plugin-config=buildMain && webpack --env joplin-plugin-config=buildExtraScripts && webpack --env joplin-plugin-config=createArchive",
     "clean": "rm -rf dist",
-    "dist": "npm run build:css && webpack --joplin-plugin-config buildMain && webpack --joplin-plugin-config buildExtraScripts && webpack --joplin-plugin-config createArchive",
-    "prepare": "npm run dist",
-    "update": "npm install -g generator-joplin && yo joplin --update"
+    "dev": "run-p start serve",
+    "prepare": "npm run build",
+    "serve": "http-server src/dist -c-1 -o macos-theme-for-joplin.css",
+    "start": "sass --load-path scss src/scss/macos-theme-for-joplin.scss   src/dist/macos-theme-for-joplin.css --watch",
+    "update": "npm install -g generator-joplin && yo joplin --update",
+    "updateVersion": "webpack --env joplin-plugin-config=updateVersion"
+  },
+  "publishConfig": {
+    "provenance": true
   },
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^14.0.14",
+    "@changesets/cli": "^2.27.1",
+    "@joplin/lib": "~2.9",
+    "@types/node": "^18.7.13",
     "chalk": "^4.1.0",
-    "copy-webpack-plugin": "^6.1.0",
-    "fs-extra": "^9.0.1",
-    "glob": "^7.1.6",
+    "copy-webpack-plugin": "^11.0.0",
+    "fs-extra": "^10.1.0",
+    "glob": "^8.0.3",
     "http-server": "^14.1.1",
     "npm-run-all": "^4.1.5",
     "on-build-webpack": "^0.1.0",
     "sass": "^1.36.0",
-    "tar": "^6.0.5",
-    "ts-loader": "^7.0.5",
-    "typescript": "^3.9.3",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11",
+    "tar": "^6.1.11",
+    "ts-loader": "^9.3.1",
+    "typescript": "^4.8.2",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
     "yargs": "^16.2.0"
   }
 }

@@ -40,12 +40,11 @@
     }
     // notebook + tags label
     > div:first-child span,
-    .folders + div span {
+    .folder-and-tag-list + div span {
       text-transform: none;
       color: var(--s-sidebar__label-Color);
       font-size: var(--s-sidebar__label-FontSize);
       font-weight: 700;
-      margin-left: 6px;
       letter-spacing: -0.025em;
     }
 
@@ -103,6 +102,7 @@
       .tag-label {
         color: var(--s-sidebar__item-Color);
         font-size: 1.3rem;
+        font-weight: normal;
         // truncate text with ellipsis
         overflow: hidden;
         text-overflow: ellipsis;
@@ -151,7 +151,7 @@
       }
     }
 
-    .folders .list-item::before,
+    .folder-and-tag-list .list-item::before,
     .tags .list-item::before {
       color: var(--s-sidebar__icon-Color);
       margin-right: 0.7rem;
@@ -160,9 +160,15 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    .folders .list-item::before {
+    // .folder-and-tag-list .list-item:not(:has(.fa-trash))::before {
+    .folder-and-tag-list .list-item::before {
       @include icon(folder);
     }
+
+    .folder-and-tag-list .list-item:has(.fa-trash)::before {
+      @include icon(trash);
+    }
+
     .tags .list-item::before {
       @include icon(tag);
     }
@@ -172,13 +178,14 @@
     // (yet, Chrome version 102 doesn't have `has()`-support) is the `list-item`
     // has an emoji, we have to work around this by hiding the folder icon
     // appended by Joplin and move the emoji over the theme's folder icon.
-    .folders .list-item {
+    .folder-and-tag-list .list-item {
       position: relative;
 
       div:first-child:first-of-type {
         margin-right: 0 !important;
 
-        .fa-folder {
+        .fa-folder,
+        .fa-trash {
           display: none;
         }
       }
