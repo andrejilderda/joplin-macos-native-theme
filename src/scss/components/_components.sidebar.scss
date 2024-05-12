@@ -159,17 +159,18 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    // .folder-and-tag-list .list-item:not(:has(.fa-trash))::before {
-    .folder-and-tag-list .list-item::before {
-      @include icon(folder);
-    }
+    .folder-and-tag-list .list-item {
+      &::before {
+        @include icon(folder);
+      }
 
-    .folder-and-tag-list .list-item:has(.fa-trash)::before {
-      @include icon(trash);
-    }
+      &:has(.fa-trash)::before {
+        @include icon(trash);
+      }
 
-    .tags .list-item::before {
-      @include icon(tag);
+      &:has(.tag-label)::before {
+        @include icon(tag);
+      }
     }
 
     // when one of the folders has an emoji the DOM structure changes and an
