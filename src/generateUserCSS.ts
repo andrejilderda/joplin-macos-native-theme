@@ -184,7 +184,7 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
 				src: url("${installDir.replace(
           /\\/g,
           "/"
-        )}/webfont/Phosphor.ttf") format("truetype"),
+        )}/webfont/Phosphor.woff2") format("woff2"),
 					url("${installDir.replace(/\\/g, "/")}/webfont/Phosphor.woff") format("woff");
 				font-weight: normal;
 				font-style: normal;
