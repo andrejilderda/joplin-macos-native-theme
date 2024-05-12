@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.0
+
+### Minor Changes
+
+- [#132](https://github.com/andrejilderda/joplin-macos-native-theme/pull/132) [`613ccc4`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/613ccc43cb64b93040e5de4b1d39b4f6d17abaeb) Thanks [@andrejilderda](https://github.com/andrejilderda)! - feat: style detailed note list
+
 ## 1.4.1
 
 ### Patch Changes
