@@ -2,7 +2,7 @@ import Plugin from '../Plugin';
 import { ButtonSpec, ViewHandle, DialogResult } from './types';
 /**
  * Allows creating and managing dialogs. A dialog is modal window that
- * contains a webview and a row of buttons. You can update the update the
+ * contains a webview and a row of buttons. You can update the
  * webview using the `setHtml` method. Dialogs are hidden by default and
  * you need to call `open()` to open them. Once the user clicks on a
  * button, the `open` call will return an object indicating what button was
@@ -44,6 +44,12 @@ export default class JoplinViewsDialogs {
      */
     showMessageBox(message: string): Promise<number>;
     /**
+     * Displays a dialog to select a file or a directory. Same options and
+     * output as
+     * https://www.electronjs.org/docs/latest/api/dialog#dialogshowopendialogbrowserwindow-options
+     */
+    showOpenDialog(options: any): Promise<any>;
+    /**
      * Sets the dialog HTML content
      */
     setHtml(handle: ViewHandle, html: string): Promise<string>;
@@ -59,4 +65,10 @@ export default class JoplinViewsDialogs {
      * Opens the dialog
      */
     open(handle: ViewHandle): Promise<DialogResult>;
+    /**
+     * Toggle on whether to fit the dialog size to the content or not.
+     * When set to false, the dialog is set to 90vw and 80vh
+     * @default true
+     */
+    setFitToContent(handle: ViewHandle, status: boolean): Promise<boolean>;
 }
