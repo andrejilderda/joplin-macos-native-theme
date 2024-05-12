@@ -12,7 +12,6 @@
       width: 100%;
       padding: 1.2rem 0.6rem 1.2rem 1.2rem;
     }
-
   }
 
   .search-bar {
@@ -126,7 +125,7 @@
     cursor: default;
     border-radius: 0.6rem;
     background-color: transparent;
-    
+
     .fas,
     .far {
       font-size: var(--g-font-size-2);
@@ -139,17 +138,17 @@
     .fa-calendar-alt::before {
       @include icon(clock);
     }
-    
+
     // created date
     .fa-calendar-plus::before {
       @include icon(calendar);
     }
-    
+
     // title
     .fa-font::before {
       @include icon(character);
     }
-    
+
     // custom
     .fa-wrench::before {
       @include icon(person);
@@ -197,7 +196,7 @@
     padding: 0 1rem 1rem;
     width: auto !important;
     overflow: hidden overlay !important;
-    
+
     & .title {
       color: var(--g-textColor) !important;
       font-size: 1.2rem !important;
@@ -206,6 +205,52 @@
     // remove last border in notelist
     div:nth-last-of-type(2):not(:empty):before {
       content: none;
+    }
+  }
+
+  // For when 'Note list style' is set to 'Detailed'
+  :has(.note-list-header) {
+    color: var(--g-labelColor) !important;
+    font-size: 1.2rem !important;
+    font-family: "Courier New", Courier, monospace !important;
+
+    .note-list-header {
+      font-weight: 500;
+      border-bottom: 0.1rem solid var(--g-separatorColor);
+      margin: 0 1rem 0 1.5rem;
+
+      .-first {
+        .inner {
+          padding: 0;
+        }
+      }
+
+      [data-name="note.is_todo"] .inner {
+        display: none;
+      }
+    }
+
+    .row {
+      gap: 1rem !important;
+
+      &:hover {
+        background: transparent;
+      }
+
+      .item {
+        opacity: 1 !important;
+        padding-right: 0.5rem !important;
+
+        &:not(:first-child) {
+          padding-left: 0 !important;
+        }
+      }
+
+      &.-selected {
+        background: var(--s-accentColor--selected) !important;
+        border-radius: 0.4rem;
+        color: var(--g-alternateSelectedControlTextColor) !important;
+      }
     }
   }
 
@@ -261,7 +306,7 @@
       border-radius: 0.2rem;
     }
 
-    &>.content.-selected {
+    & > .content.-selected {
       background: var(--s-accentColor--selected) !important;
       border-radius: 0.4rem;
 
