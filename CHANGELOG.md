@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.4.0
+
+### Minor Changes
+
+- 6da5f14: feat: add icon for trash folder
+
+### Patch Changes
+
+- 6da5f14: Fix: sidebar styling
+
 ## [1.3.18] - 2023-12-28
 
 ### Fix
