@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.5
+
+### Patch Changes
+
+- [#138](https://github.com/andrejilderda/joplin-macos-native-theme/pull/138) [`5a1c6d9`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/5a1c6d9e78f5c6f7df4a11537eb567bb08ebdf70) Thanks [@andrejilderda](https://github.com/andrejilderda)! - chore: add images to plugin manifest
+
 ## 1.5.4
 
 ### Patch Changes
