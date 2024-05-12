@@ -15,5 +15,5 @@ git add .
 # Git commit (Changesets might handle commiting updated package.json and CHANGELOG.md)
 git commit -m "chore: apply changesets and update manifest version to $NEW_VERSION"
 
-# git push
-# npx changeset publish
+git push
+npx changeset publish
