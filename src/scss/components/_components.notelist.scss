@@ -90,8 +90,13 @@
     }
   }
 
+  :has(> .new-note-todo-buttons) {
+    flex-direction: row !important;
+  }
+
   // 'add'-buttons next to search
   .new-note-todo-buttons {
+    display: flex;
     order: 1;
     // reserve some space for the sort button that we hack to the right of the
     // items (using position: absolute)
