@@ -19,6 +19,7 @@ jobs:
     - name: Use Node.js 20
       uses: actions/setup-node@v3
       with:
+        registry-url: 'https://registry.npmjs.org/'
         node-version: 20
         cache: 'npm'
         
