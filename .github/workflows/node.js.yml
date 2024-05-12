@@ -21,6 +21,14 @@ jobs:
       with:
         node-version: 20
         cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: bash ./release.sh
+        
+    - name: Configure Git
+      run: |
+        git config --global user.email "${{ secrets.GIT_USER_EMAIL }}"
+        git config --global user.name "${{ secrets.GIT_USER_NAME }}"
+        
+    - name: Install dependencies, build & release
+      run: |
+        npm ci
+        npm run build --if-present
+        bash ./release.sh
