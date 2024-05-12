@@ -21,6 +21,9 @@
     "update": "npm install -g generator-joplin && yo joplin --update",
     "updateVersion": "webpack --env joplin-plugin-config=updateVersion"
   },
+  "publishConfig": {
+    "provenance": true
+  },
   "license": "MIT",
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
