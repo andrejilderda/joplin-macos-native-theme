@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.3
+
+### Patch Changes
+
+- [#135](https://github.com/andrejilderda/joplin-macos-native-theme/pull/135) [`9991ec0`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/9991ec01ea17dab9868cf07772979a73b536d335) Thanks [@andrejilderda](https://github.com/andrejilderda)! - fix: hiding of plugin icons in editor toolbar
+
 ## 1.5.2
 
 ### Patch Changes
