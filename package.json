@@ -11,15 +11,15 @@
     "publish"
   ],
   "scripts": {
-    "start": "sass --load-path scss src/scss/macos-theme-for-joplin.scss   src/dist/macos-theme-for-joplin.css --watch",
-    "serve": "http-server src/dist -c-1 -o macos-theme-for-joplin.css",
-    "dev": "run-p start serve",
     "build:css": "sass --load-path scss src/scss/macos-theme-for-joplin.scss   src/dist/macos-theme-for-joplin.css --no-source-map",
+    "build": "npm run build:css && webpack --env joplin-plugin-config=buildMain && webpack --env joplin-plugin-config=buildExtraScripts && webpack --env joplin-plugin-config=createArchive",
     "clean": "rm -rf dist",
-    "dist": "npm run build:css && webpack --env joplin-plugin-config=buildMain && webpack --env joplin-plugin-config=buildExtraScripts && webpack --env joplin-plugin-config=createArchive",
-    "prepare": "npm run dist",
-    "updateVersion": "webpack --env joplin-plugin-config=updateVersion",
-    "update": "npm install -g generator-joplin && yo joplin --update"
+    "dev": "run-p start serve",
+    "prepare": "npm run build",
+    "serve": "http-server src/dist -c-1 -o macos-theme-for-joplin.css",
+    "start": "sass --load-path scss src/scss/macos-theme-for-joplin.scss   src/dist/macos-theme-for-joplin.css --watch",
+    "update": "npm install -g generator-joplin && yo joplin --update",
+    "updateVersion": "webpack --env joplin-plugin-config=updateVersion"
   },
   "license": "MIT",
   "devDependencies": {
