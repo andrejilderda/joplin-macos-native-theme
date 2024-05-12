@@ -14,6 +14,11 @@
     }
   }
 
+  .search-and-sort,
+  .new-note-todo-buttons {
+    align-items: center;
+  }
+
   .search-bar {
     position: relative;
 
@@ -78,45 +83,64 @@
       }
     }
 
-    // 'add'-buttons next to search
+    // the sort icon
     + div {
-      .new-todo-button,
-      .new-note-button {
-        background: none;
-        border-radius: 0.6rem;
-        cursor: default;
-        margin-left: 0;
-        max-height: none;
-        max-width: none;
-        height: 2.6rem;
-        width: 2.6rem;
+      position: absolute;
+      right: 1rem;
+    }
+  }
 
-        &:focus-visible,
-        &:hover {
-          background: var(--g-quaternaryLabelColor);
-        }
+  // 'add'-buttons next to search
+  .new-note-todo-buttons {
+    order: 1;
+    // reserve some space for the sort button that we hack to the right of the
+    // items (using position: absolute)
+    padding-right: 3.5rem;
 
-        span:before {
-          color: var(--g-secondaryLabelColor);
-          display: block;
-          font-size: var(--g-font-size-2);
-          font-weight: 500;
-          -webkit-font-smoothing: antialiased;
-          transform: translateY(0.05rem);
-        }
+    .new-todo-button,
+    .new-note-button {
+      background: none;
+      border-radius: 0.6rem;
+      border: none;
+      cursor: default;
+      margin-left: 0;
+      min-height: 0;
+      min-width: 0;
+      padding: 0;
+      max-height: none;
+      max-width: none;
+      height: 2.6rem;
+      width: 2.6rem;
+
+      &:focus-visible,
+      &:hover {
+        background: var(--g-quaternaryLabelColor);
       }
 
-      .new-note-button {
-        margin-left: 0.1rem;
+      &:before {
+        color: var(--g-secondaryLabelColor) !important;
+        display: block;
+        font-size: var(--g-font-size-2);
+        font-weight: 500;
+        -webkit-font-smoothing: antialiased;
+        transform: translateY(0.05rem);
       }
 
-      .new-todo-button span:before {
-        @include icon(checkmark-circle);
+      span {
+        display: none;
       }
+    }
 
-      .new-note-button span:before {
-        @include icon(square-and-pencil);
-      }
+    .new-note-button {
+      margin-left: 0.1rem;
+    }
+
+    .new-todo-button:before {
+      @include icon(checkmark-circle);
+    }
+
+    .new-note-button:before {
+      @include icon(square-and-pencil);
     }
   }
 
