@@ -178,9 +178,19 @@
       @include icon(character);
     }
 
+    // todo due
+    .fa-calendar-check::before {
+      @include icon(checkmark-square);
+    }
+
+    // todo completed
+    .fa-check::before {
+      @include icon(checkmark-square);
+    }
+
     // custom
     .fa-wrench::before {
-      @include icon(person);
+      @include icon(arrow-up-arrow-down);
     }
 
     &:focus-visible,
