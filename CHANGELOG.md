@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.1
+
+### Patch Changes
+
+- [#133](https://github.com/andrejilderda/joplin-macos-native-theme/pull/133) [`cca0cec`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/cca0cecd0369e104b72a9a70bb0fd9a5193ba21a) Thanks [@andrejilderda](https://github.com/andrejilderda)! - fix: duplicate icons in editor toolbar
+
 ## 1.5.0
 
 ### Minor Changes
