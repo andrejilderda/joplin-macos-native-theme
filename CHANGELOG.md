@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.5.6
+
+### Patch Changes
+
+- [#139](https://github.com/andrejilderda/joplin-macos-native-theme/pull/139) [`c131285`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/c13128590b3cb2acdaa9bcfd0a20cd2795cb5376) Thanks [@andrejilderda](https://github.com/andrejilderda)! - fix: Phosphor icons not showing
+
+- [#139](https://github.com/andrejilderda/joplin-macos-native-theme/pull/139) [`f13ed69`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/f13ed69eec27e8ea700cd87367bb5ca9c92a1a81) Thanks [@andrejilderda](https://github.com/andrejilderda)! - fix: show correct icon for tags in sidebar
+
+- [#139](https://github.com/andrejilderda/joplin-macos-native-theme/pull/139) [`d088269`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/d088269ab5c444025c4591033aff5f0d2923c32e) Thanks [@andrejilderda](https://github.com/andrejilderda)! - feat: add missing icons for certain sort options
+
 ## 1.5.5
 
 ### Patch Changes
