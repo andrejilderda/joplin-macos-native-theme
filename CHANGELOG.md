@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.2
+
+### Patch Changes
+
+- [#134](https://github.com/andrejilderda/joplin-macos-native-theme/pull/134) [`2ee7e15`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/2ee7e15fee77a2c9552ad820596379d99a78c5cc) Thanks [@andrejilderda](https://github.com/andrejilderda)! - fix: styling of new note and todo buttons
+
 ## 1.5.1
 
 ### Patch Changes
