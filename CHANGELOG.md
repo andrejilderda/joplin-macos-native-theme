@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.4.1
+
+### Patch Changes
+
+- [#127](https://github.com/andrejilderda/joplin-macos-native-theme/pull/127) [`3b03e4b`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/3b03e4b3e30f90a0f74865a0cb7be9ebd6cd3f81) Thanks [@personalizedrefrigerator](https://github.com/personalizedrefrigerator)! - fix: show "text color" option in rich text editor toolbar (thanks to @personalizedrefrigerator)
+
 ## 1.4.0
 
 ### Minor Changes
