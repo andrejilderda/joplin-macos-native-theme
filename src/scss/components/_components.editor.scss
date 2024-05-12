@@ -307,14 +307,6 @@
           }
         }
 
-        // icon: back
-        &:nth-of-type(1) span:before {
-          @include icon(chevron-backward);
-        }
-        // icon: forward
-        &:nth-of-type(2) span:before {
-          @include icon(chevron-forward);
-        }
         // icon: external editor
         &:nth-of-type(3):nth-of-type(3) {
           min-width: 2.6rem !important;
@@ -331,6 +323,10 @@
 
             &::before {
               @include icon(arrow-up-forward-app);
+            }
+
+            &:not(:first-child) {
+              display: none;
             }
           }
         }
@@ -439,32 +435,32 @@
     }
     button:nth-child(3):before {
       content: "H3";
-    } 
+    }
   }
 
   .tox-toolbar__group:nth-child(5) {
     button:nth-child(1):before {
-     @include icon(minus);
-   }
+      @include icon(minus);
+    }
   }
 
   .tox-toolbar__group:nth-child(6) {
     button:nth-child(1):before {
-     @include icon(text-quote);
-   }
+      @include icon(text-quote);
+    }
   }
 
   .tox-toolbar__group:nth-child(7) {
     button:nth-child(1):before {
-     @include icon(tablecells-badge-ellipsis);
-   }
+      @include icon(tablecells-badge-ellipsis);
+    }
   }
-  
+
   .tox-toolbar__group:nth-child(8) {
     button:nth-child(1):before {
-     @include icon(clock);
-   }
- }
+      @include icon(clock);
+    }
+  }
 
   // add divider between editor icons and text input field
   .tox-editor-header {
@@ -632,14 +628,16 @@
     padding: 0;
 
     &:focus-within:hover {
-      &, .tox-split-button {
+      &,
+      .tox-split-button {
         &:not(:hover) {
           @include dropdownItemDefault();
         }
       }
     }
 
-    button, .tox-split-button {
+    button,
+    .tox-split-button {
       @include dropdownItem();
 
       justify-content: flex-start;
