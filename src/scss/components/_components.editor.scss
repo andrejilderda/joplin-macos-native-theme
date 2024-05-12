@@ -208,12 +208,8 @@
     }
 
     // markdown toggle
-    .tox-tbtn {
+    :has(.fa-markdown).tox-tbtn {
       @include toolbarButton();
-
-      * {
-        display: none !important;
-      }
 
       &::after {
         @include toolbarButtonIcon();
@@ -231,6 +227,13 @@
 
       &.richText-active::after {
         @include icon(text-below-photo);
+      }
+    }
+
+    // hide markdown buttons
+    :has(.fa-markdown).tox-tbtn {
+      * {
+        display: none !important;
       }
     }
 
