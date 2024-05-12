@@ -1,33 +1,33 @@
-import joplin from 'api';
-import { ThemeSettings } from 'src';
-import phosphorIcons from './phosphorIcons';
-import { hexToHSL } from './utils/color';
+import joplin from "api";
+import { ThemeSettings } from "src";
+import phosphorIcons from "./phosphorIcons";
+import { hexToHSL } from "./utils/color";
 
 const accentColorMap = {
-	light: {
-		blue: '#007AFF',
-		graphite: '#8E8E93',
-		green: '#28CC41',
-		indigo: '#5856D6',
-		orange: '#FF9500',
-		pink: '#FF2D55',
-		purple: '#AF52DE',
-		red: '#FF3B30',
-		teal: '#55BEF0',
-		yellow: '#FFCC00',
-	},
-	dark: {
-		blue: '#0A84FF',
-		graphite: '#98989D',
-		green: '#32D74B',
-		indigo: '#5E5CE6',
-		orange: '#FF9F0A',
-		pink: '#FF375F',
-		purple: '#BF5AF2',
-		red: '#FF453A',
-		teal: '#5AC8F5',
-		yellow: '#FFD60A',
-	},
+  light: {
+    blue: "#007AFF",
+    graphite: "#8E8E93",
+    green: "#28CC41",
+    indigo: "#5856D6",
+    orange: "#FF9500",
+    pink: "#FF2D55",
+    purple: "#AF52DE",
+    red: "#FF3B30",
+    teal: "#55BEF0",
+    yellow: "#FFCC00",
+  },
+  dark: {
+    blue: "#0A84FF",
+    graphite: "#98989D",
+    green: "#32D74B",
+    indigo: "#5E5CE6",
+    orange: "#FF9F0A",
+    pink: "#FF375F",
+    purple: "#BF5AF2",
+    red: "#FF453A",
+    teal: "#5AC8F5",
+    yellow: "#FFD60A",
+  },
 };
 
 // light is default
@@ -124,45 +124,67 @@ const darkSidebar = `
 `;
 
 export const generateUserCSS = async (settings: ThemeSettings) => {
-	const fs = joplin.require('fs-extra');
+  const fs = joplin.require("fs-extra");
 
-	const {
-		baseFontSize,
-		iconFamily,
-		appearance,
-		accentColor,
-		hideSyncStatus,
-		notelistSeparators,
-		editorParagraphSpacing,
-		editorAlignment,
-		editorMarkdownThemeLight,
-		editorMarkdownThemeDark,
-	} = settings;
+  const {
+    baseFontSize,
+    iconFamily,
+    appearance,
+    accentColor,
+    hideSyncStatus,
+    notelistSeparators,
+    editorParagraphSpacing,
+    editorAlignment,
+    editorMarkdownThemeLight,
+    editorMarkdownThemeDark,
+  } = settings;
 
-	const installDir = await joplin.plugins.installationDir();
-	const cmThemeLight = await fs.readFile(installDir + `/css/codemirror/${editorMarkdownThemeLight}.css`, 'utf-8');
-	const cmThemeDark = await fs.readFile(installDir + `/css/codemirror/${editorMarkdownThemeDark}.css`, 'utf-8');
-	const strippedCmThemeLight = cmThemeLight
-		.replaceAll(`.cm-s-${editorMarkdownThemeLight}`, '.CodeMirror.CodeMirror.CodeMirror'); // increase specificity
-	const strippedCmThemeDark = cmThemeDark
-		.replaceAll(`.cm-s-${editorMarkdownThemeDark}`, '.CodeMirror.CodeMirror.CodeMirror');
+  const installDir = await joplin.plugins.installationDir();
+  const cmThemeLight = await fs.readFile(
+    installDir + `/css/codemirror/${editorMarkdownThemeLight}.css`,
+    "utf-8"
+  );
+  const cmThemeDark = await fs.readFile(
+    installDir + `/css/codemirror/${editorMarkdownThemeDark}.css`,
+    "utf-8"
+  );
+  const strippedCmThemeLight = cmThemeLight.replaceAll(
+    `.cm-s-${editorMarkdownThemeLight}`,
+    ".CodeMirror.CodeMirror.CodeMirror"
+  ); // increase specificity
+  const strippedCmThemeDark = cmThemeDark.replaceAll(
+    `.cm-s-${editorMarkdownThemeDark}`,
+    ".CodeMirror.CodeMirror.CodeMirror"
+  );
 
+  const {
+    h: accentColorH,
+    s: accentColorS,
+    l: accentColorL,
+  } = hexToHSL(accentColorMap.light[accentColor]);
+  const {
+    h: accentColorDarkH,
+    s: accentColorDarkS,
+    l: accentColorDarkL,
+  } = hexToHSL(accentColorMap.dark[accentColor]);
 
-	const { h: accentColorH, s: accentColorS, l: accentColorL } = hexToHSL(accentColorMap.light[accentColor]);
-	const { h: accentColorDarkH, s: accentColorDarkS, l: accentColorDarkL } = hexToHSL(accentColorMap.dark[accentColor]);
+  const getEditorAlignment = (alignment: ThemeSettings["editorAlignment"]) => {
+    if (alignment === "left") return ["auto", "0"];
+    else if (alignment === "center") return ["auto", "auto"];
+    else if (alignment === "right") return ["0", "auto"];
+  };
 
-	const getEditorAlignment = (alignment: ThemeSettings['editorAlignment']) => {
-		if (alignment === 'left') return ['auto', '0']
-		else if (alignment === 'center') return ['auto', 'auto']
-		else if (alignment === 'right') return ['0', 'auto']
-	}
-
-	// rewrite backslashes to forward slashes to prevent issues on Windows
-	return /* css */`
-		${iconFamily === 'phosphor' ? `
+  // rewrite backslashes to forward slashes to prevent issues on Windows
+  return /* css */ `
+		${
+      iconFamily === "phosphor"
+        ? `
 			@font-face {
 				font-family: "Phosphor";
-				src: url("${installDir.replace(/\\/g, "/")}/webfont/Phosphor.ttf") format("truetype"),
+				src: url("${installDir.replace(
+          /\\/g,
+          "/"
+        )}/webfont/Phosphor.ttf") format("truetype"),
 					url("${installDir.replace(/\\/g, "/")}/webfont/Phosphor.woff") format("woff");
 				font-weight: normal;
 				font-style: normal;
@@ -173,38 +195,53 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
 			.rli-noteList .sort-order-reverse-button .fas::before {
 				font-weight: 100;
 			}
-		`: ''}
+		`
+        : ""
+    }
 
 		:root {
 			/* General --------------------------------- */
 			--u-base-font-size: ${baseFontSize}%;
 
-			${accentColor !== 'blue' ? `
+			${
+        accentColor !== "blue"
+          ? `
 				--u-accentColor--h: ${accentColorH};
 				--u-accentColor--s: ${accentColorS}%;
 				--u-accentColor--l: ${accentColorL}%;
-			` : ''}
+			`
+          : ""
+      }
 
 			/* Icons -------------------------------- */
-			${iconFamily === 'phosphor' ? `
+			${
+        iconFamily === "phosphor"
+          ? `
 				--u-font-family-icons: 'Phosphor';
 				--u-icon-size-factor: 1.25;
 
-				${Object.entries(phosphorIcons).map(([name, symbol]) => `--u-icon-${name}: '${symbol}';`).join("\n")}
-		` : ''
-		}
+				${Object.entries(phosphorIcons || {})
+          .map(([name, symbol]) => `--u-icon-${name}: '${symbol}';`)
+          .join("\n")}
+		`
+          : ""
+      }
 
 			/* Sidebar --------------------------------- */
-			${hideSyncStatus ? '' : `--u-sidebar-synchronise-label: '';`}
+			${hideSyncStatus ? "" : `--u-sidebar-synchronise-label: '';`}
 
 			/* Note list ----------------------------- */
-			${notelistSeparators === 'none' ? '--u-note-list-dividers: none;' : ''}
-			${notelistSeparators === 'zebraStripes' ? `
+			${notelistSeparators === "none" ? "--u-note-list-dividers: none;" : ""}
+			${
+        notelistSeparators === "zebraStripes"
+          ? `
 				--u-note-list-dividers: none;
-			` : `
+			`
+          : `
 				--u-note-list-zebra-color-odd: transparent;
 				--u-note-list-zebra-color-even: transparent;
-			`}
+			`
+      }
 
 			/* Editor -------------------------------- */
 			--u-editor-paragraph-spacing: ${editorParagraphSpacing / 10}rem;
@@ -221,7 +258,9 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
 			*/
 		}
 
-			${appearance === 'auto' ? `
+			${
+        appearance === "auto"
+          ? `
 				@media(prefers-color-scheme: light) {
 					${strippedCmThemeLight}
 				}
@@ -230,30 +269,47 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
 					:root {
 						${darkTheme}
 
-						${accentColor !== 'blue' ? `
+						${
+              accentColor !== "blue"
+                ? `
 							--u-accentColor--h: ${accentColorDarkH};
 							--u-accentColor--s: ${accentColorDarkS}%;
 							--u-accentColor--l: ${accentColorDarkL}%;
-						` : ''}
+						`
+                : ""
+            }
 					}
 
 					${strippedCmThemeDark}
 				`
-			: ''}
-			${appearance === 'light' ? `
+          : ""
+      }
+			${
+        appearance === "light"
+          ? `
 				${strippedCmThemeLight}
-			` : ''}
-			${appearance === 'light-with-dark-sidebar' ? `
+			`
+          : ""
+      }
+			${
+        appearance === "light-with-dark-sidebar"
+          ? `
 				:root {
 					${darkSidebar}
 				}
 				${strippedCmThemeLight}
-				` : ''}
-			${appearance === 'dark' ? `
+				`
+          : ""
+      }
+			${
+        appearance === "dark"
+          ? `
 				:root {
 					${darkTheme}
 				}
 				${strippedCmThemeDark}
-			` : ''}
-	`
-}
+			`
+          : ""
+      }
+	`;
+};
