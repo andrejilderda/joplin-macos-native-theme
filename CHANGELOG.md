@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.7
+
+### Patch Changes
+
+- [#140](https://github.com/andrejilderda/joplin-macos-native-theme/pull/140) [`c7256e5`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/c7256e51e54e1e19b5a11dec35d3e3a20483b160) Thanks [@andrejilderda](https://github.com/andrejilderda)! - fix: broken notebook folder icons in Joplin v2
+
 ## 1.5.6
 
 ### Patch Changes
