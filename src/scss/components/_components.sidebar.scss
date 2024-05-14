@@ -40,7 +40,9 @@
     }
     // notebook + tags label
     > div:first-child span,
-    .folder-and-tag-list + div span {
+    .folder-and-tag-list + div span,
+    // name of element in Joplin v2
+    .folders + div span {
       text-transform: none;
       color: var(--s-sidebar__label-Color);
       font-size: var(--s-sidebar__label-FontSize);
@@ -150,66 +152,76 @@
       }
     }
 
-    .folder-and-tag-list .list-item::before,
-    .tags .list-item::before {
-      color: var(--s-sidebar__icon-Color);
-      margin-right: 0.7rem;
-      font-weight: 400;
-      font-size: 13px;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .folder-and-tag-list .list-item {
-      &::before {
-        @include icon(folder);
-      }
-
-      &:has(.fa-trash)::before {
-        @include icon(trash);
-      }
-
-      &:has(.tag-label)::before {
-        @include icon(tag);
-      }
-    }
-
-    // when one of the folders has an emoji the DOM structure changes and an
-    // extra folder icon is added by Joplin. Since there's no way to determine
-    // (yet, Chrome version 102 doesn't have `has()`-support) is the `list-item`
-    // has an emoji, we have to work around this by hiding the folder icon
-    // appended by Joplin and move the emoji over the theme's folder icon.
-    .folder-and-tag-list .list-item {
-      position: relative;
-
-      div:first-child:first-of-type {
-        margin-right: 0 !important;
-
-        .fa-folder,
-        .fa-trash {
-          display: none;
+    // name of element in Joplin v2
+    .folders, 
+    .tags,
+    // name of element in Joplin v3
+    .folder-and-tag-list {
+      .list-item {
+        &::before {
+          color: var(--s-sidebar__icon-Color);
+          margin-right: 0.7rem;
+          font-weight: 400;
+          font-size: 13px;
+          -webkit-font-smoothing: antialiased;
         }
       }
+    }
 
-      .emoji-box,
-      img {
-        align-items: center;
-        background-color: var(--s-sidebar__BackgroundColor);
-        display: block;
-        font-size: 18px !important;
-        left: 0;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-      }
+    // name of element in Joplin v2
+    .folders, 
+    // name of element in Joplin v3
+    .folder-and-tag-list {
+      .list-item {
+        // when one of the folders has an emoji the DOM structure changes and an
+        // extra folder icon is added by Joplin. Since there's no way to determine
+        // (yet, Chrome version 102 doesn't have `has()`-support) is the `list-item`
+        // has an emoji, we have to work around this by hiding the folder icon
+        // appended by Joplin and move the emoji over the theme's folder icon.
+        position: relative;
 
-      img {
-        height: 16px !important;
-        width: 16px !important;
-      }
+        div:first-child:first-of-type {
+          margin-right: 0 !important;
 
-      .emoji-box {
-        height: 18px !important;
-        width: 18px !important;
+          .fa-folder,
+          .fa-trash {
+            display: none;
+          }
+        }
+
+        .emoji-box,
+        img {
+          align-items: center;
+          background-color: var(--s-sidebar__BackgroundColor);
+          display: block;
+          font-size: 18px !important;
+          left: 0;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+        img {
+          height: 16px !important;
+          width: 16px !important;
+        }
+
+        .emoji-box {
+          height: 18px !important;
+          width: 18px !important;
+        }
+
+        &::before {
+          @include icon(folder);
+        }
+
+        &:has(.fa-trash)::before {
+          @include icon(trash);
+        }
+
+        &:has(.tag-label)::before {
+          @include icon(tag);
+        }
       }
     }
 
