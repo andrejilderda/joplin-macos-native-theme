@@ -9,7 +9,7 @@ const phosphorIcons = {
   bold: "",
   calendar: "",
   character: "",
-  checkmark: "",
+  checkmark: "",
   "checkmark-circle": "",
   // same as checkmark-circle
   "checkmark-diamond": "",
