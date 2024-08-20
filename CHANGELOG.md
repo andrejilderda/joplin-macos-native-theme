@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.8
+
+### Patch Changes
+
+- [#146](https://github.com/andrejilderda/joplin-macos-native-theme/pull/146) [`2003bb4`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/2003bb4aed2fb5e20c0a96dfc90ee7c26e5b5f0a) Thanks [@GarreltMock](https://github.com/GarreltMock)! - fix: checkbox icon in editor when Phosphor icons are used
+
 ## 1.5.7
 
 ### Patch Changes
