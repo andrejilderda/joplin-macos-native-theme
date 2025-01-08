@@ -745,7 +745,7 @@
 
   // label
   div > span {
-    color: var(--g-secondaryLabelColor) !important;
+    // color: var(--g-secondaryLabelColor) !important;
 
     // increase click area, so that clicking on the tags also open the modal
     &::after {
