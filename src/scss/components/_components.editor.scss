@@ -748,13 +748,13 @@
     color: var(--g-secondaryLabelColor) !important;
 
     // increase click area, so that clicking on the tags also open the modal
-    &::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      height: 100%;
-    }
+    // &::after {
+    //   content: "";
+    //   position: absolute;
+    //   left: 0;
+    //   right: 0;
+    //   height: 100%;
+    // }
   }
 
   .icon-tags {
