@@ -4,9 +4,9 @@
 
 ### Patch Changes
 
-- [#157](https://github.com/andrejilderda/joplin-macos-native-theme/pull/157) [`be57833`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/be57833efcc8c2765cbf91323e7696961c578922) Thanks [@andrejilderda](https://github.com/andrejilderda)! - fix: Cannot edit title with MacOS theme applied #152
+- [#157](https://github.com/andrejilderda/joplin-macos-native-theme/pull/156) [`be57833`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/e49d878ffb3201a985e882db9be2ef0e48a61279) Thanks [@frabera](https://github.com/frabera)! - fix: Cannot edit title with MacOS theme applied #152
 
-- [#157](https://github.com/andrejilderda/joplin-macos-native-theme/pull/157) [`be57833`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/be57833efcc8c2765cbf91323e7696961c578922) Thanks [@andrejilderda](https://github.com/andrejilderda)! - fix: Buttons in editor menu bar no longer working #153
+- [#157](https://github.com/andrejilderda/joplin-macos-native-theme/pull/156) [`be57833`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/e49d878ffb3201a985e882db9be2ef0e48a61279) Thanks [@frabera](https://github.com/frabera)! - fix: Buttons in editor menu bar no longer working #153
 
 ## 1.5.8
 
