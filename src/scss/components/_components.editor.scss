@@ -498,7 +498,7 @@
         @include toolbarDivider();
       }
 
-      a.button {
+      button {
         @include toolbarButton();
 
         span {
