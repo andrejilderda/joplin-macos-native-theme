@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.10
+
+### Patch Changes
+
+- [#159](https://github.com/andrejilderda/joplin-macos-native-theme/pull/159) [`e27230d`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/e27230d5d45655e7620a95af27534da6d8cbf0a2) Thanks [@andrejilderda](https://github.com/andrejilderda)! - fix: buttons in markdown editor not working #153
+
 ## 1.5.9
 
 ### Patch Changes
