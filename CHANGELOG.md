@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.5.11
+
+### Patch Changes
+
+- [#160](https://github.com/andrejilderda/joplin-macos-native-theme/pull/160) [`ff920cb`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/ff920cbf6c06afb93d9dad39569150632b175f39) Thanks [@andrejilderda](https://github.com/andrejilderda)! - fix: styling of tag toolbar
+
+- [#160](https://github.com/andrejilderda/joplin-macos-native-theme/pull/160) [`457fcf1`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/457fcf188b30b52c2c0247bf20aae2740bb1c070) Thanks [@andrejilderda](https://github.com/andrejilderda)! - fix: styling of back and forward buttons
+
+- [#160](https://github.com/andrejilderda/joplin-macos-native-theme/pull/160) [`757a6f2`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/757a6f2c3d6f46adf3654aff29d2d713499ac993) Thanks [@andrejilderda](https://github.com/andrejilderda)! - fix: styling of notebook folder button under note title when in "All notes"
+
+- [#160](https://github.com/andrejilderda/joplin-macos-native-theme/pull/160) [`05cf9c9`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/05cf9c98958484a6144a1c31a1309849e5ac38bd) Thanks [@andrejilderda](https://github.com/andrejilderda)! - fix: styling of toolbar icons of markdown editor
+
+- [#160](https://github.com/andrejilderda/joplin-macos-native-theme/pull/160) [`d51a2af`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/d51a2af51e55c5fa11ac6e9a122f1d600691a395) Thanks [@andrejilderda](https://github.com/andrejilderda)! - fix: make backdrop more macOS like (rest of dialog is still broken)
+
 ## 1.5.10
 
 ### Patch Changes
