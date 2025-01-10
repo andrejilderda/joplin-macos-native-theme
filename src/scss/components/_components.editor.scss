@@ -243,11 +243,14 @@
       padding: 0 !important;
 
       button {
+        min-height: 0;
+        height: auto;
         align-items: baseline;
         background: transparent;
         font-size: 1.3rem;
+        margin-top: 0.6rem;
         margin-bottom: 0.4rem;
-        margin-left: 1.6rem;
+        margin-left: 2rem;
         min-width: 0 !important;
         padding: 0;
 
