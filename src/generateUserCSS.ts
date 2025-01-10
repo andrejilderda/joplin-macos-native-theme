@@ -135,27 +135,9 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
     notelistSeparators,
     editorParagraphSpacing,
     editorAlignment,
-    editorMarkdownThemeLight,
-    editorMarkdownThemeDark,
   } = settings;
 
   const installDir = await joplin.plugins.installationDir();
-  const cmThemeLight = await fs.readFile(
-    installDir + `/css/codemirror/${editorMarkdownThemeLight}.css`,
-    "utf-8"
-  );
-  const cmThemeDark = await fs.readFile(
-    installDir + `/css/codemirror/${editorMarkdownThemeDark}.css`,
-    "utf-8"
-  );
-  const strippedCmThemeLight = cmThemeLight.replaceAll(
-    `.cm-s-${editorMarkdownThemeLight}`,
-    ".CodeMirror.CodeMirror.CodeMirror"
-  ); // increase specificity
-  const strippedCmThemeDark = cmThemeDark.replaceAll(
-    `.cm-s-${editorMarkdownThemeDark}`,
-    ".CodeMirror.CodeMirror.CodeMirror"
-  );
 
   const {
     h: accentColorH,
@@ -261,10 +243,6 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
 			${
         appearance === "auto"
           ? `
-				@media(prefers-color-scheme: light) {
-					${strippedCmThemeLight}
-				}
-
 				@media(prefers-color-scheme: dark) {
 					:root {
 						${darkTheme}
@@ -279,16 +257,7 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
                 : ""
             }
 					}
-
-					${strippedCmThemeDark}
 				`
-          : ""
-      }
-			${
-        appearance === "light"
-          ? `
-				${strippedCmThemeLight}
-			`
           : ""
       }
 			${
@@ -297,7 +266,6 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
 				:root {
 					${darkSidebar}
 				}
-				${strippedCmThemeLight}
 				`
           : ""
       }
@@ -307,7 +275,6 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
 				:root {
 					${darkTheme}
 				}
-				${strippedCmThemeDark}
 			`
           : ""
       }
