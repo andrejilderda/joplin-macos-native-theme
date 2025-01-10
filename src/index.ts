@@ -19,8 +19,32 @@ export type ThemeSettings = {
 
 joplin.plugins.register({
 	onStart: async function () {
+		const fs = joplin.require('fs-extra');
+
 		const installDir = await joplin.plugins.installationDir();
-		const cssFilePath = installDir + '/dist/macos-theme-for-joplin.css';
+		
+		// Get joplin version (TEMP FIX for 3.2)
+		const cssFilePath = installDir + "/dist/macos-theme-for-joplin.css";
+		const { version } = await joplin.versionInfo();
+
+		if (version.startsWith("3.2.")) {
+			try {
+				const cssContent = await fs.readFile(cssFilePath, "utf-8");
+				console.log("Original CSS length:", cssContent.length);
+
+				const updatedCSS = cssContent.replaceAll(
+				".rli-editor > div > div > div > div:last-child",
+				".rli-editor > div > div > div > div > div:last-child"
+				);
+				console.log("Updated CSS length:", updatedCSS.length);
+				console.log("Changes made:", cssContent !== updatedCSS);
+
+				await fs.writeFile(cssFilePath, updatedCSS);
+			} catch (error) {
+				console.error("Error updating CSS:", error);
+			}
+		}
+		
 		await (joplin as any).window.loadChromeCssFile(cssFilePath);
 		await (joplin as any).window.loadNoteCssFile(cssFilePath);
 
@@ -227,7 +251,6 @@ joplin.plugins.register({
 			}
 		});
 
-		const fs = joplin.require('fs-extra');
 
 		const baseFontSize = await joplin.settings.value('baseFontSize');
 		const iconFamily = await joplin.settings.value('iconFamily');
