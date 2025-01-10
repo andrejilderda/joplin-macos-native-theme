@@ -29,7 +29,7 @@
   }
 }
 
-.modal-layer {
+.dialog-modal-layer {
   @include modalBackdrop();
 
   *[style*="color:"] {
@@ -201,7 +201,7 @@
 // note properties modal
 // 🤦‍♂️
 div[style*="z-index: 9999;"][style*="background-color: rgba(0, 0, 0, 0.6);"][style*="align-items: flex-start;"]:not(
-    .modal-layer
+    .dialog-modal-layer
   ) {
   @include modalBackdrop();
 
