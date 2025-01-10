@@ -296,7 +296,8 @@
   .editor-toolbar {
     > div:first-child {
       margin-left: -0.6rem;
-      > a {
+
+      > button {
         @include toolbarButton();
         display: flex;
         align-items: center;
