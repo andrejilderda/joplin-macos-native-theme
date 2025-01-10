@@ -105,7 +105,7 @@
       .editor-toolbar {
         // extra icons next to title
         div:nth-child(2) {
-          a {
+          button {
             color: var(--g-secondaryLabelColor);
             margin: 0 0.2rem;
             font-family: var(--s-font-family-system);
@@ -243,11 +243,14 @@
       padding: 0 !important;
 
       button {
+        min-height: 0;
+        height: auto;
         align-items: baseline;
         background: transparent;
         font-size: 1.3rem;
+        margin-top: 0.6rem;
         margin-bottom: 0.4rem;
-        margin-left: 1.6rem;
+        margin-left: 2rem;
         min-width: 0 !important;
         padding: 0;
 
@@ -296,7 +299,8 @@
   .editor-toolbar {
     > div:first-child {
       margin-left: -0.6rem;
-      > a {
+
+      > button {
         @include toolbarButton();
         display: flex;
         align-items: center;
@@ -494,7 +498,7 @@
         @include toolbarDivider();
       }
 
-      a.button {
+      button {
         @include toolbarButton();
 
         span {
@@ -730,14 +734,15 @@
 }
 
 // bottom tag bar
-.rli-editor > div > div > div > div > div:last-child {
+.rli-editor > div > div > div > div:last-child {
   > div {
     position: relative;
   }
 
-  a.button {
+  button {
     padding: 0 !important;
     width: 1.8rem;
+    margin-top: 0.2rem;
 
     &:hover {
       background-color: transparent !important;
@@ -785,8 +790,9 @@
   }
 }
 
-// find in note
+// find in note (unused? replaced in the meantime?)
 .note-search-bar {
+  background-color: red !important;
   border-top-color: var(--g-gridColor) !important;
   padding-left: 0.8rem;
   position: relative;
