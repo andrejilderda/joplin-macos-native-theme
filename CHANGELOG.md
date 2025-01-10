@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.12
+
+### Patch Changes
+
+- [#161](https://github.com/andrejilderda/joplin-macos-native-theme/pull/161) [`a902d86`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/a902d8611a1e00be9c80917745b1b736cfcefe4a) Thanks [@andrejilderda](https://github.com/andrejilderda)! - chore: remove non-functional CodeMirror themes
+
 ## 1.5.11
 
 ### Patch Changes
