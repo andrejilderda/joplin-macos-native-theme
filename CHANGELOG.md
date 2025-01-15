@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.13
+
+### Patch Changes
+
+- [#163](https://github.com/andrejilderda/joplin-macos-native-theme/pull/163) [`d0eaf14`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/d0eaf14369e4cc64aa1e2e275d44c3ac8b7c547c) Thanks [@personalizedrefrigerator](https://github.com/personalizedrefrigerator)! - fix: note title not editable #163
+
 ## 1.5.12
 
 ### Patch Changes
