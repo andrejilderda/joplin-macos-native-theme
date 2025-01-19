@@ -76,6 +76,11 @@
     background-color: transparent !important;
   }
 
+// title, toolbar, editor - background color -
+@media (prefers-color-scheme: dark) {
+    background-color: #1f1f1f;
+}
+
   // remove bg color when no note is selected when search returns no results
   > div > div {
     background-color: transparent !important;
@@ -487,7 +492,7 @@
   }
 
   // markdown editor
-  > div > div > div > div:not(:first-child) {
+  > div > div > div > div > div:not(:first-child) {
     .editor-toolbar {
       &:after {
         @include editorDivider();
@@ -787,6 +792,19 @@
         margin-right: 0.8rem !important;
       }
     }
+	// prevent overlaying content, space between items
+	button {
+		display: contents !important;
+
+		&::after {
+		padding: 0.2rem 0.4rem;
+		content: ",";
+		}
+
+		&:last-child::after {
+		content: ""; // remove the comma after the last button
+		}
+	}
   }
 }
 
