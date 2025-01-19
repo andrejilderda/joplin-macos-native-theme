@@ -76,10 +76,10 @@
     background-color: transparent !important;
   }
 
-// title, toolbar, editor - background color -
-@media (prefers-color-scheme: dark) {
+  // title, toolbar, editor - background color -
+  @media (prefers-color-scheme: dark) {
     background-color: #1f1f1f;
-}
+  }
 
   // remove bg color when no note is selected when search returns no results
   > div > div {
@@ -742,6 +742,7 @@
 .tag-bar {
   > div {
     position: relative;
+    align-items: baseline !important;
   }
 
   button {
@@ -792,25 +793,26 @@
         margin-right: 0.8rem !important;
       }
     }
-	// prevent overlaying content, space between items
-	button {
-		display: contents !important;
+    // prevent overlaying content, space between items
+    button {
+      color: var(--g-secondaryLabelColor) !important;
+      display: contents !important;
 
-		&::after {
-		padding: 0.2rem 0.4rem;
-		content: ",";
-		}
+      &::after {
+        content: ", ";
+        white-space: pre;
+      }
 
-		&:last-child::after {
-		content: ""; // remove the comma after the last button
-		}
-	}
+      &:last-child::after {
+        padding-right: 1rem;
+        content: ""; // remove the comma after the last button
+      }
+    }
   }
 }
 
 // find in note (unused? replaced in the meantime?)
 .note-search-bar {
-  background-color: red !important;
   border-top-color: var(--g-gridColor) !important;
   padding-left: 0.8rem;
   position: relative;
