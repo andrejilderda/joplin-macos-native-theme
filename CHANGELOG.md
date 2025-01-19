@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.5.14
+
+### Patch Changes
+
+- [#166](https://github.com/andrejilderda/joplin-macos-native-theme/pull/166) [`3b3bcc2`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/3b3bcc2fecdcb19e1fcfc9d329473808d3996653) Thanks [@mikicvi](https://github.com/mikicvi)! - - fix: styling of editor dividers, dark theme, title, toolbar and tag contents
+  - fix: styling of notebook folder when in all notes or tag view
+
 ## 1.5.13
 
 ### Patch Changes
