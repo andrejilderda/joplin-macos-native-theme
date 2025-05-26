@@ -16,13 +16,14 @@
   ],
   "scripts": {
     "build:css": "sass --load-path scss src/scss/macos-theme-for-joplin.scss   src/dist/macos-theme-for-joplin.css --no-source-map",
-    "build": "npm run build:css && webpack --env joplin-plugin-config=buildMain && webpack --env joplin-plugin-config=buildExtraScripts && webpack --env joplin-plugin-config=createArchive",
+    "build:webpack": "webpack --env joplin-plugin-config=buildMain && webpack --env joplin-plugin-config=buildExtraScripts && webpack --env joplin-plugin-config=createArchive",
+    "build": "npm run build:css && npm run build:webpack",
     "clean": "rm -rf dist",
     "dev": "run-p start serve",
     "prepare": "npm run build",
     "serve": "http-server src/dist -c-1 -o macos-theme-for-joplin.css",
     "start": "sass --load-path scss src/scss/macos-theme-for-joplin.scss   src/dist/macos-theme-for-joplin.css --watch",
-    "update": "npm install -g generator-joplin && yo joplin --update",
+    "update": "npm install -g generator-joplin && yo joplin --node-package-manager npm --update --force",
     "updateVersion": "webpack --env joplin-plugin-config=updateVersion"
   },
   "publishConfig": {
@@ -32,7 +33,6 @@
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.0",
     "@changesets/cli": "^2.27.1",
-    "@joplin/lib": "~2.9",
     "@types/node": "^18.7.13",
     "chalk": "^4.1.0",
     "copy-webpack-plugin": "^11.0.0",
@@ -40,13 +40,12 @@
     "glob": "^8.0.3",
     "http-server": "^14.1.1",
     "npm-run-all": "^4.1.5",
-    "on-build-webpack": "^0.1.0",
     "sass": "^1.36.0",
     "tar": "^6.1.11",
     "ts-loader": "^9.3.1",
     "typescript": "^4.8.2",
-    "webpack": "^5.74.0",
-    "webpack-cli": "^4.10.0",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1",
     "yargs": "^16.2.0"
   }
 }
