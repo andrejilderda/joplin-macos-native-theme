@@ -38,6 +38,7 @@ const phosphorIcons = {
   "list-number": "",
   magnifyingglass: "",
   minus: "",
+  palette: "",
   paperclip: "",
   "person-2": "",
   "plus-circle": "",
