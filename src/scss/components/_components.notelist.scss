@@ -22,7 +22,7 @@
   .search-bar {
     position: relative;
 
-    input[type="text"] {
+    input[type="search"] {
       @include focusRing;
 
       border: 1px solid var(--g-separatorColor);
@@ -49,9 +49,7 @@
     &::after {
       @include icon(magnifyingglass);
       transform: translateY(-50%) scale(var(--s-icon-size-factor, 1));
-
       position: absolute;
-      left: 0;
       color: var(--g-secondaryLabelColor);
       font-size: calc(var(--u-font-family-icons, 1) * 1.7rem);
       font-weight: normal !important;
