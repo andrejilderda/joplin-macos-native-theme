@@ -231,34 +231,39 @@
       }
     }
 
-    .list-item-depth-0 {
+    .sidebar-expand-link {
+      padding-right: 0;
+    }
+
+    .list-item-depth-0,
+    .list-item-depth-1 {
       padding-left: 0.2rem;
     }
-    .list-item-depth-1 {
+    .list-item-depth-2 {
       padding-left: 1.8rem;
     }
-    .list-item-depth-2 {
+    .list-item-depth-3 {
       padding-left: 3.4rem;
     }
-    .list-item-depth-3 {
+    .list-item-depth-4 {
       padding-left: 5rem;
     }
-    .list-item-depth-4 {
+    .list-item-depth-5 {
       padding-left: 6.6rem;
     }
-    .list-item-depth-5 {
+    .list-item-depth-6 {
       padding-left: 8.2rem;
     }
-    .list-item-depth-6 {
+    .list-item-depth-7 {
       padding-left: 9.8rem;
     }
-    .list-item-depth-7 {
+    .list-item-depth-8 {
       padding-left: 11.4rem;
     }
-    .list-item-depth-8 {
+    .list-item-depth-9 {
       padding-left: 13rem;
     }
-    .list-item-depth-9 {
+    .list-item-depth-10 {
       padding-left: 14.6rem;
     }
   }
