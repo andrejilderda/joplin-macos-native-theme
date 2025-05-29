@@ -10,3 +10,11 @@
 .fa-book::before {
   @include icon(folder);
 }
+
+.fa-caret-square-down::before {
+  @include icon(chevron-down);
+}
+
+.fa-caret-square-right::before {
+  @include icon(chevron-right);
+}

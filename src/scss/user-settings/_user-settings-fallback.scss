@@ -74,7 +74,7 @@
   --s-sidebar__icon-Color: var(--u-sidebar-icon-color, var(--s-accentColor));
   --s-sidebar__chevron-Color: var(
     --u-sidebar-chevron-color,
-    var(--g-secondaryLabelColor)
+    var(--g-labelColor)
   );
   --s-sidebar__synchronise-Color: var(
     --u-sidebar-synchronise-color,
@@ -127,6 +127,7 @@
   @include createSfSymbol("list-number", "􀋴");
   @include createSfSymbol("magnifyingglass", "􀊫");
   @include createSfSymbol("minus", "􀅽");
+  @include createSfSymbol("palette", "􀝥");
   @include createSfSymbol("paperclip", "􀉢");
   @include createSfSymbol("person-2", "􀉫");
   @include createSfSymbol("plus-circle", "􀁌");

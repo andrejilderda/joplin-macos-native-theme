@@ -63,6 +63,7 @@
   .tox .tox-toolbar,
   .tox .tox-toolbar__overflow,
   .tox .tox-toolbar__primary,
+  .tox-editor-header,
   .tox-editor-header .tox-toolbar__primary,
   .tox .tox-toolbar-overlord,
   .tox.tox-tinymce-aux .tox-toolbar__overflow,
@@ -382,18 +383,44 @@
     button:nth-child(4):before {
       @include icon(strikethrough);
     }
-    button:nth-child(5) {
-      width: 2.6rem !important;
-      min-width: 0;
+  }
 
+  // underline, superscript, subscript, color
+  .tox-toolbar__group:nth-child(2) {
+    button:nth-child(1):before {
+      @include icon(underline);
+    }
+
+    button:nth-child(2):before {
+      @include icon(textformat-superscript);
+    }
+    button:nth-child(3):before {
+      @include icon(textformat-subscript);
+    }
+    div:nth-of-type(1) {
+      background: transparent !important;
+      margin: 0 !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .tox-tbtn {
+        display: none;
+      }
+      @include toolbarButton();
       &:before {
-        @include icon(ellipsis);
+        @include toolbarButtonIcon();
+        @include icon(palette);
+      }
+      .tox-icon {
+        width: 1.4rem !important;
+        height: 1.4rem !important;
       }
     }
   }
 
   // link, inline code, code block, attachment
-  .tox-toolbar__group:nth-child(2) {
+  .tox-toolbar__group:nth-child(3) {
     button:nth-child(1):before {
       @include icon(link);
     }
@@ -409,7 +436,7 @@
   }
 
   // lists
-  .tox-toolbar__group:nth-child(3) {
+  .tox-toolbar__group:nth-child(4) {
     button:nth-child(1):before {
       @include icon(list-bullet);
     }
@@ -422,7 +449,7 @@
   }
 
   // headings, divider, quote, table, date/time
-  .tox-toolbar__group:nth-child(4) {
+  .tox-toolbar__group:nth-child(5) {
     button:nth-child(1):before,
     button:nth-child(2):before,
     button:nth-child(3):before {
@@ -437,39 +464,43 @@
     button:nth-child(1):before,
     button:nth-child(2):before,
     button:nth-child(3):before {
-      font-family: var(--s-font-family-system-rounded);
+      font-family: var(--s-font-family-system-rounded) !important;
     }
 
     button:nth-child(1):before {
-      content: "H1";
+      content: "H1" !important;
     }
     button:nth-child(2):before {
-      content: "H2";
+      content: "H2" !important;
     }
     button:nth-child(3):before {
-      content: "H3";
-    }
-  }
-
-  .tox-toolbar__group:nth-child(5) {
-    button:nth-child(1):before {
-      @include icon(minus);
+      content: "H3" !important;
     }
   }
 
   .tox-toolbar__group:nth-child(6) {
     button:nth-child(1):before {
-      @include icon(text-quote);
+      @include icon(minus);
     }
   }
 
   .tox-toolbar__group:nth-child(7) {
     button:nth-child(1):before {
-      @include icon(tablecells-badge-ellipsis);
+      @include icon(text-quote);
     }
   }
 
   .tox-toolbar__group:nth-child(8) {
+    button:nth-child(1):before {
+      @include icon(tablecells-badge-ellipsis);
+    }
+
+    .tox-tbtn__select-chevron {
+      display: none !important;
+    }
+  }
+
+  .tox-toolbar__group:nth-child(9) {
     button:nth-child(1):before {
       @include icon(clock);
     }
@@ -623,53 +654,6 @@
 
     svg {
       fill: #fff !important;
-    }
-  }
-}
-
-// overflow menu for sup- & subscript (which is appended outside .rli-editor)
-// (duplicate classnames to increase specificity)
-.tox
-  .tox-toolbar__overflow.tox-toolbar__overflow.tox-toolbar__overflow.tox-toolbar__overflow {
-  @include dropdownBackground;
-
-  .tox-toolbar__group {
-    align-items: flex-start;
-    display: flex;
-    flex-direction: column;
-    justify-content: stretch;
-    padding: 0;
-
-    &:focus-within:hover {
-      &,
-      .tox-split-button {
-        &:not(:hover) {
-          @include dropdownItemDefault();
-        }
-      }
-    }
-
-    button,
-    .tox-split-button {
-      @include dropdownItem();
-
-      justify-content: flex-start;
-      flex: 1;
-      text-align: left;
-      width: 100%;
-      box-sizing: border-box;
-
-      &:after {
-        padding: 0.5rem 0;
-
-        color: inherit;
-        content: attr(aria-label);
-        text-align: left;
-      }
-    }
-
-    span {
-      display: none;
     }
   }
 }

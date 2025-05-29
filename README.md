@@ -32,6 +32,26 @@ If you have the 'Icon family'-setting set to 'macOS native (SF Pro)' you need to
 
 Feel free to [create an issue](https://github.com/ajilderda/joplin-macos-native-theme/issues) or post a message [on the forum](https://discourse.joplinapp.org/t/plugin-macos-theme-for-joplin) if you run into issues.
 
+## Help, I get a blank screen after installing the plugin.
+
+If you're experiencing a blank screen after installing the plugin, this is likely due to an issue with emoji handling. Here's how to fix it:
+
+1. First, locate your Joplin config directory:
+
+   - macOS: `~/.config/joplin-desktop`
+   - Windows: `%APPDATA%\Joplin`
+   - Linux: `~/.config/Joplin`
+
+2. Navigate to the `plugins` folder and delete the `.jpl` file for the macOS theme plugin.
+3. Restart Joplin.
+
+### Prevention
+
+To prevent this issue from occurring:
+
+- Instead of using Joplin's "Choose emoji..." dialog, add emojis directly in the notebook title text box (see [this discussion](https://github.com/andrejilderda/joplin-macos-native-theme/issues/96#issuecomment-1553517708) for a visual reference).
+- You can now reinstall the plugin.
+
 ## Development
 
 You can tweak the theme via Joplin's preferences. If you want to go all out follow the following steps to make your own build.
@@ -54,12 +74,31 @@ To update the plugin framework:
 npm run update
 ```
 
-To build just the CSS and watch for changes:
+To build the CSS and watch for changes:
 
 ```sh
 npm run dev
 ```
 
-The generated CSS will be available at: http://localhost:8080/macos-theme-for-joplin.css.
+The generated CSS will be available at: http://localhost:8080/macos-theme-for-joplin.css
 
-> You may want to refresh the CSS when Joplin gets focus. To do so toggle Joplin's devtools and paste [this script](https://gist.github.com/andrejilderda/f6673f1b1a986b2dc0cd01607acbff26) in the console.
+## Contributing
+
+Contributions (especially fixes) are very welcome!
+
+### Development Workflow
+
+Having to restart Joplin on every change is a bit of a pain. To speed things up and shorten the feedback loop:
+
+1. Run `npm run dev`. This will watch for changes to the .scss files and rebuild the CSS.
+2. Toggle Joplin's development tools (**Help › Toggle Development Tools**)
+3. Choose one of the two refresh methods from [this gist](https://gist.github.com/andrejilderda/f6673f1b1a986b2dc0cd01607acbff26).
+4. Paste and run the script in the dev tools console to refresh the CSS automatically.
+
+This works well most of the time, but do note that in some cases the changed styles interfere with the styles from the installed plugin. To check if that's the case you can ensure a clean environment by:
+
+1. Uninstalling the macOS theme plugin if it's already installed.
+2. Running a build: `npm run build`
+3. In Joplin, go to **Plugins › Show Advanced Settings**.
+4. Under **Development plugins**, paste the path to your `dist` folder.
+5. Restart Joplin to load your local build of the plugin.
