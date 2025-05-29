@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.15
+
+### Patch Changes
+
+- [#176](https://github.com/andrejilderda/joplin-macos-native-theme/pull/176) [`ddbe89a`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/ddbe89aa78ac001042f4350f3eb568fe7698e6c8) Thanks [@andrejilderda](https://github.com/andrejilderda)! - fix: search box styling
+
 ## 1.5.14
 
 ### Patch Changes
