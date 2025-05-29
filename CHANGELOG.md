@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.5.16
+
+### Patch Changes
+
+- [#177](https://github.com/andrejilderda/joplin-macos-native-theme/pull/177) [`97c1a1d`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/97c1a1d0c6e6981a107016dff69fbbf9f438152a) Thanks [@andrejilderda](https://github.com/andrejilderda)! - fix: white background in toolbar in dark mode #173
+
+- [#177](https://github.com/andrejilderda/joplin-macos-native-theme/pull/177) [`46052d9`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/46052d94bfffbeddcd775dba2d4c459db37f928c) Thanks [@andrejilderda](https://github.com/andrejilderda)! - fix: toolbar icons not corresponding with function
+
+- [#177](https://github.com/andrejilderda/joplin-macos-native-theme/pull/177) [`6d987aa`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/6d987aa1d262800eb9e46b47abaec205a4adf707) Thanks [@andrejilderda](https://github.com/andrejilderda)! - feat: add collapse/expand button to sidebar
+
 ## 1.5.15
 
 ### Patch Changes
