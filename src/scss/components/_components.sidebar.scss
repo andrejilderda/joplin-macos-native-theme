@@ -21,15 +21,21 @@
   > div {
     > div {
       // plus icon
-      button {
+      .-collapseall,
+      .-newfolder {
         display: none;
         margin-right: 0;
         position: absolute;
         right: 0;
+        padding: 0 0.5rem;
 
         span::before {
           @include icon(plus-circle);
         }
+      }
+
+      .-newfolder {
+        right: 22px;
       }
 
       &:hover {
@@ -257,6 +263,7 @@
     }
   }
 
+  .far,
   .fas {
     opacity: 1 !important;
 
@@ -275,6 +282,9 @@
       @include icon(chevron-down);
       color: var(--s-sidebar__chevron-Color);
     }
+
+    &.fa-caret-square-right::before,
+    &.fa-caret-square-down::before,
     &.fa-plus::before {
       color: var(--g-tertiaryLabelColor);
       font-weight: 500;
