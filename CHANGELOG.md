@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.17
+
+### Patch Changes
+
+- [#179](https://github.com/andrejilderda/joplin-macos-native-theme/pull/179) [`8ec1852`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/8ec18521293f9d70e8a5dbe711397b08ea927a41) Thanks [@eflydata](https://github.com/eflydata)! - fix: codeblock not spanning full width
+
 ## 1.5.16
 
 ### Patch Changes
