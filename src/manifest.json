@@ -8,7 +8,13 @@
   "author": "Andre Jilderda",
   "homepage_url": "https://github.com/ajilderda/joplin-macos-native-theme",
   "repository_url": "https://github.com/ajilderda/joplin-macos-native-theme",
-  "keywords": ["joplin", "joplin-plugin", "theme", "css", "macos"],
+  "keywords": [
+    "joplin",
+    "joplin-plugin",
+    "theme",
+    "css",
+    "macos"
+  ],
   "screenshots": [
     {
       "src": "images/macos-theme-for-joplin.png"
