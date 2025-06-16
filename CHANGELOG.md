@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.18
+
+### Patch Changes
+
+- [`486590e`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/486590efd2213f27e496156e200e2abb393ccf1e) Thanks [@andrejilderda](https://github.com/andrejilderda)! - fix: background issue when using a different OS theme than Joplin
+
 ## 1.5.17
 
 ### Patch Changes
