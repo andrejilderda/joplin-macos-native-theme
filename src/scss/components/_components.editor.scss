@@ -57,6 +57,7 @@
 
 .rli-editor {
   overflow: hidden;
+  background: var(--g-primary-Background) !important;
 
   // reset all inline + toolbar background colors
   .tox .tox-edit-area__iframe,
@@ -856,4 +857,8 @@
 // code block
 .tox .tox-textarea-wrap {
   width: 100%;
+}
+
+.note-editor-viewer-row > .viewer {
+  border-left-color: var(--g-separatorColor);
 }
