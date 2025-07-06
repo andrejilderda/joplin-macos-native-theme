@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.20
+
+### Patch Changes
+
+- [#183](https://github.com/andrejilderda/joplin-macos-native-theme/pull/183) [`d855cf5`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/d855cf5134a06305dc710ace313c2ec0182bf452) Thanks [@andrejilderda](https://github.com/andrejilderda)! - attempt: resolve Windows emoji folder freeze issue
+
 ## 1.5.18
 
 ### Patch Changes
