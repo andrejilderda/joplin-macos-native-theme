@@ -24,7 +24,9 @@ After installing you can find an extra item named 'macOS theme' in Joplin's pref
 
 ## No icons?
 
-If you have the 'Icon family'-setting set to 'macOS native (SF Pro)' you need to have SF Pro installed from the [Apple website](https://developer.apple.com/fonts/). Note that this only works on macOS-devices.
+**Windows users**: If icons appear as empty squares or are missing, you need to manually install the Phosphor font. Download it from [phosphoricons.com](https://phosphoricons.com/) ([direct download](https://phosphoricons.com/assets/phosphor-icons.zip)), unzip the file, install `Fonts/regular/Phosphor.ttf`, and restart Joplin.
+
+**Mac users**: If you have the 'Icon family'-setting set to 'macOS native (SF Pro)' you need to have SF Pro installed from the [Apple website](https://developer.apple.com/fonts/). Note that this only works on macOS-devices.
 
 ## Disclaimer
 
