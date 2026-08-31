@@ -18,3 +18,15 @@
 .fa-caret-square-right::before {
   @include icon(chevron-right);
 }
+
+.fa-check::before {
+  @include icon(checkmark);
+}
+
+.fa-chevron-down::before {
+  @include icon(chevron-down);
+}
+
+.fa-chevron-up::before {
+  @include icon(chevron-up);
+}
