@@ -36,3 +36,23 @@ jobs:
         npm ci
         npm run build --if-present
         bash ./release.sh
+
+    - name: Create GitHub release
+      env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        VERSION=$(node -p "require('./package.json').version")
+        if gh release view "v$VERSION" >/dev/null 2>&1; then
+          echo "Release v$VERSION already exists, nothing to do."
+          exit 0
+        fi
+        # The CHANGELOG section for this version becomes the release notes.
+        awk -v header="## $VERSION" '
+          $0 == header { found = 1; next }
+          found && /^## / { exit }
+          found { print }
+        ' CHANGELOG.md > release-notes.md
+        gh release create "v$VERSION" \
+          --title "v$VERSION" \
+          --notes-file release-notes.md \
+          publish/*.jpl
