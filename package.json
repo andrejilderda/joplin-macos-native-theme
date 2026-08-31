@@ -1,6 +1,6 @@
 {
   "name": "joplin-plugin-macos-theme",
-  "version": "1.5.20",
+  "version": "1.5.21",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/andrejilderda/joplin-macos-native-theme.git"

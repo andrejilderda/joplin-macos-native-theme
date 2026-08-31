@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.21
+
+### Patch Changes
+
+- [#192](https://github.com/andrejilderda/joplin-macos-native-theme/pull/192) [`2c5cad4`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/2c5cad4f6b8e35ab34724708712ea1663929069a) Thanks [@andrejilderda](https://github.com/andrejilderda)! - Fix unthemed FontAwesome check and chevron icons in the sidebar sync report (#191)
+
 ## 1.5.20
 
 ### Patch Changes
