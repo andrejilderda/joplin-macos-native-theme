@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.22
+
+### Patch Changes
+
+- [#197](https://github.com/andrejilderda/joplin-macos-native-theme/pull/197) [`794805b`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/794805b9a979a12b8ad272f29d095b78b5ae43c8) Thanks [@dajiaohuang](https://github.com/dajiaohuang)! - Fix unclosed `prefers-color-scheme` media query in the generated CSS when appearance is set to automatic (#197)
+
 ## 1.5.21
 
 ### Patch Changes
