@@ -17,3 +17,4 @@ git commit -m "chore: apply changesets and update manifest version to $NEW_VERSI
 
 git push
 npx changeset publish
+git push --tags
