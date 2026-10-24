@@ -257,6 +257,7 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
                 : ""
             }
 					}
+				}
 				`
           : ""
       }
