@@ -134,6 +134,7 @@
           // spellchecker
           .fa-globe::before {
             @include icon(textformat-abc-dottedunderline);
+            font-weight: 400;
           }
 
           .-has-title .fa-globe {
@@ -162,6 +163,15 @@
 
           .icon-info::before {
             @include icon(info-circle);
+          }
+
+          .fa-comment-dots {
+            transform: translateY(-1px);
+          }
+
+          .fa-comment-dots::before {
+            @include icon(ellipsis-bubble);
+            font-weight: 400;
           }
         }
       }
@@ -584,6 +594,14 @@
         }
         .fa-hand-point-left::before {
           @include icon(link-circle);
+        }
+        .fa-file-export::before {
+          @include icon(doc-richtext);
+          font-weight: 400 !important;
+        }
+        .fa-table::before {
+          @include icon(tablecells-badge-ellipsis);
+          font-weight: 400 !important;
         }
       }
     }

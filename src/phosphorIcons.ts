@@ -26,6 +26,7 @@ const phosphorIcons = {
   "doc-on-clipboard": "",
   "doc-richtext": "",
   ellipsis: "",
+  "ellipsis-bubble": "",
   folder: "",
   highlighter: "",
   "info-circle": "",
