@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.26
+
+### Patch Changes
+
+- [#203](https://github.com/andrejilderda/joplin-macos-native-theme/pull/203) [`0902f0d`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/0902f0d555dfd59a2d8ac5636b770c2832a9c871) Thanks [@andrejilderda](https://github.com/andrejilderda)! - Fix unreadable windows when the theme doesn't match Joplin's theme, use the dark accent color in the Dark appearance and show a notice when both themes differ
+
 ## 1.5.25
 
 ### Patch Changes
