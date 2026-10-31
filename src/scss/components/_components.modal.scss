@@ -667,6 +667,10 @@ div[style*="z-index: 9999;"][style*="background-color: rgba(0, 0, 0, 0.6);"][sty
       min-height: unset;
     }
 
+    .tox-form__controls-h-stack {
+      flex: 1;
+    }
+
     // weird checkbox
     .tox-checkbox {
       .tox-checkbox__label {
@@ -726,9 +730,22 @@ div[style*="z-index: 9999;"][style*="background-color: rgba(0, 0, 0, 0.6);"][sty
       font-weight: bold;
     }
 
-    // hide cross-icon
+    // hide cross-icon, but keep its height: TinyMCE focuses the second tabstop with a height
     button {
-      display: none;
+      height: 1px;
+      opacity: 0;
+      overflow: hidden;
+      pointer-events: none;
+      position: absolute;
+      right: 0.8rem;
+      top: 0.8rem;
+      width: 1px;
+
+      &:focus {
+        height: auto;
+        opacity: 1;
+        width: auto;
+      }
     }
   }
 
