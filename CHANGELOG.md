@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.23
+
+### Patch Changes
+
+- [#200](https://github.com/andrejilderda/joplin-macos-native-theme/pull/200) [`ec21d57`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/ec21d57b71633c3b123b38303941766042bd95b5) Thanks [@andrejilderda](https://github.com/andrejilderda)! - Fix initial focus and narrow URL field in the rich text editor's link dialog (#199)
+
 ## 1.5.22
 
 ### Patch Changes
