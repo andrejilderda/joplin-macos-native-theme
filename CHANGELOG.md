@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.25
+
+### Patch Changes
+
+- [#202](https://github.com/andrejilderda/joplin-macos-native-theme/pull/202) [`cfd7a3e`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/cfd7a3e60d207b287a2b4d257946762e1931a389) Thanks [@andrejilderda](https://github.com/andrejilderda)! - Fix mismatched rich text toolbar icons and restore themed icons in the note toolbar
+
 ## 1.5.24
 
 ### Patch Changes
