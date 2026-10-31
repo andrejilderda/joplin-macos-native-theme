@@ -400,6 +400,74 @@
     }
   }
 
+  // Note List Preview plugin
+  .note-list-item:has(.body) {
+    line-height: 1.4;
+    position: relative;
+
+    &::after {
+      content: var(--u-note-list-dividers, "");
+      background-color: var(--g-separatorColor);
+      bottom: 0;
+      height: 0.1rem;
+      left: 1rem;
+      position: absolute;
+      right: 0;
+    }
+
+    > .content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    > .content,
+    > .content * {
+      font-family: var(--s-font-family-system);
+    }
+
+    // float the thumbnail next to the text
+    > .content:has(> .thumbnail) {
+      display: block;
+
+      .body {
+        height: calc(100% - 1.9rem);
+      }
+    }
+
+    .title {
+      flex: none;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .body {
+      color: var(--g-secondaryLabelColor);
+      flex: 1;
+      font-size: 1.2rem;
+      margin: 0;
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        #000 calc(100% - 1.7rem),
+        transparent
+      );
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .date {
+      color: var(--g-labelColor);
+    }
+
+    .excerpt {
+      opacity: 1;
+    }
+
+    > .content.-selected .body {
+      color: var(--g-alternateSelectedControlTextColor);
+    }
+  }
+
   .todo-list-item {
     > div {
       padding-left: 1rem !important;
