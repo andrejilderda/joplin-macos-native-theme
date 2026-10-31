@@ -37,7 +37,8 @@
   }
 }
 
-.modal-dialog {
+.modal-dialog,
+.go-to-anything-dialog > .content {
   @include modalDialog();
 
   > div:first-child input[type="text"],
@@ -49,7 +50,8 @@
     @include input;
   }
 
-  input + a {
+  input + a,
+  input + .flat-button {
     font-size: 1.5rem;
     right: 2.7rem;
     position: absolute;
@@ -72,7 +74,7 @@
     background: none !important;
   }
 
-  button {
+  button:not(.flat-button) {
     @include buttonBase();
 
     + button {
@@ -95,7 +97,7 @@
   }
 
   // button-container
-  > div:last-child:not([style*="height: 0px"]) {
+  > div:last-child:not([style*="height: 0px"]):not(.item-list) {
     display: flex;
     justify-content: space-between;
     flex-direction: row-reverse;
@@ -109,6 +111,7 @@
   // increase specificity
   .item-list.item-list {
     display: block !important;
+    margin-top: 1rem !important;
     padding-top: 0 !important;
     margin-left: -0.5rem;
     margin-right: -0.5rem;
@@ -155,9 +158,8 @@
           margin-bottom: 0.4rem !important;
         }
 
-        // match highlight
-        span {
-          color: var(--g-textColor) !important;
+        .match-highlight {
+          color: var(--g-textColorDark) !important;
           font-weight: normal !important;
         }
       }
@@ -168,11 +170,6 @@
 
         > div {
           color: rgba(255, 255, 255, 0.75) !important;
-
-          // match highlight
-          span {
-            color: var(--g-selectedMenuItemTextColor) !important;
-          }
         }
 
         i.fa:before {
