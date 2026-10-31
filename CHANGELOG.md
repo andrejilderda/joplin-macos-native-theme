@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.24
+
+### Patch Changes
+
+- [#201](https://github.com/andrejilderda/joplin-macos-native-theme/pull/201) [`26e1c08`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/26e1c08e48cc0225f258c6f7010e2e7e73dc9c0a) Thanks [@andrejilderda](https://github.com/andrejilderda)! - Fix theme not being applied to Goto Anything, including poor contrast of highlighted matches (#184)
+
 ## 1.5.23
 
 ### Patch Changes
