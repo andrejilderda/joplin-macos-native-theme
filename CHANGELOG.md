@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.27
+
+### Patch Changes
+
+- [#204](https://github.com/andrejilderda/joplin-macos-native-theme/pull/204) [`ddf009d`](https://github.com/andrejilderda/joplin-macos-native-theme/commit/ddf009d12133b959f37541765e14f85954327eaa) Thanks [@andrejilderda](https://github.com/andrejilderda)! - Fix styling of Note List Preview plugin (#190)
+
 ## 1.5.26
 
 ### Patch Changes
