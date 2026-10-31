@@ -131,80 +131,47 @@
             }
           }
 
-          // hide default icons of the default and themed icons
-          a:nth-child(1),
-          a:nth-child(2),
-          a:nth-child(3),
-          a:nth-child(4),
-          a[title="Toggle outline"],
-          a[title="Toggle sidebar"],
-          a[title="Toggle note list"] {
-            > * {
-              display: none;
-            }
-          }
-
           // spellchecker
-          a:nth-child(1) {
-            font-size: 0;
-            overflow: hidden;
-            width: 2.6rem;
-
-            i {
-              display: block;
-              color: var(--g-secondaryLabelColor);
-              // only tweak icon position for SF Pro
-              margin: var(--s-font-family-icons, 0.2rem 0.2rem 0);
-              font-family: var(--s-font-family-system);
-              line-height: 1;
-              font-size: 1.4rem;
-              font-weight: 400;
-
-              &::before {
-                @include icon(textformat-abc-dottedunderline);
-                text-transform: uppercase;
-              }
-              &[title]:not([title=""])::before {
-                content: attr(title);
-                font-family: var(--s-font-family-system-rounded);
-                font-size: 1.4rem !important;
-                font-weight: 400;
-                line-height: 2.6rem;
-                letter-spacing: -0.05rem;
-                margin-top: 0;
-              }
-            }
+          .fa-globe::before {
+            @include icon(textformat-abc-dottedunderline);
+            font-weight: 400;
           }
-          // set alarm
-          a:nth-child(2):before {
+
+          .-has-title .fa-globe {
+            display: none;
+          }
+
+          .fa-globe + span {
+            font-family: var(--s-font-family-system-rounded);
+            font-size: 1.4rem !important;
+            font-weight: 400;
+            letter-spacing: -0.05rem;
+            text-transform: uppercase;
+          }
+
+          .icon-alarm::before {
             @include icon(alarm);
           }
-          // toggle editor layout
-          a:nth-child(3) {
-            &.disabled {
-              display: none;
-            }
 
-            &:before {
-              @include icon(square-split-2x1);
-            }
+          .disabled:has(.icon-layout) {
+            display: none;
           }
-          // note properties
-          a:nth-child(4):before {
+
+          .icon-layout::before {
+            @include icon(square-split-2x1);
+          }
+
+          .icon-info::before {
             @include icon(info-circle);
           }
 
-          // icons for plugins
-          a[title="Toggle outline"]:before {
-            @include icon(list-bullet-indent);
+          .fa-comment-dots {
+            transform: translateY(-1px);
           }
 
-          a[title="Toggle sidebar"]:before {
-            @include icon(sidebar-left);
-          }
-
-          a[title="Toggle note list"]:before {
-            @include icon(list-bullet-rectangle);
+          .fa-comment-dots::before {
+            @include icon(ellipsis-bubble);
+            font-weight: 400;
           }
         }
       }
@@ -299,6 +266,14 @@
   .joplin-tinymce > div:first-child {
     padding-top: 0.4rem !important;
     margin-top: 0.2rem;
+  }
+
+  .icon-back::before {
+    @include icon(chevron-backward);
+  }
+
+  .icon-forward::before {
+    @include icon(chevron-forward);
   }
 
   // first few wysiwyg icons (back, forward & open in external editor)
@@ -420,18 +395,21 @@
     }
   }
 
-  // link, inline code, code block, attachment
+  // link, link to note, inline code, code block, attachment
   .tox-toolbar__group:nth-child(3) {
     button:nth-child(1):before {
       @include icon(link);
     }
     button:nth-child(2):before {
-      @include icon(chevron-left-slash-chevron-right);
+      @include icon(doc-richtext);
     }
     button:nth-child(3):before {
-      @include icon(curlybraces);
+      @include icon(chevron-left-slash-chevron-right);
     }
     button:nth-child(4):before {
+      @include icon(curlybraces);
+    }
+    button:nth-child(5):before {
       @include icon(paperclip);
     }
   }
@@ -505,6 +483,11 @@
     button:nth-child(1):before {
       @include icon(clock);
     }
+  }
+
+  // reveal additional toolbar items
+  .tox-toolbar__group:last-child > button[aria-haspopup="true"]:only-child:before {
+    @include icon(ellipsis);
   }
 
   // add divider between editor icons and text input field
@@ -611,6 +594,14 @@
         }
         .fa-hand-point-left::before {
           @include icon(link-circle);
+        }
+        .fa-file-export::before {
+          @include icon(doc-richtext);
+          font-weight: 400 !important;
+        }
+        .fa-table::before {
+          @include icon(tablecells-badge-ellipsis);
+          font-weight: 400 !important;
         }
       }
     }
