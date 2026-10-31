@@ -150,6 +150,15 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
     l: accentColorDarkL,
   } = hexToHSL(accentColorMap.dark[accentColor]);
 
+  const darkAccentColor =
+    accentColor !== "blue"
+      ? `
+				--u-accentColor--h: ${accentColorDarkH};
+				--u-accentColor--s: ${accentColorDarkS}%;
+				--u-accentColor--l: ${accentColorDarkL}%;
+			`
+      : "";
+
   const getEditorAlignment = (alignment: ThemeSettings["editorAlignment"]) => {
     if (alignment === "left") return ["auto", "0"];
     else if (alignment === "center") return ["auto", "auto"];
@@ -246,16 +255,7 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
 				@media(prefers-color-scheme: dark) {
 					:root {
 						${darkTheme}
-
-						${
-              accentColor !== "blue"
-                ? `
-							--u-accentColor--h: ${accentColorDarkH};
-							--u-accentColor--s: ${accentColorDarkS}%;
-							--u-accentColor--l: ${accentColorDarkL}%;
-						`
-                : ""
-            }
+						${darkAccentColor}
 					}
 				}
 				`
@@ -275,6 +275,7 @@ export const generateUserCSS = async (settings: ThemeSettings) => {
           ? `
 				:root {
 					${darkTheme}
+					${darkAccentColor}
 				}
 			`
           : ""

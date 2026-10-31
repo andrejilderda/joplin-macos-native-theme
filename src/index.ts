@@ -1,6 +1,7 @@
 import joplin from "api";
-import { SettingItemType } from "api/types";
+import { SettingItemType, ToastType } from "api/types";
 import { generateUserCSS } from "./generateUserCSS";
+import { hasThemeMismatch, resolveAppearance } from "./utils/appearance";
 
 export type AppearanceSetting =
   | "auto"
@@ -81,6 +82,8 @@ joplin.plugins.register({
           "light-with-dark-sidebar": "Light with dark sidebar",
           dark: "Dark",
         },
+        description:
+          "When set to Light or Dark, keep Joplin's theme under 'Appearance › Theme' the same. If they differ, some windows may look wrong.",
       },
 
       accentColor: {
@@ -157,7 +160,15 @@ joplin.plugins.register({
 
     const baseFontSize = await joplin.settings.value("baseFontSize");
     const iconFamily = await joplin.settings.value("iconFamily");
-    const appearance = await joplin.settings.value("appearance");
+    const [joplinTheme, themeAutoDetect] = await joplin.settings.globalValues([
+      "theme",
+      "themeAutoDetect",
+    ]);
+    const appearance = resolveAppearance(
+      await joplin.settings.value("appearance"),
+      joplinTheme,
+      themeAutoDetect
+    );
     const accentColor = await joplin.settings.value("accentColor");
     const hideSyncStatus = await joplin.settings.value("hideSyncStatus");
     const notelistSeparators = await joplin.settings.value(
@@ -187,5 +198,14 @@ joplin.plugins.register({
     await (joplin as any).window.loadNoteCssFile(
       installDir + "/user-settings.css"
     );
+
+    if (hasThemeMismatch(appearance, joplinTheme)) {
+      await joplin.views.dialogs.showToast({
+        message:
+          "macOS theme and Joplin's theme don't match, so some windows may look wrong. Make them the same under 'Appearance › Theme' or the macOS theme settings.",
+        type: ToastType.Info,
+        duration: 10000,
+      });
+    }
   },
 });
